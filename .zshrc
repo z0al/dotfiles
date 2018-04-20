@@ -5,6 +5,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# We don't want/can't to use the built-in custom directory itself (due
+# to git submodules), just change the path of $ZSH_CUSTOM inside your 
+# `.zshrc` to a directory of your own liking. Everything will be fine 
+# as long as you adhere to the conventional file hierarchy.
+ZSH_CUSTOM="$HOME/.zcustom"
+
+# Append ZSH_CUSTOM to fpath (for pure prompt to be discovered)
+fpath=( "$ZSH_CUSTOM" $fpath )
+
 # We will try to use 'pure' by Sindre Sorhus first
 ZSH_THEME=""
 
@@ -24,14 +33,9 @@ if [[ -a "$ZSH/oh-my-zsh.sh" ]]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
-# Append .zfunctions to fpath if exists
-if [[ -a "$HOME/.zfunctions" ]]; then
-  fpath=( "$HOME/.zfunctions" $fpath )
-fi
-
-
-# Set prompt to pure (by Sindre Sorhus) if available
-if [[ -a "$HOME/.zfunctions/async" && -a "$HOME/.zfunctions/prompt_pure_setup" ]]; then
+# Set prompt to pure if available
+# More: https://github.com/sindresorhus/pure
+if [[ -a "$HOME/.zcustom/async" && -a "$HOME/.zcustom/prompt_pure_setup" ]]; then
   autoload -U promptinit; promptinit
   prompt pure
 else 

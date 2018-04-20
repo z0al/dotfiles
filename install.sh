@@ -29,6 +29,6 @@ done
 
 sym_link "$BASE_DIR/.oh-my-zsh" "$HOME/.oh-my-zsh"
 
-sym_link "$BASE_DIR/.zfunctions" "$HOME/.zfunctions"
+sym_link "$BASE_DIR/.zcustom" "$HOME/.zcustom"
 
 echo "Done, enjoy!"
