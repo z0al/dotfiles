@@ -40,10 +40,15 @@ $ ./snazzy/gnome.sh
 * 🦄 [Pure](https://github.com/sindresorhus/pure) prompt 
 * 💅 Gnome Snazzy theme (inspired by [hyper-snazzy](https://github.com/sindresorhus/hyper-snazzy))
 
+**It also includes:**
+
+* [NVM](https://github.com/creationix/nvm): The popular Node Version Manager as git submodule + shell integrations.
 
 ## Customization
 
-If `.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+
+> **NOTE:** the `~/.extra` file will be used by both `bash` and `zsh` so mind your shell syntax.
 
 **Example:**
 

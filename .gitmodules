@@ -7,3 +7,6 @@
 [submodule ".zcustom/pure"]
 	path = .zcustom/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule ".nvm"]
+	path = .nvm
+	url = https://github.com/creationix/nvm.git

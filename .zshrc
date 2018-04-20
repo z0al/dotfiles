@@ -19,10 +19,28 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  # This plugin adds many useful git aliases and functions.
+  # 
+  # Visit https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git for
+  # a list of aliases and functions provided by the plugin. 
   git
+  
+  # Automatically load your project ENV variables from `.env` file when
+  # you `cd` into project root directory.
   dotenv
+
+  # This plugin provides support for working with Unicode emoji 
+  # characters in `zsh` using human-readable identifiers. It provides
+  # global variables which map emoji names to the actual characters,
+  # country names to their flags, and some named groupings of emoji. 
+  # It also provides associated functions for displaying them.
   emoji
+
+  # Fish shell-like syntax highlighting for zsh
   zsh-syntax-highlighting
+
+  # This plugin adds `nvm` zsh completion
+  nvm
 )
 
 # Setup oh-my-zsh if exists

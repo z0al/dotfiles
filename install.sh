@@ -27,8 +27,14 @@ done
 # Add aliases for dotfolders
 # ==========================
 
+# Oh My ZSH
+# Ref: http://ohmyz.sh/
 sym_link "$BASE_DIR/.oh-my-zsh" "$HOME/.oh-my-zsh"
 
 sym_link "$BASE_DIR/.zcustom" "$HOME/.zcustom"
+
+# Node Version Manager (NVM)
+# Ref: https://github.com/creationix/nvm
+sym_link "$BASE_DIR/.nvm" "$HOME/.nvm"
 
 echo "Done, enjoy!"
