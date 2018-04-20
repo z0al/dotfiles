@@ -4,17 +4,18 @@
   <img src="./screenshot.png" />
 </div>
 
-**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ## Installation
+
+**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 **1. Clone this repository:**
 
 ```sh
-$ git clone https://github.com/ahmed-taj/dotfiles.git
+$ git clone --recurse-submodules https://github.com/ahmed-taj/dotfiles.git
 ```
 
-**2. Run the installation script**
+**2. Run the installation script:**
 
 > **Caution:** The script will override existing files (e.g. .bashrc, .bash_profile ..etc)
 
@@ -24,9 +25,9 @@ This will create symlinks from this repo to your home folder.
 $ ./install.sh
 ```
 
-**3. Enable GNOME snazzy theme (optional)**
+**3. Enable GNOME snazzy theme (optional):**
 
-If you're a GNOME user and would like to try out the snazzy theme simply run:
+If you're a GNOME user and would like to try out the snazzy theme ([hyper-snazzy](https://github.com/sindresorhus/hyper-snazzy) clone) simply run:
 
 ```sh
 $ ./snazzy/gnome.sh
