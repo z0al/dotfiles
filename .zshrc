@@ -11,9 +11,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # as long as you adhere to the conventional file hierarchy.
 ZSH_CUSTOM="$HOME/.zcustom"
 
-# Append ZSH_CUSTOM to fpath (for pure prompt to be discovered)
-fpath=( "$ZSH_CUSTOM" $fpath )
-
 # We will try to use 'pure' by Sindre Sorhus first
 ZSH_THEME=""
 
@@ -33,12 +30,26 @@ if [[ -a "$ZSH/oh-my-zsh.sh" ]]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
-# Set prompt to pure if available
-# More: https://github.com/sindresorhus/pure
-if [[ -a "$HOME/.zcustom/async" && -a "$HOME/.zcustom/prompt_pure_setup" ]]; then
+# Pure prompt (https://github.com/sindresorhus/pure)
+# 
+# Inspired by sindresorhus/pure#384
+PURE_PROMPT_DIR="$ZSH_CUSTOM/pure"
+
+if [[ -d "$PURE_PROMPT_DIR" ]] ; then
+  # If the pure submodule has been fetched
+  # align the setup files with pure's expectations
+  if [[ ! -f "$PURE_PROMPT_DIR/prompt_pure_setup" ]] ; then
+      ln -sf "$PURE_PROMPT_DIR/pure.zsh" "$PURE_PROMPT_DIR/prompt_pure_setup"
+  fi
+  if [[ ! -f "$PURE_PROMPT_DIR/async" ]] ; then
+      ln -sf "$PURE_PROMPT_DIR/async.zsh" "$PURE_PROMPT_DIR/async"
+  fi
+
+  # the set the path to pure
+  fpath+=("$PURE_PROMPT_DIR")
   autoload -U promptinit; promptinit
   prompt pure
-else 
+else
   # Fallback to the default theme
   ZSH_THEME="robbyrussell"
   source "$ZSH/themes/robbyrussell.zsh-theme"

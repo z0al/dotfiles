@@ -4,3 +4,6 @@
 [submodule ".zcustom/plugins/zsh-syntax-highlighting"]
 	path = .zcustom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".zcustom/pure"]
+	path = .zcustom/pure
+	url = https://github.com/sindresorhus/pure.git
