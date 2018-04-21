@@ -5,3 +5,10 @@ mkd() {
 	mkdir -p "$@"
 	cd "$@" || exit
 }
+
+# Faster `cd` using `pick`
+# 
+# Only list directories under ~ and ignores dotted ones
+fcd() {
+	cd "$(find "$HOME" -maxdepth 5 -type d -name ".*" -prune -o -type d -print | pick)" || exit
+}

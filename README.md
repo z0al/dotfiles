@@ -4,6 +4,10 @@
   <img src="./screenshot.png" />
 </div>
 
+## Requirements
+
+* [Git](https://git-scm.com) v2.17 or later
+* [Pick](https://github.com/mptre/pick): A fuzzy search tool for the command-line
 
 ## Installation
 
@@ -37,7 +41,7 @@ $ ./snazzy/gnome.sh
 
 * 🖥 Both `bash` and `zsh` are supported
 * 🔥 [oh-my-zsh](http://ohmyz.sh/) + [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) out of the box
-* 🦄 [Pure](https://github.com/sindresorhus/pure) prompt 
+* 🦄 [Pure](https://github.com/sindresorhus/pure) prompt
 * 💅 Gnome Snazzy theme (inspired by [hyper-snazzy](https://github.com/sindresorhus/hyper-snazzy))
 
 **It also includes:**
@@ -62,7 +66,7 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="user@email.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
-``` 
+```
 
 ## License
 
