@@ -1,6 +1,6 @@
 source <(antibody init)
 
-antibody bundle < ~/dotfiles/plugins.txt
+antibody bundle < ~/.dotfiles/plugins.txt
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
