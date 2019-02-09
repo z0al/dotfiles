@@ -1,0 +1,13 @@
+# Basics
+zsh-users/zsh-completions
+
+mafredri/zsh-async
+
+### Fancy stuff, run last
+sindresorhus/pure
+zsh-users/zsh-syntax-highlighting
+
+# Automatically load your project ENV variables from `.env` file when
+# you `cd` into project root directory.
+robbyrussell/oh-my-zsh path:plugins/dotenv
+
