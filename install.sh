@@ -1,9 +1,9 @@
 #!/bin/sh
 
-ln -snf .zshrc $HOME/.zshrc
-ln -snf .bashrc $HOME/.bashrc
-ln -snf .bash_profile $HOME/.bash_profile
-ln -snf .inputrc $HOME/.inputrc
+ln -snf ~/.dotfiles/.zshrc ~/.zshrc
+ln -snf ~/.dotfiles/.bashrc ~/.bashrc
+ln -snf ~/.dotfiles/.bash_profile ~/.bash_profile
+ln -snf ~/.dotfiles/.inputrc ~/.inputrc
 
 echo "Done, enjoy!"
 
