@@ -1,9 +1,5 @@
 # Dotfiles
 
-<div align="center">
-  <img src="./screenshot.png" />
-</div>
-
 ## Requirements
 
 - [zsh](https://www.zsh.org/): A shell designed for interactive use.
