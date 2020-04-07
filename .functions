@@ -11,3 +11,36 @@ mkcd() {
 fcd() {
 	cd "$(find "$HOME" -maxdepth 5 -type d -name ".*" -prune -o -type d -print | pick)" || exit
 }
+
+# Lazily load nvm for a faster shell startup.
+#
+# Inspired by: http://broken-by.me/lazy-load-nvm/
+_load_nvm() {
+	[[ -z "$NVM_DIR" ]] && export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
+
+nvm() {
+	unset -f nvm &>/dev/null
+	_load_nvm && nvm "$@"
+}
+
+node() {
+	unset -f node &>/dev/null
+	_load_nvm && node "$@"
+}
+
+npm() {
+	unset -f npm &>/dev/null
+	_load_nvm && npm "$@"
+}
+
+npx() {
+	unset -f npm &>/dev/null
+	_load_nvm && npm "$@"
+}
+
+yarn() {
+	unset -f yarn &>/dev/null
+	_load_nvm && yarn "$@"
+}
