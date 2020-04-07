@@ -1,14 +1,13 @@
 #!/bin/sh
 
-# Create a new directory and enter it
+# mkdir then cd
 mkcd() {
 	mkdir -p "$@"
 	cd "$@" || exit
 }
 
-# Faster `cd` using `pick`
-#
-# Only list directories under ~ and ignores dotted ones
+# Faster `cd` using `pick`. Lists directories under $HOME but
+# ignores hidden folders.
 fcd() {
 	cd "$(find "$HOME" -maxdepth 5 -type d -name ".*" -prune -o -type d -print | pick)" || exit
 }
