@@ -34,7 +34,7 @@ link_file() {
 config_bash() {
 	info "configuring bash"
 
-	# Dotfiles
+	# Configs
 	link_file "$DOTFILES_DIR/bash/.bashrc" "$HOME/.bashrc"
 	link_file "$DOTFILES_DIR/bash/.bash_profile" "$HOME/.bash_profile"
 	link_file "$DOTFILES_DIR/bash/.inputrc" "$HOME/.inputrc"
@@ -46,7 +46,7 @@ config_bash() {
 config_zsh() {
 	info "configuring zsh"
 
-	# Dotfiles
+	# Configs
 	link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 	link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
 
@@ -66,9 +66,10 @@ link_dotfiles() {
 	link_file "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
 	link_file "$DOTFILES_DIR/.exports" "$HOME/.exports"
 	link_file "$DOTFILES_DIR/.functions" "$HOME/.functions"
+	link_file "$DOTFILES_DIR/.gitignore" "$HOME/.gitignore"
 }
 
-# flow
+# Setup
 config_bash
 config_zsh
 config_starship

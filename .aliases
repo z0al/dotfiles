@@ -14,5 +14,5 @@ alias ~="cd ~"
 
 # On GNU/Linux alias xdg-open
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	alias open='xdg-open &>/dev/null'
+	alias open="xdg-open &>/dev/null"
 fi

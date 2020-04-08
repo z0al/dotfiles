@@ -18,9 +18,6 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' menu select=2
-
 # Starship prompt
 eval "$(starship init zsh)"
 
