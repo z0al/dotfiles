@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # https://github.com/sharkdp/fd
-alias fd=fdfind
+if [ -e "fdfind" ]; then
+	alias fd=fdfind
+fi
 
 # Easier navigation
 alias ..="cd .."

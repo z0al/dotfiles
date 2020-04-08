@@ -4,9 +4,9 @@ My personal dotfiles for both `zsh` and `bash`.
 
 ## Features
 
-* 🚀 Super fast shell startup.
-* 💅 Minimal and beautiful prompt.
-* 🔥 Fuzzy completion + key bindings.
+- 🚀 Super fast shell startup.
+- 💅 Minimal and beautiful prompt.
+- 🔥 Fuzzy completion + key bindings.
 
 ## Dependencies
 
