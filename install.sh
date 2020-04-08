@@ -18,55 +18,63 @@ success() {
 }
 
 link_file() {
-	if [ -e "$2" ]; then
-		if [ "$(readlink "$2")" = "$1" ]; then
+	if [ -e "$HOME/$2" ]; then
+		if [ "$(readlink "$HOME/$2")" = "$DOTFILES_DIR/$1" ]; then
 			success "skipped $1"
 			return 0
 		else
-			mv "$2" "$2.backup"
-			info "moved $2 to $2.backup"
+			mv "$HOME/$2" "$HOME/$2.backup"
+			info "moved ~/$2 to ~/$2.backup"
 		fi
 	fi
-	ln -sf "$1" "$2"
-	success "linked $1 to $2"
+	ln -sf "$DOTFILES_DIR/$1" "$HOME/$2"
+	success "linked $1 to ~/$2"
 }
 
 config_bash() {
 	info "configuring bash"
 
 	# Configs
-	link_file "$DOTFILES_DIR/bash/.bashrc" "$HOME/.bashrc"
-	link_file "$DOTFILES_DIR/bash/.bash_profile" "$HOME/.bash_profile"
-	link_file "$DOTFILES_DIR/bash/.inputrc" "$HOME/.inputrc"
+	link_file "bash/.bashrc" ".bashrc"
+	link_file "bash/.bash_profile" ".bash_profile"
+	link_file "bash/.inputrc" ".inputrc"
 
 	# Plugins
 	antibody bundle <"$DOTFILES_DIR/bash/plugins.txt" >"$HOME/.bash_plugins.sh"
+
+	echo ''
 }
 
 config_zsh() {
 	info "configuring zsh"
 
 	# Configs
-	link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-	link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
+	link_file "zsh/.zshrc" ".zshrc"
+	link_file "zsh/.zprofile" ".zprofile"
 
 	# Plugins
 	antibody bundle <"$DOTFILES_DIR/zsh/plugins.txt" >"$HOME/.zsh_plugins.sh"
+
+	echo ''
 }
 
 config_starship() {
 	info "configuring starship"
 
-	link_file "$DOTFILES_DIR/starship/config.toml" "$HOME/.config/starship.toml"
+	link_file "starship/config.toml" ".config/starship.toml"
+
+	echo ''
 }
 
 link_dotfiles() {
 	info "linking other dotfiles"
 
-	link_file "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
-	link_file "$DOTFILES_DIR/.exports" "$HOME/.exports"
-	link_file "$DOTFILES_DIR/.functions" "$HOME/.functions"
-	link_file "$DOTFILES_DIR/.gitignore" "$HOME/.gitignore"
+	link_file ".aliases" ".aliases"
+	link_file ".exports" ".exports"
+	link_file ".functions" ".functions"
+	link_file ".gitignore" ".gitignore"
+
+	echo ''
 }
 
 # Setup
@@ -75,5 +83,4 @@ config_zsh
 config_starship
 link_dotfiles
 
-echo ''
 echo "Done."
