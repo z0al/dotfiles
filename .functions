@@ -6,10 +6,15 @@ mkcd() {
 	cd "$@" || exit
 }
 
-# Faster `cd` using `pick`. Lists directories under $HOME but
-# ignores hidden folders.
-fcd() {
-	cd "$(find "$HOME" -maxdepth 5 -type d -name ".*" -prune -o -type d -print | pick)" || exit
+# Use fd (https://github.com/sharkdp/fd) instead of the fzf's default
+# command for listing path candidates.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 # Lazily load nvm for a faster shell startup.

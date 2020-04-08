@@ -1,0 +1,7 @@
+# Basics
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+
+# fzf completion & key bindings
+junegunn/fzf path:shell/completion.zsh
+junegunn/fzf path:shell/key-bindings.zsh

@@ -1,6 +1,0 @@
-# Basics
-zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
-
-# Automatically load `.env` file when changing a directory
-robbyrussell/oh-my-zsh path:plugins/dotenv

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# https://github.com/sharkdp/fd
+alias fd=fdfind
+
 # Easier navigation
 alias ..="cd .."
 alias ...="cd ../.."

@@ -108,6 +108,10 @@ fi
 # Startship prompt
 eval "$(starship init bash)"
 
+# Load plugins
+source $HOME/.bash_plugins.sh
+
 # Load aliases, functions ..etc
 source $HOME/.aliases
+source $HOME/.exports
 source $HOME/.functions

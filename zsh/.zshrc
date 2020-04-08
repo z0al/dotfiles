@@ -1,8 +1,13 @@
+#!/bin/zsh
+
 # Enable dir colors
 eval "$(dircolors -b)"
 
 # Ignore deplicates in history
 setopt histignorealldups sharehistory
+
+# Activate bash-style comments
+setopt interactivecomments
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -30,4 +35,5 @@ source $HOME/.zsh_plugins.sh
 
 # Load aliases, functions ..etc
 source $HOME/.aliases
+source $HOME/.exports
 source $HOME/.functions

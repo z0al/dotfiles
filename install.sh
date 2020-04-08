@@ -1,7 +1,8 @@
 #!/bin/sh
 #
-# Mostly taken from by https://github.com/caarlos0/dotfiles
-# Thank you Carlos <3
+# Some helpers are taken from Carlos's dotfiles:
+# 	https://github.com/caarlos0/dotfiles
+#
 
 set -e
 echo ''
@@ -30,34 +31,48 @@ link_file() {
 	success "linked $1 to $2"
 }
 
-install_plugins() {
-	info "Installing zsh plugins"
-	antibody bundle <"$DOTFILES_DIR/plugins.txt" >"$HOME/.zsh_plugins.sh"
+config_bash() {
+	info "configuring bash"
 
-	success "Installed zsh plugins"
-}
-
-install_dotfiles() {
-	info "Installing dotfiles"
-
-	# zsh
-	link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-
-	# bash
+	# Dotfiles
 	link_file "$DOTFILES_DIR/bash/.bashrc" "$HOME/.bashrc"
+	link_file "$DOTFILES_DIR/bash/.bash_profile" "$HOME/.bash_profile"
 	link_file "$DOTFILES_DIR/bash/.inputrc" "$HOME/.inputrc"
 
-	# spaceship
-	link_file "$DOTFILES_DIR/starship/config.toml" "$HOME/.config/starship.toml"
+	# Plugins
+	antibody bundle <"$DOTFILES_DIR/bash/plugins.txt" >"$HOME/.bash_plugins.sh"
+}
 
-	# custom
+config_zsh() {
+	info "configuring zsh"
+
+	# Dotfiles
+	link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+	link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
+
+	# Plugins
+	antibody bundle <"$DOTFILES_DIR/zsh/plugins.txt" >"$HOME/.zsh_plugins.sh"
+}
+
+config_starship() {
+	info "configuring starship"
+
+	link_file "$DOTFILES_DIR/starship/config.toml" "$HOME/.config/starship.toml"
+}
+
+link_dotfiles() {
+	info "linking other dotfiles"
+
 	link_file "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
+	link_file "$DOTFILES_DIR/.exports" "$HOME/.exports"
 	link_file "$DOTFILES_DIR/.functions" "$HOME/.functions"
 }
 
-# Steps
-install_plugins
-install_dotfiles
+# flow
+config_bash
+config_zsh
+config_starship
+link_dotfiles
 
 echo ''
-echo "Done, enjoy!"
+echo "Done."
