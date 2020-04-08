@@ -9,12 +9,14 @@ mkcd() {
 # Use fd (https://github.com/sharkdp/fd) instead of the fzf's default
 # command for listing path candidates.
 _fzf_compgen_path() {
-	$FZF_DEFAULT_COMMAND . "$1"
+	# Should be the same as FZF_DEFAULT_COMMAND
+	fd --hidden . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-	$FZF_ALT_C_COMMAND . "$1"
+	# Should be the same as FZF_ALT_C_COMMAND
+	fd --type d . "$1"
 }
 
 # Lazily load nvm for a faster shell startup.
