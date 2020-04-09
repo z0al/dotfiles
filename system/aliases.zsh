@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # https://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 alias clear="tput reset"
@@ -15,7 +15,5 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~"
 
-# On GNU/Linux alias xdg-open
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	alias open="xdg-open &>/dev/null"
-fi
+# xdg-open
+alias open="xdg-open &>/dev/null"

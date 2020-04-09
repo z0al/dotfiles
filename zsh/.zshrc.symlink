@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES="$HOME/.dotfiles"
+
+# default editors
+export EDITOR='vim'
+export VEDITOR='code'
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOTFILES/*/*.zsh)
+
+# load everything but completion files
+for file in ${config_files:#*/completion.zsh}; do
+  source "$file"
+done
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# enable completion
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+# load antibody plugins
+source $HOME/.zsh_plugins.sh
+
+# load completion files
+for file in ${(M)config_files:#*/completion.zsh}; do
+  source "$file"
+done
+
+unset config_files
+

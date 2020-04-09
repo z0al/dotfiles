@@ -7,3 +7,9 @@ caarlos0/dotfiles path:zsh/completion.zsh
 # fzf completion & key bindings
 junegunn/fzf path:shell/completion.zsh
 junegunn/fzf path:shell/key-bindings.zsh
+
+# nvm
+lukechilds/zsh-nvm
+
+# shell key bindings
+ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
