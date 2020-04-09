@@ -31,22 +31,8 @@ link_file() {
 	success "linked $1 to ~/$2"
 }
 
-config_bash() {
-	info "configuring bash"
-
-	# Configs
-	link_file "bash/.bashrc" ".bashrc"
-	link_file "bash/.bash_profile" ".bash_profile"
-	link_file "bash/.inputrc" ".inputrc"
-
-	# Plugins
-	antibody bundle <"$DOTFILES_DIR/bash/plugins.txt" >"$HOME/.bash_plugins.sh"
-
-	echo ''
-}
-
-config_zsh() {
-	info "configuring zsh"
+setup_zsh() {
+	info "setting up zsh"
 
 	# Configs
 	link_file "zsh/.zshrc" ".zshrc"
@@ -58,8 +44,8 @@ config_zsh() {
 	echo ''
 }
 
-config_starship() {
-	info "configuring starship"
+setup_starship() {
+	info "setting up starship"
 
 	link_file "starship/config.toml" ".config/starship.toml"
 
@@ -78,9 +64,8 @@ link_dotfiles() {
 }
 
 # Setup
-config_bash
-config_zsh
-config_starship
+setup_zsh
+setup_starship
 link_dotfiles
 
 echo "Done."

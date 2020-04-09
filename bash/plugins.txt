@@ -1,3 +1,0 @@
-# fzf completion & key bindings
-junegunn/fzf path:shell/completion.bash
-junegunn/fzf path:shell/key-bindings.bash

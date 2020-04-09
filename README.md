@@ -1,8 +1,8 @@
 # Dotfiles
 
-My personal dotfiles for both `zsh` and `bash`.
+My personal configurations for zsh, nvm, terminals and more.
 
-## Features
+## Philosophy
 
 - 🚀 Super fast shell startup.
 - 💅 Minimal and beautiful prompt.
@@ -11,10 +11,10 @@ My personal dotfiles for both `zsh` and `bash`.
 
 ## Dependencies
 
-- [**antibody**](https://getantibody.github.io): a shell plugin manager made from the ground up thinking about performance.
-- [**starship**](https://starship.rs/): The minimal, blazing-fast, and infinitely customizable prompt for any shell.
-- [**fzf**](https://github.com/junegunn/fzf): a command-line fuzzy finder to filter files, command history, processes, hostnames, bookmarks, git commits, etc.
-- [**fd**](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to `find` that automatically respects `.gitignore` files.
+- [**antibody**][antibody]: a shell plugin manager made from the ground up thinking about performance.
+- [**starship**][starship]: The minimal, blazing-fast, and infinitely customizable prompt for any shell.
+- [**fzf**][fzf]: a command-line fuzzy finder to filter files, command history, processes, hostnames, bookmarks, git commits, etc.
+- [**fd**][fd]: a simple, fast and user-friendly alternative to `find` that automatically respects `.gitignore` files.
 
 #### On Ubuntu/Debian linux
 
@@ -22,7 +22,7 @@ Run the following commands to install all necessary dependencies.
 
 ```sh
 # System packages
-sudo apt install dconf-cli uuid-runtime git curl
+sudo apt install git curl zsh dconf-cli uuid-runtime
 
 # fzf & fd (Ubuntu 19.04 or later)
 sudo apt install fzf fd-find
@@ -34,29 +34,34 @@ curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
 curl -fsSL https://starship.rs/install.sh | bash
 ```
 
+#### On other OSs
+
+Please check the website for each dependency and follow the intructions for your system (if supported).
+
 ## Installation
 
-**1. Clone this repository:**
-
 ```sh
-$ git clone https://github.com/z0al/dotfiles.git ~/.dotfiles
+$ git clone https://github.com/z0al/dotfiles.git ~/.dotfiles # <-- DO NOT change path
 $ cd ~/.dotfiles
-```
-
-**2. Run the installation script:**
-
-```sh
 $ ./bootstrap.sh
 ```
 
-**3. (Optional) install color scheme(s)**
+Restart your zsh shell to see the changes.
 
-You can use [Gogh](https://mayccoll.github.io/Gogh/) to install awesome color scheme(s) for Gnome Terminal, iTerm and others. I prefer `snazzy`.
+## Color schemes
+
+Optionally, you can use [Gogh][gogh] to install awesome color scheme(s) for Gnome Terminal, iTerm and others. I prefer `snazzy`.
 
 ## Credits
 
-Inspired by [caarlos0's dotfiles](https://github.com/caarlos0/dotfiles) . Most of the shell scripts are copied from there.
+Inspired by [caarlos0's dotfiles](https://github.com/caarlos0/dotfiles).
 
 ## License
 
 MIT © Ahmed T. Ali
+
+[antibody]: https://getantibody.github.io
+[starship]: https://starship.rs/
+[fzf]: https://github.com/junegunn/fzf
+[fd]: https://github.com/sharkdp/fd
+[gogh]: https://mayccoll.github.io/Gogh/
