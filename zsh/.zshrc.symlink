@@ -36,3 +36,7 @@ done
 
 unset config_files
 
+# use .localrc for local machine configs.
+if [ -f "$HOME/.localrc" ]; then
+	. "$HOME/.localrc"
+fi
