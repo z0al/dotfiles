@@ -1,7 +1,9 @@
 [cmd_duration]
 prefix = ""
 
-# Disable unused modules
+[battery]
+disabled = true
+
 [dotnet]
 disabled = true
 

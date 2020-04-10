@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-# shortcut to this dotfiles path is $DOTFILES
 export DOTFILES="$HOME/.dotfiles"
 
 # default editors
@@ -8,11 +7,11 @@ export EDITOR='vim'
 export VEDITOR='code'
 
 # all of our zsh files
-typeset -U config_files
-config_files=($DOTFILES/*/*.zsh)
+typeset -U script_files
+script_files=($DOTFILES/*/*.zsh)
 
 # load everything but completion files
-for file in ${config_files:#*/completion.zsh}; do
+for file in ${script_files:#*/completion.zsh}; do
   source "$file"
 done
 
@@ -30,11 +29,11 @@ compinit -C
 source $HOME/.zsh_plugins.sh
 
 # load completion files
-for file in ${(M)config_files:#*/completion.zsh}; do
+for file in ${(M)script_files:#*/completion.zsh}; do
   source "$file"
 done
 
-unset config_files
+unset script_files
 
 # use .localrc for local machine configs.
 if [ -f "$HOME/.localrc" ]; then

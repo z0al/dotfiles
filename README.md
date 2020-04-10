@@ -41,9 +41,9 @@ Please check the website for each dependency and follow the intructions for your
 ## Installation
 
 ```sh
-$ git clone https://github.com/z0al/dotfiles.git ~/.dotfiles # <-- DO NOT change path
+$ git clone https://github.com/z0al/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ ./bootstrap.sh
+$ ./bootstrap.py # or python3 bootstrap.py
 ```
 
 Restart your zsh shell to see the changes.
