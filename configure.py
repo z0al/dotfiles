@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-import os, subprocess
+import os
+import subprocess
 from pathlib import Path
 
 END = '\033[0m'
@@ -17,7 +18,7 @@ def ok(*str):
     print('    ', GREEN + '✔️' + END, DIM, *str, END)
 
 
-def error(*str):
+def fail(*str):
     print('    ', RED + '✘ ', *str, END)
     exit(1)
 
@@ -39,16 +40,24 @@ def link_file(src, dist):
     ok('linked', src, dist)
 
 
-def exec(cmd, args, out=subprocess.STDOUT):
+def exec(cmd, args, out=subprocess.DEVNULL):
     script = [cmd, *args]
-    r = subprocess.run(script, stdout=out)
 
-    if r.returncode > 0:
-        exit(r.returncode)
+    try:
+        subprocess.run(
+            script,
+            check=True,
+            stdout=out,
+            stderr=subprocess.PIPE,
+            universal_newlines=True
+        )
+    except subprocess.CalledProcessError as error:
+        fail(error.stderr)
+        exit(error.returncode)
 
 
 home = Path.home()
-dotfiles = Path(os.path.dirname(os.path.realpath(__file__)))
+dotfiles = home.joinpath('.dotfiles')
 
 
 def setup_zsh():

@@ -2,7 +2,7 @@
 
 My personal configurations for zsh, nvm, terminals and more.
 
-## Philosophy
+## Features
 
 - 🚀 Super fast shell startup.
 - 💅 Minimal and beautiful prompt.
@@ -11,6 +11,7 @@ My personal configurations for zsh, nvm, terminals and more.
 
 ## Dependencies
 
+- [**python**][python]: requires v3.5 or later in order to run the scripts.
 - [**antibody**][antibody]: a shell plugin manager made from the ground up thinking about performance.
 - [**starship**][starship]: The minimal, blazing-fast, and infinitely customizable prompt for any shell.
 - [**fzf**][fzf]: a command-line fuzzy finder to filter files, command history, processes, hostnames, bookmarks, git commits, etc.
@@ -34,16 +35,14 @@ curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
 curl -fsSL https://starship.rs/install.sh | bash
 ```
 
-#### On other OSs
-
-Please check the website for each dependency and follow the intructions for your system (if supported).
-
 ## Installation
+
+### Dotfiles
 
 ```sh
 $ git clone https://github.com/z0al/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ ./bootstrap.py # or python3 bootstrap.py
+$ ./configure.py
 ```
 
 Restart your zsh shell to see the changes.
