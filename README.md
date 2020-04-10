@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. It also provides a script to automate the installation of software I commonly use.
+My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. It also provides a script to automate the installation of software/packages I commonly use.
 
 ## Features
 
@@ -29,9 +29,15 @@ $ ./configure.py
 
 Restart your zsh shell to see the changes.
 
-### Common Software
+### Common Software/Packages
 
-Running the following script will install the following software:
+> **Tip:** This basically runs every `install.sh` file in this repository.
+
+```sh
+$ ./install.py
+```
+
+Running the above script will install the following software/packages:
 
 - **Essentials:**
   - git
@@ -41,17 +47,20 @@ Running the following script will install the following software:
   - dependencies listed [here](#dependencies)
 - **Programming**
   - vim
-## Installation
 
-> **Tip:** This runs every `install.sh` file in this repository. You might want to run them instead if you want to install specific software.
+## Tips
+
+### Local configs
+
+You can use `~/.localrc` for local configs e.g. secrets. If the file doesn't exist (most likely) create it yourself.
 
 ```sh
-$ ./install.py
+$ echo "export CUSTOM_STUFF=true" > ~/.localrc
 ```
 
-## Color schemes
+### Color schemes
 
-Optionally, you can use [Gogh][gogh] to install awesome color scheme(s) for Gnome Terminal, iTerm and others. I prefer `snazzy`.
+You can use [Gogh][gogh] to install awesome color scheme(s) for Gnome Terminal, iTerm and others.
 
 ## Credits
 
