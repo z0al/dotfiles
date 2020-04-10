@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# loads fzf if installed via git
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND="fd --type f --max-depth 10"
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=30%"

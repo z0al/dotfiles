@@ -100,10 +100,13 @@ def setup_dotfiles():
     print()
 
 
-if __name__ == '__main__':
-    print()
+def configure():
     setup_zsh()
     setup_starship()
     setup_dotfiles()
 
+
+if __name__ == '__main__':
+    print()
+    configure()
     print('done')
