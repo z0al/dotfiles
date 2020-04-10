@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal configurations for zsh, nvm, terminals and more.
+My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. It also provides a script to automate the installation of software I commonly use.
 
 ## Features
 
@@ -17,24 +17,6 @@ My personal configurations for zsh, nvm, terminals and more.
 - [**fzf**][fzf]: a command-line fuzzy finder to filter files, command history, processes, hostnames, bookmarks, git commits, etc.
 - [**fd**][fd]: a simple, fast and user-friendly alternative to `find` that automatically respects `.gitignore` files.
 
-#### On Ubuntu/Debian linux
-
-Run the following commands to install all necessary dependencies.
-
-```sh
-# System packages
-sudo apt install git curl zsh dconf-cli uuid-runtime
-
-# fzf & fd (Ubuntu 19.04 or later)
-sudo apt install fzf fd-find
-
-# antibody
-curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
-
-# starship
-curl -fsSL https://starship.rs/install.sh | bash
-```
-
 ## Installation
 
 ### Dotfiles
@@ -46,6 +28,26 @@ $ ./configure.py
 ```
 
 Restart your zsh shell to see the changes.
+
+### Common Software
+
+Running the following script will install the following software:
+
+- **Essentials:**
+  - git
+  - zsh
+  - curl
+  - snapd
+  - dependencies listed [here](#dependencies)
+- **Programming**
+  - vim
+## Installation
+
+> **Tip:** This runs every `install.sh` file in this repository. You might want to run them instead if you want to install specific software.
+
+```sh
+$ ./install.py
+```
 
 ## Color schemes
 
@@ -64,3 +66,4 @@ MIT © Ahmed T. Ali
 [fzf]: https://github.com/junegunn/fzf
 [fd]: https://github.com/sharkdp/fd
 [gogh]: https://mayccoll.github.io/Gogh/
+[python]: http://python.org/
