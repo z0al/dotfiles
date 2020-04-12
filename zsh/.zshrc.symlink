@@ -1,4 +1,6 @@
 #!/bin/zsh
+# uncomment this and the last line for zprof info
+# zmodload zsh/zprof
 
 export DOTFILES="$HOME/.dotfiles"
 
@@ -39,3 +41,5 @@ unset script_files
 if [ -f "$HOME/.localrc" ]; then
 	. "$HOME/.localrc"
 fi
+
+# zprof

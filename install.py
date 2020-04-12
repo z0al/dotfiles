@@ -16,8 +16,7 @@ def log(*str):
 
 
 def fail(*str):
-    print('    ', RED + '✘ ', *str, END)
-    exit(1)
+    print('    ', RED, *str, END)
 
 
 def run(command):
@@ -30,10 +29,16 @@ def run(command):
             universal_newlines=True
         )
         return r.stdout
-    except subprocess.CalledProcessError as process:
-        fail('failed with the following error:')
-        log(RED, process.stderr, END)
-        exit(process.returncode)
+    except Exception as error:
+        fail('failed with the following error:', '\n')
+
+        if isinstance(error, subprocess.CalledProcessError):
+            # pylint: disable=no-member
+            fail('  ', error.stderr)
+        else:
+            fail('  ', error)
+
+        exit(1)
 
 
 dotfiles = Path.home().joinpath('.dotfiles')

@@ -15,11 +15,11 @@ def log(*str):
 
 
 def ok(*str):
-    print('    ', GREEN + '✔️' + END, DIM, *str, END)
+    print('    ', GREEN + 'OK' + END, DIM, *str, END)
 
 
 def fail(*str):
-    print('    ', RED + '✘ ', *str, END)
+    print('   ', RED, *str, END)
     exit(1)
 
 
@@ -51,9 +51,16 @@ def exec(cmd, args, out=subprocess.DEVNULL):
             stderr=subprocess.PIPE,
             universal_newlines=True
         )
-    except subprocess.CalledProcessError as error:
-        fail(error.stderr)
-        exit(error.returncode)
+    except Exception as error:
+        fail('failed with the following error:', '\n')
+
+        if isinstance(error, subprocess.CalledProcessError):
+            # pylint: disable=no-member
+            fail('  ', error.stderr)
+        else:
+            fail('  ', error)
+
+        exit(1)
 
 
 home = Path.home()

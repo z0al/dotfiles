@@ -1,15 +1,12 @@
 # Basics
 zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
+zdharma/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
-caarlos0/dotfiles path:zsh/completion.zsh
+
+# key bindings
+ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
 
 # fzf completion & key bindings
 junegunn/fzf path:shell/completion.zsh
 junegunn/fzf path:shell/key-bindings.zsh
 
-# nvm
-lukechilds/zsh-nvm
-
-# shell key bindings
-ohmyzsh/ohmyzsh path:lib/key-bindings.zsh

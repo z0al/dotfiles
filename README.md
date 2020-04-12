@@ -1,13 +1,6 @@
 # Dotfiles
 
-My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. It also provides a script to automate the installation of software/packages I commonly use.
-
-## Features
-
-- 🚀 Super fast shell startup.
-- 💅 Minimal and beautiful prompt.
-- 🔥 Fuzzy completion + key bindings.
-- 💤 Lazy load shell modules when possible.
+My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. This repository also provides a [script](#common-software/packages) to automate the installation of software/packages I commonly use.
 
 ## Dependencies
 
