@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. This repository also provides a [script](#common-software/packages) to automate the installation of software/packages I commonly use.
+My personal Ubuntu/Debian configurations for zsh, nvm, terminals and more. This repository also provides a [script](#common-software) to automate the installation of software/packages I commonly use.
 
 ## Dependencies
 
@@ -22,7 +22,7 @@ $ ./configure.py
 
 Restart your zsh shell to see the changes.
 
-### Common Software/Packages
+### Common Software
 
 > **Tip:** This basically runs every `install.sh` file in this repository.
 

@@ -20,7 +20,6 @@ def ok(*str):
 
 def fail(*str):
     print('   ', RED, *str, END)
-    exit(1)
 
 
 def link_file(src, dist):
