@@ -4,9 +4,7 @@
 alias clear="tput reset"
 
 # https://github.com/sharkdp/fd
-if [ -e "fdfind" ]; then
-	alias fd=fdfind
-fi
+# alias fd=fdfind
 
 # Easier navigation
 alias ..="cd .."
