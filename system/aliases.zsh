@@ -3,9 +3,6 @@
 # https://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 alias clear="tput reset"
 
-# https://github.com/sharkdp/fd
-# alias fd=fdfind
-
 # Easier navigation
 alias ..="cd .."
 alias ...="cd ../.."

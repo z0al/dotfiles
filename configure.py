@@ -94,13 +94,13 @@ def setup_starship():
 def setup_dotfiles():
     log('linking dotfiles')
 
-    ext = '.symlink'
+    prefix = '.'
     for (root, _, files) in os.walk(dotfiles):
-        symlinks = [name for name in files if name.endswith(ext)]
+        symlinks = [name for name in files if name.startswith(prefix)]
 
         for link in symlinks:
             src = Path(root).joinpath(link)
-            dist = home.joinpath(link.rstrip(ext))
+            dist = home.joinpath(link)
 
             link_file(src, dist)
     print()
