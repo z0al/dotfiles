@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # fzf: a command-line fuzzy finder
 # https://github.com/junegunn/fzf
