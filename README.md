@@ -21,16 +21,7 @@ My personal Pop OS/Debian configurations for zsh, Node.js, terminals and more.
 $ ./install.py
 ```
 
-Running the above script will install the following packages:
-
-- git
-- zsh
-- curl
-- snapd
-- vim
-- dependencies listed [here](#includes)
-
-The script also sets Zsh as default shell but you need to logout and login again for that to take effect.
+Running the above script will install all the necessary dependencies along with essential pcakges e.g. snapd, vim, pulseaudio ..etc. For the full list of check `install.sh` files.
 
 ### Linking dotfiles
 
@@ -51,6 +42,10 @@ You can use `~/.localrc` for local configs e.g. secrets. If the file doesn't exi
 ```sh
 $ echo "export CUSTOM_STUFF=true" > ~/.localrc
 ```
+
+## Standalone scripts
+
+This repository also contains standalone scripts to automate certain functions. Check the [scripts](./scripts) folder to find out more.
 
 ## Credits
 
