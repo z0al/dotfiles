@@ -1,7 +1,17 @@
 #!/bin/sh
 
+sudo apt-get -y install \
 # Essentials
-sudo apt-get -y install zsh curl fonts-firacode vim pulseaudio
+vim \
+zsh \
+curl \
+
+# Terminal font
+fonts-firacode \
+
+# Other packages
+pulseaudio \
+python3-pip
 
 # antibody
 curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
