@@ -2,6 +2,6 @@
 
 export PATH="$HOME/.fnm":$PATH
 
-eval "$(fnm env --multi)"
+eval "$(fnm env)"
 
 alias nvm=fnm
