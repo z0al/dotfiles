@@ -21,3 +21,6 @@ HISTFILE=~/.zsh_history
 
 # delete word with CTRL+BACKSPACE
 bindkey '^H' backward-delete-word
+
+# https://github.com/zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=6"
