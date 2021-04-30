@@ -44,8 +44,8 @@ colors:
 
   # Cursor colors
   cursor:
-    text: "0xa6accd"
-    cursor: "0xa6accd"
+    text: "CellBackground"
+    cursor: "CellForeground"
 
   # Search colors
   #
