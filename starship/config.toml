@@ -7,34 +7,10 @@ disabled = true
 [cmd_duration]
 format = "[$duration]($style)"
 
-[dotnet]
-disabled = true
-
-[elm]
-disabled = true
-
 [env_var]
 disabled = true
 
-[haskell]
-disabled = true
-
-[hg_branch]
-disabled = true
-
-[java]
-disabled = true
-
-[julia]
-disabled = true
-
 [package]
-disabled = true
-
-[php]
-disabled = true
-
-[singularity]
 disabled = true
 
 [terraform]
