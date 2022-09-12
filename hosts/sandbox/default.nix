@@ -5,8 +5,14 @@
     ./hardware-configuration.nix
   ];
 
-  # For convenience since it's a VM. Don't use in production
-  users.users.${username}.password = "sandbox";
+  users.users.${username} = {
+    # For convenience since it's a VM. Don't use in production
+    password = "sandbox";
+
+    # Allow mounting & accessing of shared folders.
+    extraGroups = [ "vboxsf" ];
+  };
+
   security.sudo.wheelNeedsPassword = false;
 
   # Use the GRUB 2 boot loader.

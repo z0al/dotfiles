@@ -6,6 +6,7 @@
 # * Add nvim / gnvim support
 # * Add VS Code support
 # * Add NixOS configuration
+# * Add GNOME extensions
 
 { config, pkgs, ... }:
 
