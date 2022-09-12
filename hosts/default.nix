@@ -20,14 +20,14 @@ in
 
     modules = [
       ./sandbox
-      ./configuration.nix
+      ../nixos
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit username; };
         home-manager.users.${username} = {
-          imports = [(import ./home.nix)] ++ [(import ./sandbox/home.nix)];
+          imports = [(import ../home)] ++ [(import ./sandbox/home.nix)];
         };
       }
     ];
