@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, home-manager, username, ...}:
+{ lib, inputs, nixpkgs, home-manager, username, ... }:
 
 let
   system = "x86_64-linux";
@@ -22,12 +22,13 @@ in
       ./sandbox
       ../nixos
 
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit username; };
+        home-manager.extraSpecialArgs = { inherit inputs username; };
         home-manager.users.${username} = {
-          imports = [(import ../home)] ++ [(import ./sandbox/home.nix)];
+          imports = [ (import ../home) ] ++ [ (import ./sandbox/home.nix) ];
         };
       }
     ];

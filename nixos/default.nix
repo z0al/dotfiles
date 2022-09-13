@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, username, ... }:
 
 {
-  imports = [];
+  imports = [ ];
 
   # System
   system.stateVersion = "22.05";
@@ -39,6 +39,10 @@
   # Environment
   environment = {
     shells = [ pkgs.fish ];
+
+    # Enable bash completion for system packages
+    # https://nix-community.github.io/home-manager/options.html#opt-programs.bash.enableCompletion
+    pathsToLink = [ "/share/bash-completion" ];
 
     systemPackages = with pkgs; [
       ## Web

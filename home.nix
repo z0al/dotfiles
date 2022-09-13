@@ -1,11 +1,8 @@
 # https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager
 # https://www.youtube.com/watch?v=AGVXJ-TIv3Y
 # What is left?
-# * Split setup into modules
-# * Support .localrc file
 # * Add nvim / gnvim support
 # * Add VS Code support
-# * Add NixOS configuration
 # * Add GNOME extensions
 
 { config, pkgs, ... }:
@@ -34,7 +31,7 @@
   fonts.fontconfig.enable = true;
 
   home.sessionVariables = {
-    EDITOR  = "vim";
+    EDITOR = "vim";
   };
 
   programs.fzf = {
@@ -65,10 +62,10 @@
 
     enable = true;
 
-    enableFishIntegration  = true;
+    enableFishIntegration = true;
 
     defaultCommand = "fd --type f --max-depth 10";
-    defaultOptions = ["--layout=reverse" "--inline-info" "--height=50%"];
+    defaultOptions = [ "--layout=reverse" "--inline-info" "--height=50%" ];
     changeDirWidgetCommand = "fd --type d --max-depth 10";
     fileWidgetCommand = config.programs.fzf.defaultCommand;
   };
@@ -92,7 +89,7 @@
       co = "checkout";
       br = "branch";
       st = "status";
-      cm  = "commit -m";
+      cm = "commit -m";
     };
 
     # https://dandavison.github.io/delta
@@ -112,7 +109,7 @@
 
   programs.starship = {
     enable = true;
-    enableFishIntegration  = true;
+    enableFishIntegration = true;
 
     settings = {
       battery = {
@@ -132,16 +129,16 @@
       window.title = "Terminal";
 
       font = {
-        size    = 11;
-        normal  = {
+        size = 11;
+        normal = {
           family = "Fira Code";
         };
       };
 
-      cursor  = {
+      cursor = {
         style = {
-          shape     = "Block";
-          blinking  = "On";
+          shape = "Block";
+          blinking = "On";
         };
       };
 
@@ -149,14 +146,14 @@
       colors = {
         # Default colors
         primary = {
-          background  = "0x1b1e28";
-          foreground  = "0xa6accd";
+          background = "0x1b1e28";
+          foreground = "0xa6accd";
         };
 
         # Cursor colors
         cursor = {
-          text    = "CellBackground";
-          cursor  = "CellForeground";
+          text = "CellBackground";
+          cursor = "CellForeground";
         };
 
         # Search colors
@@ -166,18 +163,18 @@
           # Allowed values are "CellForeground"/"CellBackground", which reference the
           # affected cell, or hexadecimal colors like #ff00ff.
           matches = {
-            foreground  = "0x1b1e28";
-            background  = "0xadd7ff";
+            foreground = "0x1b1e28";
+            background = "0xadd7ff";
           };
 
           focused_match = {
-            foreground  = "0x1b1e28";
-            background  = "0xadd7ff";
+            foreground = "0x1b1e28";
+            background = "0xadd7ff";
           };
 
           bar = {
-            foreground  = "0x1b1e28";
-            background  = "0xadd7ff";
+            foreground = "0x1b1e28";
+            background = "0xadd7ff";
           };
         };
 
@@ -188,8 +185,8 @@
         # Allowed values are "CellForeground"/"CellBackground", which reference the
         # affected cell, or hexadecimal colors like #ff00ff.
         selection = {
-          text        = "CellForeground";
-          background  = "0x303340";
+          text = "CellForeground";
+          background = "0x303340";
         };
 
         # Vi mode cursor colors
@@ -198,33 +195,33 @@
         #
         # Allowed values are "CellForeground"/"CellBackground", which reference the
         # affected cell, or hexadecimal colors like #ff00ff.
-        vi_mode_cursor  = {
-          text    = "CellBackground";
-          cursor  = "CellForeground";
+        vi_mode_cursor = {
+          text = "CellBackground";
+          cursor = "CellForeground";
         };
 
         # Normal colors
-        normal  = {
-          black   = "0x1b1e28";
-          red     = "0xd0679d";
-          green   = "0x5de4c7";
-          yellow  = "0xfffac2";
-          blue    = "0x89ddff";
+        normal = {
+          black = "0x1b1e28";
+          red = "0xd0679d";
+          green = "0x5de4c7";
+          yellow = "0xfffac2";
+          blue = "0x89ddff";
           magenta = "0xfcc5e9";
-          cyan    = "0xadd7ff";
-          white   = "0xffffff";
+          cyan = "0xadd7ff";
+          white = "0xffffff";
         };
 
         # Bright colors
-        bright  = {
-          black   = "0xa6accd";
-          red     = "0xd0679d";
-          green   = "0x5de4c7";
-          yellow  = "0xfffac2";
-          blue    = "0xadd7ff";
+        bright = {
+          black = "0xa6accd";
+          red = "0xd0679d";
+          green = "0x5de4c7";
+          yellow = "0xfffac2";
+          blue = "0xadd7ff";
           magenta = "0xfae4fc";
-          cyan    = "0x89ddff";
-          white   = "0xffffff";
+          cyan = "0x89ddff";
+          white = "0xffffff";
         };
       };
     };
@@ -239,28 +236,28 @@
 
     shellInit =
       ''
-      # Disable greeting message
-      set -U fish_greeting
+        # Disable greeting message
+        set -U fish_greeting
 
-      # Bind CTRL+Backspace to delete a word
-      bind \b backward-kill-word
+        # Bind CTRL+Backspace to delete a word
+        bind \b backward-kill-word
 
-      # JS
-      fnm env --use-on-cd | source
+        # JS
+        fnm env --use-on-cd | source
       '';
 
     shellAliases = {
-      cat   = "bat";
-      nvm   = "fnm";
-      open  = "xdg-open &>/dev/null";
+      cat = "bat";
+      nvm = "fnm";
+      open = "xdg-open &>/dev/null";
     };
 
     shellAbbrs = {
-      ".."  = "cd ..";
+      ".." = "cd ..";
       "..." = "cd ../..";
 
-      g     = "git";
-      hm    = "home-manager";
+      g = "git";
+      hm = "home-manager";
     };
 
     functions = {
@@ -269,22 +266,22 @@
 
     plugins = [
       {
-        name  = "fzf";
-        src   = pkgs.fetchFromGitHub {
-          owner   = "PatrickF1";
-          repo    = "fzf.fish";
-          rev     = "v9.1";
-          sha256  = "OLmPtgUVX+/uiZg6lMl1xF4MHGVZUpTVota68coexWw=";
+        name = "fzf";
+        src = pkgs.fetchFromGitHub {
+          owner = "PatrickF1";
+          repo = "fzf.fish";
+          rev = "v9.1";
+          sha256 = "OLmPtgUVX+/uiZg6lMl1xF4MHGVZUpTVota68coexWw=";
         };
       }
 
       {
-        name  = "z";
-        src   = pkgs.fetchFromGitHub {
-          owner   = "jethrokuan";
-          repo    = "z";
-          rev     = "85f863f20f24faf675827fb00f3a4e15c7838d76";
-          sha256  = "+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=";
+        name = "z";
+        src = pkgs.fetchFromGitHub {
+          owner = "jethrokuan";
+          repo = "z";
+          rev = "85f863f20f24faf675827fb00f3a4e15c7838d76";
+          sha256 = "+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=";
         };
       }
     ];
