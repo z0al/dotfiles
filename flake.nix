@@ -11,8 +11,10 @@
     };
 
     # Fish shell plugins
-    fishFzf.url = "github:PatrickF1/fzf.fish";
-    fishZ.url = "github:jethrokuan/z";
+    fishFzf = {
+      url = "github:PatrickF1/fzf.fish";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:

@@ -13,10 +13,10 @@
     extraGroups = [ "wheel" "audio" "networkmanager" ];
   };
 
-  # X Window System
+  # Enalbe the X11 windowing system
   services.xserver.enable = true;
 
-  # GNOME
+  # Enable the GNOME desktop environment
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.defaultSession = "gnome-xorg";

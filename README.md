@@ -7,6 +7,15 @@ My [NixOS](https://nixos.org/) ❄ configuration as a [flake](https://nixos.wiki
 - Work: work laptop
 - Sandbox: a VirtualBox VM for testing
 
+## Components
+
+| x            | Component   |
+| ------------ | ----------- |
+| **Shell**    | Fish        |
+| **Desktop**  | Gnome (gdm) |
+| **Terminal** | Alacritty   |
+| **Editors**  | ?           |
+
 ## Installation
 
 TBD

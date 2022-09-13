@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fishFzf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660000546,
+        "narHash": "sha256-XmRGe39O3xXmTvfawwT2mCwLIyXOlQm7f40mH5tzz+s=",
+        "owner": "PatrickF1",
+        "repo": "fzf.fish",
+        "rev": "2bb6f712b0b99fc5cc40ca78b6b3ba8b2529b0f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PatrickF1",
+        "repo": "fzf.fish",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -39,6 +55,7 @@
     },
     "root": {
       "inputs": {
+        "fishFzf": "fishFzf",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

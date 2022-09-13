@@ -7,17 +7,19 @@ let
 in
 
 {
-  # Bash Integration
-  programs.bash.initExtra = ''
-    if [ -f "${localrc}" ]; then
-      . "${localrc}"
-    fi
-  '';
+  programs = {
+    # Bash Integration
+    bash.initExtra = ''
+      if [ -f "${localrc}" ]; then
+        . "${localrc}"
+      fi
+    '';
 
-  # Fish Integration
-  programs.fish.shellInit = ''
-    if test -e "${localrc}"
-      source "${localrc}"
-    end
-  '';
+    # Fish Integration
+    fish.shellInit = ''
+      if test -e "${localrc}"
+        source "${localrc}"
+      end
+    '';
+  };
 }

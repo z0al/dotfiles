@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
   ];
 
+  # User Management
   users.users.${username} = {
     # For convenience since it's a VM. Don't use in production
     password = "sandbox";
@@ -13,12 +14,21 @@
     extraGroups = [ "vboxsf" ];
   };
 
-  security.sudo.wheelNeedsPassword = false;
 
+  # Networking
+  networking.hostName = "sandbox";
+
+
+  # Auto login
   services.xserver.displayManager = {
     autoLogin = {
       enable = true;
       user = "${username}";
     };
+  };
+
+  # Security
+  security = {
+    sudo.wheelNeedsPassword = false;
   };
 }

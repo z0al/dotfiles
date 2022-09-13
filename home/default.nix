@@ -1,11 +1,11 @@
 { config, pkgs, username, ... }:
 
 {
-  imports =
-    # (import ./audio) ++
-    # (import ./develop) ++
-    # (import ./video) ++
-    (import ./shell);
+  imports = [
+    ./dev
+    ./shell
+    ./theme
+  ];
 
   home = {
     username = "${username}";
@@ -16,4 +16,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Used to configuer themes, keybindings, etc.
+  dconf.enable = true;
 }

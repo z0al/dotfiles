@@ -4,7 +4,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  boot.initrd.availableKernelModules = [ "ohci_pci" "ehci_pci" "ahci" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -13,15 +13,12 @@
 
   fileSystems."/".device = "/dev/disk/by-label/nixos";
 
-  networking = {
-    # Enables DHCP on each ethernet and wireless interface. In case of
-    # scripted networking (the default) this is the recommended approach.
-    # When using systemd-networkd it's still possible to use this option,
-    # but it's recommended to use it in conjunction with explicit per-interface
-    # declarations with `networking.interfaces.<interface>.useDHCP`.
-    useDHCP = lib.mkDefault true;
-    hostName = "sandbox";
-  };
+  # Enables DHCP on each ethernet and wireless interface. In case of
+  # scripted networking (the default) this is the recommended approach.
+  # When using systemd-networkd it's still possible to use this option,
+  # but it's recommended to use it in conjunction with explicit per-interface
+  # declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   virtualisation.virtualbox.guest.enable = true;
