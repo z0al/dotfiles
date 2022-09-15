@@ -1,0 +1,44 @@
+{ config, pkgs, ... }:
+
+{
+
+  home.sessionVariables = {
+    TERMINAL = "alacritty";
+  };
+
+  programs.alacritty = {
+    enable = true;
+
+    settings = {
+      import = [
+        "~/.config/alacritty/themes/catppuccin-mocha.yml"
+      ];
+
+      env = {
+        TERM = "xterm-256color";
+      };
+
+      window.title = "Terminal";
+
+      font = {
+        size = 10;
+        normal = {
+          family = "FiraCode Nerd Font";
+        };
+      };
+
+      cursor = {
+        style = {
+          shape = "Block";
+          blinking = "On";
+        };
+      };
+    };
+  };
+
+  # Copy themes over to ~/.config/alacritty
+  home.file.".config/alacritty/themes" = {
+    source = ./themes;
+    recursive = true;
+  };
+}

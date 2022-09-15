@@ -1,8 +1,6 @@
 { config, lib, pkgs, inputs, username, ... }:
 
 {
-  imports = [ ];
-
   # System
   system.stateVersion = "22.05";
   nixpkgs.config.allowUnfree = true;
@@ -13,7 +11,7 @@
     extraGroups = [ "wheel" "audio" "networkmanager" ];
   };
 
-  # Enalbe the X11 windowing system
+  # Enable the X11 windowing system
   services.xserver.enable = true;
 
   # Enable the GNOME desktop environment
@@ -32,8 +30,7 @@
     gnome.gnome-music
   ];
 
-  # Shell
-  programs.fish.enable = true;
+  # Default Shell
   users.defaultUserShell = pkgs.fish;
 
   # Environment
@@ -45,6 +42,10 @@
     pathsToLink = [ "/share/bash-completion" ];
 
     systemPackages = with pkgs; [
+      # Shells
+      bash
+      fish
+
       ## Web
       brave
       firefox
