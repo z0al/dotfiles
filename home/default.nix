@@ -3,8 +3,8 @@
 {
   imports = [
     ./dev
+    ./gnome
     ./shell
-    ./theme
   ];
 
   home = {
