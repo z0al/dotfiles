@@ -1,14 +1,23 @@
-{ config, lib, pkgs, inputs, username, ... }:
+{ config, lib, pkgs, nixpkgs, inputs, username, ... }:
 
 {
   # System
   system.stateVersion = "22.05";
   nixpkgs.config.allowUnfree = true;
 
+  # Boot
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    loader = {
+      timeout = 1;
+    };
+  };
+
   # User Management
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
   };
 
   # Enable the X11 windowing system
@@ -49,6 +58,9 @@
       ## Web
       brave
       firefox
+
+      ## Video/Audio
+      vlc
 
       ## Editors
       vim

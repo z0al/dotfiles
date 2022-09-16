@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   extensionPkgs = with pkgs; [
+    gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-dock
     gnomeExtensions.pop-shell
     gnomeExtensions.user-themes
@@ -31,6 +32,17 @@ in
       ];
   };
 
+  ## Blur my shell
+  dconf.settings."org/gnome/shell/extensions/blur-my-shell" = {
+    panel-blur = true;
+    overview-blur = true;
+    dash-to-dock-blur = false;
+    applications-blur = false;
+    lockscreen-blur = false;
+    screenshot-blur = false;
+    window-list-blur = false;
+  };
+
   ## Dash to Dock
   dconf.settings."org/gnome/shell/extensions/dash-to-dock" = {
     # Position and size
@@ -49,7 +61,9 @@ in
     custom-theme-shrink = true;
     running-indicator-style = "DOTS";
     transparency-mode = "FIXED";
-    background-opacity = 0.80;
+    background-opacity = 0.40;
+    custom-background-color = true;
+    background-color = "rgb(36,21,49)";
   };
 
   ## Rounded Window Corners
