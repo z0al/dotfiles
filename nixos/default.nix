@@ -7,10 +7,14 @@
 
   # Boot
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
 
     loader = {
       timeout = 1;
+
+      grub = {
+        configurationLimit = 50;
+      };
     };
   };
 

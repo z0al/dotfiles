@@ -1,24 +1,30 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
-  extensionPkgs = with pkgs; [
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.pop-shell
-    gnomeExtensions.user-themes
+  extensionPkgs = with pkgs.gnomeExtensions; [
+    appindicator
+    dash-to-dock
+    desktop-icons-ng-ding
+    pop-shell
+    user-themes
   ];
+
+  fetchExtension = id: version: sha256:
+    pkgs.fetchzip {
+      inherit sha256;
+      stripRoot = false;
+      url = "https://extensions.gnome.org/extension-data/${
+        builtins.replaceStrings [ "@" ] [ "" ] id
+      }.v${builtins.toString version}.shell-extension.zip";
+    };
 in
 {
   # Install packages
   home.packages = extensionPkgs;
 
-  ## from GitHub
+  ## Manually installed extensions
   home.file.".local/share/gnome-shell/extensions/rounded-window-corners@yilozt" = {
     recursive = true;
-    source = pkgs.fetchzip {
-      url = "https://github.com/yilozt/rounded-window-corners/releases/download/v7/rounded-window-corners@yilozt.shell-extension.zip";
-      sha256 = "Qu4yB9woCHr+orW0Qqz3MOfxG1WjEFMLGpSZxngU+hs=";
-      stripRoot = false;
-    };
+    source = fetchExtension "rounded-window-corners@yilozt" 7 "Qu4yB9woCHr+orW0Qqz3MOfxG1WjEFMLGpSZxngU+hs=";
   };
 
   # Enable extensions
@@ -30,17 +36,6 @@ in
       [
         "rounded-window-corners@yilozt"
       ];
-  };
-
-  ## Blur my shell
-  dconf.settings."org/gnome/shell/extensions/blur-my-shell" = {
-    panel-blur = true;
-    overview-blur = true;
-    dash-to-dock-blur = false;
-    applications-blur = false;
-    lockscreen-blur = false;
-    screenshot-blur = false;
-    window-list-blur = false;
   };
 
   ## Dash to Dock
@@ -61,9 +56,10 @@ in
     custom-theme-shrink = true;
     running-indicator-style = "DOTS";
     transparency-mode = "FIXED";
-    background-opacity = 0.40;
-    custom-background-color = true;
-    background-color = "rgb(36,21,49)";
+    background-opacity = 0.60;
+    custom-background-color = false;
+    background-color = "#000";
+    disable-overview-on-startup = true;
   };
 
   ## Rounded Window Corners
@@ -71,13 +67,13 @@ in
     skip-libadwaita-app = true;
     skip-libhandy-app = true;
 
-    # Not supported by the dconf module
-    # global-rounded-corner-settings = [
-    #   { padding = { left = 1; right = 1; top = 1; bottom = 1; }; }
-    #   { keep_rounded_corners = { maximized = false; fullscreen = false; }; }
-    #   { border_radius = 8; }
-    #   { smoothing = 1; }
-    # ];
+    global-rounded-corner-settings = {
+      _type = "gvariant";
+      type = "";
+      value = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 8>, 'smoothing': <uint32 1>, 'enabled': <true>}";
+      __toString = self:
+        "@a{sv} ${self.value}";
+    };
   };
 
   ## Pop Shell

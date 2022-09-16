@@ -9,6 +9,7 @@
   users.users.${username} = {
     # Allow mounting & accessing of shared folders.
     extraGroups = [ "vboxsf" ];
+    password = "demo";
   };
 
   # Auto login
