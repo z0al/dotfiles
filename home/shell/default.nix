@@ -3,9 +3,9 @@
 {
   imports = [
     ./alacritty
+    ./bat
     ./terminal
     ./bash.nix
-    ./bat.nix
     ./fish.nix
     ./fzf.nix
     ./localrc.nix
