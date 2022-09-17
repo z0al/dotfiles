@@ -1,12 +1,7 @@
 { config, pkgs, ... }:
-let
-  alias = { g = "git"; };
-in
+
 {
   programs = {
-    bash.shellAliases = alias;
-    fish.shellAbbrs = alias;
-
     git = {
       enable = true;
 

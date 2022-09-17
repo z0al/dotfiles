@@ -8,9 +8,9 @@
     ./bash.nix
     ./fish.nix
     ./fzf.nix
+    ./jump.nix
     ./localrc.nix
     ./starship.nix
-    ./z.nix
   ];
 
   home.shellAliases = {
