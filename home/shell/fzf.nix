@@ -16,13 +16,4 @@
     changeDirWidgetCommand = "fd --type d --max-depth 10";
     fileWidgetCommand = config.programs.fzf.defaultCommand;
   };
-
-  # Fish completion plugin
-  # https://github.com/PatrickF1/fzf.fish
-  programs.fish.plugins = [
-    {
-      name = "fzf";
-      src = inputs.fishFzf;
-    }
-  ];
 }

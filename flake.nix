@@ -9,12 +9,6 @@
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Fish shell plugins
-    fishFzf = {
-      url = "github:PatrickF1/fzf.fish";
-      flake = false;
-    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
