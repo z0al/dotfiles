@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty
+    ./terminal
     ./bash.nix
     ./bat.nix
     ./fish.nix

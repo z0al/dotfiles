@@ -11,7 +11,7 @@
 
     settings = {
       import = [
-        "~/.config/alacritty/themes/catppuccin-mocha.yml"
+        "~/.config/alacritty/themes/catppuccin.yml"
       ];
 
       env = {

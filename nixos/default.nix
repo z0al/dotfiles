@@ -37,10 +37,13 @@
     core-developer-tools.enable = false;
   };
 
+  programs.gnome-terminal.enable = true;
+
   environment.gnome.excludePackages = with pkgs; [
     epiphany
     gnome-tour
     gnome.gnome-music
+    gnome-console
   ];
 
   # Default Shell
