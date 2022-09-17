@@ -66,9 +66,6 @@
       brave
       firefox
 
-      ## Video/Audio
-      vlc
-
       ## Editors
       vim
 
