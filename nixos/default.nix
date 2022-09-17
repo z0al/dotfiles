@@ -71,11 +71,13 @@
 
       ## Utils
       curl
+      fd
+      fzf
       git
       gnupg
       killall
-      tree
       pfetch
+      ripgrep
     ];
   };
 

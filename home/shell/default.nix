@@ -4,10 +4,10 @@
   imports = [
     ./alacritty
     ./bat
+    ./fzf
     ./terminal
     ./bash.nix
     ./fish.nix
-    ./fzf.nix
     ./jump.nix
     ./localrc.nix
     ./starship.nix

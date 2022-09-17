@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.packages = [
-    pkgs.fd
+  imports = [
+    ./themes/catppuccin.nix
   ];
 
   programs.fzf = {
@@ -11,8 +11,13 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
 
+    defaultOptions = [
+      "--layout=reverse"
+      "--inline-info"
+      "--height=50%"
+    ];
+
     defaultCommand = "fd --type f --max-depth 10";
-    defaultOptions = [ "--layout=reverse" "--inline-info" "--height=50%" ];
     changeDirWidgetCommand = "fd --type d --max-depth 10";
     fileWidgetCommand = config.programs.fzf.defaultCommand;
   };
