@@ -72,6 +72,7 @@
       ## Utils
       curl
       fd
+      flameshot
       fzf
       git
       gnupg
@@ -105,7 +106,7 @@
     gc = {
       automatic = true;
       dates = "daily";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 10d";
     };
 
     package = pkgs.nixFlakes;
@@ -115,4 +116,7 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  # Virtualization
+  virtualisation.docker.enable = true;
 }

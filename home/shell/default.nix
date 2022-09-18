@@ -6,11 +6,12 @@
     ./bat
     ./fzf
     ./terminal
+    ./zellij
     ./bash.nix
     ./fish.nix
-    ./jump.nix
     ./localrc.nix
     ./starship.nix
+    ./zap.nix
   ];
 
   home.shellAliases = {

@@ -19,4 +19,10 @@
 
   # Used to configuer themes, keybindings, etc.
   dconf.enable = true;
+
+  # Programs
+  home.packages = with pkgs; [
+    logseq
+    spotify
+  ];
 }
