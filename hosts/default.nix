@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, home-manager, username, ... }:
+{ lib, inputs, nixpkgs, home-manager, username, theme, ... }:
 
 let
   system = "x86_64-linux";
@@ -15,7 +15,7 @@ let
       inherit system;
 
       specialArgs = {
-        inherit inputs username;
+        inherit inputs username theme;
       };
 
       modules = [
@@ -28,7 +28,7 @@ let
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs username; };
+          home-manager.extraSpecialArgs = { inherit inputs username theme; };
           home-manager.users.${username} = {
             imports = [
               ../home

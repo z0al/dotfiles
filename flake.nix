@@ -14,12 +14,18 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
       username = "z0al";
+
+      # Possible values:
+      # - catppuccin-macchiato
+      # - catppuccin-mocha
+      # - dracula (soon)
+      theme = "catppuccin-mocha";
     in
     {
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager username;
+          inherit inputs nixpkgs home-manager username theme;
         }
       );
     };

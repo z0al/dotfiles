@@ -1,0 +1,15 @@
+# Based on the default compact layout but shows only tips instead of
+# A full blown status bar
+template:
+  direction: Horizontal
+  parts:
+    - direction: Vertical
+      body: true
+    - direction: Vertical
+      borderless: true
+      pane_frames: false
+      split_size:
+        Fixed: 1
+      run:
+        plugin:
+          location: "zellij:status-bar"

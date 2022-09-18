@@ -1,22 +1,37 @@
-{ config, pkgs, inputs, ... }:
+{ theme, ... }:
 
 {
-  programs.zellij = {
-    enable = true;
+  programs = {
+    zellij = {
+      enable = true;
 
-    settings = {
-      # theme = "catppuccin";
-      copy_on_select = false;
-      pane_frames = false;
+      settings = {
+        inherit theme;
+
+        default_mode = "locked";
+        pane_frames = false;
+        copy_on_select = false;
+      };
     };
+
+    # Bash
+    readline.bindings = { };
+
+    # Fish
+    fish.shellInit = ''
+
+    '';
   };
 
-  # Don't auto load but add a key to open zellij e.g. CTRL + Z
-  # programs.bash.initExtra = ''
-  #   eval "$(zellij setup --generate-auto-start bash)"
-  # '';
+  home.file = {
+    ".config/zellij/themes" = {
+      recursive = true;
+      source = ./themes;
+    };
 
-  # programs.fish.interactiveShellInit = ''
-  #   eval (zellij setup --generate-auto-start fish | string collect)
-  # '';
+    ".config/zellij/layouts" = {
+      recursive = true;
+      source = ./layouts;
+    };
+  };
 }

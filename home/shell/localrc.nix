@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ username, ... }:
 
 let
   # Source ~/.localrc if it exists. This can be useful to add extra local shell
