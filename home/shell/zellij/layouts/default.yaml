@@ -7,7 +7,6 @@ template:
       body: true
     - direction: Vertical
       borderless: true
-      pane_frames: false
       split_size:
         Fixed: 1
       run:

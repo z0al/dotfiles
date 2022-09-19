@@ -16,11 +16,18 @@
     };
 
     # Bash
-    readline.bindings = { };
+    bash.initExtra = ''
+      if [ -n "$ZELLIJ" ]; then
+        zellij
+      fi
+    '';
 
     # Fish
     fish.shellInit = ''
-
+      if set -q ZELLIJ
+      else
+        zellij
+      end
     '';
   };
 
