@@ -1,4 +1,4 @@
-{ ... }:
+{ theme, ... }:
 
 {
   home.shellAliases = {
@@ -8,7 +8,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Catppuccin-mocha";
+      inherit theme;
     };
   };
 

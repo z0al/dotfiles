@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs-unstable, theme, ... }:
 
 {
 
@@ -12,7 +12,7 @@
 
     settings = {
       import = [
-        "~/.config/alacritty/themes/catppuccin.yml"
+        "~/.config/alacritty/themes/${theme}.yml"
       ];
 
       env = {

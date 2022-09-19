@@ -1,5 +1,5 @@
 # https://github.com/catppuccin/gnome-terminal
-{ config, pkgs, ... }:
+{ ... }:
 let
   profile = import ../profile.nix;
 in

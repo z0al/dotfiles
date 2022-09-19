@@ -1,11 +1,11 @@
-{ ... }:
+{ theme, ... }:
 let
   profile = import ./profile.nix;
 in
 
 {
   imports = [
-    ./themes/catppuccin.nix
+    (./themes + "/${theme}.nix")
   ];
 
   programs.gnome-terminal = {

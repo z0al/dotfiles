@@ -1,8 +1,8 @@
-{ config, pkgs-unstable, ... }:
+{ config, pkgs-unstable, theme, ... }:
 
 {
   imports = [
-    ./themes/catppuccin.nix
+    (./themes + "/${theme}.nix")
   ];
 
   programs.fzf = {
