@@ -1,8 +1,8 @@
-{ config, pkgs-unstable, theme, ... }:
+{ config, pkgs-unstable, _, ... }:
 
 {
   imports = [
-    (./themes + "/${theme}.nix")
+    (./themes + "/${_.theme}.nix")
   ];
 
   programs.fzf = {

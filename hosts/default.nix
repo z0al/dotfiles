@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, username, theme, ... }:
+{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, _, ... }:
 
 let
   system = "x86_64-linux";
@@ -20,7 +20,7 @@ let
       inherit system;
 
       specialArgs = {
-        inherit inputs pkgs-unstable username theme;
+        inherit inputs pkgs-unstable _;
       };
 
       modules = [
@@ -33,8 +33,8 @@ let
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs pkgs-unstable username theme; };
-          home-manager.users.${username} = {
+          home-manager.extraSpecialArgs = { inherit inputs pkgs-unstable _; };
+          home-manager.users.${_.username} = {
             imports = [
               ../home
               (./. + "/${host}/home.nix")

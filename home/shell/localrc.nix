@@ -1,9 +1,9 @@
-{ username, ... }:
+{ _, ... }:
 
 let
   # Source ~/.localrc if it exists. This can be useful to add extra local shell
   # configuration per machine.
-  localrc = "/home/${username}/.localrc";
+  localrc = "/home/${_.username}/.localrc";
 in
 
 {

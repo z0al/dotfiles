@@ -15,19 +15,21 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
-      username = "z0al";
+      # holds all custom parameters
+      _ = {
+        username = "z0al";
 
-      # Possible values:
-      # - catppuccin-macchiato
-      # - catppuccin-mocha
-      # - dracula (soon)
-      theme = "catppuccin-mocha";
+        # Possible values:
+        # - catppuccin-macchiato
+        # - catppuccin-mocha
+        theme = "catppuccin-mocha";
+      };
     in
     {
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixpkgs-unstable home-manager username theme;
+          inherit inputs nixpkgs nixpkgs-unstable home-manager _;
         }
       );
     };

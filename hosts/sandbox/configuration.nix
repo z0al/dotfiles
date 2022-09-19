@@ -1,4 +1,4 @@
-{ username, ... }:
+{ _, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   # User Management
-  users.users.${username} = {
+  users.users.${_.username} = {
     # Allow mounting & accessing of shared folders.
     extraGroups = [ "vboxsf" ];
     password = "demo";
@@ -16,7 +16,7 @@
   services.xserver.displayManager = {
     autoLogin = {
       enable = true;
-      user = "${username}";
+      user = "${_.username}";
     };
   };
 

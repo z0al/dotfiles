@@ -1,4 +1,4 @@
-{ pkgs-unstable, theme, ... }:
+{ pkgs-unstable, _, ... }:
 
 {
   programs = {
@@ -7,7 +7,7 @@
       package = pkgs-unstable.zellij;
 
       settings = {
-        inherit theme;
+        inherit (_) theme;
 
         default_mode = "locked";
         pane_frames = false;

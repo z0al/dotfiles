@@ -8,10 +8,6 @@
       userName = "Ahmed T. Ali";
       userEmail = "z0al@users.noreply.github.com";
 
-      extraConfig = {
-        init.defaultBranch = "main";
-      };
-
       signing = {
         key = "DD0C59367BABDC35";
         signByDefault = true;
@@ -22,6 +18,11 @@
         br = "branch";
         st = "status";
         cm = "commit -m";
+      };
+
+      extraConfig = {
+        init.defaultBranch = "main";
+        credential.helper = "store";
       };
 
       # https://dandavison.github.io/delta

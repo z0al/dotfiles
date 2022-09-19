@@ -1,4 +1,4 @@
-{ pkgs-unstable, username, ... }:
+{ pkgs-unstable, _, ... }:
 
 {
   imports = [
@@ -8,8 +8,8 @@
   ];
 
   home = {
-    username = "${username}";
-    homeDirectory = "/home/${username}";
+    username = "${_.username}";
+    homeDirectory = "/home/${_.username}";
 
     stateVersion = "22.05";
   };

@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, inputs, username, ... }:
+{ pkgs, nixpkgs, inputs, _, ... }:
 
 {
   # System
@@ -19,7 +19,7 @@
   };
 
   # User Management
-  users.users.${username} = {
+  users.users.${_.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
   };

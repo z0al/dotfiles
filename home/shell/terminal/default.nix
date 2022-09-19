@@ -1,11 +1,11 @@
-{ theme, ... }:
+{ _, ... }:
 let
   profile = import ./profile.nix;
 in
 
 {
   imports = [
-    (./themes + "/${theme}.nix")
+    (./themes + "/${_.theme}.nix")
   ];
 
   programs.gnome-terminal = {

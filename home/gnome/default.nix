@@ -8,10 +8,7 @@
   dconf = {
     settings = {
       "org/gnome/desktop/interface" = {
-        # Use Dark style
         color-scheme = "prefer-dark";
-
-        # gtk-theme = "Adwaita-dark";
       };
     };
   };
