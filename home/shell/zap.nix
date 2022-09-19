@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs-unstable, ... }:
 
 {
   home.shellAliases = {
@@ -7,6 +7,8 @@
 
   programs.zoxide = {
     enable = true;
+    package = pkgs-unstable.zoxide;
+
     options = [ "--no-cmd" ];
 
     enableBashIntegration = true;

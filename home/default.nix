@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ pkgs-unstable, username, ... }:
 
 {
   imports = [
@@ -21,7 +21,7 @@
   dconf.enable = true;
 
   # Programs
-  home.packages = with pkgs; [
+  home.packages = with pkgs-unstable; [
     logseq
     spotify
   ];

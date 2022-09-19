@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixpkgs, inputs, username, ... }:
+{ pkgs, nixpkgs, inputs, username, ... }:
 
 {
   # System

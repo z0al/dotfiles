@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, home-manager, username, theme, ... }:
+{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, username, theme, ... }:
 
 let
   system = "x86_64-linux";
@@ -10,12 +10,17 @@ let
 
   lib = nixpkgs.lib;
 
+  pkgs-unstable = import nixpkgs-unstable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
   mkHost = host:
     lib.nixosSystem {
       inherit system;
 
       specialArgs = {
-        inherit inputs username theme;
+        inherit inputs pkgs-unstable username theme;
       };
 
       modules = [
@@ -28,7 +33,7 @@ let
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs username theme; };
+          home-manager.extraSpecialArgs = { inherit inputs pkgs-unstable username theme; };
           home-manager.users.${username} = {
             imports = [
               ../home

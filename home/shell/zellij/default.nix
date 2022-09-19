@@ -1,9 +1,10 @@
-{ theme, ... }:
+{ pkgs-unstable, theme, ... }:
 
 {
   programs = {
     zellij = {
       enable = true;
+      package = pkgs-unstable.zellij;
 
       settings = {
         inherit theme;

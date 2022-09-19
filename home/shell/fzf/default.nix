@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -7,6 +7,7 @@
 
   programs.fzf = {
     enable = true;
+    package = pkgs-unstable.fzf;
 
     enableBashIntegration = true;
     enableFishIntegration = true;

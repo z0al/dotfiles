@@ -1,42 +1,25 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs-unstable, lib, ... }:
 let
-  extensionPkgs = with pkgs.gnomeExtensions; [
+  extensions = with pkgs-unstable.gnomeExtensions; [
     appindicator
     dash-to-dock
     desktop-icons-ng-ding
     pop-shell
+    rounded-window-corners
     user-themes
   ];
-
-  fetchExtension = id: version: sha256:
-    pkgs.fetchzip {
-      inherit sha256;
-      stripRoot = false;
-      url = "https://extensions.gnome.org/extension-data/${
-        builtins.replaceStrings [ "@" ] [ "" ] id
-      }.v${builtins.toString version}.shell-extension.zip";
-    };
 in
 {
   # Install packages
-  home.packages = extensionPkgs;
-
-  ## Manually installed extensions
-  home.file.".local/share/gnome-shell/extensions/rounded-window-corners@yilozt" = {
-    recursive = true;
-    source = fetchExtension "rounded-window-corners@yilozt" 7 "TitEL2EiBSA27uK9csGw55+YlrsA+zUFrjl47JeydU4=";
-  };
+  home.packages = extensions;
 
   # Enable extensions
   dconf.settings."org/gnome/shell" = {
     disable-user-extensions = false;
-
-    enabled-extensions =
-      (map (e: e.extensionUuid) extensionPkgs) ++
-      [
-        "rounded-window-corners@yilozt"
-      ];
+    enabled-extensions = (map (e: e.extensionUuid) extensions);
   };
+
+  # Configurations
 
   ## Dash to Dock
   dconf.settings."org/gnome/shell/extensions/dash-to-dock" = {
