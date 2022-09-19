@@ -24,7 +24,7 @@ in
   ## Manually installed extensions
   home.file.".local/share/gnome-shell/extensions/rounded-window-corners@yilozt" = {
     recursive = true;
-    source = fetchExtension "rounded-window-corners@yilozt" 7 "Qu4yB9woCHr+orW0Qqz3MOfxG1WjEFMLGpSZxngU+hs=";
+    source = fetchExtension "rounded-window-corners@yilozt" 7 "TitEL2EiBSA27uK9csGw55+YlrsA+zUFrjl47JeydU4=";
   };
 
   # Enable extensions
