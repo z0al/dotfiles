@@ -41,9 +41,12 @@
 
   environment.gnome.excludePackages = with pkgs; [
     epiphany
-    gnome-tour
-    gnome.gnome-music
     gnome-console
+    gnome-photos
+    gnome-tour
+    gnome.geary
+    gnome.gnome-music
+    gnome.gnome-screenshot
   ];
 
   # Default Shell

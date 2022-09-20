@@ -2,8 +2,9 @@
 
 {
   imports = [
+    ./desktop
     ./dev
-    ./gnome
+    ./services
     ./shell
   ];
 

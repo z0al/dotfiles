@@ -45,6 +45,13 @@ in
     disable-overview-on-startup = true;
   };
 
+  ## Pop Shell
+  dconf.settings."org/gnome/shell/extensions/pop-shell" = {
+    tile-by-default = true;
+    show-title = true;
+    gap-outer = 1;
+  };
+
   ## Rounded Window Corners
   dconf.settings."org/gnome/shell/extensions/rounded-window-corners" = {
     skip-libadwaita-app = true;
@@ -57,12 +64,5 @@ in
       __toString = self:
         "@a{sv} ${self.value}";
     };
-  };
-
-  ## Pop Shell
-  dconf.settings."org/gnome/shell/extensions/pop-shell" = {
-    tile-by-default = true;
-    show-title = true;
-    gap-outer = 1;
   };
 }
