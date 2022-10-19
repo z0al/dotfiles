@@ -21,7 +21,7 @@
   # User Management
   users.users.${_.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" ];
   };
 
   # Enable the X11 windowing system
@@ -72,12 +72,23 @@
       ## Editors
       vim
 
+      ## Languages
+      nodejs
+
+      python3
+      python3.pkgs.pip
+
+      rustc
+      cargo
+
       ## Utils
+      cmake
       curl
       fd
       flameshot
       fzf
       git
+      gnumake
       gnupg
       killall
       pfetch
