@@ -1,12 +1,12 @@
-{ config, pkgs-unstable, lib, ... }:
+{ pkgs, pkgs-unstable, ... }:
 let
   extensions = with pkgs-unstable.gnomeExtensions; [
     appindicator
     dash-to-dock
     desktop-icons-ng-ding
+    native-window-placement
     pop-shell
     rounded-window-corners
-    user-themes
   ];
 in
 {
@@ -43,6 +43,18 @@ in
     custom-background-color = false;
     background-color = "#000";
     disable-overview-on-startup = true;
+  };
+
+  ## Desktop Icons
+  dconf.settings."org/gnome/shell/extensions/ding" = {
+    icon-size = "standard";
+    start-corner = "top-left";
+    show-home = false;
+    show-trash = false;
+    show-volumes = false;
+    show-network-volumes = false;
+    show-drop-place = true;
+    dark-text-in-labels = false;
   };
 
   ## Pop Shell

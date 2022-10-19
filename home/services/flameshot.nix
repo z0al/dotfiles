@@ -1,8 +1,9 @@
-{ _, ... }:
+{ pkgs-unstable, _, ... }:
 
 {
   services.flameshot = {
     enable = true;
+    package = pkgs-unstable.flameshot;
 
     settings = {
       General = {
