@@ -1,26 +1,13 @@
 { pkgs, nixpkgs, inputs, _, ... }:
 
 {
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
   # System
   system.stateVersion = "22.05";
   nixpkgs.config.allowUnfree = true;
-
-  # Boot
-  boot = {
-    kernelPackages = pkgs.linuxPackages;
-
-    loader = {
-      timeout = 1;
-
-      # Use the systemd-boot EFI boot loader
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 50;
-      };
-
-      efi.canTouchEfiVariables = true;
-    };
-  };
 
   # User Management
   users.users.${_.username} = {
