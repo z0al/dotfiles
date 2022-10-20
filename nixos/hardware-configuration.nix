@@ -5,9 +5,15 @@
     loader = {
       timeout = 1;
 
-      # Use the systemd-boot EFI boot loader
-      systemd-boot = {
+      # Use the GRUB 2 boot loader
+      grub = {
         enable = true;
+        version = 2;
+        useOSProber = true;
+
+        device = "nodev";
+        efiSupport = true;
+
         configurationLimit = 50;
       };
 
