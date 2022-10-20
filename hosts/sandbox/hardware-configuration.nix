@@ -8,11 +8,7 @@
     kernelModules = [ "kvm-amd" ];
 
     loader = {
-      grub = {
-        enable = true;
-        version = 2;
-        device = "/dev/sda";
-      };
+      grub.device = "/dev/sda";
     };
 
     initrd.availableKernelModules = [
@@ -23,6 +19,11 @@
       "sd_mod"
       "sr_mod"
     ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "ext4";
   };
 
   fileSystems."/" = {
