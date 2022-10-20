@@ -7,10 +7,6 @@
   boot = {
     kernelModules = [ "kvm-amd" ];
 
-    loader = {
-      grub.device = "/dev/sda";
-    };
-
     initrd.availableKernelModules = [
       "ata_piix"
       "ohci_pci"

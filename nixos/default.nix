@@ -12,14 +12,12 @@
     loader = {
       timeout = 1;
 
-      grub = {
+      # Use the systemd-boot EFI boot loader
+      systemd-boot = {
         enable = true;
-        version = 2;
         configurationLimit = 50;
       };
 
-      # Use the systemd-boot EFI boot loader
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
   };
