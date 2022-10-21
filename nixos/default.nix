@@ -1,44 +1,26 @@
-{ pkgs, nixpkgs, inputs, _, ... }:
+{ pkgs, nixpkgs, _, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ./docker
+    ./gnome
+    ./nix
   ];
 
   # System
   system.stateVersion = "22.05";
+
   nixpkgs.config.allowUnfree = true;
 
   # User Management
   users.users.${_.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" ];
+    extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
   };
 
   # Enable the X11 windowing system
   services.xserver.enable = true;
-
-  # Enable the GNOME desktop environment
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.defaultSession = "gnome-xorg";
-
-  services.gnome = {
-    games.enable = false;
-    core-developer-tools.enable = false;
-  };
-
-  programs.gnome-terminal.enable = true;
-
-  environment.gnome.excludePackages = with pkgs; [
-    epiphany
-    gnome-console
-    gnome-photos
-    gnome-tour
-    gnome.geary
-    gnome.gnome-music
-    gnome.gnome-screenshot
-  ];
 
   # Default Shell
   users.defaultUserShell = pkgs.fish;
@@ -101,27 +83,4 @@
       })
     ];
   };
-
-  # Nix
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-    };
-
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 10d";
-    };
-
-    package = pkgs.nixFlakes;
-    registry.nixpkgs.flake = inputs.nixpkgs;
-
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  # Virtualization
-  virtualisation.docker.enable = true;
 }
