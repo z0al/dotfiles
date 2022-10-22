@@ -11,6 +11,10 @@
   # System
   system.stateVersion = "22.05";
 
+  nixpkgs.overlays = [
+    (import ../overlays/zellij)
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   # User Management
