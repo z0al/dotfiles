@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, _, ... }:
+{ pkgs, _, ... }:
 
 {
   imports = [
@@ -25,6 +25,15 @@
 
   # Enable the X11 windowing system
   services.xserver.enable = true;
+
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   # Default Shell
   users.defaultUserShell = pkgs.fish;
