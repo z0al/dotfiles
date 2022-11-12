@@ -1,29 +1,27 @@
-{ pkgs-unstable, _, ... }:
+{ digga, ... }:
 
 {
-  imports = [
-    ./desktop
-    ./dev
-    ./services
-    ./shell
-  ];
+  imports = [ ];
+  modules = [ ];
 
-  home = {
-    username = "${_.username}";
-    homeDirectory = "/home/${_.username}";
+  importables = rec {
+    profiles = digga.lib.rakeLeaves ./profiles;
 
-    stateVersion = "22.05";
+    suites = with profiles; rec {
+      base = [
+        common
+        term
+        dev.common
+        apps.common
+      ];
+
+      sandbox = [ base ];
+    };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # Used to configuer themes, keybindings, etc.
-  dconf.enable = true;
-
-  # Programs
-  home.packages = with pkgs-unstable; [
-    logseq
-    spotify
-  ];
+  users = {
+    z0al = { suites, ... }: {
+      imports = suites.base;
+    };
+  };
 }

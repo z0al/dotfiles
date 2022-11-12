@@ -1,0 +1,3 @@
+{
+  "ctrl+c" = "interrupt";
+}

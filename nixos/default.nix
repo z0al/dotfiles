@@ -1,99 +1,23 @@
-{ pkgs, _, ... }:
+{ hm, digga, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./docker
-    ./gnome
-    ./nix
-  ];
-
-  # System
-  system.stateVersion = "22.05";
-
-  nixpkgs.overlays = [
-    (import ../overlays/zellij)
-  ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  # User Management
-  users.users.${_.username} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
-  };
-
-  # Enable the X11 windowing system
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Default Shell
-  users.defaultUserShell = pkgs.fish;
-
-  # Environment
-  environment = {
-    shells = [ pkgs.fish ];
-
-    # Enable bash completion for system packages
-    # https://nix-community.github.io/home-manager/options.html#opt-programs.bash.enableCompletion
-    pathsToLink = [ "/share/bash-completion" ];
-
-    systemPackages = with pkgs; [
-      # Shells
-      bash
-      fish
-
-      ## Web
-      brave
-      firefox
-
-      ## Editors
-      vim
-
-      ## Languages
-      nodejs
-
-      python3
-      python3.pkgs.pip
-
-      rustc
-      cargo
-
-      ## Utils
-      cmake
-      curl
-      fd
-      flameshot
-      fzf
-      git
-      gnumake
-      gnupg
-      killall
-      pfetch
-      ripgrep
+  hostDefaults = {
+    system = "x86_64-linux";
+    channelName = "stable";
+    modules = [
+      digga.nixosModules.nixConfig
+      hm.nixosModules.home-manager
     ];
   };
 
-  # Localization
-  time.timeZone = "Europe/Berlin";
-  i18n.defaultLocale = "en_US.UTF-8";
+  imports = [ (digga.lib.importHosts ./hosts) ];
 
-  # Fonts
-  fonts = {
-    enableDefaultFonts = true;
+  importables = rec {
+    profiles = digga.lib.rakeLeaves ./profiles;
+    suites = with profiles; rec {
+      base = [ common boot.grub desktop.gnome ];
 
-    fonts = with pkgs; [
-      (nerdfonts.override {
-        fonts = [ "FiraCode" ];
-      })
-    ];
+      sandbox = [ base ];
+    };
   };
 }

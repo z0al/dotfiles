@@ -2,34 +2,41 @@
   description = "My NixOS ❄ Configuration";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-22.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hm.url = "github:nix-community/home-manager/release-22.05";
+    hm.inputs.nixpkgs.follows = "stable";
+
+    digga.url = "github:divnix/digga/v0.11.0";
+    digga.inputs.nixlib.follows = "stable";
+    digga.inputs.nixpkgs.follows = "stable";
+    digga.inputs.home-manager.follows = "hm";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
-    let
-      # holds all custom parameters
-      _ = {
-        username = "z0al";
+  outputs =
+    { self
+    , nixpkgs
+    , stable
+    , hm
+    , digga
+    , ...
+    } @ inputs:
+    digga.lib.mkFlake
+      {
+        inherit self inputs;
 
-        # Possible values:
-        # - catppuccin-macchiato
-        # - catppuccin-mocha
-        theme = "catppuccin-mocha";
+        channelsConfig = { allowUnfree = true; };
+
+        channels = {
+          stable = {
+            imports = [ (digga.lib.importOverlays ./overlays) ];
+          };
+
+          unstable = { };
+        };
+
+        nixos = import ./nixos;
+        home = import ./home;
       };
-    in
-    {
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixpkgs-unstable home-manager _;
-        }
-      );
-    };
 }
