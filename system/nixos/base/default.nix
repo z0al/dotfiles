@@ -12,7 +12,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Shell
-  users.defaultUserShell = [ pkgs.fish ];
+  users.defaultUserShell = pkgs.fish;
+  environment.shellAliases = {
+    open = "xdg-open &> $HOME/.xdg-open.log";
+  };
 
   # File Systems
   fileSystems."/boot/efi" = {

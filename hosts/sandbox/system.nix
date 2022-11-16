@@ -1,18 +1,11 @@
 { config, lib, _, ... }:
 
 {
-  # FIXME: use _.sysModules
-  imports = [
-    ../../system/nixos/base
-    ../../system/nixos/gnome
-    ../../system/nixos/boot/grub.nix
+  imports = with _.sysModules; [
+    base
+    boot.grub
+    gnome
   ];
-
-  # imports = with _.sysModules; [
-  #   base
-  #   boot.grub
-  #   gnome
-  # ];
 
   # User configuration
   users.users.${_.user} = {

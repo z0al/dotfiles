@@ -19,10 +19,7 @@
     , utils
     } @ inputs:
     let
-      _ = {
-        user = "z0al";
-      };
-
+      lib = import ./lib (utils.lib // stable.lib);
     in
     utils.lib.mkFlake {
       inherit self inputs;
@@ -31,22 +28,22 @@
         allowUnfree = true;
       };
 
+      channels = {
+        stable = { };
+        unstable = { };
+      };
+
       hostDefaults = {
         channelName = "stable";
+
         modules = [
-          # hm.nixosModules.home-manager
+          hm.nixosModules.home-manager
           ./system/shared
         ];
       };
 
-      hosts.sandbox = {
-        specialArgs = {
-          inherit _;
-        };
-
-        modules = [
-          ./hosts/sandbox
-        ];
+      hosts = utils.lib.mergeAny (lib.importHosts ./hosts) {
+        # custom host attributes go here
       };
     };
 }
