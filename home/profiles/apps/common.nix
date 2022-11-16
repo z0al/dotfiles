@@ -1,5 +1,0 @@
-{
-  imports = [
-    ./1password
-  ];
-}

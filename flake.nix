@@ -8,35 +8,45 @@
     hm.url = "github:nix-community/home-manager/release-22.05";
     hm.inputs.nixpkgs.follows = "stable";
 
-    digga.url = "github:divnix/digga/v0.11.0";
-    digga.inputs.nixlib.follows = "stable";
-    digga.inputs.nixpkgs.follows = "stable";
-    digga.inputs.home-manager.follows = "hm";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
   outputs =
     { self
-    , nixpkgs
     , stable
+    , unstable
     , hm
-    , digga
-    , ...
+    , utils
     } @ inputs:
-    digga.lib.mkFlake
-      {
-        inherit self inputs;
+    let
+      _ = {
+        user = "z0al";
+      };
 
-        channelsConfig = { allowUnfree = true; };
+    in
+    utils.lib.mkFlake {
+      inherit self inputs;
 
-        channels = {
-          stable = {
-            imports = [ (digga.lib.importOverlays ./overlays) ];
-          };
+      channelsConfig = {
+        allowUnfree = true;
+      };
 
-          unstable = { };
+      hostDefaults = {
+        channelName = "stable";
+        modules = [
+          # hm.nixosModules.home-manager
+          ./system/shared
+        ];
+      };
+
+      hosts.sandbox = {
+        specialArgs = {
+          inherit _;
         };
 
-        nixos = import ./nixos;
-        home = import ./home;
+        modules = [
+          ./hosts/sandbox
+        ];
       };
+    };
 }
