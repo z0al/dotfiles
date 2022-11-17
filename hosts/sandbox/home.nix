@@ -1,9 +1,7 @@
-{ _, ... }:
+{ profiles, ... }:
 
 {
-
-  # imports = with _.hmModules; [
-  #   base
-  #   term
-  # ];
+  imports = with profiles; [
+    base
+  ];
 }

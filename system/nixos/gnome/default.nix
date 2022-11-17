@@ -29,7 +29,7 @@
   };
 
   programs = {
-    gnome-terminal.enable = true;
+    gnome-terminal.enable = false;
     gnome-disks.enable = true;
     evince.enable = true; #           # Document viewer
     file-roller.enable = true; #      # Archive manager

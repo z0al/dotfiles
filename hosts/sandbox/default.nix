@@ -1,14 +1,17 @@
-{ config, lib, _, ... }:
+{ config, lib, user, profiles, ... }:
 
 {
-  imports = with _.sysModules; [
+  imports = with profiles; [
     base
-    boot.grub
     gnome
   ];
 
   # User configuration
-  users.users.${_.user} = {
+  home-manager.users.${user} = {
+    imports = [ ./home.nix ];
+  };
+
+  users.users.${user} = {
     extraGroups = [ "vboxsf" ];
     password = "demo";
   };

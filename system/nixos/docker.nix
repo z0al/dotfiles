@@ -1,4 +1,4 @@
-{ _, ... }:
+{ user, ... }:
 
 {
   virtualisation.docker = {
@@ -6,5 +6,5 @@
     autoPrune.enable = true;
   };
 
-  users.users.${_.user}.extraGroups = [ "docker" ];
+  users.users.${user}.extraGroups = [ "docker" ];
 }

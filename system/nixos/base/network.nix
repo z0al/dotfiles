@@ -1,6 +1,6 @@
-{ _, ... }:
+{ user, ... }:
 
 {
   networking.networkmanager.enable = true;
-  users.users.${_.user}.extraGroups = [ "networkmanager" ];
+  users.users.${user}.extraGroups = [ "networkmanager" ];
 }
