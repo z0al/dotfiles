@@ -30,14 +30,25 @@
       inherit (utils.lib) mkFlake;
       inherit (digga.lib) rakeLeaves;
 
+      user = "z0al";
+
       mkImportables = dir: {
-        user = "z0al";
+        inherit user;
         profiles = (rakeLeaves dir);
       };
 
-      importHosts = dir:
+      mkHmConfig = mod: {
+        home-manager = {
+          users.${user}.imports = [ mod ];
+          extraSpecialArgs = mkImportables ./home;
+        };
+      };
+
+      mkHosts = dir:
         stable.lib.mapAttrs
-          (n: v: { modules = [ v ]; })
+          (n: v: {
+            modules = [ v.system (mkHmConfig v.home) ];
+          })
           (rakeLeaves dir);
 
     in
@@ -62,14 +73,9 @@
         modules = [
           hm.nixosModules.home-manager
           ./system/shared
-          {
-            home-manager = {
-              extraSpecialArgs = mkImportables ./home;
-            };
-          }
         ];
       };
 
-      hosts = importHosts ./hosts;
+      hosts = mkHosts ./hosts;
     };
 }

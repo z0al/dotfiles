@@ -7,10 +7,6 @@
   ];
 
   # User configuration
-  home-manager.users.${user} = {
-    imports = [ ./home.nix ];
-  };
-
   users.users.${user} = {
     extraGroups = [ "vboxsf" ];
     password = "demo";
