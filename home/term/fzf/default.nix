@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   # imports = [
   #   (./themes + "/${theme}.nix")

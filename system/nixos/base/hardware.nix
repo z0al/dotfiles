@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   hardware = {
     bluetooth.enable = true;

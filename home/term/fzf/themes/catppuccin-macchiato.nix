@@ -1,5 +1,4 @@
 # https://github.com/catppuccin/fzf
-{ ... }:
 {
   programs.fzf.defaultOptions = [
     "--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 "
