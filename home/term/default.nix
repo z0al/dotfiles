@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bat
     ./fzf
     ./kitty
     ./shell

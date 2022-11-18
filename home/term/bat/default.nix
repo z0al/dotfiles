@@ -1,3 +1,5 @@
+{ lib, theme, ... }:
+
 {
   home.shellAliases = {
     "cat" = "bat";
@@ -5,9 +7,9 @@
 
   programs.bat = {
     enable = true;
-    # config = {
-    #   inherit theme;
-    # };
+    config = {
+      theme = lib.toLower theme;
+    };
   };
 
   home.file.".config/bat/themes" = {

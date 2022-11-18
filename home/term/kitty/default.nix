@@ -1,3 +1,5 @@
+{ theme, ... }:
+
 {
   home.sessionVariables = {
     TERMINAL = "kitty";
@@ -11,10 +13,8 @@
       size = 11;
     };
 
-    theme = "Catppuccin-Mocha";
-
+    theme = theme;
     keybindings = import ./keybindings.nix;
-
     settings = { };
   };
 }

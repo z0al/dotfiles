@@ -1,6 +1,4 @@
 let
-  # Source ~/.localrc if it exists. This can be useful to add extra local shell
-  # configuration per machine.
   path = "$HOME/.localrc";
 in
 

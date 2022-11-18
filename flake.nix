@@ -10,7 +10,7 @@
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
-    # Literally only included for these helpers:
+    # Only included for the use of these helpers:
     # - rakeLeaves
     # - flattenTree
     digga.url = "github:divnix/digga/v0.11.0";
@@ -33,8 +33,15 @@
 
       user = "z0al";
 
+      # Supported values:
+      # - Catppuccin-Mocha
+      # - Catppuccin-Macchiato
+      theme =
+        let value = builtins.getEnv "THEME"; in
+        if value != "" then value else "Catppuccin-Mocha";
+
       mkImportables = dir: {
-        inherit user;
+        inherit user theme;
         profiles = (rakeLeaves dir);
       };
 

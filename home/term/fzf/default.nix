@@ -1,7 +1,9 @@
+{ lib, theme, ... }:
+
 {
-  # imports = [
-  #   (./themes + "/${theme}.nix")
-  # ];
+  imports = [
+    (./themes + "/${lib.toLower theme}.nix")
+  ];
 
   programs.fzf = rec {
     enable = true;
