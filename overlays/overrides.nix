@@ -7,7 +7,7 @@ channels: final: prev: {
     bat
     fd
     fzf
-    kitty
+    # kitty
     kitty-themes
     starship
     zoxide
