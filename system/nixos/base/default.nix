@@ -5,6 +5,7 @@
     ./grub.nix
     ./hardware.nix
     ./network.nix
+    ./pkgs.nix
     ./users.nix
   ];
 

@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     # Web
     brave
+    firefox-devedition-bin
 
     # Development
     neovim

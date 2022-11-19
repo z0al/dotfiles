@@ -46,14 +46,4 @@
     gnome.gnome-terminal
     gnome.yelp
   ];
-
-  # Gnome Circle Apps
-  environment.systemPackages = with pkgs; [
-    # dialect
-    gnome-obfuscate
-    metadata-cleaner
-    newsflash
-    # video-trimmer
-    # warp
-  ];
 }
