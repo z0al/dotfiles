@@ -33,6 +33,7 @@ in
 
   dconf.settings."${prefix}/panel" = {
     blur = true;
+    customize = false;
     override-background = true;
     override-background-dynamically = false;
     style-panel = 0;

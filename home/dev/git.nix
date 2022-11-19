@@ -1,5 +1,18 @@
+let
+  aliases = {
+    ga = "g add .";
+    gb = "g branch";
+    gcm = "g commit -m \"";
+    gco = "g checkout";
+    gl = "g log";
+    gs = "g status";
+  };
+in
 {
   programs = {
+    bash.shellAliases = aliases;
+    fish.shellAbbrs = aliases;
+
     git = {
       enable = true;
 
@@ -11,17 +24,17 @@
         signByDefault = true;
       };
 
-      aliases = {
-        ad = "add .";
-        br = "branch";
-        cm = "commit -m";
-        co = "checkout";
-        st = "status";
-        lg = "log --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)%ah%C(reset) %C(magenta)%an%C(reset) %C(white)%s%C(reset) %C(bold yellow)%d%C(reset)' --all";
-      };
-
       extraConfig = {
         init.defaultBranch = "main";
+
+        log = {
+          decorate = true;
+          abbrevCommit = true;
+          date = "format-local:%b %d, %Y";
+        };
+
+        format.pretty = "fancy";
+        pretty.fancy = "%C(bold blue)%h%C(reset) %C(bold green)%ad%C(reset) %C(white)%<(50,trunc)%s%C(reset) %C(magenta)%an%C(reset)";
       };
 
       # https://dandavison.github.io/delta
