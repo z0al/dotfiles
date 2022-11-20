@@ -1,11 +1,13 @@
 let
   aliases = {
-    ga = "g add .";
-    gb = "g branch";
-    gcm = "g commit -m \"";
-    gco = "g checkout";
-    gl = "g log";
-    gs = "g status";
+    g = "git status";
+    ga = "git add .";
+    gcm = "git commit";
+    gco = "git checkout";
+    gd = "git diff";
+    gl = "git log";
+    grs = "git restore";
+    gs = "git xswitch";
   };
 in
 {
@@ -22,6 +24,10 @@ in
       signing = {
         key = "DD0C59367BABDC35";
         signByDefault = true;
+      };
+
+      aliases = {
+        xswitch = "!git branch -a --format='%(refname:short)' | sed 's~origin/~~' | sed '/HEAD/d' | sort | uniq | fzf | xargs git checkout";
       };
 
       extraConfig = {

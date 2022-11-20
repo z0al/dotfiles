@@ -15,9 +15,6 @@
 
   # Shell
   users.defaultUserShell = pkgs.fish;
-  environment.shellAliases = {
-    open = "xdg-open &> $HOME/.xdg-open.log";
-  };
 
   # File Systems
   fileSystems."/boot/efi" = {
