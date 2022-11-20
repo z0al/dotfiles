@@ -15,7 +15,7 @@ channels: final: prev: {
 
     # Development
     neovim
-    vscode
+    # vscode
     vscode-extensions
 
     # Gnome

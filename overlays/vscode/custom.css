@@ -1,0 +1,38 @@
+#asvetliakov\.vscode-neovim {
+	background: #e0af68;
+	color: black;
+}
+
+#asvetliakov\.vscode-neovim[aria-label="-- NORMAL --"],
+#asvetliakov\.vscode-neovim[aria-label="-- NORMAL --"]
+	+ #asvetliakov\.vscode-neovim {
+	background: #7aa2f7;
+	color: black;
+}
+
+#asvetliakov\.vscode-neovim[aria-label="-- INSERT --"],
+#asvetliakov\.vscode-neovim[aria-label="-- INSERT --"]
+	+ #asvetliakov\.vscode-neovim {
+	background: #9ece6a;
+	color: black;
+}
+
+#asvetliakov\.vscode-neovim[aria-label="-- VISUAL --"],
+#asvetliakov\.vscode-neovim[aria-label="-- SELECT --"],
+#asvetliakov\.vscode-neovim[aria-label="-- VISUAL --"]
+	+ #asvetliakov\.vscode-neovim,
+#asvetliakov\.vscode-neovim[aria-label="-- SELECT --"]
+	+ #asvetliakov\.vscode-neovim {
+	background: #bb9af7;
+	color: black;
+}
+
+#asvetliakov\.vscode-neovim[aria-label="-- REPLACE --"],
+#asvetliakov\.vscode-neovim[aria-label="-- VREPLACE --"],
+#asvetliakov\.vscode-neovim[aria-label="-- REPLACE --"]
+	+ #asvetliakov\.vscode-neovim,
+#asvetliakov\.vscode-neovim[aria-label="-- VREPLACE --"]
+	+ #asvetliakov\.vscode-neovim {
+	background: #f7768e;
+	color: black;
+}
