@@ -26,6 +26,7 @@ channels: final: prev: {
     _1password-gui
     android-studio
     brave
+    eyedropper
     firefox-devedition-bin
     logseq
     zoom-us
