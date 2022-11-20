@@ -7,8 +7,8 @@ in
 {
   imports = [
     ./extensions/neovim.nix
+    ./extensions/prettier.nix
   ];
-
 
   programs.vscode.userSettings = {
     # Editor
@@ -36,17 +36,28 @@ in
     "window.menuBarVisibility" = "toggle";
     "window.zoomLevel" = 0.5;
 
+    # Security
+    "security.workspace.trust.enabled" = false;
+
     # Features
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
     "search.showLineNumbers" = false;
     "debug.console.fontSize" = 13;
+
+    # Terminal
+    "terminal.integrated.fontSize" = 13;
     "terminal.explorerKind" = "external";
     "terminal.external.linuxExec" = "kitty";
+    "terminal.external.osxExec" = "kitty";
     "terminal.integrated.tabs.enabled" = false;
-    "terminal.integrated.fontSize" = 13;
 
-    # Security
-    "security.workspace.trust.enabled" = false;
+    # Git
+    "git.autofetch" = true;
+    "git.autoStash" = true;
+    "git.pullTags" = true;
+    "git.enableCommitSigning" = true;
+    "git.alwaysSignOff" = true;
+    "git.suggestSmartCommit" = false;
   };
 }

@@ -15,6 +15,8 @@
 
     theme = theme;
     keybindings = import ./keybindings.nix;
-    settings = { };
+    settings = {
+      confirm_os_window_close = 0;
+    };
   };
 }
