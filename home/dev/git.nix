@@ -1,3 +1,5 @@
+{ lib, theme, ... }:
+
 let
   aliases = {
     g = "git status";
@@ -8,6 +10,7 @@ let
     gl = "git log";
     grs = "git restore";
     gs = "git xswitch";
+    gv = "git show --format=medium";
   };
 in
 {
@@ -39,8 +42,8 @@ in
           date = "format-local:%b %d, %Y";
         };
 
-        format.pretty = "fancy";
-        pretty.fancy = "%C(bold blue)%h%C(reset) %C(bold green)%ad%C(reset) %C(white)%<(50,trunc)%s%C(reset) %C(magenta)%an%C(reset)";
+        format.pretty = "github";
+        pretty.github = "%C(bold blue)%h%C(reset) %C(bold green)%ad%C(reset) %C(white)%<(50,trunc)%s%C(reset) %C(magenta)%an%C(reset)";
       };
 
       # https://dandavison.github.io/delta
@@ -49,10 +52,9 @@ in
 
         options = {
           line-numbers = true;
-          features = "decorations";
-          decorations = {
-            hunk-header-style = "omit";
-          };
+          # Note: compatible with Bat themes
+          syntax-theme = lib.toLower theme;
+          hunk-header-style = "omit";
         };
       };
     };
