@@ -20,6 +20,7 @@
       dbaeumer.vscode-eslint
       dotjoshjohnson.xml
       dracula-theme.theme-dracula
+      eamodio.gitlens
       editorconfig.editorconfig
       esbenp.prettier-vscode
       github.copilot

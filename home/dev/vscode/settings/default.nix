@@ -6,6 +6,7 @@ in
 
 {
   imports = [
+    ./extensions/git-lens.nix
     ./extensions/neovim.nix
     ./extensions/prettier.nix
     ./extensions/spell-check.nix
