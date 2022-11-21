@@ -1,25 +1,63 @@
-#asvetliakov\.vscode-neovim {
-	color: #f9e2af;
+/* Command Palette */
+.quick-input-widget {
+	top: 35% !important;
 }
 
-#asvetliakov\.vscode-neovim[aria-label="-- NORMAL --"] {
+.quick-input-widget .quick-input-titlebar {
+	display: none;
+}
+
+/* Minimal file explorer */
+#workbench\.parts\.sidebar .actions-container {
+	display: none;
+}
+
+/* Minimal editor */
+ul.actions-container[aria-label="Editor actions"] {
+	display: none;
+}
+
+/* Minimal status bar */
+.statusbar #status\.problems,
+.statusbar #status\.feedback,
+.statusbar #status\.notifications {
+	display: none;
+}
+
+/* VSCode Neovim */
+/* FIXME: fix after VSCode November update */
+/* .statusbar:not(:has(#asvetliakov\.vscode-neovim[aria-label^="-- "]))
+	#status\.scm\.1 {
+	display: flex;
+} */
+
+.statusbar #status\.scm\.1::after {
 	background: #7aa2f7;
+	content: "-- NORMAL --";
 	color: black;
+	padding: 0px 8px;
 }
 
-#asvetliakov\.vscode-neovim[aria-label="-- INSERT --"] {
+.statusbar #asvetliakov\.vscode-neovim[aria-label="-- INSERT --"] {
 	background: #9ece6a;
 	color: black;
 }
 
-#asvetliakov\.vscode-neovim[aria-label="-- VISUAL --"],
-#asvetliakov\.vscode-neovim[aria-label="-- SELECT --"] {
+.statusbar #asvetliakov\.vscode-neovim[aria-label^="-- VISUAL "] {
 	background: #bb9af7;
 	color: black;
 }
 
-#asvetliakov\.vscode-neovim[aria-label="-- REPLACE --"],
-#asvetliakov\.vscode-neovim[aria-label="-- VREPLACE --"] {
+.statusbar #asvetliakov\.vscode-neovim[aria-label$="REPLACE --"] {
 	background: #f7768e;
 	color: black;
+}
+
+.statusbar #asvetliakov\.vscode-neovim[aria-label^="-- SELECT "] {
+	background: red;
+	color: black;
+}
+
+.statusbar #asvetliakov\.vscode-neovim {
+	color: #f9e2af;
 }

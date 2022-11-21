@@ -8,6 +8,7 @@ in
   imports = [
     ./extensions/neovim.nix
     ./extensions/prettier.nix
+    ./extensions/spell-check.nix
   ];
 
   programs.vscode.userSettings = {
@@ -24,6 +25,7 @@ in
     "diffEditor.ignoreTrimWhitespace" = false;
     "editor.minimap.enabled" = false;
     "editor.inlineSuggest.enabled" = true;
+    "editor.renderWhitespace" = "none";
     "files.autoSave" = "off";
 
     # Workbench
@@ -39,11 +41,10 @@ in
     # Security
     "security.workspace.trust.enabled" = false;
 
-    # Features
+    # Explorer
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
-    "search.showLineNumbers" = false;
-    "debug.console.fontSize" = 13;
+    "explorer.openEditors.visible" = 0;
 
     # Terminal
     "terminal.integrated.fontSize" = 13;
@@ -59,5 +60,9 @@ in
     "git.enableCommitSigning" = true;
     "git.alwaysSignOff" = true;
     "git.suggestSmartCommit" = false;
+
+    # Other
+    "search.showLineNumbers" = false;
+    "debug.console.fontSize" = 13;
   };
 }
