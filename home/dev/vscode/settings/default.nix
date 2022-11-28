@@ -6,14 +6,16 @@ in
 
 {
   imports = [
+    ./extensions/neovim
     ./extensions/git-lens.nix
-    ./extensions/neovim.nix
     ./extensions/prettier.nix
     ./extensions/spell-check.nix
+    ./extensions/which-key.nix
   ];
 
   programs.vscode.userSettings = {
     # Editor
+    "files.autoSave" = "off";
     "editor.insertSpaces" = false;
     "editor.lineNumbers" = "on";
     "editor.useTabStops" = true;
@@ -23,11 +25,12 @@ in
     "editor.fontFamily" = "'Fira Code', 'FiraCode Nerd Font'";
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
-    "diffEditor.ignoreTrimWhitespace" = false;
+    "editor.occurrencesHighlight" = false;
+    "editor.selectionHighlight" = false;
     "editor.minimap.enabled" = false;
     "editor.inlineSuggest.enabled" = true;
     "editor.renderWhitespace" = "none";
-    "files.autoSave" = "off";
+    "diffEditor.ignoreTrimWhitespace" = false;
 
     # Workbench
     "workbench.colorTheme" = vsTheme;

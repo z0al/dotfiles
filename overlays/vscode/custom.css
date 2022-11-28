@@ -7,17 +7,17 @@
 	display: none;
 }
 
-/* Minimal file explorer */
-#workbench\.parts\.sidebar .actions-container {
+/* File explorer */
+#workbench\.parts\.sidebar:not(:hover) .actions-container {
 	display: none;
 }
 
-/* Minimal editor */
+/* Editor */
 ul.actions-container[aria-label="Editor actions"] {
 	display: none;
 }
 
-/* Minimal status bar */
+/* Status bar */
 .statusbar #status\.problems,
 .statusbar #status\.feedback,
 .statusbar #status\.notifications {
