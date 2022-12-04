@@ -17,6 +17,7 @@
     keybindings = import ./keybindings.nix;
     settings = {
       confirm_os_window_close = 0;
+      linux_display_server = "x11";
     };
   };
 }
