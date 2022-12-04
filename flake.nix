@@ -2,10 +2,10 @@
   description = "My NixOS ❄ Configuration";
 
   inputs = {
-    stable.url = "github:nixos/nixpkgs/nixos-22.05";
+    stable.url = "github:nixos/nixpkgs/nixos-22.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hm.url = "github:nix-community/home-manager/release-22.05";
+    hm.url = "github:nix-community/home-manager/release-22.11";
     hm.inputs.nixpkgs.follows = "stable";
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";

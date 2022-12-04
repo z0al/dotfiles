@@ -18,7 +18,10 @@
 
     displayManager = {
       gdm.enable = true;
-      defaultSession = "gnome-xorg";
+
+      # "gnome" -> Wayland
+      # "gnome-xorg" -> X11
+      defaultSession = "gnome";
     };
   };
 

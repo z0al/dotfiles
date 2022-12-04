@@ -1,7 +1,8 @@
 { pkgs, lib, ... }:
 
 let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin;
+  inherit (lib) mkIf;
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
 in
 
 {
@@ -20,12 +21,8 @@ in
 
       grep = "rg";
       mkdir = "mkdir -p";
-      open =
-        if isDarwin
-        then "open"
-        else "xdg-open &> $HOME/.xdg-open.log";
-
-      xargs = if isDarwin then "xargs" else "xargs -r";
+      open = mkIf isLinux "xdg-open &> $HOME/.xdg-open.log";
+      xargs = mkIf isLinux "xargs -r";
     };
   };
 
