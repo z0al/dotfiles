@@ -1,5 +1,11 @@
 {
-  # Cross-plateform Copy & Paste
-  "ctrl+insert" = "copy_to_clipboard";
-  "shift+insert" = "paste_from_clipboard";
+  # Copy & Paste
+  "ctrl+c" = "copy_and_clear_or_interrupt";
+  "ctrl+shift+c" = "copy_to_clipboard";
+
+  "ctrl+v" = "paste_from_clipboard";
+  "ctrl+shift+v" = "paste_from_clipboard";
+
+  # Clear selection
+  "escape" = "clear_selection";
 }
