@@ -1,13 +1,5 @@
 { pkgs, ... }:
 
-let
-  vscode-neovim = pkgs.vscode-extensions.asvetliakov.vscode-neovim.overrideAttrs (o: {
-    postPatch = (o.postPatch or "") + ''
-      substituteInPlace ./dist/extension.js \
-        --replace 'this.modeItem.hide()' '(this.modeItem.text="-- NORMAL --",this.modeItem.show())'
-    '';
-  });
-in
 {
   imports = [
     ./settings
@@ -16,14 +8,12 @@ in
   programs.vscode = {
     enable = true;
 
-    # FIXME: Temporarily disabled until we stop patching vscode-neovim
-    mutableExtensionsDir = false;
-    # enableUpdateCheck = false;
-    # enableExtensionUpdateCheck = true;
+    mutableExtensionsDir = true;
+    enableUpdateCheck = false;
+    enableExtensionUpdateCheck = true;
 
     extensions = with pkgs.vscode-extensions; [
-      # asvetliakov.vscode-neovim
-      vscode-neovim
+      asvetliakov.vscode-neovim
       bradlc.vscode-tailwindcss
       bungcip.better-toml
       catppuccin.catppuccin-vsc
@@ -37,6 +27,7 @@ in
       jnoortheen.nix-ide
       streetsidesoftware.code-spell-checker
       vspacecode.whichkey
+      # skattyadz.vscode-quick-scope
     ];
   };
 }

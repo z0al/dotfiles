@@ -7,7 +7,7 @@
     };
 
     "vscode-neovim.neovimInitVimPaths.linux" = "$HOME/.config/nvim/vscode.lua";
-    "vscode-neovim.neovimExecutablePaths.linux" = "/run/current-system/sw/bin/nvim";
+    "vscode-neovim.neovimExecutablePaths.linux" = "${pkgs.neovim-unwrapped}/bin/nvim";
   };
 
   xdg.configFile."nvim/vscode.lua".source = ./vscode.lua;

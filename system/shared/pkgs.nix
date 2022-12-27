@@ -7,7 +7,7 @@
     firefox-devedition-bin
 
     # Development
-    neovim
+    neovim-unwrapped
     nodejs
     python3
     python3.pkgs.pip
