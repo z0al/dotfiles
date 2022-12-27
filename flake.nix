@@ -8,6 +8,8 @@
     hm.url = "github:nix-community/home-manager/release-22.11";
     hm.inputs.nixpkgs.follows = "stable";
 
+    hardware.url = "github:NixOS/nixos-hardware/master";
+
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     # Only included for the use of these helpers:
@@ -24,6 +26,7 @@
     , stable
     , unstable
     , hm
+    , hardware
     , utils
     , digga
     } @ inputs:
@@ -59,7 +62,13 @@
       mkHosts = dir: overrides:
         mergeAny
           (stable.lib.mapAttrs
-            (n: v: { modules = [ v.system (mkHmConfig v.home) ]; })
+            (n: v: {
+              modules = [
+                v.system
+                (mkHmConfig v.home)
+                { networking.hostName = n; }
+              ];
+            })
             (rakeLeaves dir))
           overrides;
 

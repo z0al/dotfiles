@@ -21,7 +21,7 @@ in
     git = {
       enable = true;
 
-      userName = "z0al";
+      userName = "Ahmed T. Ali";
       userEmail = "z0al@users.noreply.github.com";
 
       signing = {

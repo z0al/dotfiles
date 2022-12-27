@@ -3,6 +3,7 @@
 {
   imports = [
     ./boot.nix
+    ./fs.nix
     ./hardware.nix
     ./network.nix
     ./pkgs.nix
@@ -11,19 +12,34 @@
 
   # Desktop
   fonts.enableDefaultFonts = true;
+
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
 
   # Shell
   users.defaultUserShell = pkgs.fish;
 
-  # File Systems
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/BOOT";
-    fsType = "vfat";
+  # Sound
+  sound.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "ext4";
-  };
+  # Security
+  # Needed for Pipewire
+  security.rtkit.enable = true;
 }
