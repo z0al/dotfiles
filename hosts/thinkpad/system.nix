@@ -1,7 +1,9 @@
-{ config, lib, inputsk, user, profiles, ... }:
+{ config, lib, inputs, user, profiles, ... }:
 
 {
   imports = [
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
 
     profiles.base
