@@ -1,5 +1,5 @@
 {
   imports = [
-    ./1password.nix
+    ./chromium.nix
   ];
 }
