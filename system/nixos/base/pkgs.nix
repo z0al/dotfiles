@@ -2,13 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # dialect
+    dialect
     eyedropper
     gnome-obfuscate
     linux-dynamic-wallpapers
     metadata-cleaner
     newsflash
-    # video-trimmer
-    # warp
+    video-trimmer
+    warp
   ];
 }

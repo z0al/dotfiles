@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./grub.nix
+    ./boot.nix
     ./hardware.nix
     ./network.nix
     ./pkgs.nix
