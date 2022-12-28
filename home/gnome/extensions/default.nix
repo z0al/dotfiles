@@ -6,7 +6,6 @@ let
     blur-my-shell
     dash-to-dock
     desktop-icons-ng-ding
-    native-window-placement
     pop-shell
     rounded-window-corners
   ];
