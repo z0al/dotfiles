@@ -4,7 +4,7 @@ let
   aliases = {
     g = "git status";
     ga = "git add .";
-    gcm = "git commit";
+    gcm = "git commit -m";
     gco = "git checkout";
     gd = "git diff";
     gl = "git log";
@@ -13,6 +13,7 @@ let
     gv = "git show --format=medium";
   };
 in
+
 {
   programs = {
     bash.shellAliases = aliases;
@@ -22,12 +23,10 @@ in
       enable = true;
 
       userName = "Ahmed T. Ali";
-      userEmail = "z0al@users.noreply.github.com";
+      userEmail = "12673605+z0al@users.noreply.github.com";
 
-      signing = {
-        key = "DD0C59367BABDC35";
-        signByDefault = true;
-      };
+      # Signing is done via the 1Password app
+      signing.signByDefault = true;
 
       aliases = {
         xswitch = "!git branch -a --format='%(refname:short)' | sed 's~origin/~~' | sed '/HEAD/d' | sort | uniq | fzf | xargs git checkout";

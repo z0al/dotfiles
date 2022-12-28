@@ -1,4 +1,4 @@
-{ lib, theme, ... }:
+{ pkgs, lib, theme, ... }:
 
 {
   home.shellAliases = {
@@ -15,6 +15,6 @@
   home.file.".config/bat/themes" = {
     recursive = true;
     source = ./themes;
-    onChange = "bat cache --build";
+    onChange = "${pkgs.bat}/bin/bat cache --build";
   };
 }

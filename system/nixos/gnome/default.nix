@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Enable the X11 windowing system
@@ -28,7 +28,9 @@
   services.gnome = {
     games.enable = false;
     core-developer-tools.enable = false;
-    gnome-keyring.enable = true;
+
+    # Disable Gnome Keyring in favor of using 1Password
+    gnome-keyring.enable = lib.mkForce false;
   };
 
   programs = {

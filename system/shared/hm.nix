@@ -16,6 +16,7 @@ in
 
     users.${user} = {
       xdg.enable = true;
+      programs.ssh.enable = true;
       programs.home-manager.enable = true;
 
       home = {
