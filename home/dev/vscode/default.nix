@@ -13,21 +13,30 @@
     enableExtensionUpdateCheck = true;
 
     extensions = with pkgs.vscode-extensions; [
-      asvetliakov.vscode-neovim
+      # Git
+      github.copilot
+      eamodio.gitlens
+
+      # Languages
       bradlc.vscode-tailwindcss
       bungcip.better-toml
-      catppuccin.catppuccin-vsc
-      dbaeumer.vscode-eslint
       dotjoshjohnson.xml
-      dracula-theme.theme-dracula
-      eamodio.gitlens
-      editorconfig.editorconfig
-      esbenp.prettier-vscode
-      github.copilot
       jnoortheen.nix-ide
-      streetsidesoftware.code-spell-checker
+
+      # Themes
+      dracula-theme.theme-dracula
+      catppuccin.catppuccin-vsc
+
+      # Vim
+      asvetliakov.vscode-neovim
       vspacecode.whichkey
       # skattyadz.vscode-quick-scope
+
+      # Formatting and linting
+      dbaeumer.vscode-eslint
+      editorconfig.editorconfig
+      esbenp.prettier-vscode
+      streetsidesoftware.code-spell-checker
     ];
   };
 }

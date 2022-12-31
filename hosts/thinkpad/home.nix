@@ -14,8 +14,6 @@
 
   # Install Okta browser extension
   programs.chromium.extensions = [
-    {
-      id = "glnpjglilkicbckjpbgcfkogebgllemb"; # Okta
-    }
+    { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # Okta
   ];
 }
