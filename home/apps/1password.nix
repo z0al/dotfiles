@@ -1,10 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    _1password
-    _1password-gui
-  ];
+  # 1password packages are installed system-wide
+  # home.packages = with pkgs; [
+  #   _1password
+  #   _1password-gui
+  # ];
 
   # Configure Git to use 1Password for signing
   programs.git = {
