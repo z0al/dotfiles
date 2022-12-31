@@ -7,6 +7,7 @@
     ./hardware.nix
     ./network.nix
     ./pkgs.nix
+    ./sound.nix
     ./users.nix
   ];
 
@@ -29,17 +30,12 @@
   # Shell
   users.defaultUserShell = pkgs.fish;
 
-  # Sound
-  sound.enable = true;
-  services.pipewire = {
+  # Security
+  security.polkit.enable = true;
+
+  programs.gnupg.agent = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+    enableSSHSupport = true;
   };
 
-  # Security
-  # Needed for Pipewire
-  security.rtkit.enable = true;
 }

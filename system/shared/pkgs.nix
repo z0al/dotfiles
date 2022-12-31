@@ -25,6 +25,7 @@
     gnupg
     killall
     kitty
+    lsof
     neofetch
     polkit
     ripgrep

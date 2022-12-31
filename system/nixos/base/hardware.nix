@@ -10,8 +10,5 @@
     };
 
     enableRedistributableFirmware = true;
-
-    # Disable PulseAudio in favor of Pipewire
-    pulseaudio.enable = false;
   };
 }
