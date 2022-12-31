@@ -16,14 +16,14 @@
       };
 
       grub = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         version = 2;
         useOSProber = true;
 
         device = "nodev";
         efiSupport = true;
 
-        enableCryptodisk = true;
+        # enableCryptodisk = false;
         configurationLimit = 25;
       };
     };
