@@ -1,15 +1,20 @@
-{ config, lib, inputs, user, profiles, ... }:
+{ config, hardware, profiles, ... }:
+
+let
+  hardwareModules = with hardware.nixosModules; [
+    lenovo-thinkpad
+    lenovo-thinkpad-x1
+    lenovo-thinkpad-x1-7th-gen
+  ];
+in
 
 {
-  imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
-
-    profiles.base
-    profiles.gnome
-    profiles.docker
-  ];
+  imports = hardwareModules ++
+    (with profiles; [
+      base
+      gnome
+      docker
+    ]);
 
   # Setup keyfile
   boot.initrd.secrets = {

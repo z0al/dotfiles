@@ -44,7 +44,7 @@
         if value != "" then value else "Catppuccin-Mocha";
 
       mkImportables = dir: {
-        inherit user theme;
+        inherit user theme hardware;
         profiles = (rakeLeaves dir);
       };
 
