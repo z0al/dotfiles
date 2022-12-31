@@ -2,12 +2,12 @@
   programs.vscode.userSettings = {
     "whichkey.sortOrder" = "alphabetically";
     "whichkey.bindings" = [
-      {
-        key = "/";
-        name = "Toggle Line Comment";
-        type = "command";
-        command = "editor.action.commentLine";
-      }
+      # {
+      #   key = "/";
+      #   name = "Toggle Line Comment";
+      #   type = "command";
+      #   command = "editor.action.commentLine";
+      # }
 
       {
         key = ";";
@@ -16,12 +16,12 @@
         command = "workbench.action.showCommands";
       }
 
-      {
-        key = "c";
-        name = "Close Buffer";
-        type = "command";
-        command = "workbench.action.closeActiveEditor";
-      }
+      # {
+      #   key = "c";
+      #   name = "Close Buffer";
+      #   type = "command";
+      #   command = "workbench.action.closeActiveEditor";
+      # }
 
       {
         key = "e";
@@ -57,6 +57,13 @@
         name = "Save";
         type = "command";
         command = "workbench.action.files.save";
+      }
+
+      {
+        key = "W";
+        name = "Save All";
+        type = "command";
+        command = "workbench.action.files.saveFiles";
       }
 
       # Git

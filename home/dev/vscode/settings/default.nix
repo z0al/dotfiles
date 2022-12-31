@@ -65,6 +65,7 @@ in
     "git.enableCommitSigning" = true;
     "git.alwaysSignOff" = true;
     "git.suggestSmartCommit" = false;
+    "git.confirmSync" = false;
 
     # Other
     "search.showLineNumbers" = false;
