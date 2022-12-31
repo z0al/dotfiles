@@ -28,4 +28,11 @@
   programs.ssh.extraConfig = ''
     IdentityAgent ~/.1password/agent.sock
   '';
+
+  # Add 1Password to startup applications (in the background)
+  xdg.configFile."autostart/1password.desktop" = {
+    text = builtins.replaceStrings
+      [ "Exec=1password" ] [ "Exec=1password --silent" ]
+      (builtins.readFile "${pkgs._1password-gui}/share/applications/1password.desktop");
+  };
 }
