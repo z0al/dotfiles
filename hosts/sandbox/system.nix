@@ -18,6 +18,8 @@
 
   # Hardware
   boot = {
+    loader.grub.enable = true;
+
     kernelModules = [ "kvm-amd" ];
 
     initrd.availableKernelModules = [

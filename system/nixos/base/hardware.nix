@@ -9,6 +9,7 @@
       enableGraphical = true;
     };
 
+    enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
 }
