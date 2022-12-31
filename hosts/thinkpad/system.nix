@@ -16,6 +16,9 @@ in
       docker
     ]);
 
+  boot.loader.grub.enable = false;
+  boot.loader.systemd-boot.enable = true;
+
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;

@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   boot = {
     loader = {
@@ -8,8 +10,13 @@
         efiSysMountPoint = "/boot/efi";
       };
 
+      systemd-boot = {
+        enable = lib.mkDefault false;
+        configurationLimit = 10;
+      };
+
       grub = {
-        enable = true;
+        enable = lib.mkDefault true;
         version = 2;
         useOSProber = true;
 
