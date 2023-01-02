@@ -16,12 +16,19 @@
         command = "workbench.action.showCommands";
       }
 
-      # {
-      #   key = "c";
-      #   name = "Close Buffer";
-      #   type = "command";
-      #   command = "workbench.action.closeActiveEditor";
-      # }
+      {
+        key = "q";
+        name = "Close Editor";
+        type = "command";
+        command = "workbench.action.closeActiveEditor";
+      }
+
+      {
+        key = "Q";
+        name = "Close All Editors";
+        type = "command";
+        command = "workbench.action.closeAllEditors";
+      }
 
       {
         key = "e";
@@ -31,8 +38,8 @@
       }
 
       {
-        key = "b";
-        name = "Find File";
+        key = "o";
+        name = "Open or switch to File";
         type = "command";
         command = "workbench.action.quickOpen";
       }
@@ -43,13 +50,6 @@
         type = "command";
         command = "vscode-neovim.send";
         args = ":noh<CR>";
-      }
-
-      {
-        key = "q";
-        name = "Quit";
-        type = "command";
-        command = "workbench.action.quit";
       }
 
       {

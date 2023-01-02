@@ -38,6 +38,7 @@ in
     "workbench.iconTheme" = "vs-seti";
     "workbench.editor.showTabs" = false;
     "workbench.activityBar.visible" = false;
+    "workbench.settings.editor" = "json";
 
     # Window
     "window.menuBarVisibility" = "toggle";
