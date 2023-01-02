@@ -16,6 +16,10 @@ in
       docker
     ]);
 
+  # Zoom doens't play well with Wayland
+  services.xserver.displayManager.defaultSession = "gnome-xorg";
+
+  # Hardware
   boot.loader.systemd-boot.enable = true;
 
   # Setup keyfile

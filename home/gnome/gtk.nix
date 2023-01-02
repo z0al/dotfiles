@@ -10,7 +10,6 @@ let
 in
 
 {
-
   gtk = {
     enable = true;
 
@@ -21,7 +20,7 @@ in
   };
 
   # File Chooser
-  # Affects Files (Nautilus) and "Open .." dialogs
+  # Affects the Files app and "Open .." dialogs
   dconf.settings."${GTK}/settings/file-chooser" = file-chooser;
   dconf.settings."${GTK4}/settings/file-chooser" = file-chooser;
 }
