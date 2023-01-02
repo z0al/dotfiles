@@ -12,6 +12,7 @@
     dialect
     eyedropper
     gnome-obfuscate
+    gnome.gnome-tweaks
     linux-dynamic-wallpapers
     metadata-cleaner
     newsflash
