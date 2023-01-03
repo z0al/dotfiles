@@ -16,6 +16,7 @@
     linux-dynamic-wallpapers
     metadata-cleaner
     newsflash
+    steam-run # Needed for running non-nixos binaries
     video-trimmer
     warp
   ];

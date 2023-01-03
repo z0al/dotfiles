@@ -2,14 +2,13 @@
 
 {
   imports = [
-    ./git.nix
     ./neovim
-    ./node.nix
     ./vscode
+    ./node.nix
+    ./git.nix
   ];
 
   home.packages = with pkgs; [
     nixpkgs-fmt
-    nodePackages_latest.prettier
   ];
 }
