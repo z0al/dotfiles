@@ -31,5 +31,8 @@ in
 
     fish.enable = true;
     fish.vendor.completions.enable = true;
+    fish.shellAliases = {
+      unset = "set -e";
+    };
   };
 }
