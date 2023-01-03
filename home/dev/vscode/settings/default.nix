@@ -64,7 +64,7 @@ in
     "git.autoStash" = true;
     "git.pullTags" = true;
     "git.enableCommitSigning" = true;
-    "git.alwaysSignOff" = true;
+    "git.alwaysSignOff" = false;
     "git.suggestSmartCommit" = false;
     "git.confirmSync" = false;
 
