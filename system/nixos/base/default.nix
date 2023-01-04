@@ -27,6 +27,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  services.printing.enable = true;
+
   # Shell
   users.defaultUserShell = pkgs.fish;
 
