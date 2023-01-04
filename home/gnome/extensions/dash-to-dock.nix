@@ -11,6 +11,7 @@
     # Behavior
     scroll-action = "do-nothing";
     click-action = "focus-minimize-or-previews";
+    intellihide-mode = "ALL_WINDOWS";
 
     # Appearance
     custom-theme-shrink = true;
