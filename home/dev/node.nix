@@ -1,33 +1,27 @@
 { config, pkgs, lib, ... }:
 
 let
-  #   pkgsPrefix = "$HOME/.npm-packages";
-  globalPkgs = with pkgs.nodePackages_latest; [
-    yarn
-    prettier
-  ];
+  pkgsPrefix = "$HOME/.npm-packages";
 in
 
 {
-  home.packages = globalPkgs ++ [
-    pkgs.nodejs
+  home.packages = with pkgs; [
+    nodejs
+    nodePackages_latest.prettier
   ];
 
   # Change npm prefix to enable installing packages globally
   # https://matthewrhone.dev/nixos-npm-globally
-  # home.activation = {
-  #   setNpmPkgsPrefix = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  #     $DRY_RUN_CMD ${pkgs.nodejs}/bin/npm config set prefix ${pkgsPrefix}
-  #   '';
-  # };
+  home.sessionVariables = {
+    npm_config_prefix = pkgsPrefix;
+    NODE_PATH = "${pkgsPrefix}/lib/node_modules";
+  };
 
-  # programs.bash.initExtra = ''
-  #   export PATH=${pkgsPrefix}/bin:$PATH
-  #   export NODE_PATH=${pkgsPrefix}/lib/node_modules
-  # '';
+  programs.bash.initExtra = ''
+    export PATH=${pkgsPrefix}/bin:$PATH
+  '';
 
-  # programs.fish.interactiveShellInit = ''
-  #   fish_add_path    ${pkgsPrefix}/bin/
-  #   set -x NODE_PATH ${pkgsPrefix}/lib/node_modules
-  # '';
+  programs.fish.interactiveShellInit = ''
+    fish_add_path ${pkgsPrefix}/bin/
+  '';
 }
