@@ -10,7 +10,6 @@
   home.packages = with pkgs; [
     slack
     zoom-us
-    logseq
   ];
 
   # Install Okta browser extension
