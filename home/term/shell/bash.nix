@@ -2,6 +2,8 @@
   programs = {
     bash = {
       enable = true;
+      historyIgnore = [ "exit" "clear" ];
+      historyControl = [ "ignoredups" "ignorespace" "erasedups" ];
     };
 
     readline = {
