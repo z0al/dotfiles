@@ -18,8 +18,8 @@
     running-indicator-style = "DOTS";
     transparency-mode = "FIXED";
     background-opacity = 0.60;
-    custom-background-color = false;
-    background-color = "#000";
+    custom-background-color = true;
+    background-color = "rgb(61,56,70)";
     disable-overview-on-startup = true;
   };
 }

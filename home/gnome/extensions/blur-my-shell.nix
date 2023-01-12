@@ -16,7 +16,7 @@ in
   };
 
   dconf.settings."${prefix}/dash-to-dock" = {
-    blur = true;
+    blur = false;
     customize = true;
     override-background = true;
     style-dash-to-dock = 2;
