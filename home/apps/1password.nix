@@ -22,6 +22,7 @@
   };
 
   home.sessionVariables = {
+    OP_PLUGIN_ALIASES_SOURCED = 1;
     SSH_AUTH_SOCK = "~/.1password/agent.sock";
   };
 
