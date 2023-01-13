@@ -60,7 +60,7 @@ in
     "terminal.integrated.tabs.enabled" = false;
 
     # Git
-    "git.autofetch" = true;
+    "git.autofetch" = false;
     "git.autoStash" = true;
     "git.pullTags" = true;
     "git.enableCommitSigning" = true;
