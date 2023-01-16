@@ -3,6 +3,9 @@ channels: final: prev: {
 
   # Use the latest version for the following packages
   inherit (channels.unstable)
+    # NixOS
+    nix-ld
+
     # Terminal
     bat
     fd

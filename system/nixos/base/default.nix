@@ -6,6 +6,7 @@
     ./fs.nix
     ./hardware.nix
     ./network.nix
+    ./nix-ld.nix
     ./pkgs.nix
     ./sound.nix
     ./users.nix
@@ -39,5 +40,4 @@
     enable = true;
     enableSSHSupport = true;
   };
-
 }
