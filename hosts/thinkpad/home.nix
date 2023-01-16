@@ -17,10 +17,11 @@
     { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # Okta
   ];
 
-  # Autostart Slack in the background
-  xdg.configFile."autostart/slack.desktop" = {
-    text = builtins.replaceStrings
-      [ "slack %U" ] [ "slack -u %U" ]
-      (builtins.readFile "${pkgs.slack}/share/applications/slack.desktop");
+  # Startup applications
+  services.autostart.applications = {
+    slack = {
+      package = pkgs.slack;
+      exec = "slack -u";
+    };
   };
 }

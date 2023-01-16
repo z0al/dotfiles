@@ -54,7 +54,7 @@
 
       mkHmConfig = mod: {
         home-manager = {
-          users.${user}.imports = [ mod ];
+          users.${user}.imports = [ ./modules mod ];
           extraSpecialArgs = mkImportables ./home;
         };
       };
