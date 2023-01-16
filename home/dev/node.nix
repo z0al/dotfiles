@@ -1,27 +1,21 @@
-{ config, pkgs, lib, ... }:
-
-let
-  pkgsPrefix = "$HOME/.npm-packages";
-in
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     nodejs
     nodePackages_latest.prettier
+    fnm
   ];
 
-  # Change npm prefix to enable installing packages globally
-  # https://matthewrhone.dev/nixos-npm-globally
-  home.sessionVariables = {
-    npm_config_prefix = pkgsPrefix;
-    NODE_PATH = "${pkgsPrefix}/lib/node_modules";
+  home.shellAliases = {
+    nvm = "fnm";
   };
 
   programs.bash.initExtra = ''
-    export PATH=${pkgsPrefix}/bin:$PATH
+    eval "$(fnm env --use-on-cd)"
   '';
 
   programs.fish.interactiveShellInit = ''
-    fish_add_path ${pkgsPrefix}/bin/
+    fnm env --use-on-cd | source
   '';
 }
