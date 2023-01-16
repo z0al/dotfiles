@@ -5,7 +5,4 @@
 
   "ctrl+v" = "paste_from_clipboard";
   "ctrl+shift+v" = "paste_from_clipboard";
-
-  # Clear selection
-  "escape" = "clear_selection";
 }
