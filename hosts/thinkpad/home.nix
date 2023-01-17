@@ -18,10 +18,10 @@
   ];
 
   # Startup applications
-  services.autostart.applications = {
-    slack = {
+  services.startup.applications = [
+    {
       package = pkgs.slack;
-      exec = "slack -u";
-    };
-  };
+      command = "slack -u";
+    }
+  ];
 }

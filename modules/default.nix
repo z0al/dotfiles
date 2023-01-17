@@ -1,5 +1,5 @@
 {
   imports = [
-    ./autostart.nix
+    ./startup.nix
   ];
 }

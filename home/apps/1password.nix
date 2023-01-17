@@ -31,10 +31,10 @@
   '';
 
   # Autostart in the background
-  services.autostart.applications = {
-    _1password = {
+  services.startup.applications = [
+    {
       package = pkgs._1password-gui;
-      exec = "1password --silent";
-    };
-  };
+      command = "1password --silent";
+    }
+  ];
 }
