@@ -10,3 +10,7 @@ indent_size = 2
 
 [*.{yml,nix}]
 indent_style = space
+
+[bin/up]
+indent_style = space
+indent_size = 4

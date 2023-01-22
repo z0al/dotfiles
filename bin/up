@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess
+import pathlib
+import sys
+
+DIR = pathlib.Path.home().joinpath('.dotfiles')
+
+
+def run(command):
+    try:
+        r = subprocess.run(
+            command,
+            check=True,
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            universal_newlines=True
+        )
+        return r.stdout
+    except Exception as error:
+        print('failed with the following error:', '\n')
+
+        if isinstance(error, subprocess.CalledProcessError):
+            print(error.stderr)
+        else:
+            print(error)
+
+        exit(1)
+
+
+def run_nix(sub_command):
+    run(["nix", "--extra-experimental-features",
+         "nix-command flakes", *sub_command, DIR])
+
+
+def update():
+    print("updating flake inputs ...")
+    run_nix(["flake", "update"])
+
+
+def switch(boot=False):
+    print("switching configuration ...")
+    cmd = "nixos-rebuild"
+    boot_loader = ["--install-bootloader"] if boot else []
+
+    if sys.platform == "darwin":
+        cmd = "darwin-rebuild"
+        boot_loader = []
+
+    run(["sudo", cmd, "switch", "--flake", *boot_loader, DIR])
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="up",
+        description="easily apply flake-based system changes."
+    )
+
+    parser.add_argument(
+        '-b', '--boot', metavar="",
+        help="install boot loader"
+    )
+
+    parser.add_argument(
+        '-u', '--update', metavar="",
+        help="update flake inputs"
+    )
+
+    subparsers = parser.add_subparsers(metavar="", dest="command")
+    subparsers.add_parser('revert',	help='roll back to previous generation')
+    subparsers.add_parser('clean',	help='run garbage collection')
+    subparsers.add_parser(
+        'theme',	help='switch the theme of all supported apps')
+
+    args = parser.parse_args()
+
+    if args.command == None:
+        if args.update:
+            update()
+        switch(args.boot)
+    elif args.command == "revert":
+        print("Not implemented")
+    elif args.command == "clean":
+        print("Not implemented")
+    elif args.command == "theme":
+        print("Not implemented")
+
+
+if __name__ == '__main__':
+    main()
