@@ -34,7 +34,7 @@
     core-developer-tools.enable = false;
 
     # Disable Gnome Keyring in favor of using 1Password
-    gnome-keyring.enable = lib.mkForce false;
+    # gnome-keyring.enable = lib.mkForce false;
   };
 
   programs = {
