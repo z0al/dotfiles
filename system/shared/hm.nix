@@ -8,8 +8,6 @@ let
 in
 
 {
-  programs.dconf.enable = true;
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

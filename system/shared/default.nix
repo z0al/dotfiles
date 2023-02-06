@@ -18,8 +18,6 @@
       (nerdfonts.override {
         fonts = [
           "FiraCode"
-          "Ubuntu"
-          "UbuntuMono"
         ];
       })
     ];

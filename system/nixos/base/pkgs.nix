@@ -9,14 +9,22 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # Apps
+    brave
     dialect
     eyedropper
+    firefox-devedition-bin
     gnome-obfuscate
     gnome.gnome-tweaks
-    linux-dynamic-wallpapers
-    metadata-cleaner
-    newsflash
+    kitty
     video-trimmer
     warp
+
+    # Other
+    linux-dynamic-wallpapers
+    metadata-cleaner
+    neovim-unwrapped
+    newsflash
+    polkit
   ];
 }

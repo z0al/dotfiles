@@ -2,12 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Web
-    brave
-    firefox-devedition-bin
-
-    # Development
-    neovim-unwrapped
+    # Langauges
     python3
     python3.pkgs.pip
     rustc
@@ -26,10 +21,8 @@
     gnupg
     gnumake
     killall
-    kitty
     lsof
     neofetch
-    polkit
     ripgrep
   ];
 }
