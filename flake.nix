@@ -1,9 +1,12 @@
 {
-  description = "My NixOS ❄ Configuration";
+  description = "My NixOS ❄ / MacOS 🍏 Configuration";
 
   inputs = {
     stable.url = "github:nixos/nixpkgs/nixos-22.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    darwin.url = "github:LnL7/nix-darwin/master";
+    darinw.inputs.nixpkgs.follows = "stable";
 
     hm.url = "github:nix-community/home-manager/release-22.11";
     hm.inputs.nixpkgs.follows = "stable";
@@ -25,6 +28,7 @@
     { self
     , stable
     , unstable
+    , darwin
     , hm
     , hardware
     , utils
@@ -54,8 +58,8 @@
 
       mkHmConfig = mod: {
         home-manager = {
-          users.${user}.imports = [ ./modules mod ];
-          extraSpecialArgs = mkImportables ./home;
+          users.${ user}. imports = [ ./modules mod ];
+          extraSpecialArgs = mkImportables./home;
         };
       };
 
@@ -66,11 +70,25 @@
               modules = [
                 v.system
                 (mkHmConfig v.home)
-                { networking.hostName = n; }
+                {
+                  networking. hostName = n;
+                }
               ];
             })
             (rakeLeaves dir))
           overrides;
+
+      darwinConfig = {
+        system = "x86_64-darwin";
+        output = "darwinConfigurations";
+        builder = darwin.lib.darwinSystem;
+
+        specialArgs = {
+          inherit user theme;
+          hardware = null;
+          profiles = (rakeLeaves ./system/macos);
+        };
+      };
 
     in
     mkFlake {
@@ -101,7 +119,7 @@
       };
 
       hosts = mkHosts ./hosts {
-        # host-specific properties here
+        macbook = darwinConfig;
       };
     };
 }

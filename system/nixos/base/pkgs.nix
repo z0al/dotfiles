@@ -23,7 +23,6 @@
     # Other
     linux-dynamic-wallpapers
     metadata-cleaner
-    neovim-unwrapped
     newsflash
     polkit
   ];

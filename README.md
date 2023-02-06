@@ -1,47 +1,10 @@
 # Dotfiles
 
-My [NixOS](https://nixos.org/) ❄ configuration as a [flake](https://nixos.wiki/wiki/Flakes). It supports multiple hosts:
+My [NixOS](https://nixos.org/) ❄ / MacOS 🍏 configuration as a [flake](https://nixos.wiki/wiki/Flakes). It supports multiple hosts:
 
 - Sandbox: VirtualBox VM for testing
+- MacBook: My personal MacBook Pro
 - Thinkpad: Work laptop. It's a ThinkPad X1 Carbon 7th edition
-
-## Installation
-
-### Partitioning and formatting (UEFI)
-
-Use GParted (or whatever tool you prefer) to setup the following partitions:
-
-- `/boot` (>=512MB): Must be labeled `BOOT` and of type FAT32 with ESP & Boot flags.
-- `/` (~100GB): Must be labeled `nixos` and of type EX4.
-- `/home` (?): Must be labeled `home`
-
-Don't forget to set the partition table to GPT. For more info consult the [official documentation](https://nixos.org/manual/nixos/stable/#sec-installation)
-
-### Mounting
-
-```sh
-mount /dev/disk/by-label/nixos /mnt
-
-mkdir -p /mnt/boot
-mount /dev/disk/by-label/BOOT /mnt/boot
-
-mkdir -p /mnt/home
-mount /dev/disk/by-label/home /mnt/home
-```
-
-### Generating configs
-
-```sh
-nixos-generate-config --root /mnt
-```
-
-### Installing
-
-```sh
-nix-env -iA nixos.git
-git clone https://github.com/z0al/dotfiles.git && cd dotfiles
-nixos-install --flake .#<host-name>
-```
 
 ## Tips
 
@@ -63,8 +26,3 @@ This is read by both of `fish` and `bash` shells.
 ## License
 
 MIT © Ahmed T. Ali
-
-[starship]: https://starship.rs/
-[fzf]: https://github.com/junegunn/fzf
-[fd]: https://github.com/sharkdp/fd
-[alacritty]: https://github.com/alacritty/alacritty
