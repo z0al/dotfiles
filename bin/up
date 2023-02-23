@@ -4,6 +4,7 @@ import argparse
 import subprocess
 import pathlib
 import sys
+import socket
 
 DIR = pathlib.Path.home().joinpath('.dotfiles')
 
@@ -34,21 +35,26 @@ def run_nix(sub_command):
          "nix-command flakes", *sub_command, DIR])
 
 
-def update():
+def pull():
     print("updating flake inputs ...")
     run_nix(["flake", "update"])
 
 
 def switch(boot=False):
     print("switching configuration ...")
-    cmd = ["sudo", "nixos-rebuild"]
-    boot_loader = ["--install-bootloader"] if boot else []
 
     if sys.platform == "darwin":
-        cmd = ["darwin-rebuild"]
-        boot_loader = []
+        run_nix(
+            ["build",
+             "{dir}#darwinConfigurations.{host}.system".format(
+                 dir=DIR, host=socket.gethostname()
+             )]
+        )
+        return
 
-    run([*cmd, "switch", "--flake", *boot_loader, DIR])
+    boot_loader = ["--install-bootloader"] if boot else []
+
+    run(["sudo", "nixos-rebuild", "switch", "--flake", *boot_loader, DIR])
 
 
 def main():
@@ -57,28 +63,24 @@ def main():
         description="easily apply flake-based system changes."
     )
 
-    parser.add_argument(
-        '-b', '--boot', metavar="",
-        help="install boot loader"
-    )
-
-    parser.add_argument(
-        '-u', '--update', metavar="",
-        help="update flake inputs"
-    )
-
     subparsers = parser.add_subparsers(metavar="", dest="command")
+    subparsers.add_parser('boot',	help='switch and install boot loader')
+    subparsers.add_parser('pull',	help='update flake inputs')
     subparsers.add_parser('revert',	help='roll back to previous generation')
     subparsers.add_parser('clean',	help='run garbage collection')
     subparsers.add_parser(
-        'theme',	help='switch the theme of all supported apps')
+        'theme',
+        help='switch the theme of all supported apps'
+    )
 
     args = parser.parse_args()
 
     if args.command == None:
-        if args.update:
-            update()
-        switch(args.boot)
+        switch(False)
+    elif args.command == "boot":
+        switch(True)
+    elif args.command == "pull":
+        pull()
     elif args.command == "revert":
         print("Not implemented")
     elif args.command == "clean":
