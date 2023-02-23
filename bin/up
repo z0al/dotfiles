@@ -41,14 +41,14 @@ def update():
 
 def switch(boot=False):
     print("switching configuration ...")
-    cmd = "nixos-rebuild"
+    cmd = ["sudo", "nixos-rebuild"]
     boot_loader = ["--install-bootloader"] if boot else []
 
     if sys.platform == "darwin":
-        cmd = "darwin-rebuild"
+        cmd = ["darwin-rebuild"]
         boot_loader = []
 
-    run(["sudo", cmd, "switch", "--flake", *boot_loader, DIR])
+    run([*cmd, "switch", "--flake", *boot_loader, DIR])
 
 
 def main():

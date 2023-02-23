@@ -35,7 +35,7 @@
     , digga
     } @ inputs:
     let
-      inherit (utils.lib) mkFlake mergeAny;
+      inherit (utils.lib) mkFlake;
       inherit (digga.lib) flattenTree rakeLeaves;
 
       user = "z0al";
@@ -93,17 +93,16 @@
                 if stable.lib.hasPrefix "mac" host
                 then darwinConfig else nixosConfig;
             in
-            mergeAny
-              {
-                channelName = "stable";
-                modules = config.modules ++ [
-                  ./system/shared
-                  module.system
-                  (mkHmConfig module.home)
-                  { networking.hostName = host; }
-                ];
-              }
-              config)
+            config // {
+              channelName = "stable";
+              modules = config.modules ++ [
+                ./system/shared
+                module.system
+                (mkHmConfig module.home)
+                { networking.hostName = host; }
+              ];
+            }
+          )
           (rakeLeaves dir));
 
     in
