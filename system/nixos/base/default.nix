@@ -12,6 +12,8 @@
     ./users.nix
   ];
 
+  system.stateVersion = "22.11";
+
   # Desktop
   fonts.enableDefaultFonts = true;
 

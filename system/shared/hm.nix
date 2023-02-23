@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, lib, user, ... }:
 
 let
   homePrefix =
@@ -18,10 +18,10 @@ in
       programs.home-manager.enable = true;
 
       home = {
-        inherit (config.system) stateVersion;
+        stateVersion = "22.11";
 
         username = user;
-        homeDirectory = "${homePrefix}/${user}";
+        homeDirectory = lib.mkForce "${homePrefix}/${user}";
       };
     };
   };

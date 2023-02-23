@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
@@ -43,7 +43,7 @@ in
   options.services.startup = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = pkgs.stdenv.hostPlatform.isLinux;
       description = ''
         Whether to enable managing of startup applications (via XDG Autostart)
       '';

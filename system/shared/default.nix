@@ -8,8 +8,6 @@
     ./shells.nix
   ];
 
-  system.stateVersion = "22.11";
-
   # Fonts
   fonts = {
     fontDir.enable = true;
