@@ -7,6 +7,7 @@
     ./finder.nix
     ./login.nix
     ./touchpad.nix
+    ./shells.nix
   ];
 
   system.stateVersion = 4;

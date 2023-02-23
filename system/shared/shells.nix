@@ -34,5 +34,8 @@ in
     fish.shellAliases = {
       unset = "set -e";
     };
+
+    zsh.enable = true;
+    zsh.enableCompletion = true;
   };
 }
