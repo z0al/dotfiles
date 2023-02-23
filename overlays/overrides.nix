@@ -10,7 +10,7 @@ channels: final: prev: {
     bat
     fd
     fzf
-    # kitty -- see ./kitty
+    kitty
     kitty-themes
     starship
     zoxide
@@ -18,7 +18,7 @@ channels: final: prev: {
 
     # Development
     neovim
-    # vscode -- see ./vscode
+    vscode
     vscode-extensions
 
     # Gnome

@@ -26,7 +26,10 @@ in
       userEmail = "12673605+z0al@users.noreply.github.com";
 
       # Signing is done via the 1Password app
-      signing.signByDefault = true;
+      signing = {
+        signByDefault = true;
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
+      };
 
       aliases = {
         xswitch = "!git branch -a --format='%(refname:short)' | sed 's~origin/~~' | sed '/HEAD/d' | sort | uniq | fzf | xargs git checkout";

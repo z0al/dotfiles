@@ -6,7 +6,7 @@
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:LnL7/nix-darwin/master";
-    darinw.inputs.nixpkgs.follows = "stable";
+    darwin.inputs.nixpkgs.follows = "stable";
 
     hm.url = "github:nix-community/home-manager/release-22.11";
     hm.inputs.nixpkgs.follows = "stable";
@@ -43,12 +43,10 @@
       # Supported values:
       # - Catppuccin-Mocha
       # - Catppuccin-Macchiato
-      theme =
-        let value = builtins.getEnv "THEME"; in
-        if value != "" then value else "Catppuccin-Mocha";
+      theme = "Catppuccin-Mocha";
 
       mkImportables = dir: {
-        inherit user theme hardware;
+        inherit user theme;
         profiles = (rakeLeaves dir);
       };
 
@@ -59,36 +57,54 @@
       mkHmConfig = mod: {
         home-manager = {
           users.${ user}. imports = [ ./modules mod ];
-          extraSpecialArgs = mkImportables./home;
+          extraSpecialArgs = mkImportables ./home;
         };
       };
 
-      mkHosts = dir: overrides:
-        mergeAny
-          (stable.lib.mapAttrs
-            (n: v: {
-              modules = [
-                v.system
-                (mkHmConfig v.home)
-                {
-                  networking. hostName = n;
-                }
-              ];
-            })
-            (rakeLeaves dir))
-          overrides;
+      nixosConfig = {
+        system = "x86_64-linux";
+
+        specialArgs = (mkImportables ./system/nixos) // {
+          inherit hardware;
+        };
+
+        modules = [
+          hm.nixosModules.home-manager
+        ];
+      };
 
       darwinConfig = {
-        system = "x86_64-darwin";
+        system = "aarch64-darwin";
         output = "darwinConfigurations";
         builder = darwin.lib.darwinSystem;
 
-        specialArgs = {
-          inherit user theme;
-          hardware = null;
-          profiles = (rakeLeaves ./system/macos);
-        };
+        specialArgs = mkImportables ./system/darwin;
+
+        modules = [
+          hm.darwinModules.home-manager
+        ];
       };
+
+      mkHosts = dir:
+        (stable.lib.mapAttrs
+          (host: module:
+            let
+              config =
+                if stable.lib.hasPrefix "mac" host
+                then darwinConfig else nixosConfig;
+            in
+            mergeAny
+              {
+                channelName = "stable";
+                modules = config.modules ++ [
+                  ./system/shared
+                  module.system
+                  (mkHmConfig module.home)
+                  { networking.hostName = host; }
+                ];
+              }
+              config)
+          (rakeLeaves dir));
 
     in
     mkFlake {
@@ -106,20 +122,6 @@
         unstable = { };
       };
 
-      hostDefaults = {
-        channelName = "stable";
-        system = "x86_64-linux";
-
-        specialArgs = mkImportables ./system/nixos;
-
-        modules = [
-          hm.nixosModules.home-manager
-          ./system/shared
-        ];
-      };
-
-      hosts = mkHosts ./hosts {
-        macbook = darwinConfig;
-      };
+      hosts = mkHosts ./hosts;
     };
 }

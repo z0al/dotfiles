@@ -21,6 +21,7 @@
     warp
 
     # Other
+    binutils
     linux-dynamic-wallpapers
     metadata-cleaner
     newsflash

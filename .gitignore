@@ -99,3 +99,6 @@ tags
 # Ignore all local history of files
 .history
 .ionide
+
+### Custom ###
+.result

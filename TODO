@@ -1,0 +1,70 @@
+- Configure Brave
+  - Vim like keybindings
+  - Other settings
+- Configure NeoVim
+- Add Arabic Language ( a bit complicated. Maybe wait for https://github.com/nix-community/home-manager/pull/3219 - Wait for 22.11)
+- Configure keyboard shortcuts
+  - look at popular i3 shortcuts and translate theme to Gnome
+  - https://support.system76.com/articles/pop-keyboard-shortcuts/
+
+
+```
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-left
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-left
+  ['<Control><Super>Left']
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-right
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-right
+  ['<Control><Super>Right']
+
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-last
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-last
+  ['<Super>0']
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-1
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-1
+  ['<Super>1']
+/org/gnome/shell/keybindings/switch-to-application-1
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-2
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-2
+  ['<Super>2']
+/org/gnome/shell/keybindings/switch-to-application-2
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-3
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-3
+  ['<Super>3']
+/org/gnome/shell/keybindings/switch-to-application-3
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-4
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-to-workspace-4
+  ['<Super>4']
+/org/gnome/shell/keybindings/switch-to-application-4
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-group
+  @as []
+
+/org/gnome/desktop/wm/keybindings/switch-group
+  ['<Super>grave']
+/org/gnome/desktop/wm/keybindings/switch-group-backward
+  ['<Shift><Super>grave']
+```

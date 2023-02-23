@@ -11,7 +11,6 @@
     sqlite
 
     # Utils
-    binutils
     cargo
     cmake
     coreutils

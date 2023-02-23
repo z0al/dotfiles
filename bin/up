@@ -48,7 +48,7 @@ def switch(boot=False):
         cmd = "darwin-rebuild"
         boot_loader = []
 
-    run(["sudo", cmd, "switch", "--show-trace", "--flake", *boot_loader, DIR])
+    run(["sudo", cmd, "switch", "--flake", *boot_loader, DIR])
 
 
 def main():

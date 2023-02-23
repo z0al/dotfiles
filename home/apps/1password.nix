@@ -9,10 +9,6 @@
 
   # Configure Git to use 1Password for signing
   programs.git = {
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
-    };
-
     extraConfig = {
       gpg = {
         format = "ssh";
