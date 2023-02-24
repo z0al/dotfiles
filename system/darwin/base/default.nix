@@ -5,7 +5,6 @@
     ./apps.nix
     ./dock.nix
     ./finder.nix
-    ./hm.nix
     ./login.nix
     ./touchpad.nix
   ];
