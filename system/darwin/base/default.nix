@@ -5,9 +5,9 @@
     ./apps.nix
     ./dock.nix
     ./finder.nix
+    ./hm.nix
     ./login.nix
     ./touchpad.nix
-    ./shells.nix
   ];
 
   system.stateVersion = 4;
