@@ -1,11 +1,15 @@
 { pkgs, ... }:
 
+let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+in
+
 {
-  # 1password packages are installed system-wide
-  # home.packages = with pkgs; [
-  #   _1password
-  #   _1password-gui
-  # ];
+  # On NixOS 1password packages are installed on system level
+  home.packages = with pkgs; if isDarwin then [
+    _1password
+    _1password-gui
+  ] else [ ];
 
   # Configure Git to use 1Password for signing
   programs.git = {

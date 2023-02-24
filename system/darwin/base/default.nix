@@ -15,6 +15,10 @@
   # User that runs the garbage collector.
   nix.gc.user = user;
 
+  home-manager.users.${user}.imports = [
+    ./hm.nix
+  ];
+
   services.nix-daemon = {
     enable = true;
   };

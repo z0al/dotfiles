@@ -4,6 +4,7 @@
   home.packages = with pkgs.fishPlugins; [
     sponge
     autopair-fish
+    foreign-env
   ];
 
   programs.fish = {
