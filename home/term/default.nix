@@ -2,8 +2,8 @@
   imports = [
     ./bat
     ./fzf
-    ./kitty
     ./shell
+    ./wezterm
     ./command-not-found.nix
     ./localrc.nix
     ./starship.nix
