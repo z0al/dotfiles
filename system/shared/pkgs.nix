@@ -25,5 +25,6 @@
     lsof
     neofetch
     ripgrep
+    unzip
   ];
 }
