@@ -37,6 +37,7 @@
       editorconfig.editorconfig
       esbenp.prettier-vscode
       streetsidesoftware.code-spell-checker
+      # JohnnyMorganz.stylua
     ];
   };
 }

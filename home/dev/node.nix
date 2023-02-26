@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     nodejs
-    nodePackages_latest.prettier
     fnm
   ];
 
