@@ -7,6 +7,8 @@ return {
 	-- Font
 	font = wz.font("FiraCode Nerd Font"),
 	font_size = 11.0,
+	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
+	adjust_window_size_when_changing_font_size = false,
 
 	-- Colors
 	color_scheme = "$WZ_THEME",
