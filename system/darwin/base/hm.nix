@@ -4,7 +4,10 @@
   # Change the default shell to fish
   home.activation = {
     setDefaultShell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      $DRY_RUN_CMD /usr/bin/chsh -s /run/current-system/sw/bin/fish
+      if [[ "$SHELL" != *fish ]]
+      then
+        $DRY_RUN_CMD /usr/bin/chsh -s /run/current-system/sw/bin/fish
+      fi
     '';
   };
 
