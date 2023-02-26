@@ -10,6 +10,7 @@ in
     ./extensions/git-lens.nix
     ./extensions/prettier.nix
     ./extensions/spell-check.nix
+    ./extensions/stylua.nix
     ./extensions/which-key.nix
   ];
 
