@@ -16,9 +16,9 @@
     firefox-devedition-bin
     gnome-obfuscate
     gnome.gnome-tweaks
-    kitty
     video-trimmer
     warp
+    wezterm
 
     # Other
     binutils

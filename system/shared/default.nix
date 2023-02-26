@@ -16,6 +16,13 @@
       (nerdfonts.override {
         fonts = [
           "FiraCode"
+          "Hack"
+          "JetBrainsMono"
+          "Meslo"
+          "Noto"
+          "SourceCodePro"
+          "UbuntuMono"
+          "CascadiaCode"
         ];
       })
     ];

@@ -32,5 +32,8 @@ channels: final: prev: {
     firefox-devedition-bin
     logseq
     zoom-us
+
+    # Other
+    nerdfonts
     ;
 }

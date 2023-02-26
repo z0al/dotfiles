@@ -5,7 +5,7 @@ wz.add_to_config_reload_watch_list(wz.config_dir)
 
 return {
 	-- Font
-	font = wz.font("FiraCode Nerd Font"),
+	font = wz.font_with_fallback({ "FiraCode Nerd Font" }),
 	font_size = 11.0,
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
 	adjust_window_size_when_changing_font_size = false,
