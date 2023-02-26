@@ -13,6 +13,7 @@ channels: final: prev: {
     starship
     zoxide
     navi
+    wezterm
 
     # Development
     neovim
