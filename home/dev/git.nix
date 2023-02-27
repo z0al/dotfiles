@@ -1,4 +1,4 @@
-{ lib, theme, ... }:
+{ pkgs, lib, theme, ... }:
 
 let
   aliases = {
@@ -57,6 +57,18 @@ in
           # Note: compatible with Bat themes
           syntax-theme = lib.toLower theme;
           hunk-header-style = "omit";
+        };
+      };
+    };
+
+    # https://github.com/jesseduffield/lazygit
+    lazygit = {
+      enable = true;
+
+      settings = {
+        git.paging = {
+          colorArg = "always";
+          pager = "${pkgs.delta}/bin/delta --dark --paging=never";
         };
       };
     };
