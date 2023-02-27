@@ -43,7 +43,7 @@ in
   options.services.startup = {
     enable = mkOption {
       type = types.bool;
-      default = pkgs.stdenv.hostPlatform.isLinux;
+      default = pkgs.stdenv.isLinux;
       description = ''
         Whether to enable managing of startup applications (via XDG Autostart)
       '';

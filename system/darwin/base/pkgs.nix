@@ -4,7 +4,10 @@
     global.autoUpdate = false;
 
     brews = [ ];
-    casks = [ ];
+    casks = [
+      "1password"
+      "1password-cli"
+    ];
 
     taps = [
       "homebrew/cask-versions"

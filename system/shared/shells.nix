@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkIf;
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
+  inherit (pkgs.stdenv) isLinux;
 in
 
 {

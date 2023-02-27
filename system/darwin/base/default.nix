@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./apps.nix
     ./dock.nix
     ./finder.nix
     ./login.nix
+    ./pkgs.nix
     ./touchpad.nix
   ];
 

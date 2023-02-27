@@ -2,7 +2,7 @@
 
 let
   homePrefix =
-    if pkgs.stdenv.hostPlatform.isDarwin
+    if pkgs.stdenv.isDarwin
     then "/Users"
     else "/home";
 in
