@@ -27,11 +27,6 @@
       dracula-theme.theme-dracula
       catppuccin.catppuccin-vsc
 
-      # Vim
-      asvetliakov.vscode-neovim
-      vspacecode.whichkey
-      # skattyadz.vscode-quick-scope
-
       # Formatting and linting
       dbaeumer.vscode-eslint
       editorconfig.editorconfig
