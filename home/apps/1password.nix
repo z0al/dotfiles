@@ -3,13 +3,15 @@
 let
   sign =
     if pkgs.stdenv.isDarwin then
-      "/Applications/1Password.app/Contents/MacOS/op-ssh-sign" else
+      "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+    else
       "${pkgs._1password-gui}/share/1password/op-ssh-sign";
 
   agent =
     if pkgs.stdenv.isDarwin then
       "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-    else "~/.1password/agent.sock";
+    else
+      "~/.1password/agent.sock";
 in
 
 {
