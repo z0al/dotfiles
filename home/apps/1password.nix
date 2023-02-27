@@ -32,7 +32,7 @@ in
   };
 
   programs.ssh.extraConfig = ''
-    IdentityAgent ${agent}
+    IdentityAgent "${agent}"
   '';
 
   # Autostart in the background
