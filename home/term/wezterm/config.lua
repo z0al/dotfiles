@@ -24,10 +24,10 @@ return {
 
 	-- Window
 	window_padding = {
-		left = "1cell",
-		right = "1cell",
+		left = "0cell",
+		right = "0cell",
 		top = "0cell",
-		bottom = "0.5cell",
+		bottom = "0cell",
 	},
 
 	window_close_confirmation = "NeverPrompt",
