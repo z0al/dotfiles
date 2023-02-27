@@ -10,7 +10,7 @@
     # Hot corners
     wvous-bl-corner = 1;
     wvous-br-corner = 1;
-    wvous-tl-corner = 2; # Mission Control
+    wvous-tl-corner = 1;
     wvous-tr-corner = 1;
   };
 }
