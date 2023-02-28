@@ -7,6 +7,7 @@
       "1password"
       "1password-cli"
       "karabiner-elements"
+      "scroll-reverser"
     ];
 
     taps = [

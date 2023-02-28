@@ -3,5 +3,6 @@
 {
   imports = with profiles; [
     base
+    yabai
   ];
 }
