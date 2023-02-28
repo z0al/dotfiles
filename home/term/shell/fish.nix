@@ -16,6 +16,9 @@
 
       # Bind CTRL+Backspace to delete a word
       bind \b backward-kill-word
+
+      # Same as 👆 but for VSCode Intergrated Terminal
+      bind u0017 backward-kill-word
     '';
 
     plugins = [
