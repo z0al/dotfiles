@@ -10,7 +10,6 @@ in
     ./extensions/prettier.nix
     ./extensions/spell-check.nix
     ./extensions/stylua.nix
-    ./extensions/which-key.nix
   ];
 
   programs.vscode.userSettings = {
@@ -55,8 +54,8 @@ in
     # Terminal
     "terminal.integrated.fontSize" = 13;
     "terminal.explorerKind" = "external";
-    "terminal.external.linuxExec" = "kitty";
-    "terminal.external.osxExec" = "kitty";
+    "terminal.external.linuxExec" = "wezterm";
+    "terminal.external.osxExec" = "Terminal.app";
     "terminal.integrated.tabs.enabled" = false;
 
     # Git

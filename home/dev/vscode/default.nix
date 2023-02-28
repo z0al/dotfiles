@@ -3,6 +3,7 @@
 {
   imports = [
     ./settings
+    ./keybindings.nix
   ];
 
   programs.vscode = {
