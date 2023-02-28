@@ -1,5 +1,13 @@
 { lib, user, ... }:
 
+let
+  # https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos
+  nixDaemon = "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh";
+
+  # https://brew.sh
+  initBrew = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
+in
+
 {
   # Change the default shell to fish
   home.activation = {
@@ -13,9 +21,8 @@
 
   programs = {
     zsh.initExtra = ''
-      # https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos
-      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      if [ -e '${nixDaemon}' ]; then
+        . '${nixDaemon}'
       fi
 
       # https://github.com/LnL7/nix-darwin#install
@@ -25,14 +32,13 @@
 
       # Homebrew
       if test -e /opt/homebrew/bin/brew; then
-        eval "$(/opt/homebrew/bin/brew shellenv)";
+        ${initBrew};
       fi
     '';
 
     fish.interactiveShellInit = ''
-      # https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos
-      if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh';
-        fenv source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      if test -e '${nixDaemon}';
+        fenv source '${nixDaemon}'
       end
 
       # https://github.com/LnL7/nix-darwin#install
@@ -42,7 +48,7 @@
 
       # Homebrew
       if test -e /opt/homebrew/bin/brew;
-        eval "$(/opt/homebrew/bin/brew shellenv)";
+        ${initBrew};
       end
     '';
   };

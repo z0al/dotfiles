@@ -15,7 +15,7 @@
   nix.gc.user = user;
 
   home-manager.users.${user}.imports = [
-    ./hm.nix
+    ./hm
   ];
 
   services.nix-daemon = {
