@@ -19,6 +19,10 @@
 
       # Same as 👆 but for VSCode Intergrated Terminal
       bind u0017 backward-kill-word
+
+      # CTRL (Shift?) + Left or Right
+      bind \e\[1\;6C forward-word
+      bind \e\[1\;6D backward-word
     '';
 
     plugins = [
