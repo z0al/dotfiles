@@ -7,7 +7,7 @@
   system.defaults.NSGlobalDomain = {
     "com.apple.mouse.tapBehavior" = 1;
     "com.apple.trackpad.scaling" = 2.4;
-    "com.apple.swipescrolldirection" = true;
+    "com.apple.swipescrolldirection" = false;
     AppleShowScrollBars = "Always";
   };
 }
