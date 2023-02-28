@@ -2,13 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
 local function map(mode, lhs, rhs, opts)
-	local keys = require("lazy.core.handler").handlers.keys
-	-- do not create the keymap if a lazy keys handler exists
-	if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-		opts = opts or {}
-		opts.silent = opts.silent ~= false
-		vim.keymap.set(mode, lhs, rhs, opts)
-	end
+	opts = opts or {}
+	opts.silent = opts.silent ~= false
+	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- Move Lines with ALT+Up/Down
@@ -24,3 +20,6 @@ map("n", "<C-Left>", "<C-w>h", { desc = "Go to left window" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<C-Right>", "<C-w>l", { desc = "Go to right window" })
+
+-- Vertical split
+map("n", "<leader>\\", "<C-W>v", { desc = "Split window right" })
