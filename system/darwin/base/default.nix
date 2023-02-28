@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./keyboard
     ./dock.nix
     ./finder.nix
     ./login.nix
