@@ -1,9 +1,7 @@
 local wz = require("wezterm")
 local act = wz.action
 
-wz.add_to_config_reload_watch_list(wz.config_dir)
-
-return {
+local config = {
 	-- Font
 	font = wz.font_with_fallback({ "FiraCode Nerd Font" }),
 	font_size = 11.0,
@@ -152,3 +150,13 @@ return {
 		},
 	},
 }
+
+-- Use Command instead of Ctrl on MacOS
+if string.match(wz.target_triple, "apple") then
+	for k, v in pairs(config.keys) do
+		print(k, v)
+		v.mods = string.gsub(v.mods, "CTRL", "SUPER")
+	end
+end
+
+return config
