@@ -4,7 +4,7 @@ local act = wz.action
 local config = {
 	-- Font
 	font = wz.font_with_fallback({ "FiraCode Nerd Font" }),
-	font_size = 12.0,
+	font_size = 13.0,
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
 	adjust_window_size_when_changing_font_size = false,
 

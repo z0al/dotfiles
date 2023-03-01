@@ -12,7 +12,7 @@ in
     '';
 
     # Fish Integration
-    fish.shellInit = ''
+    fish.interactiveShellInit = ''
       if test -e "${path}"
         source "${path}"
       end
