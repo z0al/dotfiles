@@ -1,0 +1,36 @@
+# Inspired by i3
+# https://i3wm.org/docs/refcard.html
+
+# Open Terminal
+cmd - return: /run/current-system/sw/bin/wezterm
+
+# Navigation
+cmd - left: /opt/homebrew/bin/yabai -m window --focus west
+cmd - down: /opt/homebrew/bin/yabai -m window --focus south
+cmd - up: /opt/homebrew/bin/yabai -m window --focus north
+cmd - right: /opt/homebrew/bin/yabai -m window --focus east
+
+# Moving windows
+cmd + shift - left: /opt/homebrew/bin/yabai -m window --warp west
+cmd + shift - down: /opt/homebrew/bin/yabai -m window --warp south
+cmd + shift - up: /opt/homebrew/bin/yabai -m window --warp north
+cmd + shift - right: /opt/homebrew/bin/yabai -m window --warp east
+
+# Changing the container layout
+cmd - e: /opt/homebrew/bin/yabai -m config layout bsp
+cmd - s: /opt/homebrew/bin/yabai -m config layout stack
+cmd - v: /opt/homebrew/bin/yabai -m window --insert south
+cmd - h: /opt/homebrew/bin/yabai -m window --insert east
+
+# Modifying windows
+cmd - f: /opt/homebrew/bin/yabai -m window --toggle native-fullscreen
+cmd + shift - space: /opt/homebrew/bin/yabai -m window --toggle float
+
+# Opening applications / Closing windows
+# cmd - d: Open Raycast (configured in the app)
+# cmd + shift - q: Kill Window
+
+# Restart/Exit
+cmd + shift - c: /opt/homebrew/bin/brew services restart yabai
+cmd + shift - r: /opt/homebrew/bin/brew services restart yabai
+cmd + shift - e: /opt/homebrew/bin/brew services stop yabai
