@@ -2,9 +2,13 @@
 # https://i3wm.org/docs/refcard.html
 #
 # This assumes Ctrl is mapped to Cmd in system settings (or via Karabiner)
+.blacklist [
+   "terminal"
+   "wezterm"
+]
 
 # Open Terminal
-ctrl - return: open -a "WezTerm"
+# ctrl - return: open -a "WezTerm"
 
 # Navigation
 ctrl - left: /opt/homebrew/bin/yabai -m window --focus west

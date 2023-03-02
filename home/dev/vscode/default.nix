@@ -23,6 +23,7 @@
       bungcip.better-toml
       dotjoshjohnson.xml
       jnoortheen.nix-ide
+      # ms-python.python not supported in Darwin (because of gdb)
 
       # Themes
       dracula-theme.theme-dracula

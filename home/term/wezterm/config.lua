@@ -152,10 +152,10 @@ local config = {
 }
 
 -- Use Command instead of Ctrl on MacOS
-if string.match(wz.target_triple, "apple") then
-	for k, v in pairs(config.keys) do
-		v.mods = string.gsub(v.mods, "CTRL", "CMD")
-	end
-end
+-- if string.match(wz.target_triple, "apple") then
+-- 	for k, v in pairs(config.keys) do
+-- 		v.mods = string.gsub(v.mods, "CTRL", "CMD")
+-- 	end
+-- end
 
 return config

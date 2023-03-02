@@ -23,7 +23,10 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [],
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
 										"type": "frontmost_application_unless"
 									}
 								],
@@ -40,7 +43,10 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [],
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
 										"type": "frontmost_application_unless"
 									}
 								],
@@ -57,7 +63,10 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [],
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
 										"type": "frontmost_application_unless"
 									}
 								],
@@ -74,7 +83,10 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [],
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
 										"type": "frontmost_application_unless"
 									}
 								],
@@ -96,7 +108,10 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [],
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
 										"type": "frontmost_application_unless"
 									}
 								],
@@ -118,7 +133,10 @@
 							{
 								"conditions": [
 									{
-										"bundle_identifiers": [],
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
 										"type": "frontmost_application_unless"
 									}
 								],
@@ -133,6 +151,57 @@
 									{
 										"key_code": "tab",
 										"modifiers": ["left_command"]
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Window Management (via Yabai)",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "return_or_enter",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -n -a WezTerm"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "return_or_enter",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -n -a WezTerm"
 									}
 								],
 								"type": "basic"
