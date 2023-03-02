@@ -19,7 +19,7 @@ in
     "editor.lineNumbers" = "on";
     "editor.useTabStops" = true;
     "editor.wordWrap" = "on";
-    "editor.cursorSmoothCaretAnimation" = true;
+    "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
     "editor.fontFamily" = "'Fira Code', 'FiraCode Nerd Font'";
     "editor.fontSize" = 13;
