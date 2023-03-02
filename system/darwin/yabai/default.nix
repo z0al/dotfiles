@@ -27,7 +27,10 @@
         executable = true;
         source = ./yabairc;
       };
-      "skhd/skhdrc".source = ./skhdrc;
+      "skhd/skhdrc" = {
+        onChange = "/opt/homebrew/bin/skhd -r";
+        source = ./skhdrc;
+      };
     };
   };
 }

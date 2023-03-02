@@ -20,9 +20,11 @@
       # Same as 👆 but for VSCode Intergrated Terminal
       bind u0017 backward-kill-word
 
-      # CTRL (Shift?) + Left or Right
-      bind \e\[1\;6C forward-word
-      bind \e\[1\;6D backward-word
+      ${if pkgs.stdenv.isDarwin then ''
+      # Cmd + Left or Right
+      bind \e\[C forward-word
+      bind \e\[D backward-word
+      '' else ""}
     '';
 
     plugins = [

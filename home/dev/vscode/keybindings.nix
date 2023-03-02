@@ -1,6 +1,8 @@
-{
+{ pkgs, ... }:
+
+let
   # Taken from VS Code default keybindings for Windows
-  programs.vscode.keybindings = [
+  bindings = [
     {
       key = "escape escape";
       command = "workbench.action.exitZenMode";
@@ -4406,4 +4408,17 @@
       when = "CodeActionMenuVisible";
     }
   ];
+
+  mapCtrlToCmd = binding:
+    let
+      key = builtins.replaceStrings [ "ctrl" ] [ "cmd" ] binding.key;
+    in
+    binding // { key = key; };
+in
+
+{
+  programs.vscode.keybindings =
+    if pkgs.stdenv.isDarwin
+    then map mapCtrlToCmd bindings
+    else bindings;
 }
