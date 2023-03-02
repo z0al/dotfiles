@@ -4,7 +4,7 @@
 # This assumes Ctrl is mapped to Cmd in system settings (or via Karabiner)
 
 # Open Terminal
-ctrl - return: /etc/profiles/per-user/$USER/bin/wezterm
+ctrl - return: open -a "WezTerm"
 
 # Navigation
 ctrl - left: /opt/homebrew/bin/yabai -m window --focus west
