@@ -1,4 +1,4 @@
- #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # bsp or stack or float (default: float)
 yabai -m config layout stack
@@ -22,3 +22,6 @@ yabai -m config bottom_padding 3
 yabai -m config left_padding   3
 yabai -m config right_padding  3
 yabai -m config window_gap     3
+
+# Exceptions
+yabai -m rule --add app="^System Settings$" layer=above manage=off
