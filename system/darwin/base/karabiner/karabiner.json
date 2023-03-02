@@ -209,6 +209,115 @@
 						]
 					},
 					{
+						"description": "Open Launcher with Cmd-d",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "d",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a Raycast"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "d",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a Raycast"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Close Windows with Ctrl-w",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "w",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "w",
+										"modifiers": ["left_command"]
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Quit Applications with Cmd-q",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "q",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"key_code": "q",
+										"modifiers": ["left_command"]
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
 						"description": "Focus Windows with Cmd-⬅️/⬇️/⬆️/➡️",
 						"manipulators": [
 							{
@@ -229,7 +338,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus west"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus west"
 									}
 								],
 								"type": "basic"
@@ -252,7 +361,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus west"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus west"
 									}
 								],
 								"type": "basic"
@@ -275,7 +384,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus south"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus south"
 									}
 								],
 								"type": "basic"
@@ -298,7 +407,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus south"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus south"
 									}
 								],
 								"type": "basic"
@@ -321,7 +430,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus north"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus north"
 									}
 								],
 								"type": "basic"
@@ -344,7 +453,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus north"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus north"
 									}
 								],
 								"type": "basic"
@@ -367,7 +476,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus east"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus east"
 									}
 								],
 								"type": "basic"
@@ -390,7 +499,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --focus east"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --focus east"
 									}
 								],
 								"type": "basic"
@@ -418,7 +527,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp west"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp west"
 									}
 								],
 								"type": "basic"
@@ -441,7 +550,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp west"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp west"
 									}
 								],
 								"type": "basic"
@@ -464,7 +573,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp south"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp south"
 									}
 								],
 								"type": "basic"
@@ -487,7 +596,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp south"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp south"
 									}
 								],
 								"type": "basic"
@@ -510,7 +619,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp north"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp north"
 									}
 								],
 								"type": "basic"
@@ -533,7 +642,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp north"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp north"
 									}
 								],
 								"type": "basic"
@@ -556,7 +665,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp east"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp east"
 									}
 								],
 								"type": "basic"
@@ -579,7 +688,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --warp east"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --warp east"
 									}
 								],
 								"type": "basic"
@@ -607,7 +716,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m config layout bsp"
+										"shell_command": "/opt/homebrew/bin/yabai -m config layout bsp"
 									}
 								],
 								"type": "basic"
@@ -630,7 +739,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m config layout bsp"
+										"shell_command": "/opt/homebrew/bin/yabai -m config layout bsp"
 									}
 								],
 								"type": "basic"
@@ -653,7 +762,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m config layout stack"
+										"shell_command": "/opt/homebrew/bin/yabai -m config layout stack"
 									}
 								],
 								"type": "basic"
@@ -676,7 +785,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m config layout stack"
+										"shell_command": "/opt/homebrew/bin/yabai -m config layout stack"
 									}
 								],
 								"type": "basic"
@@ -704,7 +813,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --toggle float"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --toggle float"
 									}
 								],
 								"type": "basic"
@@ -727,7 +836,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --toggle float"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --toggle float"
 									}
 								],
 								"type": "basic"
@@ -750,7 +859,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --toggle native-fullscreen"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --toggle native-fullscreen"
 									}
 								],
 								"type": "basic"
@@ -773,7 +882,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --toggle native-fullscreen"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --toggle native-fullscreen"
 									}
 								],
 								"type": "basic"
@@ -796,7 +905,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --insert south"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --insert south"
 									}
 								],
 								"type": "basic"
@@ -819,7 +928,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --insert south"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --insert south"
 									}
 								],
 								"type": "basic"
@@ -842,7 +951,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --insert east"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --insert east"
 									}
 								],
 								"type": "basic"
@@ -865,7 +974,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "yabai -m window --insert east"
+										"shell_command": "/opt/homebrew/bin/yabai -m window --insert east"
 									}
 								],
 								"type": "basic"
@@ -893,7 +1002,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "brew services restart yabai"
+										"shell_command": "/opt/homebrew/bin/brew services restart yabai"
 									}
 								],
 								"type": "basic"
@@ -916,7 +1025,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "brew services restart yabai"
+										"shell_command": "/opt/homebrew/bin/brew services restart yabai"
 									}
 								],
 								"type": "basic"
@@ -939,7 +1048,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "brew services restart yabai"
+										"shell_command": "/opt/homebrew/bin/brew services restart yabai"
 									}
 								],
 								"type": "basic"
@@ -962,7 +1071,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "brew services restart yabai"
+										"shell_command": "/opt/homebrew/bin/brew services restart yabai"
 									}
 								],
 								"type": "basic"
@@ -985,7 +1094,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "brew services stop yabai"
+										"shell_command": "/opt/homebrew/bin/brew services stop yabai"
 									}
 								],
 								"type": "basic"
@@ -1008,7 +1117,7 @@
 								},
 								"to": [
 									{
-										"shell_command": "brew services stop yabai"
+										"shell_command": "/opt/homebrew/bin/brew services stop yabai"
 									}
 								],
 								"type": "basic"

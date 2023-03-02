@@ -9,11 +9,6 @@
         name = "yabai";
         restart_service = "changed";
       }
-
-      {
-        name = "skhd";
-        restart_service = "changed";
-      }
     ];
 
     taps = [
@@ -26,10 +21,6 @@
       "yabai/yabairc" = {
         executable = true;
         source = ./yabairc;
-      };
-      "skhd/skhdrc" = {
-        onChange = "/opt/homebrew/bin/skhd -r";
-        source = ./skhdrc;
       };
     };
   };
