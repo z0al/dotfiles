@@ -158,7 +158,7 @@
 						]
 					},
 					{
-						"description": "Window Management (via Yabai)",
+						"description": "Open Terminal with Cmd-Enter",
 						"manipulators": [
 							{
 								"conditions": [
@@ -207,6 +207,813 @@
 								"type": "basic"
 							}
 						]
+					},
+					{
+						"description": "Focus Windows with Cmd-⬅️/⬇️/⬆️/➡️",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "left_arrow",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus west"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "left_arrow",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus west"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "down_arrow",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus south"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "down_arrow",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus south"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "up_arrow",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus north"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "up_arrow",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus north"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "right_arrow",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus east"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "right_arrow",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --focus east"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Move Windows with Cmd-Shift-⬅️/⬇️/⬆️/➡️",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "left_arrow",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp west"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "left_arrow",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp west"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "down_arrow",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp south"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "down_arrow",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp south"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "up_arrow",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp north"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "up_arrow",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp north"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "right_arrow",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp east"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "right_arrow",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --warp east"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Change Desktop Layout with Cmd-e/s",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "e",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m config layout bsp"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "e",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m config layout bsp"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "s",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m config layout stack"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "s",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m config layout stack"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Modifying Windows with Cmd-Shift-space and Cmd-f/v/h",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "spacebar",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --toggle float"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "spacebar",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --toggle float"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "f",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --toggle native-fullscreen"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "f",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --toggle native-fullscreen"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "v",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --insert south"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "v",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --insert south"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "h",
+									"modifiers": {
+										"mandatory": ["control"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --insert east"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "h",
+									"modifiers": {
+										"mandatory": ["command"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "yabai -m window --insert east"
+									}
+								],
+								"type": "basic"
+							}
+						]
+					},
+					{
+						"description": "Restart/Exit Window Manager (Yabai) with Cmd-Shift-c/r/e",
+						"manipulators": [
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "c",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "brew services restart yabai"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "c",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "brew services restart yabai"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "r",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "brew services restart yabai"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "r",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "brew services restart yabai"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_unless"
+									}
+								],
+								"from": {
+									"key_code": "e",
+									"modifiers": {
+										"mandatory": ["control", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "brew services stop yabai"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"conditions": [
+									{
+										"bundle_identifiers": [
+											"^com\\.apple\\.Terminal$",
+											"^com\\.github\\.wez\\.wezterm$"
+										],
+										"type": "frontmost_application_if"
+									}
+								],
+								"from": {
+									"key_code": "e",
+									"modifiers": {
+										"mandatory": ["command", "shift"]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "brew services stop yabai"
+									}
+								],
+								"type": "basic"
+							}
+						]
 					}
 				]
 			},
@@ -246,20 +1053,6 @@
 						"is_keyboard": true,
 						"is_pointing_device": true,
 						"product_id": 45091,
-						"vendor_id": 1133
-					},
-					"ignore": false,
-					"manipulate_caps_lock_led": true,
-					"simple_modifications": [],
-					"treat_as_built_in_keyboard": false
-				},
-				{
-					"disable_built_in_keyboard_if_exists": false,
-					"fn_function_keys": [],
-					"identifiers": {
-						"is_keyboard": true,
-						"is_pointing_device": false,
-						"product_id": 50475,
 						"vendor_id": 1133
 					},
 					"ignore": false,
