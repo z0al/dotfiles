@@ -70,5 +70,8 @@ in
     # Other
     "search.showLineNumbers" = false;
     "debug.console.fontSize" = 13;
+
+    # TypeScript
+    "typescript.updateImportsOnFileMove.enabled" = "always";
   };
 }
