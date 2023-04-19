@@ -2,6 +2,8 @@
 
 {
   boot = {
+    supportedFilesystems = [ "ntfs" ];
+
     loader = {
       timeout = 1;
 
@@ -11,20 +13,8 @@
       };
 
       systemd-boot = {
-        enable = lib.mkDefault false;
-        configurationLimit = 10;
-      };
-
-      grub = {
-        enable = lib.mkDefault false;
-        version = 2;
-        useOSProber = true;
-
-        device = "nodev";
-        efiSupport = true;
-
-        # enableCryptodisk = false;
-        configurationLimit = 25;
+        enable = true;
+        configurationLimit = 15;
       };
     };
   };

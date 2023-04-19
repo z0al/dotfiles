@@ -16,10 +16,19 @@
     sudo.wheelNeedsPassword = false;
   };
 
+  # File System
+  fileSystems."/boot/efi" = {
+    device = lib.mkDefault "/dev/disk/by-label/BOOT";
+    fsType = lib.mkDefault "vfat";
+  };
+
+  fileSystems."/" = {
+    device = lib.mkDefault "/dev/disk/by-label/nixos";
+    fsType = lib.mkDefault "ext4";
+  };
+
   # Hardware
   boot = {
-    loader.grub.enable = true;
-
     kernelModules = [ "kvm-amd" ];
 
     initrd.availableKernelModules = [

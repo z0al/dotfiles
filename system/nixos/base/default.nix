@@ -3,10 +3,10 @@
 {
   imports = [
     ./boot.nix
-    ./fs.nix
     ./hardware.nix
     ./network.nix
     ./nix-ld.nix
+    ./persist.nix
     ./pkgs.nix
     ./sound.nix
     ./users.nix

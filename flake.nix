@@ -13,6 +13,8 @@
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     # Only included for the use of these helpers:
@@ -31,6 +33,7 @@
     , darwin
     , hm
     , hardware
+    , impermanence
     , utils
     , digga
     } @ inputs:
@@ -70,6 +73,7 @@
 
         modules = [
           hm.nixosModules.home-manager
+          impermanence.nixosModules.impermanence
         ];
       };
 

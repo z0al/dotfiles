@@ -6,7 +6,7 @@
     # For MX Master 3 and others
     logitech.wireless = {
       enable = true;
-      enableGraphical = true;
+      enableGraphical = false;
     };
 
     enableAllFirmware = true;
