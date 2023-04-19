@@ -21,7 +21,7 @@ in
     "editor.wordWrap" = "on";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
-    "editor.fontFamily" = "'Fira Code', 'FiraCode Nerd Font'";
+    "editor.fontFamily" = "'JetBrains Mono'";
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
     "editor.occurrencesHighlight" = false;

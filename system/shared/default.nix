@@ -13,11 +13,12 @@
     fontDir.enable = true;
 
     fonts = with pkgs; [
+      cascadia-code
+      fira-code
+      jetbrains-mono
       (nerdfonts.override {
         fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "CascadiaCode"
+          "NerdFontsSymbolsOnly"
         ];
       })
     ];

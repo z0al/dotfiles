@@ -3,10 +3,15 @@ local act = wz.action
 
 local config = {
 	-- Font
-	font = wz.font_with_fallback({ "FiraCode Nerd Font" }),
-	font_size = 13.0,
+	font = wz.font_with_fallback({
+		"JetBrains Mono",
+		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
+	}),
+
+	font_size = 11.0,
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
 	adjust_window_size_when_changing_font_size = false,
+	warn_about_missing_glyphs = false,
 
 	-- Colors
 	color_scheme = "$WZ_THEME",
@@ -151,11 +156,14 @@ local config = {
 	},
 }
 
--- Use Command instead of Ctrl on MacOS
--- if string.match(wz.target_triple, "apple") then
--- 	for k, v in pairs(config.keys) do
--- 		v.mods = string.gsub(v.mods, "CTRL", "CMD")
--- 	end
--- end
+-- MacOS overrides
+if string.match(wz.target_triple, "apple") then
+	config.font_size = 13.0
+
+	-- 	Use Command instead of Ctrl on MacOS
+	-- 	for k, v in pairs(config.keys) do
+	-- 		v.mods = string.gsub(v.mods, "CTRL", "CMD")
+	-- 	end
+end
 
 return config
