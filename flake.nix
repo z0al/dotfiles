@@ -59,7 +59,11 @@
 
       mkHmConfig = mod: {
         home-manager = {
-          users.${ user}. imports = [ ./modules mod ];
+          users.${ user}. imports = [
+            impermanence.nixosModules.home-manager.impermanence
+            ./modules
+            mod
+          ];
           extraSpecialArgs = mkImportables ./home;
         };
       };

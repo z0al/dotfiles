@@ -1,3 +1,5 @@
+{ user, ... }:
+
 {
   environment.persistence."/nix/data" = {
     hideMounts = true;
@@ -14,5 +16,21 @@
     files = [
       "/etc/machine-id"
     ];
+
+    # This forces the creation of /nix/data/home/${user} which comes
+    # in handy with the home-manager module later which has no root
+    # access.
+    users."${user}" = {
+      directories = [
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Documents"
+        "Videos"
+      ];
+    };
   };
+
+  # Required for home-manager module
+  programs.fuse.userAllowOther = true;
 }

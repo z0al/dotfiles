@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 let
   sign =
@@ -42,4 +42,10 @@ in
       command = "1password --silent";
     }
   ];
+
+  home.persistence."/nix/data/home/${user}" = {
+    directories = [
+      ".config/1Password"
+    ];
+  };
 }

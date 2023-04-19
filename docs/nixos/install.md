@@ -40,7 +40,7 @@ Using `fdisk -l` at this point should report something like this:
 
 ```
 Disk /dev/nvme0n1: 1.82 TiB, 2000398934016 bytes, 3907029168 sectors
-Disk model: CT2000P5SSD8                            
+Disk model: CT2000P5SSD8
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
@@ -55,7 +55,7 @@ Device           Start        End    Sectors  Size Type
 ## 2. Setup LUKS Encryption
 
 ```sh
-cryptsetup luksFormat --type luks2 /dev/disk/by-partlabel/nixos
+cryptsetup luksFormat --type luks2 --label nixos /dev/disk/by-partlabel/nixos
 cryptsetup luksOpen /dev/disk/by-partlabel/nixos crypted
 ```
 
@@ -95,17 +95,16 @@ nixos-generate-config --root /mnt
 
 Copy the following configurations from `etc/nixos/hardware-configuration.nix` to `/hosts/<host>/system.nix`:
 
-* `boot.initrd.*`
-* `boot.kernelModules*`
-* `boot.extraModulePackages*`
-* Anything else that's relevant
+- `boot.initrd.*`
+- `boot.kernelModules*`
+- `boot.extraModulePackages*`
+- Anything else that's relevant
 
 ## 6. Edit configurations
 
 > **Note:**
 >
 > While I could just use my flake setup to bootstrap the new system, I perfer to have a bare minimum working setup initially.
-
 
 1. Configure boot
 
@@ -117,7 +116,7 @@ boot = {
 
   loader = {
     systemd-boot.enable = true;
-    
+
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
@@ -138,6 +137,7 @@ fileSystems."/" =
     options = [ "defaults" "size=2G" "mode=755" ];
   };
 ```
+
 3. Set `networking.hostName`
 
 ```nix
@@ -165,7 +165,7 @@ users.users.z0al = {
 users.users.root.passwordFile = "/nix/data/passwords/root";
 ```
 
-5. Configure `/nix/tmp` 
+5. Configure `/nix/tmp`
 
 By default Nix stores temporary build artifacts in `/tmp` and since the root (`/`) is now a 2GB `tmpfs` we need to configure Nix to use a different location. Otherwise, larger build will result in `No enough space left on device` errors.
 
@@ -213,7 +213,7 @@ nixos-install --no-root-passwd
 1. Bootstrap a shell with required dependencies
 
 ```sh
-nix-shell -p git python3 vscode 
+nix-shell -p git python3 vscode
 ```
 
 2. Make sure to adjust the `/hosts/<host>/system.nix` and `home.nix` if needed
