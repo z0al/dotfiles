@@ -1,10 +1,6 @@
-{ config, lib, user, profiles, ... }:
+{ config, lib, user, ... }:
 
 {
-  imports = with profiles; [
-    base
-  ];
-
   # User configuration
   users.users.${user} = {
     extraGroups = [ "vboxsf" ];

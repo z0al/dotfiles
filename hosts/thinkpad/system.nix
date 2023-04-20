@@ -1,18 +1,11 @@
-{ config, hardware, profiles, ... }:
+{ config, hardware, ... }:
 
-let
-  hardwareModules = with hardware.nixosModules; [
+{
+  imports = with hardware.nixosModules; [
     lenovo-thinkpad
     lenovo-thinkpad-x1
     lenovo-thinkpad-x1-7th-gen
   ];
-in
-
-{
-  imports = hardwareModules ++
-    (with profiles; [
-      base
-    ]);
 
   # Setup keyfile
   boot.initrd.secrets = {

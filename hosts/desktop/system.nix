@@ -1,10 +1,6 @@
-{ config, lib, profiles, user, ... }:
+{ config, lib, user, ... }:
 
 {
-  imports = with profiles; [
-    base
-  ];
-
   # File System
   d.fs.rootOnTmpfs = true;
 
