@@ -1,7 +1,22 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
+
+let
+  cfg = config.d.apps.spotify;
+in
 
 {
-  home.packages = with pkgs; [
-    spotify
-  ];
+  options.d.apps.spotify = {
+    enable = mkOption {
+      type = types.bool;
+      default = pkgs.stdenv.isLinux;
+    };
+  };
+
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      spotify
+    ];
+  };
 }

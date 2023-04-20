@@ -1,25 +1,40 @@
-{ config, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
+
+let
+  cfg = config.d.apps.flameshot;
+in
 
 {
-  services.flameshot = {
-    enable = true;
+  options.d.apps.flameshot = {
+    enable = mkOption {
+      type = types.bool;
+      default = pkgs.stdenv.isLinux;
+    };
+  };
 
-    settings = {
-      General = {
-        uiColor = "#ffffff";
-        contrastUiColor = "#17171F";
-        contrastOpacity = 188;
+  config = {
+    services.flameshot = {
+      enable = cfg.enable;
 
-        saveAsFileExtension = ".png";
-        savePath = "${config.home.homeDirectory}/Pictures";
+      settings = {
+        General = {
+          uiColor = "#ffffff";
+          contrastUiColor = "#17171F";
+          contrastOpacity = 188;
 
-        showHelp = false;
-        startupLaunch = false;
-        checkForUpdates = false;
-        disabledTrayIcon = false;
-        showSidePanelButton = false;
-        showDesktopNotification = false;
-        showStartupLaunchMessage = false;
+          saveAsFileExtension = ".png";
+          savePath = "${config.home.homeDirectory}/Pictures";
+
+          showHelp = false;
+          startupLaunch = false;
+          checkForUpdates = false;
+          disabledTrayIcon = false;
+          showSidePanelButton = false;
+          showDesktopNotification = false;
+          showStartupLaunchMessage = false;
+        };
       };
     };
   };

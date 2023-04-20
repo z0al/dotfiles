@@ -14,6 +14,7 @@
       "Documents"
       "Videos"
       ".dotfiles"
+      ".ssh"
     ];
   };
 }

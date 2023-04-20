@@ -1,7 +1,7 @@
 {
   imports = [
     ./1password.nix
-    ./chromium.nix
+    ./brave.nix
     ./flameshot.nix
     ./obsidian.nix
     ./spotify.nix

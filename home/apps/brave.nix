@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
 
 let
   exts = [
@@ -11,13 +13,24 @@ let
     "fmkadmapgofadopljbjfkapdkoienihi" # React Developer Tools
     "dgjhfomjieaadpoljlnidmbgkdffpack" # Sourcegraph
   ];
+
+  cfg = config.d.apps.brave;
 in
 
 {
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
+  options.d.apps.brave = {
+    enable = mkOption {
+      type = types.bool;
+      default = pkgs.stdenv.isLinux;
+    };
+  };
 
-    extensions = map (e: { id = e; }) exts;
+  config = {
+    programs.chromium = {
+      enable = cfg.enable;
+      package = pkgs.brave;
+
+      extensions = map (e: { id = e; }) exts;
+    };
   };
 }

@@ -5,44 +5,10 @@ with lib;
 let
   cfg = config.d.fs;
   cfgHome = config.home-manager.users.${user}.d.fs;
-
-  persistenceOptions = {
-    persisted = mkOption {
-      default = { };
-      type = types.submodule {
-        options = {
-          directories = mkOption {
-            type = types.listOf types.str;
-            default = [ ];
-          };
-
-          files = mkOption {
-            type = types.listOf types.str;
-            default = [ ];
-          };
-        };
-      };
-    };
-  };
-
-  hmModule = {
-    options.d.fs = persistenceOptions;
-  };
 in
 
 {
-  options.d.fs = persistenceOptions // {
-    rootOnTmpfs = mkOption {
-      type = types.bool;
-      default = pkgs.stdenv.isLinux;
-    };
-  };
-
   config = {
-    home-manager.users = {
-      ${user}.imports = [ hmModule ];
-    };
-
     # Temporary root (/)
     fileSystems = mkIf cfg.rootOnTmpfs {
       "/" = {
