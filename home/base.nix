@@ -1,5 +1,3 @@
-{ user, ... }:
-
 {
   imports = [
     ./term
@@ -7,13 +5,15 @@
     ./dev/base.nix
   ];
 
-  home.persistence."/nix/data/home/${user}" = {
-    allowOther = true;
-
+  d.fs.persisted = {
     directories = [
+      "Desktop"
+      "Downloads"
+      "Music"
+      "Pictures"
+      "Documents"
+      "Videos"
       ".dotfiles"
     ];
-
-    files = [ ];
   };
 }

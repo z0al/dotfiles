@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, ... }:
 
 let
   sign =
@@ -43,7 +43,7 @@ in
     }
   ];
 
-  home.persistence."/nix/data/home/${user}" = {
+  d.fs.persisted = {
     directories = [
       ".config/1Password/settings"
     ];
