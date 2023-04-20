@@ -3,7 +3,6 @@
 {
   imports = with profiles; [
     base
-    gnome
   ];
 
   # User configuration

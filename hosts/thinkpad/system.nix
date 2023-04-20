@@ -12,8 +12,6 @@ in
   imports = hardwareModules ++
     (with profiles; [
       base
-      gnome
-      docker
     ]);
 
   # Setup keyfile

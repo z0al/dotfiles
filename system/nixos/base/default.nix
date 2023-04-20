@@ -2,7 +2,9 @@
 
 {
   imports = [
+    ./gnome
     ./boot.nix
+    ./docker.nix
     ./fileSystem.nix
     ./hardware.nix
     ./network.nix

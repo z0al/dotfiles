@@ -3,8 +3,6 @@
 {
   imports = with profiles; [
     base
-    gnome
-    docker
   ];
 
   # File System
