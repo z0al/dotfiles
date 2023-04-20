@@ -154,11 +154,11 @@ networking.hostName = "your-hostname";
 # Don't allow mutation of users outside of the config
 users.mutableUsers = false;
 
-users.users.z0al = {
+users.users.myUser = {
   isNormalUser = true;
-  description = "z0al";
+  description = "myUser";
   extraGroups = [ "wheel" "networkmanager"];
-  passwordFile = "/nix/data/passwords/z0al";
+  passwordFile = "/nix/data/passwords/myUser";
 };
 
 # A similar story for the root account
@@ -194,7 +194,7 @@ mkdir -p /mnt/nix/data/passwords
 
 # Flag (-6) is for SHA-512
 openssl passwd -6 "<password>" > /mnt/nix/data/passwords/root
-openssl passwd -6 "<password>" > /mnt/nix/data/passwords/z0al
+openssl passwd -6 "<password>" > /mnt/nix/data/passwords/myUser
 ```
 
 You may want to adjust the configuration further, for example, to persist more data but in my case I got that handled by my flake.

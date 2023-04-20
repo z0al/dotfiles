@@ -1,6 +1,6 @@
 { user, ... }:
 
-let 
+let
   passDir = "/nix/data/passwords";
 in
 
@@ -16,7 +16,7 @@ in
 
   users.users.${user} = {
     isNormalUser = true;
-    description = "z0al";
+    description = user;
     extraGroups = [ "wheel" ];
     passwordFile = "${passDir}/${user}";
   };

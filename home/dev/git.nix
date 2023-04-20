@@ -1,4 +1,4 @@
-{ pkgs, lib, theme, ... }:
+{ pkgs, lib, theme, user, ... }:
 
 let
   aliases = {
@@ -22,8 +22,8 @@ in
     git = {
       enable = true;
 
-      userName = "Ahmed T. Ali";
-      userEmail = "12673605+z0al@users.noreply.github.com";
+      userName = user;
+      userEmail = "${user}@users.noreply.github.com";
 
       # Signing is done via the 1Password app
       signing = {
