@@ -13,7 +13,7 @@
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
-    impermanence.url = "github:nix-community/impermanence";
+    persistence.url = "github:nix-community/impermanence";
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
@@ -33,7 +33,7 @@
     , darwin
     , hm
     , hardware
-    , impermanence
+    , persistence
     , utils
     , digga
     } @ inputs:
@@ -72,7 +72,7 @@
         };
 
         modules = [
-          impermanence.nixosModule
+          persistence.nixosModule
           hm.nixosModules.home-manager
         ];
       };
@@ -100,7 +100,7 @@
             config // {
               channelName = "stable";
               modules = config.modules ++ [
-                ./system/shared
+                ./system
                 module.system
                 (mkHmConfig module.home)
                 { networking.hostName = host; }
