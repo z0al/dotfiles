@@ -35,9 +35,11 @@ in
     # Workbench
     "workbench.colorTheme" = vsTheme;
     "workbench.iconTheme" = "vs-seti";
+    "workbench.startupEditor" = "none";
     "workbench.editor.showTabs" = false;
     "workbench.activityBar.visible" = false;
     "workbench.settings.editor" = "json";
+    "workbench.welcomePage.walkthroughs.openOnInstall" = false;
 
     # Window
     "window.menuBarVisibility" = "toggle";

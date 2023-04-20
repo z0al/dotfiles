@@ -5,5 +5,6 @@
     "gitlens.graph.statusBar.enabled" = false;
     "gitlens.mode.statusBar.enabled" = false;
     "gitlens.keymap" = "none";
+    "gitlens.showWelcomeOnInstall" = false;
   };
 }
