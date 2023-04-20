@@ -17,6 +17,8 @@
       cascadia-code
       fira-code
       jetbrains-mono
+      powerline-symbols
+      noto-fonts-emoji
       (nerdfonts.override {
         fonts = [
           "NerdFontsSymbolsOnly"

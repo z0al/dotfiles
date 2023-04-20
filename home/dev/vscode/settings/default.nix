@@ -21,7 +21,7 @@ in
     "editor.wordWrap" = "on";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
-    "editor.fontFamily" = "'JetBrains Mono'";
+    "editor.fontFamily" = "'JetBrains Mono','Symbols Nerd Font Mono','PowerlineSymbols','Noto Color Emoji'";
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
     "editor.occurrencesHighlight" = false;

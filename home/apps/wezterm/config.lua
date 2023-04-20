@@ -6,6 +6,8 @@ local config = {
 	font = wz.font_with_fallback({
 		"JetBrains Mono",
 		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
+		"PowerlineSymbols",
+		"Noto Color Emoji"
 	}),
 
 	font_size = 11.0,
