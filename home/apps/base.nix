@@ -1,5 +1,6 @@
 {
   imports = [
+    ./wezterm
     ./1password.nix
     ./brave.nix
     ./flameshot.nix

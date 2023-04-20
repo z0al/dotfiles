@@ -1,6 +1,6 @@
 {
   imports = [
-    ./term
+    ./cli
     ./apps/base.nix
     ./dev/base.nix
   ];

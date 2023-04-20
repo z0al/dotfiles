@@ -1,6 +1,6 @@
 {
   home.shellAliases = {
-    z = "__zoxide_zi";
+    j = "__zoxide_zi";
   };
 
   programs.zoxide = {
