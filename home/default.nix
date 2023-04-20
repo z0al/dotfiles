@@ -1,8 +1,9 @@
 {
   imports = [
+    ./apps
     ./cli
-    ./apps/base.nix
-    ./dev/base.nix
+    ./dev
+    ./startup.nix
   ];
 
   d.fs.persisted = {

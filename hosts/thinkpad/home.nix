@@ -1,10 +1,6 @@
-{ pkgs, profiles, ... }:
+{ pkgs, ... }:
 
 {
-  imports = with profiles; [
-    base
-  ];
-
   # Additional apps
   home.packages = with pkgs; [
     slack

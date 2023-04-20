@@ -48,13 +48,8 @@
       # - Catppuccin-Macchiato
       theme = "Catppuccin-Mocha";
 
-      importables = {
+      specialArgs = {
         inherit user theme;
-      };
-
-      mkImportables = dir: {
-        inherit user theme;
-        profiles = (rakeLeaves dir);
       };
 
       mkOverlays = channels: dir:
@@ -63,15 +58,18 @@
 
       mkHmConfig = mod: {
         home-manager = {
-          users.${ user}. imports = [ ./modules mod ];
-          extraSpecialArgs = mkImportables ./home;
+          users.${ user}.imports = [
+            ./home
+            mod
+          ];
+          extraSpecialArgs = specialArgs;
         };
       };
 
       nixosConfig = {
         system = "x86_64-linux";
 
-        specialArgs = importables // {
+        specialArgs = specialArgs // {
           inherit hardware;
         };
 
@@ -87,7 +85,7 @@
         output = "darwinConfigurations";
         builder = darwin.lib.darwinSystem;
 
-        specialArgs = importables;
+        specialArgs = specialArgs;
 
         modules = [
           hm.darwinModules.home-manager
