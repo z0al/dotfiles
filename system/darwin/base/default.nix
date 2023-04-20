@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./yabai
     ./dock.nix
     ./finder.nix
     ./login.nix
