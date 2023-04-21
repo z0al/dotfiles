@@ -16,14 +16,6 @@
     persistence.url = "github:nix-community/impermanence";
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-
-    # Only included for the use of these helpers:
-    # - rakeLeaves
-    # - flattenTree
-    digga.url = "github:divnix/digga/v0.11.0";
-    digga.inputs.nixpkgs.follows = "stable";
-    digga.inputs.nixlib.follows = "stable";
-    digga.inputs.home-manager.follows = "hm";
   };
 
   outputs =
@@ -35,11 +27,11 @@
     , hardware
     , persistence
     , utils
-    , digga
     } @ inputs:
     let
       inherit (utils.lib) mkFlake;
-      inherit (digga.lib) flattenTree rakeLeaves;
+      inherit (stable.lib.filesystem) listFilesRecursive;
+      inherit (stable.lib) listToAttrs hasSuffix removeSuffix removePrefix;
 
 
       extraArgs = {
@@ -72,22 +64,26 @@
         ];
       };
 
-      mkHosts = dir:
-        (stable.lib.mapAttrs
-          (host: module:
-            let
-              config =
-                if stable.lib.hasSuffix "darwin" dir
-                then darwinConfig else nixosConfig;
-            in
-            config // {
-              modules = config.modules ++ [
+      mkHosts = dir: listToAttrs (map
+        (file:
+          let
+            base =
+              if hasSuffix "darwin" dir
+              then darwinConfig else nixosConfig;
+
+            extend = {
+              modules = base.modules ++ [
                 { home-manager.extraSpecialArgs = extraArgs; }
-                module
+                file
               ];
-            }
-          )
-          (rakeLeaves dir));
+            };
+          in
+          {
+            name = removeSuffix ".nix" (baseNameOf file);
+            value = base // extend;
+          }
+        )
+        (listFilesRecursive dir));
 
     in
     mkFlake {
@@ -101,8 +97,7 @@
         stable = {
           overlaysBuilder = channels:
             map (o: (import o channels))
-              (builtins.attrValues
-                (flattenTree (rakeLeaves ./overlays)));
+              (listFilesRecursive ./overlays);
         };
         unstable = { };
       };
