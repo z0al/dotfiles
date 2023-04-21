@@ -6,7 +6,7 @@ let
   };
 
   config = builtins.replaceStrings
-    [ "$@d.theme@" ] [ themes.${theme} ]
+    [ "@d.theme@" ] [ themes.${theme} ]
     (lib.readFile ./config.lua);
 in
 
