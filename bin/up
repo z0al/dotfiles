@@ -4,7 +4,6 @@ import argparse
 import subprocess
 import pathlib
 import sys
-import socket
 
 DIR = pathlib.Path.home().joinpath('.dotfiles')
 
@@ -34,12 +33,6 @@ def run_nix(sub_command):
     run(["nix", "--extra-experimental-features",
          "nix-command flakes", *sub_command, DIR])
 
-
-def pull():
-    print("updating flake inputs ...")
-    run_nix(["flake", "update"])
-
-
 def switch(boot=False):
     print("switching configuration ...")
     cmd = ["sudo", "nixos-rebuild"]
@@ -51,6 +44,15 @@ def switch(boot=False):
 
     run([*cmd, "switch", "--flake", *boot_loader, DIR])
 
+def test():
+    print("(test) applying configurations ...")
+    cmd = ["sudo", "nixos-rebuild"]
+
+    if sys.platform == "darwin":
+        cmd = ["darwin-rebuild"]
+
+    run([*cmd, "test", "--flake", DIR])
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -61,8 +63,9 @@ def main():
     subparsers = parser.add_subparsers(metavar="", dest="command")
     subparsers.add_parser('boot',	help='switch and install boot loader')
     subparsers.add_parser('pull',	help='update flake inputs')
+    subparsers.add_parser('test',	help='quickly test configurations')
     subparsers.add_parser('revert',	help='roll back to previous generation')
-    subparsers.add_parser('clean',	help='run garbage collection')
+    subparsers.add_parser('prune',	help='run garbage collection')
     subparsers.add_parser(
         'theme',
         help='switch the theme of all supported apps'
@@ -75,11 +78,14 @@ def main():
     elif args.command == "boot":
         switch(True)
     elif args.command == "pull":
-        pull()
+        print("updating flake inputs ...")
+        run_nix(["flake", "update"])
+    elif args.command == "test":
+        test()
     elif args.command == "revert":
         print("Not implemented")
-    elif args.command == "clean":
-        print("Not implemented")
+    elif args.command == "prune":
+        run(["sudo", "nix-collect-garbage"])
     elif args.command == "theme":
         print("Not implemented")
 
