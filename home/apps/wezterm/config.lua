@@ -18,7 +18,7 @@ local config = {
 	warn_about_missing_glyphs = false,
 
 	-- Colors
-	color_scheme = "$WZ_THEME",
+	color_scheme = "@d.theme@",
 
 	-- Cursor
 	default_cursor_style = "BlinkingBlock",

@@ -99,7 +99,7 @@
 
         extraArgs = {
           user = "z0al";
-          theme = "Catppuccin-Mocha";
+          theme = "catppuccin";
           version = "22.11";
         };
       };

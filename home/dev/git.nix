@@ -1,4 +1,4 @@
-{ pkgs, lib, theme, user, ... }:
+{ pkgs, theme, user, ... }:
 
 let
   aliases = {
@@ -55,7 +55,7 @@ in
         options = {
           line-numbers = true;
           # Note: compatible with Bat themes
-          syntax-theme = lib.toLower theme;
+          syntax-theme = theme;
           hunk-header-style = "omit";
         };
       };

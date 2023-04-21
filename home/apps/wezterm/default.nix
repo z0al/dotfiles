@@ -1,9 +1,12 @@
 { pkgs, lib, theme, ... }:
 
 let
-  wzTheme = builtins.replaceStrings [ "-" ] [ " " ] theme;
+  themes = {
+    "catppuccin" = "Catppuccin Mocha";
+  };
+
   config = builtins.replaceStrings
-    [ "$WZ_THEME" ] [ wzTheme ]
+    [ "$@d.theme@" ] [ themes.${theme} ]
     (lib.readFile ./config.lua);
 in
 

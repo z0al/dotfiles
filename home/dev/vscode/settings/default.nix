@@ -1,7 +1,9 @@
 { theme, ... }:
 
 let
-  vsTheme = builtins.replaceStrings [ "-" ] [ " " ] theme;
+  themes = {
+    catppuccin = "Catppuccin Mocha";
+  };
 in
 
 {
@@ -32,9 +34,12 @@ in
     "diffEditor.ignoreTrimWhitespace" = false;
     "editor.emptySelectionClipboard" = false;
     "files.enableTrash" = true;
+    "editor.unicodeHighlight.allowedCharacters" = {
+      "❯" = true;
+    };
 
     # Workbench
-    "workbench.colorTheme" = vsTheme;
+    "workbench.colorTheme" = themes.${theme};
     "workbench.iconTheme" = "vs-seti";
     "workbench.startupEditor" = "none";
     "workbench.editor.showTabs" = false;

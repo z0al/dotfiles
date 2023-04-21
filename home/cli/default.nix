@@ -1,11 +1,11 @@
 {
   imports = [
     ./bat
-    ./fzf
     ./shell
+    ./starship
+    ./fzf.nix
     ./localrc.nix
     ./nix-index.nix
-    ./starship.nix
     ./up.nix
     ./zoxide.nix
   ];

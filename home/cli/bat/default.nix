@@ -1,4 +1,4 @@
-{ pkgs, lib, theme, ... }:
+{ pkgs, theme, ... }:
 
 {
   home.shellAliases = {
@@ -8,7 +8,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = lib.toLower theme;
+      inherit theme;
     };
   };
 
