@@ -31,6 +31,7 @@ in
     "editor.renderWhitespace" = "none";
     "diffEditor.ignoreTrimWhitespace" = false;
     "editor.emptySelectionClipboard" = false;
+    "files.enableTrash" = true;
 
     # Workbench
     "workbench.colorTheme" = vsTheme;
