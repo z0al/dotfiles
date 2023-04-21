@@ -21,7 +21,7 @@ The repository features a shared [home-manager][hm] configuration between NixOS 
 
 **NixOS ❄:**
 
-- Desktop: Gnome (Wayland) + Pop Shell extension (+ more)
+- Desktop: Gnome + Pop Shell extension (+ more)
 - Root (`/`) is mounted as a temporarily file system (`tmpfs`). Why? [Ok, hear me out](https://grahamc.com/blog/erase-your-darlings/)
 
 **macOS 🍏:**

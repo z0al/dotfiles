@@ -44,7 +44,7 @@ local config = {
 	hide_tab_bar_if_only_one_tab = true,
 
 	-- Linux
-	enable_wayland = true,
+	enable_wayland = false,
 
 	-- Keybindings
 	disable_default_key_bindings = true,
