@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, version, ... }:
 
 {
   imports = [
@@ -14,7 +14,7 @@
     ./users.nix
   ];
 
-  system.stateVersion = "22.11";
+  system.stateVersion = version;
 
   # Desktop
   fonts.enableDefaultFonts = true;

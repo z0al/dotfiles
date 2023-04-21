@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
@@ -39,12 +39,10 @@ in
 
   config = {
     # Easily co-locale apps persistence config when using home-manager
-    home-manager.users = {
-      ${user}.imports = [{
-        options.d.fs = {
-          persisted = persistence;
-        };
-      }];
-    };
+    d.hm = [{
+      options.d.fs = {
+        persisted = persistence;
+      };
+    }];
   };
 }

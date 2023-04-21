@@ -1,9 +1,12 @@
-{ pkgs, lib, user, ... }:
+{ pkgs, lib, ... }:
 
 {
-  home-manager.users.${user} = {
-    imports = [ ./user ];
-  };
+  d.hm = [{
+    imports = [
+      ./extensions
+      ./gtk.nix
+    ];
+  }];
 
   # Enable the X11 windowing system
   services.xserver.enable = true;

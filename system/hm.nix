@@ -1,29 +1,28 @@
-{ config, pkgs, lib, user, ... }:
+{ config, options, lib, version, user, theme, ... }:
+
+with lib;
 
 let
-  homePrefix =
-    if pkgs.stdenv.isDarwin
-    then "/Users"
-    else "/home";
+  cfg = config.d.hm;
 in
 
 {
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
+  options.d.hm = mkOption {
+    type = types.listOf types.attrs;
+    default = [ ];
+  };
 
-    users.${user} = {
-      imports = [ ../home ];
+  config = {
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
 
-      xdg.enable = true;
-      programs.ssh.enable = true;
-      programs.home-manager.enable = true;
+      extraSpecialArgs = {
+        inherit version user theme;
+      };
 
-      home = {
-        stateVersion = "22.11";
-
-        username = user;
-        homeDirectory = lib.mkForce "${homePrefix}/${user}";
+      users.${user} = {
+        imports = cfg ++ [ ../home ];
       };
     };
   };

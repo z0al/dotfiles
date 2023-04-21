@@ -1,5 +1,3 @@
-{ user, ... }:
-
 {
   # brew services start yabai
   # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
@@ -16,12 +14,12 @@
     ];
   };
 
-  home-manager.users.${user} = {
+  d.hm = [{
     xdg.configFile = {
       "yabai/yabairc" = {
         executable = true;
         source = ./yabairc;
       };
     };
-  };
+  }];
 }

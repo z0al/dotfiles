@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -15,8 +15,8 @@
   # User that runs the garbage collector.
   nix.gc.user = user;
 
-  home-manager.users.${user}.imports = [
-    ./hm
+  d.hm = [
+    { imports = [ ./hm ]; }
   ];
 
   services.nix-daemon = {

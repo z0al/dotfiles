@@ -33,12 +33,6 @@
       inherit (stable.lib.filesystem) listFilesRecursive;
       inherit (stable.lib) listToAttrs hasSuffix removeSuffix removePrefix;
 
-
-      extraArgs = {
-        user = "z0al";
-        theme = "Catppuccin-Mocha";
-      };
-
       nixosConfig = {
         system = "x86_64-linux";
 
@@ -72,10 +66,7 @@
               then darwinConfig else nixosConfig;
 
             extend = {
-              modules = base.modules ++ [
-                { home-manager.extraSpecialArgs = extraArgs; }
-                file
-              ];
+              modules = base.modules ++ [ file ];
             };
           in
           {
@@ -103,10 +94,14 @@
       };
 
       hostDefaults = {
-        inherit extraArgs;
-
         channelName = "stable";
         modules = [ ./system ];
+
+        extraArgs = {
+          user = "z0al";
+          theme = "Catppuccin-Mocha";
+          version = "22.11";
+        };
       };
 
       hosts =
