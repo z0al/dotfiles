@@ -8,7 +8,7 @@ in
 {
   dconf.settings."org/gnome/shell/extensions/rounded-window-corners" = {
     skip-libadwaita-app = true;
-    skip-libhandy-app = true;
+    skip-libhandy-app = false;
 
     global-rounded-corner-settings = [
       (dict [
