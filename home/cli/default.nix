@@ -3,8 +3,8 @@
     ./bat
     ./fzf
     ./shell
-    ./command-not-found.nix
     ./localrc.nix
+    ./nix-index.nix
     ./starship.nix
     ./up.nix
     ./zoxide.nix
