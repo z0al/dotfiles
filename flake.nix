@@ -43,13 +43,9 @@
 
       user = "z0al";
 
-      # Supported values:
-      # - Catppuccin-Mocha
-      # - Catppuccin-Macchiato
-      theme = "Catppuccin-Mocha";
-
-      specialArgs = {
-        inherit user theme;
+      extraArgs = {
+        inherit user;
+        theme = "Catppuccin-Mocha";
       };
 
       mkOverlays = channels: dir:
@@ -58,18 +54,18 @@
 
       mkHmConfig = mod: {
         home-manager = {
-          users.${ user}.imports = [
+          users.${user}.imports = [
             ./home
             mod
           ];
-          extraSpecialArgs = specialArgs;
+          extraSpecialArgs = extraArgs;
         };
       };
 
       nixosConfig = {
         system = "x86_64-linux";
 
-        specialArgs = specialArgs // {
+        extraArgs = {
           inherit hardware;
         };
 
@@ -84,8 +80,6 @@
         system = "aarch64-darwin";
         output = "darwinConfigurations";
         builder = darwin.lib.darwinSystem;
-
-        specialArgs = specialArgs;
 
         modules = [
           hm.darwinModules.home-manager
@@ -127,6 +121,10 @@
             mkOverlays channels ./overlays;
         };
         unstable = { };
+      };
+
+      hostDefaults = {
+        inherit extraArgs;
       };
 
       hosts = mkHosts ./hosts;
