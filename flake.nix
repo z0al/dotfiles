@@ -41,25 +41,10 @@
       inherit (utils.lib) mkFlake;
       inherit (digga.lib) flattenTree rakeLeaves;
 
-      user = "z0al";
 
       extraArgs = {
-        inherit user;
+        user = "z0al";
         theme = "Catppuccin-Mocha";
-      };
-
-      mkOverlays = channels: dir:
-        map (o: (import o channels))
-          (builtins.attrValues (flattenTree (rakeLeaves dir)));
-
-      mkHmConfig = mod: {
-        home-manager = {
-          users.${user}.imports = [
-            ./home
-            mod
-          ];
-          extraSpecialArgs = extraArgs;
-        };
       };
 
       nixosConfig = {
@@ -92,16 +77,13 @@
           (host: module:
             let
               config =
-                if stable.lib.hasPrefix "mac" host
+                if stable.lib.hasSuffix "darwin" dir
                 then darwinConfig else nixosConfig;
             in
             config // {
-              channelName = "stable";
               modules = config.modules ++ [
-                ./system
-                module.system
-                (mkHmConfig module.home)
-                { networking.hostName = host; }
+                { home-manager.extraSpecialArgs = extraArgs; }
+                module
               ];
             }
           )
@@ -118,15 +100,22 @@
       channels = {
         stable = {
           overlaysBuilder = channels:
-            mkOverlays channels ./overlays;
+            map (o: (import o channels))
+              (builtins.attrValues
+                (flattenTree (rakeLeaves ./overlays)));
         };
         unstable = { };
       };
 
       hostDefaults = {
         inherit extraArgs;
+
+        channelName = "stable";
+        modules = [ ./system ];
       };
 
-      hosts = mkHosts ./hosts;
+      hosts =
+        (mkHosts ./hosts/nixos) //
+        (mkHosts ./hosts/darwin);
     };
 }

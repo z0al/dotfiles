@@ -7,6 +7,26 @@
     lenovo-thinkpad-x1-7th-gen
   ];
 
+  # TODO: set as home manager config
+  #   # Additional apps
+  # home.packages = with pkgs; [
+  #   slack
+  #   zoom-us
+  # ];
+
+  # # Install Okta browser extension
+  # programs.chromium.extensions = [
+  #   { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # Okta
+  # ];
+
+  # # Startup applications
+  # services.startup.applications = [
+  #   {
+  #     package = pkgs.slack;
+  #     command = "slack -u";
+  #   }
+  # ];
+
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;

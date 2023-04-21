@@ -13,6 +13,8 @@ in
     useUserPackages = true;
 
     users.${user} = {
+      imports = [ ../home ];
+
       xdg.enable = true;
       programs.ssh.enable = true;
       programs.home-manager.enable = true;

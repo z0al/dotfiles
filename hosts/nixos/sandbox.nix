@@ -7,6 +7,11 @@
     password = "demo";
   };
 
+  # TODO: set as home manager config
+  # programs.git.extraConfig = {
+  #   safe.directory = "*";
+  # };
+
   security = {
     sudo.wheelNeedsPassword = false;
   };
