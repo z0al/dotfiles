@@ -32,5 +32,9 @@ in
 
       extensions = map (e: { id = e; }) exts;
     };
+
+    d.fs.persisted = mkIf cfg.enable {
+      directories = [ ".config/BraveSoftware/Brave-Browser" ];
+    };
   };
 }
