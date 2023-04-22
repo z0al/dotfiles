@@ -5,7 +5,7 @@
     ./gnome
     ./boot.nix
     ./docker.nix
-    ./fileSystem.nix
+    ./file-system.nix
     ./hardware.nix
     ./network.nix
     ./nix-ld.nix

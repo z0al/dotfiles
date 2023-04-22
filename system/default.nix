@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./fileSystem.nix
+    ./file-system.nix
     ./hm.nix
     ./nix.nix
     ./pkgs.nix

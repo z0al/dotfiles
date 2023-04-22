@@ -2,10 +2,8 @@
 
 {
   imports = [
-    ./neovim
     ./node.nix
-    ./gh.nix
-    ./git.nix
+    ./react-native.nix
   ];
 
   # Globally installed dev tools

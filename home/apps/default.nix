@@ -1,5 +1,6 @@
 {
   imports = [
+    ./neovim
     ./vscode
     ./wezterm
     ./1password.nix

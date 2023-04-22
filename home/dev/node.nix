@@ -1,20 +1,35 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
+
+let
+  cfg = config.d.dev.node;
+in
 
 {
-  home.packages = with pkgs; [
-    nodejs
-    fnm
-  ];
-
-  home.shellAliases = {
-    nvm = "fnm";
+  options.d.dev.node = {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+    };
   };
 
-  programs.bash.initExtra = ''
-    eval "$(fnm env --use-on-cd)"
-  '';
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      nodejs
+      fnm
+    ];
 
-  programs.fish.interactiveShellInit = ''
-    fnm env --use-on-cd | source
-  '';
+    home.shellAliases = {
+      nvm = "fnm";
+    };
+
+    programs.bash.initExtra = ''
+      eval "$(fnm env --use-on-cd)"
+    '';
+
+    programs.fish.interactiveShellInit = ''
+      fnm env --use-on-cd | source
+    '';
+  };
 }
