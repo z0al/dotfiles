@@ -9,6 +9,7 @@
     enable = true;
     config = {
       inherit theme;
+      style = "plain";
     };
   };
 
