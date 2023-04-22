@@ -28,12 +28,12 @@ in
   d.fs.persisted = {
     directories = [
       "Desktop"
+      "Documents"
       "Downloads"
       "Music"
       "Pictures"
-      "Documents"
       "Videos"
-      ".dotfiles"
+      "github"
       ".ssh"
     ];
   };
