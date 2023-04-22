@@ -8,10 +8,7 @@ in
 
 {
   imports = [
-    ./extensions/git-lens.nix
-    ./extensions/prettier.nix
-    ./extensions/spell-check.nix
-    ./extensions/stylua.nix
+    ./extensions.nix
   ];
 
   programs.vscode.userSettings = {

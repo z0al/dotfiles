@@ -1,5 +1,6 @@
 {
   imports = [
+    ./vscode
     ./wezterm
     ./1password.nix
     ./brave.nix

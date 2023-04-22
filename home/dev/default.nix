@@ -3,7 +3,6 @@
 {
   imports = [
     ./neovim
-    ./vscode
     ./node.nix
     ./gh.nix
     ./git.nix
