@@ -7,25 +7,20 @@
     lenovo-thinkpad-x1-7th-gen
   ];
 
-  # Per user
+  # Home
   d.hm = [{
-    # Additional apps
+    d.apps = {
+      slack.enable = true;
+      vscode.withCopilot = false;
+    };
+
     home.packages = with pkgs; [
-      slack
       zoom-us
     ];
 
     # Install Okta browser extension
     programs.chromium.extensions = [
       { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # Okta
-    ];
-
-    # Startup applications
-    services.startup.applications = [
-      {
-        package = pkgs.slack;
-        command = "slack -u";
-      }
     ];
   }];
 
