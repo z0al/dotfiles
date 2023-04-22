@@ -36,4 +36,8 @@
       }
     ];
   };
+
+  d.fs.persisted = {
+    directories = [ ".local/share/fish" ];
+  };
 }
