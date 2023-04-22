@@ -35,12 +35,14 @@ let
   };
 
   cursorTheme = cursorThemes.${theme};
+
+  wallpaper = "${./wallpaper.jpg}";
 in
 
 {
   gtk.enable = true;
 
-  # Theme
+  ## Theme
   gtk.theme = gtkTheme;
 
   dconf.settings = {
@@ -57,19 +59,28 @@ in
 
   gtk.cursorTheme = cursorTheme;
 
-  # Interface
+  ## Background
+  dconf.settings."org/gnome/desktop/background" = {
+    picture-uri = wallpaper;
+    picture-uri-dark = wallpaper;
+  };
+  dconf.settings."org/gnome/desktop/screensaver" = {
+    picture-uri = wallpaper;
+  };
+
+  ## Interface
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
     clock-show-date = true;
     clock-show-weekday = true;
   };
 
-  # Windows
+  ## Windows
   dconf.settings."org/gnome/desktop/wm/preferences" = {
     button-layout = "appmenu:";
   };
 
-  # File Chooser
+  ## File Chooser
   # Affects the Files app and "Open .." dialogs
   dconf.settings."${GTK}/settings/file-chooser" = fileChooser;
   dconf.settings."${GTK4}/settings/file-chooser" = fileChooser;
