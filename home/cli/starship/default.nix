@@ -11,8 +11,9 @@
 
     settings = {
       character = {
-        success_symbol = "[❯](bold prompt)";
-        error_symbol = "[[✗](bold red) ❯](prompt)";
+        success_symbol = "[󱞪](bold prompt)";
+        error_symbol = "[󱞪](bold red)";
+        vicmd_symbol = "[](bold prompt)";
       };
 
       battery = {

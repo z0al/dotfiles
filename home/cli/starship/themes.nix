@@ -11,7 +11,7 @@
     # Catppuccin (Mocha)
     # https://github.com/catppuccin/starship
     palettes.catppuccin = {
-      prompt = "#eba0ac";
+      prompt = "#cba6f7";
 
       rosewater = "#f5e0dc";
       flamingo = "#f2cdcd";

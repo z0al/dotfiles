@@ -7,9 +7,9 @@ local config = {
 		"JetBrains Mono",
 
 		-- For Symbols
-		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
-		{ family = "PowerlineSymbols", scale = 0.75 },
-		{ family = "Noto Color Emoji", scale = 0.75 },
+		{ family = "Symbols Nerd Font Mono", scale = 0.8 },
+		{ family = "PowerlineSymbols", scale = 0.8 },
+		{ family = "Noto Color Emoji", scale = 0.8 },
 	}),
 
 	font_size = 11.0,

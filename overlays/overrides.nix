@@ -32,6 +32,5 @@ channels: final: prev: {
 
     # Other
     nerdfonts
-    catppuccin-gtk
     ;
 }

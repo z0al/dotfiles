@@ -14,12 +14,7 @@ let
   gtkThemes = {
     catppuccin = {
       name = "Catppuccin-Mocha-Standard-Mauve-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
-        size = "standard";
-        tweaks = [ ];
-        variant = "mocha";
-      };
+      package = pkgs.catppuccin-gtk;
     };
   };
 
@@ -73,6 +68,7 @@ in
     color-scheme = "prefer-dark";
     clock-show-date = true;
     clock-show-weekday = true;
+    text-scaling-factor = 1.3;
   };
 
   ## Windows
