@@ -68,7 +68,7 @@ in
     color-scheme = "prefer-dark";
     clock-show-date = true;
     clock-show-weekday = true;
-    text-scaling-factor = 1.3;
+    text-scaling-factor = 1.2;
   };
 
   ## Windows
