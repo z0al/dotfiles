@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
+
+let
+  cfg = config.d.apps.vscode;
+in
 
 {
   imports = [
@@ -6,35 +12,53 @@
     ./keybindings.nix
   ];
 
-  programs.vscode = {
-    enable = true;
+  options.d.apps.vscode = {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+    };
 
-    mutableExtensionsDir = true;
-    enableUpdateCheck = false;
-    enableExtensionUpdateCheck = true;
+    withCopilot = mkOption {
+      type = types.bool;
+      default = true;
+    };
+  };
 
-    extensions = with pkgs.vscode-extensions; [
-      # Git
-      github.copilot
-      eamodio.gitlens
+  config = {
+    programs.vscode = {
+      enable = cfg.enable;
 
-      # Languages
-      bradlc.vscode-tailwindcss
-      bungcip.better-toml
-      dotjoshjohnson.xml
-      jnoortheen.nix-ide
-      # ms-python.python not supported in Darwin (because of gdb)
+      mutableExtensionsDir = true;
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = true;
 
-      # Themes
-      dracula-theme.theme-dracula
-      catppuccin.catppuccin-vsc
+      extensions = with pkgs.vscode-extensions; ([
+        # Git
+        eamodio.gitlens
 
-      # Formatting and linting
-      dbaeumer.vscode-eslint
-      editorconfig.editorconfig
-      esbenp.prettier-vscode
-      streetsidesoftware.code-spell-checker
-      # JohnnyMorganz.stylua
-    ];
+        # Languages
+        bradlc.vscode-tailwindcss
+        bungcip.better-toml
+        dotjoshjohnson.xml
+        jnoortheen.nix-ide
+        # ms-python.python not supported in Darwin (because of gdb)
+
+        # Themes
+        dracula-theme.theme-dracula
+        catppuccin.catppuccin-vsc
+
+        # Formatting and linting
+        dbaeumer.vscode-eslint
+        editorconfig.editorconfig
+        esbenp.prettier-vscode
+        streetsidesoftware.code-spell-checker
+        # JohnnyMorganz.stylua
+      ] ++
+      optionals (cfg.withCopilot) [ github.copilot ]);
+    };
+
+    d.fs.persisted = mkIf cfg.enable {
+      directories = [ ".config/Code/User/globalStorage" ];
+    };
   };
 }
