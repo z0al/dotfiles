@@ -3,18 +3,22 @@
 with lib;
 
 let
-  exts = [
-    "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1Password
-    "nkgllhigpcljnhoakjkgaieabnkmgdkb" # Don't F*** With Paste
-    "aapbdbdomjkkjkaonfhkkikfgjllcleb" # Google Translate
-    "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
-    "bcjindcccaagfpapjjmafapmmgkkhgoa" # JSON Formatter
-    "mapjgeachilmcbbokkgcbgpbakaaeehi" # Omni
-    "fmkadmapgofadopljbjfkapdkoienihi" # React Developer Tools
-    "dgjhfomjieaadpoljlnidmbgkdffpack" # Sourcegraph
-  ];
-
   cfg = config.d.apps.brave;
+
+  extensions = {
+    _1password = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+    dont-f-with-paste = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
+    google-translate = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
+    grammarly = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
+    json-formatter = "bcjindcccaagfpapjjmafapmmgkkhgoa";
+    omni = "mapjgeachilmcbbokkgcbgpbakaaeehi";
+    react-developer-tools = "fmkadmapgofadopljbjfkapdkoienihi";
+    sourcegraph = "dgjhfomjieaadpoljlnidmbgkdffpack";
+  };
+
+  opts = {
+    okta = "glnpjglilkicbckjpbgcfkogebgllemb";
+  };
 in
 
 {
@@ -23,6 +27,11 @@ in
       type = types.bool;
       default = pkgs.stdenv.isLinux;
     };
+
+    withOkta = mkOption {
+      type = types.bool;
+      default = false;
+    };
   };
 
   config = {
@@ -30,7 +39,9 @@ in
       enable = cfg.enable;
       package = pkgs.brave;
 
-      extensions = map (e: { id = e; }) exts;
+      extensions = map (e: { id = e; })
+        ((attrValues extensions) ++
+          optional cfg.withOkta [ opts.okta ]);
     };
 
     d.fs.persisted = mkIf cfg.enable {

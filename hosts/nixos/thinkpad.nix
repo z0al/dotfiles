@@ -11,16 +11,12 @@
   d.hm = [{
     d.apps = {
       slack.enable = true;
+      brave.withOkta = true;
       vscode.withCopilot = false;
     };
 
     home.packages = with pkgs; [
       zoom-us
-    ];
-
-    # Install Okta browser extension
-    programs.chromium.extensions = [
-      { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # Okta
     ];
   }];
 
