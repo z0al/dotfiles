@@ -3,17 +3,17 @@
 let
   extensions = with pkgs.gnomeExtensions; [
     appindicator
-    blur-my-shell
     dash-to-dock
     desktop-icons-ng-ding
     pop-shell
     rounded-window-corners
+    user-themes
+    gtk-title-bar
   ];
 in
 
 {
   imports = [
-    ./blur-my-shell.nix
     ./dash-to-dock.nix
     ./desktop-icons.nix
     ./pop-shell.nix

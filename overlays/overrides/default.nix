@@ -20,9 +20,6 @@ channels: final: prev: {
     vscode
     vscode-extensions
 
-    # Gnome
-    gnomeExtensions
-
     # Apps
     _1password
     _1password-gui
@@ -35,5 +32,6 @@ channels: final: prev: {
 
     # Other
     nerdfonts
+    catppuccin-gtk
     ;
 }
