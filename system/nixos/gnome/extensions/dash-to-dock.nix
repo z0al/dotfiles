@@ -17,9 +17,9 @@
     custom-theme-shrink = true;
     running-indicator-style = "DOTS";
     transparency-mode = "FIXED";
-    background-opacity = 0.60;
+    background-opacity = 1.0;
     custom-background-color = true;
-    background-color = "rgb(61,56,70)";
+    background-color = "#1e1e2e";
     disable-overview-on-startup = true;
   };
 }
