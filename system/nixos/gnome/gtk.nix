@@ -10,11 +10,12 @@ let
     sort-directories-first = true;
   };
 
-  themes = {
+  # GTK Theme
+  gtkThemes = {
     catppuccin = {
-      name = "Catppuccin-Mocha-Standard-Pink-Dark";
+      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = [ "mauve" ];
         size = "standard";
         tweaks = [ ];
         variant = "mocha";
@@ -22,8 +23,18 @@ let
     };
   };
 
-  gtkTheme = themes.${theme};
+  gtkTheme = gtkThemes.${theme};
   gtkThemeDir = "${gtkTheme.package}/share/themes/${gtkTheme.name}";
+
+  # Cursor Theme
+  cursorThemes = {
+    catppuccin = {
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
+    };
+  };
+
+  cursorTheme = cursorThemes.${theme};
 in
 
 {
@@ -31,11 +42,20 @@ in
 
   # Theme
   gtk.theme = gtkTheme;
+
+  dconf.settings = {
+    "org/gnome/shell/extensions/user-theme" = {
+      name = gtkTheme.name;
+    };
+  };
+
   xdg.configFile = {
     "gtk-4.0/assets".source = "${gtkThemeDir}/gtk-4.0/assets";
     "gtk-4.0/gtk.css".source = "${gtkThemeDir}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${gtkThemeDir}/gtk-4.0/gtk-dark.css";
   };
+
+  gtk.cursorTheme = cursorTheme;
 
   # Interface
   dconf.settings."org/gnome/desktop/interface" = {
