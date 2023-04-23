@@ -12,7 +12,7 @@ in
     ./apps
     ./cli
     ./dev
-    ./startup.nix
+    ./services
   ];
 
   home = {

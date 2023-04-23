@@ -35,13 +35,9 @@ in
     IdentityAgent "${agent}"
   '';
 
-  # Autostart in the background
-  services.startup.applications = [
-    {
-      package = pkgs._1password-gui;
-      command = "1password --silent";
-    }
-  ];
+  d.autostart._1password-gui = {
+    exec = "1password --silent";
+  };
 
   d.fs.persisted = {
     directories = [

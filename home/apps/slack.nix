@@ -19,8 +19,8 @@ in
   config = mkIf cfg.enable {
     home.packages = [ pkgs.slack ];
 
-    services.startup.applications = [
-      { package = pkgs.slack; command = "slack -u"; }
-    ];
+    d.autostart.slack = {
+      exec = "slack -u";
+    };
   };
 }
