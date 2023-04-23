@@ -3,6 +3,16 @@
 with lib.hm.gvariant;
 
 {
+  xdg.configFile."pop-shell/config.json".text = builtins.toJSON {
+    float = [{
+      class = "1Password";
+      title = "Settings";
+    }];
+
+    skiptaskbarhidden = [ ];
+    log_on_focus = false;
+  };
+
   dconf.settings."org/gnome/shell/extensions/pop-shell" = {
     activate-launcher = [ ];
     active-hint-border-radius = mkUint32 12;

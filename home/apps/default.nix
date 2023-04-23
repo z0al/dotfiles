@@ -1,6 +1,7 @@
 {
   imports = [
     ./neovim
+    ./rofi
     ./vscode
     ./wezterm
     ./1password.nix
