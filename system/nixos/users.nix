@@ -20,4 +20,8 @@ in
     extraGroups = [ "wheel" ];
     passwordFile = "${passDir}/${user}";
   };
+
+  security.sudo.extraConfig = ''
+    Defaults timestamp_timeout=30
+  '';
 }
