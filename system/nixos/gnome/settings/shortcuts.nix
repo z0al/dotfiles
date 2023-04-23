@@ -27,7 +27,7 @@
       move-to-workspace-last = [ ];
       move-to-workspace-left = [ ];
       move-to-workspace-right = [ ];
-      panel-run-dialog = [ ];
+      panel-run-dialog = [ "<Alt>F2" ];
       raise = [ ];
       raise-or-lower = [ ];
       show-desktop = [ ];
@@ -95,6 +95,7 @@
     };
 
     "org/gnome/shell/keybindings" = {
+      focus-active-notification = [ ];
       open-application-menu = [ ];
       screenshot = [ ];
       screenshot-window = [ ];

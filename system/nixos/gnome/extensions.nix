@@ -4,10 +4,11 @@ let
   extensions = with pkgs.gnomeExtensions; [
     appindicator
     dash-to-dock
+    gtk-title-bar
+    hide-universal-access
     pop-shell
     rounded-window-corners
     user-themes
-    gtk-title-bar
   ];
 in
 
