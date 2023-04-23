@@ -13,13 +13,6 @@ let
 in
 
 {
-  imports = [
-    ./dash-to-dock.nix
-    ./desktop-icons.nix
-    ./pop-shell.nix
-    ./rounded-window-corners.nix
-  ];
-
   # Install packages
   home.packages = extensions;
 

@@ -1,16 +1,6 @@
 { pkgs, lib, theme, ... }:
 
 let
-  GTK = "org/gtk";
-  GTK4 = "${GTK}/gtk4";
-
-  fileChooser = {
-    show-hidden = true;
-    sort-column = "name";
-    sort-directories-first = true;
-  };
-
-  # GTK Theme
   gtkThemes = {
     catppuccin = {
       name = "Catppuccin-Mocha-Standard-Mauve-Dark";
@@ -55,29 +45,21 @@ in
   gtk.cursorTheme = cursorTheme;
 
   ## Background
-  dconf.settings."org/gnome/desktop/background" = {
-    picture-uri = wallpaper;
-    picture-uri-dark = wallpaper;
-  };
-  dconf.settings."org/gnome/desktop/screensaver" = {
-    picture-uri = wallpaper;
+  dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri = wallpaper;
+      picture-uri-dark = wallpaper;
+    };
+
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = wallpaper;
+    };
   };
 
-  ## Interface
-  dconf.settings."org/gnome/desktop/interface" = {
-    color-scheme = "prefer-dark";
-    clock-show-date = true;
-    clock-show-weekday = true;
-    text-scaling-factor = 1.2;
+  # Load other settings
+  home.activation = {
+    loadDconfSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      $DRY_RUN_CMD ${pkgs.dconf}/bin/dconf load / < ${./dconf.ini}
+    '';
   };
-
-  ## Windows
-  dconf.settings."org/gnome/desktop/wm/preferences" = {
-    button-layout = "appmenu:";
-  };
-
-  ## File Chooser
-  # Affects the Files app and "Open .." dialogs
-  dconf.settings."${GTK}/settings/file-chooser" = fileChooser;
-  dconf.settings."${GTK4}/settings/file-chooser" = fileChooser;
 }
