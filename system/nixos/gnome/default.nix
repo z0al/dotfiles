@@ -14,7 +14,7 @@
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
-    xkbVariant = "";
+    xkbOptions = "lv3:ralt_switch,compose:sclk";
   };
 
   # Enable the GNOME desktop environment
