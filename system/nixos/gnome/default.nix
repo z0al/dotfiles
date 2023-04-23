@@ -3,8 +3,8 @@
 {
   d.hm = [{
     imports = [
+      ./settings
       ./extensions.nix
-      ./dconf.nix
     ];
   }];
 

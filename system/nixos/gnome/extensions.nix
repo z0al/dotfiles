@@ -4,7 +4,6 @@ let
   extensions = with pkgs.gnomeExtensions; [
     appindicator
     dash-to-dock
-    desktop-icons-ng-ding
     pop-shell
     rounded-window-corners
     user-themes
