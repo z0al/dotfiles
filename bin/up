@@ -5,7 +5,7 @@ import subprocess
 import pathlib
 import sys
 
-DIR = pathlib.Path.home().joinpath('.dotfiles')
+DIR = pathlib.Path.cwd()
 
 
 def run(command):

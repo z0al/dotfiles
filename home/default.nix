@@ -34,6 +34,7 @@ in
       "Pictures"
       "Videos"
       "github"
+      ".dotfiles"
       ".ssh"
     ];
   };
