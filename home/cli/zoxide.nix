@@ -11,4 +11,8 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
   };
+
+  d.fs.persisted = {
+    directories = [ ".local/share/zoxide" ];
+  };
 }
