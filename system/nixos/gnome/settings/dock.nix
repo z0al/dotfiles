@@ -1,30 +1,26 @@
-{ lib, ... }:
-
-with lib.hm.gvariant;
-
 {
   dconf.settings."org/gnome/shell/extensions/dash-to-dock" = {
     # Position and size
     dock-position = "BOTTOM";
-    dock-fixed = mkVariant false;
+    dock-fixed = false;
 
     # Launchers
-    show-trash = mkVariant false;
-    show-mounts = mkVariant false;
+    show-trash = false;
+    show-mounts = false;
 
     # Behavior
     scroll-action = "do-nothing";
     click-action = "focus-minimize-or-previews";
     intellihide-mode = "ALL_WINDOWS";
-    hot-keys = mkVariant false;
+    hot-keys = false;
 
     # Appearance
-    custom-theme-shrink = mkVariant true;
+    custom-theme-shrink = true;
     running-indicator-style = "DOTS";
     transparency-mode = "FIXED";
     background-opacity = 1.0;
-    custom-background-color = mkVariant false;
+    custom-background-color = false;
     background-color = "#1e1e2e";
-    disable-overview-on-startup = mkVariant true;
+    disable-overview-on-startup = true;
   };
 }

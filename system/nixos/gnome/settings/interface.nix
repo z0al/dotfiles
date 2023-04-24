@@ -9,11 +9,11 @@ let
   fileChooser = {
     date-format = "regular";
     location-mode = "path-bar";
-    show-hidden = mkVariant true;
-    show-size-column = mkVariant true;
-    show-type-column = mkVariant true;
+    show-hidden = true;
+    show-size-column = true;
+    show-type-column = true;
     sort-column = "name";
-    sort-directories-first = mkVariant true;
+    sort-directories-first = true;
     sort-order = "ascending";
     type-format = "category";
   };
@@ -24,21 +24,21 @@ in
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:";
       focus-mode = "click";
-      auto-raise = mkVariant false;
-      resize-with-right-button = mkVariant false;
+      auto-raise = false;
+      resize-with-right-button = false;
     };
 
     "org/gnome/desktop/interface" = {
-      clock-show-date = mkVariant true;
-      clock-show-weekday = mkVariant true;
+      clock-show-date = true;
+      clock-show-weekday = true;
       color-scheme = "prefer-dark";
       text-scaling-factor = 1.2;
-      enable-hot-corners = mkVariant false;
+      enable-hot-corners = false;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
-      skip-libadwaita-app = mkVariant true;
-      skip-libhandy-app = mkVariant false;
+      skip-libadwaita-app = true;
+      skip-libhandy-app = false;
 
       global-rounded-corner-settings = [
         (mkDictionaryEntry [
@@ -70,7 +70,7 @@ in
 
     # Gnome Tweaks
     "org/gnome/tweaks" = {
-      show-extensions-notice = mkVariant false;
+      show-extensions-notice = false;
     };
   };
 }

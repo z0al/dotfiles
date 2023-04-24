@@ -5,7 +5,7 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/desktop/wm/preferences" = {
-      num-workspaces = mkUint32 10;
+      num-workspaces = 10;
       workspace-names = [
         "1: web"
         "2: dev"
@@ -21,15 +21,15 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/mutter" = {
-      dynamic-workspaces = mkVariant false;
+      dynamic-workspaces = false;
     };
 
     "org/gnome/shell/extensions/space-bar/behavior" = {
-      show-empty-workspaces = mkVariant false;
-      position = "right";
-      position-index = mkUint32 0;
+      show-empty-workspaces = false;
+      position = "left";
+      position-index = 0;
       scroll-wheel = "disabled";
-      smart-workspace-names = mkVariant false;
+      smart-workspace-names = false;
     };
     "org/gnome/shell/extensions/space-bar/appearance" = {
       workspaces-bar-padding = mkUint32 12;
@@ -43,8 +43,8 @@ with lib.hm.gvariant;
       inactive-workspace-text-color = "rgb(192,191,188)";
     };
     "org/gnome/shell/extensions/space-bar/shortcuts" = {
-      enable-activate-workspace-shortcuts = mkVariant false;
-      enable-move-to-workspace-shortcuts = mkVariant false;
+      enable-activate-workspace-shortcuts = false;
+      enable-move-to-workspace-shortcuts = false;
       activate-empty-key = [ ];
       activate-previous-key = [ ];
       open-menu = [ ];
