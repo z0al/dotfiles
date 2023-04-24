@@ -7,5 +7,6 @@
     ./shortcuts.nix
     ./theme.nix
     ./wallpaper.nix
+    ./workspaces.nix
   ];
 }
