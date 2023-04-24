@@ -4,6 +4,7 @@
     ./git
     ./shell
     ./starship
+    ./direnv.nix
     ./fzf.nix
     ./gh.nix
     ./localrc.nix
