@@ -2,6 +2,11 @@
 
 with lib.hm.gvariant;
 
+let
+  toWorkspace = w: apps:
+    map (name: "${name}.desktop:${toString w}") apps;
+in
+
 {
   dconf.settings = {
     "org/gnome/desktop/wm/preferences" = {
@@ -54,27 +59,80 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/auto-move-windows" = {
-      application-list = [
+      application-list =
         # 1. Web (Browsers)
-        "brave-browser.desktop:1"
-        "firefox-devedition.desktop:1"
+        (toWorkspace 1 [
+          "brave-browser"
+          "firefox-devedition"
+        ]) ++
 
         # 2. Dev (Terminals, editors, ..etc)
-        "code.desktop:2"
-        "org.gnome.Console.desktop:2"
-        "org.wezfurlong.wezterm.desktop:2"
+        (toWorkspace 2 [
+          "code"
+          "org.gnome.Console"
+          "org.wezfurlong.wezterm"
+        ]) ++
 
         # 3. Social (Slack, Discord ..etc)
+        (toWorkspace 3 [
+          "discord"
+          "slack"
+          "Zoom"
+        ]) ++
 
         # 4. Notes (Obsidian)
-        "obsidian.desktop:4"
+        (toWorkspace 4 [
+          "obsidian"
+        ]) ++
 
         # 10. Temporarily access (Spotify, 1Password, Settings ..etc)
-        "1password.desktop:10"
-        "org.gnome.Extensions.desktop:10"
-        "org.gnome.Shell.Extensions.desktop:10"
-        "spotify.desktop:10"
-      ];
+        (toWorkspace 10 [
+          "1password"
+          "bluetooth-sendto"
+          "gcm-calibrate"
+          "gcm-picker"
+          "gnome-applications-panel"
+          "gnome-background-panel"
+          "gnome-bluetooth-panel"
+          "gnome-color-panel"
+          "gnome-datetime-panel"
+          "gnome-default-apps-panel"
+          "gnome-diagnostics-panel"
+          "gnome-display-panel"
+          "gnome-firmware-security-panel"
+          "gnome-info-overview-panel"
+          "gnome-keyboard-panel"
+          "gnome-location-panel"
+          "gnome-microphone-panel"
+          "gnome-mouse-panel"
+          "gnome-multitasking-panel"
+          "gnome-network-panel"
+          "gnome-notifications-panel"
+          "gnome-online-accounts-panel"
+          "gnome-power-panel"
+          "gnome-printers-panel"
+          "gnome-region-panel"
+          "gnome-removable-media-panel"
+          "gnome-screen-panel"
+          "gnome-search-panel"
+          "gnome-sharing-panel"
+          "gnome-sound-panel"
+          "gnome-system-monitor-kde"
+          "gnome-thunderbolt-panel"
+          "gnome-universal-access-panel"
+          "gnome-usage-panel"
+          "gnome-user-accounts-panel"
+          "gnome-wacom-panel"
+          "gnome-wifi-panel"
+          "gnome-wwan-panel"
+          "org.gnome.ColorProfileViewer"
+          "org.gnome.Evince-previewer"
+          "org.gnome.Extensions"
+          "org.gnome.Settings"
+          "org.gnome.Shell.Extensions"
+          "org.gnome.tweaks"
+          "spotify"
+        ]);
     };
   };
 }
