@@ -18,9 +18,5 @@ in
     home.packages = with pkgs; [
       obsidian
     ];
-
-    d.fs.persisted = {
-      directories = [ ".notes" ];
-    };
   };
 }
