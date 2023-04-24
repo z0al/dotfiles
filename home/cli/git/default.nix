@@ -1,4 +1,4 @@
-{ pkgs, theme, user, ... }:
+{ pkgs, user, ... }:
 
 let
   aliases = {
@@ -15,6 +15,11 @@ let
 in
 
 {
+  imports = [
+    ./delta.nix
+    ./lazygit.nix
+  ];
+
   programs = {
     bash.shellAliases = aliases;
     fish.shellAbbrs = aliases;
@@ -46,30 +51,6 @@ in
 
         format.pretty = "github";
         pretty.github = "%C(bold blue)%h%C(reset) %C(bold green)%ad%C(reset) %C(white)%<(50,trunc)%s%C(reset) %C(magenta)%an%C(reset)";
-      };
-
-      # https://dandavison.github.io/delta
-      delta = {
-        enable = true;
-
-        options = {
-          line-numbers = true;
-          # Note: compatible with Bat themes
-          syntax-theme = theme;
-          hunk-header-style = "omit";
-        };
-      };
-    };
-
-    # https://github.com/jesseduffield/lazygit
-    lazygit = {
-      enable = true;
-
-      settings = {
-        git.paging = {
-          colorArg = "always";
-          pager = "${pkgs.delta}/bin/delta --dark --paging=never";
-        };
       };
     };
   };

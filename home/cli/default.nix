@@ -1,11 +1,11 @@
 {
   imports = [
     ./bat
+    ./git
     ./shell
     ./starship
     ./fzf.nix
     ./gh.nix
-    ./git.nix
     ./localrc.nix
     ./nix-index.nix
     ./up.nix
