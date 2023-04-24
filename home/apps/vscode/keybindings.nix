@@ -3695,41 +3695,41 @@ let
       };
     }
 
-    {
-      key = "ctrl+backspace";
-      command = "workbench.action.terminal.sendSequence";
-      when = "terminalFocus";
-      args = {
-        text = "\u0017";
-      };
-    }
+    # {
+    #   key = "ctrl+backspace";
+    #   command = "workbench.action.terminal.sendSequence";
+    #   when = "terminalFocus";
+    #   args = {
+    #     text = "\u0017";
+    #   };
+    # }
 
-    {
-      key = "ctrl+backspace";
-      command = "workbench.action.terminal.sendSequence";
-      when = "terminalFocus && terminalShellType == 'cmd'";
-      args = {
-        text = "\b";
-      };
-    }
+    # {
+    #   key = "ctrl+backspace";
+    #   command = "workbench.action.terminal.sendSequence";
+    #   when = "terminalFocus && terminalShellType == 'cmd'";
+    #   args = {
+    #     text = "\b";
+    #   };
+    # }
 
-    {
-      key = "ctrl+delete";
-      command = "workbench.action.terminal.sendSequence";
-      when = "terminalFocus";
-      args = {
-        text = "\u001bd";
-      };
-    }
+    # {
+    #   key = "ctrl+delete";
+    #   command = "workbench.action.terminal.sendSequence";
+    #   when = "terminalFocus";
+    #   args = {
+    #     text = "\u001bd";
+    #   };
+    # }
 
-    {
-      key = "ctrl+shift+2";
-      command = "workbench.action.terminal.sendSequence";
-      when = "terminalFocus";
-      args = {
-        text = "\u0000";
-      };
-    }
+    # {
+    #   key = "ctrl+shift+2";
+    #   command = "workbench.action.terminal.sendSequence";
+    #   when = "terminalFocus";
+    #   args = {
+    #     text = "\u0000";
+    #   };
+    # }
 
     {
       key = "ctrl+shift+6";
