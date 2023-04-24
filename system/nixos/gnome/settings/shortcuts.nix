@@ -8,6 +8,11 @@ let
       command = "${pkgs.wezterm}/bin/wezterm";
       binding = "<Super>Return";
     }
+    {
+      name = "Launcher";
+      command = "${pkgs.rofi}/bin/rofi -show drun";
+      binding = "<Super>d";
+    }
   ];
 
   customPrefix = "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings";

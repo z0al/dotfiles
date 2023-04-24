@@ -3,6 +3,7 @@
     # Position and size
     dock-position = "BOTTOM";
     dock-fixed = false;
+    dash-max-icon-size = 54;
 
     # Launchers
     show-trash = false;
