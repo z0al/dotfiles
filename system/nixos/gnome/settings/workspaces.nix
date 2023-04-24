@@ -12,16 +12,26 @@ in
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
       workspace-names = [
-        "1: web"
-        "2: dev"
-        "3: social"
-        "4: notes"
+        # "1: web"
+        # "2: dev"
+        # "3: social"
+        # "4: notes"
+        # "5"
+        # "6"
+        # "7"
+        # "8"
+        # "9"
+        # "10: tmp"
+        "1"
+        "2"
+        "3"
+        "4"
         "5"
         "6"
         "7"
         "8"
         "9"
-        "10: tmp"
+        "10"
       ];
     };
 
