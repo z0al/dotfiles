@@ -1,10 +1,33 @@
+{ pkgs, lib, ... }:
+
+let
+  # Custom shortcuts
+  shortcuts = [
+    {
+      name = "Terminal";
+      command = "${pkgs.wezterm}/bin/wezterm";
+      binding = "<Super>Return";
+    }
+  ];
+
+  customPrefix = "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings";
+
+  customKeybindings = map
+    (sh: "/${customPrefix}/${sh.name}/")
+    shortcuts;
+
+  customSettings = lib.listToAttrs (map
+    (sh: { name = "${customPrefix}/${sh.name}"; value = sh; })
+    shortcuts);
+in
+
 {
-  dconf.settings = {
+  dconf.settings = customSettings // {
     "org/gnome/desktop/wm/keybindings" = {
       activate-window-menu = [ ];
       begin-move = [ ];
       begin-resize = [ ];
-      close = [ ];
+      close = [ "<Super>w" ];
       cycle-group = [ ];
       cycle-group-backward = [ ];
       cycle-panels = [ ];
@@ -20,11 +43,16 @@
       move-to-monitor-left = [ ];
       move-to-monitor-right = [ ];
       move-to-monitor-up = [ ];
-      move-to-workspace-1 = [ ];
-      move-to-workspace-2 = [ ];
-      move-to-workspace-3 = [ ];
-      move-to-workspace-4 = [ ];
-      move-to-workspace-last = [ ];
+      move-to-workspace-1 = [ "<Shift><Super>1" ];
+      move-to-workspace-2 = [ "<Shift><Super>2" ];
+      move-to-workspace-3 = [ "<Shift><Super>3" ];
+      move-to-workspace-4 = [ "<Shift><Super>4" ];
+      move-to-workspace-5 = [ "<Shift><Super>5" ];
+      move-to-workspace-6 = [ "<Shift><Super>6" ];
+      move-to-workspace-7 = [ "<Shift><Super>7" ];
+      move-to-workspace-8 = [ "<Shift><Super>8" ];
+      move-to-workspace-9 = [ "<Shift><Super>9" ];
+      move-to-workspace-last = [ "<Shift><Super>0" ];
       move-to-workspace-left = [ ];
       move-to-workspace-right = [ ];
       panel-run-dialog = [ "<Alt>F2" ];
@@ -39,17 +67,22 @@
       switch-input-source-backward = [ "<Shift><Super>space" ];
       switch-panels = [ ];
       switch-panels-backward = [ ];
-      switch-to-workspace-1 = [ ];
-      switch-to-workspace-2 = [ ];
-      switch-to-workspace-3 = [ ];
-      switch-to-workspace-4 = [ ];
-      switch-to-workspace-last = [ ];
+      switch-to-workspace-1 = [ "<Super>1" ];
+      switch-to-workspace-2 = [ "<Super>2" ];
+      switch-to-workspace-3 = [ "<Super>3" ];
+      switch-to-workspace-4 = [ "<Super>4" ];
+      switch-to-workspace-5 = [ "<Super>5" ];
+      switch-to-workspace-6 = [ "<Super>6" ];
+      switch-to-workspace-7 = [ "<Super>7" ];
+      switch-to-workspace-8 = [ "<Super>8" ];
+      switch-to-workspace-9 = [ "<Super>9" ];
+      switch-to-workspace-last = [ "<Super>0" ];
       switch-to-workspace-left = [ ];
       switch-to-workspace-right = [ ];
       switch-windows = [ ];
       switch-windows-backward = [ ];
-      toggle-fullscreen = [ ];
-      toggle-maximized = [ ];
+      toggle-fullscreen = [ "F11" ];
+      toggle-maximized = [ "<Super>m" ];
       toggle-on-all-workspaces = [ ];
       unmaximize = [ ];
     };
@@ -72,26 +105,27 @@
       help = [ ];
       home = [ ];
       increase-text-size = [ ];
-      logout = [ ];
+      logout = [ "<Shift><Super>e" ];
       magnifier = [ ];
       magnifier-zoom-in = [ ];
       magnifier-zoom-out = [ ];
       media = [ ];
       mic-mute = [ ];
-      next = [ ];
+      next = [ "AudioNext" ];
       on-screen-keyboard = [ ];
       pause = [ ];
-      play = [ ];
-      previous = [ ];
+      play = [ "AudioPlay" ];
+      previous = [ "AudioPrev" ];
       screenreader = [ ];
-      screensaver = [ ];
+      screensaver = [ "<Control><Super>q" ];
       search = [ ];
       stop = [ ];
       toggle-contrast = [ ];
-      volume-down = [ ];
-      volume-mute = [ ];
-      volume-up = [ ];
+      volume-down = [ "AudioLowerVolume" ];
+      volume-mute = [ "AudioMute" ];
+      volume-up = [ "AudioRaiseVolume" ];
       www = [ ];
+      custom-keybindings = customKeybindings;
     };
 
     "org/gnome/shell/keybindings" = {
@@ -101,6 +135,15 @@
       screenshot-window = [ ];
       show-screen-recording-ui = [ ];
       show-screenshot-ui = [ ];
+      switch-to-application-1 = [ ];
+      switch-to-application-2 = [ ];
+      switch-to-application-3 = [ ];
+      switch-to-application-4 = [ ];
+      switch-to-application-5 = [ ];
+      switch-to-application-6 = [ ];
+      switch-to-application-7 = [ ];
+      switch-to-application-8 = [ ];
+      switch-to-application-9 = [ ];
       toggle-application-view = [ ];
       toggle-message-tray = [ ];
       toggle-overview = [ ];

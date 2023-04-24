@@ -3,16 +3,6 @@
 with lib.hm.gvariant;
 
 {
-  xdg.configFile."pop-shell/config.json".text = builtins.toJSON {
-    float = [{
-      class = "1Password";
-      title = "Settings";
-    }];
-
-    skiptaskbarhidden = [ ];
-    log_on_focus = false;
-  };
-
   dconf.settings."org/gnome/shell/extensions/pop-shell" = {
     activate-launcher = [ ];
     active-hint-border-radius = mkUint32 12;
@@ -44,28 +34,28 @@ with lib.hm.gvariant;
     stacking-with-mouse = true;
     tile-accept = [ "Return" ];
     tile-by-default = true;
-    tile-enter = [ "<Super>Return" ];
-    tile-move-down-global = [ ];
-    tile-move-down = [ "Down" ];
-    tile-move-left-global = [ ];
-    tile-move-left = [ "Left" ];
-    tile-move-right-global = [ ];
-    tile-move-right = [ "Right" ];
-    tile-move-up-global = [ ];
-    tile-move-up = [ "Up" ];
+    tile-enter = [ "<Super>r" ];
+    tile-move-down-global = [ "<Shift><Super>Down" ];
+    tile-move-down = [ "<Shift><Super>Down" ];
+    tile-move-left-global = [ "<Shift><Super>Left" ];
+    tile-move-left = [ "<Shift><Super>Left" ];
+    tile-move-right-global = [ "<Shift><Super>Right" ];
+    tile-move-right = [ "<Shift><Super>Right" ];
+    tile-move-up-global = [ "<Shift><Super>Up" ];
+    tile-move-up = [ "<Shift><Super>Up" ];
     tile-orientation = [ "<Super>o" ];
     tile-reject = [ "Escape" ];
     tile-resize-down = [ "<Shift>Down" ];
     tile-resize-left = [ "<Shift>Left" ];
     tile-resize-right = [ "<Shift>Right" ];
     tile-resize-up = [ "<Shift>Up" ];
-    tile-swap-down = [ "<Super>Down" ];
-    tile-swap-left = [ "<Super>Left" ];
-    tile-swap-right = [ "<Super>Right" ];
-    tile-swap-up = [ "<Super>Up" ];
-    toggle-floating = [ "<Super>g" ];
+    tile-swap-down = [ ];
+    tile-swap-left = [ ];
+    tile-swap-right = [ ];
+    tile-swap-up = [ ];
+    toggle-floating = [ "<Super>f" ];
     toggle-stacking-global = [ "<Super>s" ];
-    toggle-stacking = [ "s" ];
-    toggle-tiling = [ "<Super>y" ];
+    toggle-stacking = [ "<Super>s" ];
+    toggle-tiling = [ "<Super>e" ];
   };
 }

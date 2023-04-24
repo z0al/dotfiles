@@ -12,7 +12,7 @@
     scroll-action = "do-nothing";
     click-action = "focus-minimize-or-previews";
     intellihide-mode = "ALL_WINDOWS";
-    host-keys = false;
+    hot-keys = false;
 
     # Appearance
     custom-theme-shrink = true;

@@ -23,6 +23,14 @@ in
   dconf.settings = {
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:";
+      focus-mode = "click";
+      auto-raise = false;
+      resize-with-right-button = false;
+      num-workspaces = 10;
+    };
+
+    "org/gnome/mutter" = {
+      dynamic-workspaces = false;
     };
 
     "org/gnome/desktop/interface" = {
@@ -30,6 +38,7 @@ in
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
       text-scaling-factor = 1.2;
+      enable-hot-corners = false;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
@@ -63,5 +72,10 @@ in
 
     "${GTK}/settings/file-chooser" = fileChooser;
     "${GTK4}/settings/file-chooser" = fileChooser;
+
+    # Gnome Tweaks
+    "org/gnome/tweaks" = {
+      show-extensions-notice = false;
+    };
   };
 }
