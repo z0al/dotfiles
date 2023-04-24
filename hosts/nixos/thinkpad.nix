@@ -13,11 +13,8 @@
       slack.enable = true;
       brave.withOkta = true;
       vscode.withCopilot = false;
+      zoom.enable = true;
     };
-
-    home.packages = with pkgs; [
-      zoom-us
-    ];
   }];
 
   # Setup keyfile
