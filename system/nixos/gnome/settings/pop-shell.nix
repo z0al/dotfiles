@@ -54,8 +54,8 @@ with lib.hm.gvariant;
     tile-swap-right = [ ];
     tile-swap-up = [ ];
     toggle-floating = [ "<Super>f" ];
-    toggle-stacking-global = [ "<Super>s" ];
-    toggle-stacking = [ "<Super>s" ];
+    toggle-stacking-global = [ ];
+    toggle-stacking = [ ];
     toggle-tiling = [ "<Super>e" ];
   };
 }

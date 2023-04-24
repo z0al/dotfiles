@@ -32,7 +32,7 @@ in
       activate-window-menu = [ ];
       begin-move = [ ];
       begin-resize = [ ];
-      close = [ "<Super>w" ];
+      close = [ "<Super>q" ];
       cycle-group = [ ];
       cycle-group-backward = [ ];
       cycle-panels = [ ];
