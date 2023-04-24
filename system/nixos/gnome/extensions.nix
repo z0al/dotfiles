@@ -2,6 +2,7 @@
 
 let
   extensions = with pkgs.gnomeExtensions; [
+    auto-move-windows
     dash-to-dock
     gtk-title-bar
     hide-universal-access
