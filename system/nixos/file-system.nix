@@ -18,6 +18,10 @@ in
       };
     };
 
+    environment.variables = mkIf cfg.rootOnTmpfs {
+      DATA = "/nix/data";
+    };
+
     # Avoid sudo lectures after each reboot.
     security.sudo.extraConfig = mkIf cfg.rootOnTmpfs ''
       Defaults lecture = never
@@ -36,7 +40,6 @@ in
         "/var/lib/bluetooth" # TODO: move to bluetooth.nix or something
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
-        "/etc/NetworkManager/system-connections" # TODO: move to network.nix
         { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
       ];
 

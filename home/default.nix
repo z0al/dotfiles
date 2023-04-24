@@ -37,6 +37,9 @@ in
       "github"
       ".dotfiles"
       ".ssh"
+
+      # Gnome Keyring
+      ".local/share/keyrings"
     ];
   };
 }
