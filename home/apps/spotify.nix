@@ -18,5 +18,12 @@ in
     home.packages = with pkgs; [
       spotify
     ];
+
+    d.fs.persisted = {
+      directories = [
+        ".config/spotify"
+        ".cache/spotify"
+      ];
+    };
   };
 }
