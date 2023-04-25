@@ -31,5 +31,9 @@ in
     programs.fish.interactiveShellInit = ''
       fnm env --use-on-cd | source
     '';
+
+    d.fs.persisted = {
+      directories = [ ".local/share/fnm" ];
+    };
   };
 }
