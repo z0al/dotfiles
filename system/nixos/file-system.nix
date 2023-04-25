@@ -9,6 +9,8 @@ in
 
 {
   config = {
+    boot.supportedFilesystems = [ "ntfs" ];
+
     # Temporary root (/)
     fileSystems = mkIf cfg.rootOnTmpfs {
       "/" = {

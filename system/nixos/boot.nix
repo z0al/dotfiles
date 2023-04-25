@@ -2,8 +2,6 @@
 
 {
   boot = {
-    supportedFilesystems = [ "ntfs" ];
-
     loader = {
       timeout = 1;
 

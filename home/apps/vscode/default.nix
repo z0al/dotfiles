@@ -58,7 +58,7 @@ in
     };
 
     d.fs.persisted = mkIf cfg.enable {
-      directories = [ ".config/Code" ];
+      directories = [ ".config/Code/User" ];
     };
   };
 }
