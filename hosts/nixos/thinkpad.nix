@@ -28,6 +28,8 @@
   boot.extraModulePackages = [ ];
 
   # File system
+  d.fs.rootOnTmpfs = false;
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/1b305785-6f58-4201-beec-6c3630226383";
     fsType = "ext4";
