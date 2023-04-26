@@ -1,4 +1,4 @@
-{ config, hardware, ... }:
+{ config, hardware, user, ... }:
 
 {
   # Hardware
@@ -12,8 +12,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
 
   # File system
-   d.fs.rootOnTmpfs = true;
-   fileSystems."/boot/efi" = {
+  fileSystems."/boot/efi" = {
     device = "/dev/disk/by-partlabel/boot";
     fsType = "vfat";
   };
