@@ -36,7 +36,7 @@
       nixosConfig = {
         system = "x86_64-linux";
 
-        extraArgs = {
+        specialArgs = {
           inherit hardware;
         };
 
