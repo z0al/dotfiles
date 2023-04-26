@@ -1,4 +1,14 @@
 {
+  dconf.settings."org/gnome/shell" = {
+    favorite-apps = [
+      "org.gnome.Nautilus.desktop"
+      "brave-browser.desktop"
+      "code.desktop"
+      "org.wezfurlong.wezterm.desktop"
+      "1password.desktop"
+    ];
+  };
+
   dconf.settings."org/gnome/shell/extensions/dash-to-dock" = {
     # Position and size
     dock-position = "BOTTOM";
