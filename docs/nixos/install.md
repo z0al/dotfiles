@@ -1,6 +1,6 @@
 # Installing NixOS
 
-> **Warn:**
+> **Warning**
 >
 > This guide assumes UEFI (non-legacy) environment.
 
@@ -14,7 +14,7 @@
 
 After booting into the NixOS live environment, we need to partition the disk. We will use `parted` to create the partitions.
 
-> **Warn:**
+> **Warning**
 > Backup your data first! Commands below will result in data loss.
 
 ```sh
@@ -33,7 +33,7 @@ parted $DISK -- name 1 boot
 
 # Use the rest for NixOS
 parted $DISK -- mkpart Nix 2GB 100%
-parted $DISK -- name 2 nixos
+parted $DISK -- name 2 crypted
 ```
 
 Using `fdisk -l` at this point should report something like this:
@@ -55,15 +55,15 @@ Device           Start        End    Sectors  Size Type
 ## 2. Setup LUKS Encryption
 
 ```sh
-cryptsetup luksFormat --type luks2 --label nixos /dev/disk/by-partlabel/nixos
-cryptsetup luksOpen /dev/disk/by-partlabel/nixos crypted
+cryptsetup luksFormat --type luks2 --label crypted /dev/disk/by-partlabel/crypted
+cryptsetup luksOpen /dev/disk/by-partlabel/crypted crypted
 ```
 
 ## 3. Formatting
 
 ```sh
 mkfs.vfat /dev/disk/by-partlabel/boot
-mkfs.ext4 /dev/mapper/crypted
+mkfs.ext4 -L nix /dev/mapper/crypted
 ```
 
 ## 4. Mounting File Systems

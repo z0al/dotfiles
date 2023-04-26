@@ -18,5 +18,14 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [ pkgs.zoom-us ];
+
+    d.fs.persisted = {
+      directories = [ ".zoom" ];
+      files = [
+        ".config/zoom.conf"
+        ".config/zoomus.conf"
+      ];
+    };
   };
+
 }
