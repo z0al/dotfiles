@@ -41,7 +41,7 @@ in
 
       extensions = map (e: { id = e; })
         ((attrValues extensions) ++
-          optional cfg.withOkta [ opts.okta ]);
+          optionals cfg.withOkta [ opts.okta ]);
     };
 
     d.fs.persisted = mkIf cfg.enable {
