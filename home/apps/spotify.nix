@@ -19,6 +19,10 @@ in
       spotify
     ];
 
+    d.autostart.spotify = {
+      exec = "spotify";
+    };
+
     d.fs.persisted = {
       directories = [
         ".config/spotify"
