@@ -34,6 +34,7 @@ in
 
     d.fs.persisted = {
       directories = [ ".local/share/fnm" ];
+      files = [ ".npmrc" ".yarnrc" ];
     };
   };
 }
