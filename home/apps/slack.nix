@@ -22,5 +22,9 @@ in
     d.autostart.slack = {
       exec = "slack -u";
     };
+
+    d.fs.persisted = {
+      directories = [ ".config/Slack" ];
+    };
   };
 }
