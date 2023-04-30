@@ -12,6 +12,7 @@
 
   environment.systemPackages = with pkgs; [
     # Apps
+    blanket
     brave
     dialect
     eyedropper
@@ -19,7 +20,6 @@
     gnome-obfuscate
     gnome.gnome-tweaks
     video-trimmer
-    warp
     wezterm
 
     # Other
