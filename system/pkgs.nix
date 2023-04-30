@@ -17,6 +17,7 @@
     coreutils
     curl
     fd
+    file
     fzf
     git
     gcc

@@ -14,6 +14,7 @@ let
   libraries = with pkgs; [
     stdenv.cc.cc
     zlib
+    fuse
     fuse3
     alsa-lib
     at-spi2-atk
