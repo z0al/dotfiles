@@ -7,6 +7,7 @@
     ./1password.nix
     ./brave.nix
     ./flameshot.nix
+    ./obs-studio.nix
     ./obsidian.nix
     ./slack.nix
     ./spotify.nix
