@@ -2,6 +2,7 @@
 
 let
   wallpaper = "${../../../../assets/wallpaper.jpg}";
+  avatar = "${../../../../assets/avatar.png}";
 in
 
 {
@@ -15,4 +16,6 @@ in
       picture-uri = wallpaper;
     };
   };
+
+  home.file.".face".source = avatar;
 }

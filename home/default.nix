@@ -41,8 +41,5 @@ in
       # Gnome Keyring
       ".local/share/keyrings"
     ];
-    files = [
-      ".face"
-    ];
   };
 }
