@@ -75,6 +75,9 @@ in
     # Other
     "search.showLineNumbers" = false;
     "debug.console.fontSize" = 13;
+    "emmet.includeLanguages" = {
+      "nunjucks" = "html";
+    };
 
     # TypeScript
     "typescript.updateImportsOnFileMove.enabled" = "always";
