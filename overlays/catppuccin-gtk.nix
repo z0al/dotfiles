@@ -7,7 +7,7 @@ in
   __dontExport = true;
 
   catppuccin-gtk = (channels.unstable.catppuccin-gtk.override {
-    accents = [ "mauve" ];
+    accents = [ "lavender" ];
     size = "standard";
     tweaks = [ ];
     variant = "mocha";
