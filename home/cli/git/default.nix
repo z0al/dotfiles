@@ -11,6 +11,8 @@ let
     grs = "git restore";
     gs = "git xswitch";
     gv = "git show --format=medium";
+    gp = "git pull";
+    gP = "git push";
   };
 in
 
