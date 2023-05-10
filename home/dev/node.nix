@@ -33,7 +33,7 @@ in
     '';
 
     d.fs.persisted = {
-      directories = [ ".local/share/fnm" ];
+      directories = [ ".npm" ".local/share/fnm" ];
       files = [ ".npmrc" ".yarnrc" ];
     };
   };
