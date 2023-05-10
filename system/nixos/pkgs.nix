@@ -28,17 +28,4 @@
     newsflash
     polkit
   ];
-
-  # Forcing nix to use /nix/tmp for temporary files
-  environment.variables = {
-    NIX_REMOTE = "daemon";
-  };
-
-  systemd.services.nix-daemon = {
-    environment.TMPDIR = "/nix/tmp";
-  };
-
-  systemd.tmpfiles.rules = [
-    "d /nix/tmp 0755 root root 1d"
-  ];
 }
