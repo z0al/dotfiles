@@ -20,6 +20,11 @@ in
       fnm
     ];
 
+    # change npm cache location to ~/.cache
+    home.sessionVariables = {
+      npm_config_cache = "${config.xdg.cacheHome}/npm";
+    };
+
     home.shellAliases = {
       nvm = "fnm";
     };
@@ -33,7 +38,11 @@ in
     '';
 
     d.fs.persisted = {
-      directories = [ ".npm" ".local/share/fnm" ];
+      directories = [
+        ".cache/npm"
+        ".cache/yarn"
+        ".local/share/fnm"
+      ];
       files = [ ".npmrc" ".yarnrc" ];
     };
   };
