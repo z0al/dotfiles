@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, user, ... }:
 
 with lib;
 
@@ -22,7 +22,7 @@ in
 
     # change npm cache location to ~/.cache
     home.sessionVariables = {
-      npm_config_cache = "${config.xdg.cacheHome}/npm";
+      npm_config_cache = "home/${user}/.cache/npm";
     };
 
     home.shellAliases = {
