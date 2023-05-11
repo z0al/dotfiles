@@ -51,6 +51,8 @@ in
           date = "format-local:%b %d, %Y";
         };
 
+        push.autoSetupRemote = true;
+
         format.pretty = "github";
         pretty.github = "%C(bold blue)%h%C(reset) %C(bold green)%ad%C(reset) %C(white)%<(50,trunc)%s%C(reset) %C(magenta)%an%C(reset)";
       };
