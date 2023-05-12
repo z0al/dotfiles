@@ -43,6 +43,8 @@ in
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
         { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+
+        # TODO: move this out of data dir
         { directory = "/tmp"; mode = "u=rwx,g=rwx,o=rwx"; }
       ];
 

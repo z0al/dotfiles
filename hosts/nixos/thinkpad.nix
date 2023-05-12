@@ -20,6 +20,7 @@
   fileSystems."/nix" = {
     device = "/dev/disk/by-label/nix";
     fsType = "ext4";
+    neededForBoot = true;
   };
 
   boot.initrd.luks.devices."crypted" = {
