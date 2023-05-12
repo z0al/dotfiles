@@ -27,5 +27,6 @@
     metadata-cleaner
     newsflash
     polkit
+    xclip
   ];
 }

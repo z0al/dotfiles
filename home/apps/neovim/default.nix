@@ -12,6 +12,7 @@
       fd
       lazygit
       ripgrep
+      xclip
     ];
   };
 
