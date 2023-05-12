@@ -22,6 +22,6 @@
   };
 
   d.fs.persisted = {
-    directories = [ ".locale/share/nvim" ];
+    directories = [ ".local/share/nvim" ];
   };
 }
