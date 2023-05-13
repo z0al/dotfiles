@@ -18,5 +18,10 @@ in
     home.packages = with pkgs; [
       obsidian
     ];
+
+    d.fs.persisted = {
+      files = [ ".config/obsidian/obsidian.json" ];
+      directories = [ ".config/obsidian/Local Storage" ];
+    };
   };
 }
