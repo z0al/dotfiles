@@ -10,7 +10,7 @@ in
   options.d.apps.spotify = {
     enable = mkOption {
       type = types.bool;
-      default = pkgs.stdenv.isLinux;
+      default = false;
     };
   };
 
