@@ -12,7 +12,6 @@
     ./obs-studio.nix
     ./obsidian.nix
     ./slack.nix
-    ./spotify.nix
     ./zoom.nix
   ];
 }
