@@ -20,8 +20,7 @@ in
     ];
 
     d.fs.persisted = {
-      files = [ ".config/obsidian/obsidian.json" ];
-      directories = [ ".config/obsidian/Local Storage" ];
+      directories = [ ".config/obsidian" ];
     };
   };
 }
