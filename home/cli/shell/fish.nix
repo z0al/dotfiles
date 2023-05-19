@@ -1,11 +1,17 @@
 { pkgs, ... }:
 
-{
-  home.packages = with pkgs.fishPlugins; [
+let
+  plugins = with pkgs.fishPlugins; [
     sponge
     autopair-fish
     foreign-env
   ];
+in
+
+{
+  home.packages = with pkgs; [
+    any-nix-shell
+  ] ++ plugins;
 
   programs.fish = {
     enable = true;
@@ -16,12 +22,10 @@
 
       # Bind CTRL+Backspace to delete a word
       bind \b backward-kill-word
+    '';
 
-      ${if pkgs.stdenv.isDarwin then ''
-      # Cmd + Left or Right
-      bind \e\[C forward-word
-      bind \e\[D backward-word
-      '' else ""}
+    interactiveShellInit = ''
+      any-nix-shell fish --info-right | source
     '';
 
     plugins = [
