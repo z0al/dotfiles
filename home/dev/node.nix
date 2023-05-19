@@ -16,14 +16,10 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      nodejs
       fnm
+      nodejs
+      nodePackages.prettier
     ];
-
-    # change npm cache location to ~/.cache
-    home.sessionVariables = {
-      npm_config_cache = "${config.home.homeDirectory}/.cache/npm";
-    };
 
     home.shellAliases = {
       nvm = "fnm";
@@ -39,7 +35,7 @@ in
 
     d.fs.persisted = {
       directories = [
-        ".cache/npm"
+        ".npm"
         ".cache/yarn"
         ".local/share/fnm"
       ];

@@ -8,21 +8,19 @@
     # Langauges
     python3
     python3.pkgs.pip
-    rustc
     sqlite
 
     # Utils
-    cargo
     cmake
     coreutils
     curl
     fd
     file
     fzf
-    git
     gcc
-    gnupg
+    git
     gnumake
+    gnupg
     killall
     lsof
     neofetch
