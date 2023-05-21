@@ -24,7 +24,7 @@ in
   xdg.enable = true;
   programs.ssh.enable = true;
   programs.home-manager.enable = true;
-  xsession.numlock.enable = true;
+  xsession.numlock.enable = pkgs.stdenv.isLinux;
 
   d.fs.persisted = {
     directories = [

@@ -17,7 +17,7 @@ in
     default = { };
   };
 
-  config = {
+  config = mkIf pkgs.stdenv.isLinux {
     systemd.user.services = mapAttrs
       (name: opts: {
         Service = {

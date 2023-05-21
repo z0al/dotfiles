@@ -161,6 +161,7 @@ local config = {
 -- MacOS overrides
 if string.match(wz.target_triple, "apple") then
 	config.font_size = 13.0
+	config.window_decorations = "TITLE | RESIZE"
 
 	-- 	Use Command instead of Ctrl on MacOS
 	-- 	for k, v in pairs(config.keys) do
