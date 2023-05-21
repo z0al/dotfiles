@@ -41,5 +41,8 @@ in
     "[lua]" = {
       "editor.defaultFormatter" = "JohnnyMorganz.stylua";
     };
+
+    # Rust Analyzer
+    "rust-analyzer.inlayHints.chainingHints.enable" = false;
   };
 }

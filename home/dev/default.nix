@@ -4,6 +4,7 @@
   imports = [
     ./node.nix
     ./react-native.nix
+    ./rust.nix
   ];
 
   # Globally installed dev tools
