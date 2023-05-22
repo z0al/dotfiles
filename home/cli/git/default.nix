@@ -9,8 +9,7 @@ let
     gd = "git diff";
     gl = "git log";
     grs = "git restore";
-    gs = "git xswitch";
-    gv = "git show --format=medium";
+    gs = "git switch";
     gp = "git pull";
     gP = "git push";
   };
@@ -19,7 +18,7 @@ in
 {
   imports = [
     ./delta.nix
-    ./lazygit.nix
+    ./ui.nix
   ];
 
   programs = {
@@ -38,23 +37,15 @@ in
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
       };
 
-      aliases = {
-        xswitch = "!git branch -a --format='%(refname:short)' | sed 's~origin/~~' | sed '/HEAD/d' | sort | uniq | fzf | xargs git checkout";
-      };
-
       extraConfig = {
         init.defaultBranch = "main";
 
         log = {
           decorate = true;
           abbrevCommit = true;
-          date = "format-local:%b %d, %Y";
         };
 
         push.autoSetupRemote = true;
-
-        format.pretty = "github";
-        pretty.github = "%C(bold blue)%h%C(reset) %C(bold green)%ad%C(reset) %C(white)%<(50,trunc)%s%C(reset) %C(magenta)%an%C(reset)";
       };
     };
   };
