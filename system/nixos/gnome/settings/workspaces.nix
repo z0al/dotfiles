@@ -14,8 +14,8 @@ in
       workspace-names = [
         # "1: web"
         # "2: dev"
-        # "3: social"
-        # "4: notes"
+        # "3: notes"
+        # "4: social"
         # "5"
         # "6"
         # "7"
@@ -83,16 +83,16 @@ in
           "org.wezfurlong.wezterm"
         ]) ++
 
-        # 3. Social (Slack, Discord ..etc)
-        (toWorkspace 3 [
+        # 3. Notes (Obsidian)
+        (toWorkspace 4 [
+          "obsidian"
+        ]) ++
+
+        # 4. Social (Slack, Discord ..etc)
+        (toWorkspace 4 [
           "discord"
           "slack"
           "Zoom"
-        ]) ++
-
-        # 4. Notes (Obsidian)
-        (toWorkspace 4 [
-          "obsidian"
         ]) ++
 
         # 10. Temporarily access (Spotify, 1Password, Settings ..etc)
