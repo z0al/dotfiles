@@ -13,6 +13,11 @@ let
       command = "${pkgs.rofi}/bin/rofi -show drun";
       binding = "<Super>d";
     }
+    {
+      name = "Sleep";
+      command = "${pkgs.systemd}/bin/systemctl suspend";
+      binding = "<Control><Super>z";
+    }
   ];
 
   customPrefix = "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings";
