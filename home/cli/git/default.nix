@@ -45,6 +45,7 @@ in
           abbrevCommit = true;
         };
 
+        pull.rebase = true;
         push.autoSetupRemote = true;
       };
     };
