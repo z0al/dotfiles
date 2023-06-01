@@ -8,6 +8,7 @@
     ./docker.nix
     ./file-system.nix
     ./hardware.nix
+    ./hidpi.nix
     ./network.nix
     ./nix-ld.nix
     ./pkgs.nix

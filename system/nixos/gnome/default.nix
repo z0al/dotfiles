@@ -33,6 +33,7 @@
   services.gnome = {
     games.enable = false;
     core-developer-tools.enable = false;
+    gnome-remote-desktop.enable = false;
     gnome-keyring.enable = true;
   };
 

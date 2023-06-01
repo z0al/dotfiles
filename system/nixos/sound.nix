@@ -7,7 +7,11 @@
   users.users.${user}.extraGroups = [ "audio" ];
 
   # Disable PulseAudio
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio = {
+    enable = false;
+    # package = pkgs.pulseaudioFull;
+    # support32Bit = true;
+  };
 
   # Use Pipewire
   services.pipewire = {
