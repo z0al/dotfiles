@@ -84,7 +84,7 @@ in
         ]) ++
 
         # 3. Notes (Obsidian)
-        (toWorkspace 4 [
+        (toWorkspace 3 [
           "obsidian"
         ]) ++
 
