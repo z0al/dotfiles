@@ -16,17 +16,20 @@
     persistence.url = "github:nix-community/impermanence";
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
+
+    nix-index.url = "github:Mic92/nix-index-database";
+    nix-index.inputs.nixpkgs.follows = "stable";
   };
 
   outputs =
     { self
     , stable
-    , unstable
     , darwin
     , hm
     , hardware
     , persistence
     , utils
+    , ...
     } @ inputs:
     let
       inherit (utils.lib) mkFlake;

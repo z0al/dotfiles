@@ -1,4 +1,4 @@
-{ config, options, lib, version, user, theme, ... }:
+{ config, options, inputs, lib, version, user, theme, ... }:
 
 with lib;
 
@@ -22,7 +22,10 @@ in
       };
 
       users.${user} = {
-        imports = cfg ++ [ ../home ];
+        imports = cfg ++ [
+          inputs.nix-index.hmModules.nix-index
+          ../home
+        ];
       };
     };
   };
