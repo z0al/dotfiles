@@ -48,7 +48,7 @@ in
       maximize = [ ];
       maximize-horizontally = [ ];
       maximize-vertically = [ ];
-      minimize = [ ];
+      minimize = [ "<Shift><Super>m" ];
       move-to-monitor-down = [ ];
       move-to-monitor-left = [ ];
       move-to-monitor-right = [ ];
