@@ -18,4 +18,8 @@
     rgba = "none";
     lcdfilter = "none";
   };
+
+  d.hm = [{
+    programs.autorandr.enable = true;
+  }];
 }

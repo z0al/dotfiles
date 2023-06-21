@@ -73,7 +73,7 @@ def main():
     args = parser.parse_args()
 
     if args.command == None:
-        switch(False)
+        switch()
     elif args.command == "pull":
         print("updating flake inputs ...")
         run_nix(["flake", "update"])
