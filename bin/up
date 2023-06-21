@@ -33,16 +33,15 @@ def run_nix(sub_command):
     run(["nix", "--extra-experimental-features",
          "nix-command flakes", *sub_command, DIR])
 
-def switch(boot=False):
+def switch():
     print("switching configuration ...")
     cmd = ["sudo", "nixos-rebuild"]
-    boot_loader = ["--install-bootloader"] if boot else []
 
     if sys.platform == "darwin":
         cmd = ["darwin-rebuild"]
         boot_loader = []
 
-    run([*cmd, "switch", "--flake", *boot_loader, DIR])
+    run([*cmd, "switch", "--flake", DIR])
 
 def test():
     print("(test) applying configurations ...")
@@ -75,8 +74,6 @@ def main():
 
     if args.command == None:
         switch(False)
-    elif args.command == "boot":
-        switch(True)
     elif args.command == "pull":
         print("updating flake inputs ...")
         run_nix(["flake", "update"])

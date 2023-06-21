@@ -2,13 +2,13 @@
   description = "My NixOS ❄ / MacOS 🍏 Configuration";
 
   inputs = {
-    stable.url = "github:nixos/nixpkgs/nixos-22.11";
+    stable.url = "github:nixos/nixpkgs/nixos-23.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "stable";
 
-    hm.url = "github:nix-community/home-manager/release-22.11";
+    hm.url = "github:nix-community/home-manager/release-23.05";
     hm.inputs.nixpkgs.follows = "stable";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
@@ -103,7 +103,7 @@
         extraArgs = {
           user = "z0al";
           theme = "catppuccin";
-          version = "22.11";
+          version = "23.05";
         };
       };
 
