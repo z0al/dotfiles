@@ -3,6 +3,7 @@
 {
   # Hardware
   imports = with hardware.nixosModules; [
+    common-gpu-intel
     lenovo-thinkpad
     lenovo-thinkpad-x1
     lenovo-thinkpad-x1-7th-gen
