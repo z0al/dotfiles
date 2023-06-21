@@ -1,6 +1,14 @@
-{ config, lib, user, ... }:
+{ config, lib, hardware, user, ... }:
 
 {
+  imports = with hardware.nixosModules; [
+    common-pc
+    common-pc-ssd
+    common-cpu-amd
+    common-cpu-amd-pstate
+    common-gpu-nvidia-nonprime
+  ];
+
   # File System
   d.fs.rootOnTmpfs = true;
 
@@ -24,7 +32,4 @@
   boot.initrd.luks.devices."crypted" = {
     device = "/dev/disk/by-uuid/5e640cf6-6076-4214-a34b-8c9ffcaf2f78";
   };
-
-  # Graphics
-  services.xserver.videoDrivers = [ "nvidia" ];
 }
