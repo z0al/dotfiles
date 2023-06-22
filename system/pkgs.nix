@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     neovim-unwrapped
     wezterm
+    chromium
 
     # Langauges
     python3
