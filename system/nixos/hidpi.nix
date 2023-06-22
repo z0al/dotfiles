@@ -11,11 +11,6 @@
   console.earlySetup = true;
   boot.loader.systemd-boot.consoleMode = "max";
 
-
   # Grayscale anti-aliasing for fonts
   fonts.fontconfig.antialias = true;
-
-  d.hm = [{
-    programs.autorandr.enable = true;
-  }];
 }
