@@ -13,27 +13,26 @@ in
 
   programs.vscode.userSettings = {
     # Editor
+    "files.enableTrash" = true;
     "files.autoSave" = "off";
-    "editor.insertSpaces" = false;
-    "editor.lineNumbers" = "on";
-    "editor.useTabStops" = true;
-    "editor.wordWrap" = "on";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
+    "editor.emptySelectionClipboard" = false;
     "editor.fontFamily" = "'JetBrains Mono','Symbols Nerd Font Mono','PowerlineSymbols','Noto Color Emoji'";
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
-    "editor.occurrencesHighlight" = false;
-    "editor.selectionHighlight" = false;
-    "editor.minimap.enabled" = false;
     "editor.inlineSuggest.enabled" = true;
+    "editor.insertSpaces" = false;
+    "editor.lineNumbers" = "on";
+    "editor.minimap.enabled" = false;
+    "editor.occurrencesHighlight" = false;
     "editor.renderWhitespace" = "none";
+    "editor.selectionHighlight" = false;
+    "editor.useTabStops" = true;
+    "editor.wordWrap" = "on";
     "diffEditor.ignoreTrimWhitespace" = false;
-    "editor.emptySelectionClipboard" = false;
-    "files.enableTrash" = true;
-    "editor.unicodeHighlight.allowedCharacters" = {
-      "❯" = true;
-    };
+    "diffEditor.renderSideBySide" = false;
+
 
     # Workbench
     "workbench.colorTheme" = themes.${theme};
