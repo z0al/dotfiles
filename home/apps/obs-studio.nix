@@ -10,7 +10,7 @@ in
   options.d.apps.obs = {
     enable = mkOption {
       type = types.bool;
-      default = pkgs.stdenv.isLinux;
+      default = false;
     };
   };
 
