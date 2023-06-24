@@ -42,7 +42,7 @@ in
     # i3-like workspace indicator
     "org/gnome/shell/extensions/space-bar/behavior" = {
       show-empty-workspaces = false;
-      position = "left";
+      position = "right";
       position-index = 0;
       scroll-wheel = "disabled";
       smart-workspace-names = false;
