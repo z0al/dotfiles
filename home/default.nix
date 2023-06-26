@@ -12,7 +12,7 @@ in
     ./apps
     ./cli
     ./dev
-    ./services
+    ./autostart.nix
   ];
 
   home = {
