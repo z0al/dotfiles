@@ -92,7 +92,6 @@ in
         (toWorkspace 4 [
           "discord"
           "slack"
-          "Zoom"
         ]) ++
 
         # 10. Temporarily access (Spotify, 1Password, Settings ..etc)
