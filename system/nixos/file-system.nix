@@ -9,6 +9,7 @@ in
 
 {
   config = {
+    zramSwap.enable = true;
     boot.supportedFilesystems = [ "ntfs" ];
 
     # Temporary root (/)
