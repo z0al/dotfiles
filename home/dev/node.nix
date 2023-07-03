@@ -37,6 +37,7 @@ in
       directories = [
         ".npm"
         ".cache/yarn"
+        ".cache/Cypress"
         ".local/share/fnm"
       ];
       files = [ ".npmrc" ".yarnrc" ];
