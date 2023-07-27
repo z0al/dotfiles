@@ -7,6 +7,7 @@
     ./direnv.nix
     ./fzf.nix
     ./gh.nix
+    ./kubectl.nix
     ./localrc.nix
     ./nix-index.nix
     ./up.nix

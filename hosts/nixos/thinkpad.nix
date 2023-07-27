@@ -28,6 +28,12 @@
     device = "/dev/disk/by-partlabel/crypted";
   };
 
+  # Enable touchpad support
+  services.xserver.libinput.enable = true;
+
+  # Power management
+  powerManagement.cpuFreqGovernor = "performance";
+
   # Home manager
   d.hm = [{
     d.apps = {
@@ -36,11 +42,9 @@
       vscode.withCopilot = false;
       zoom.enable = true;
     };
+
+    d.cli = {
+      kubectl.enable = true;
+    };
   }];
-
-  # Enable touchpad support
-  services.xserver.libinput.enable = true;
-
-  # Power management
-  powerManagement.cpuFreqGovernor = "performance";
 }
