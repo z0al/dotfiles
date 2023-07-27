@@ -19,5 +19,9 @@ in
       kubectl
       kubelogin-oidc
     ];
+
+    d.fs.persisted = {
+      directories = [ ".kube" ];
+    };
   };
 }
