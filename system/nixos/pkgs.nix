@@ -19,6 +19,7 @@
     firefox-devedition-bin
     gnome-obfuscate
     gnome.gnome-tweaks
+    gparted
     video-trimmer
     wezterm
 
@@ -28,5 +29,6 @@
     newsflash
     polkit
     xclip
+    ventoy-full
   ];
 }
