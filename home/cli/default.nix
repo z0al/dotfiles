@@ -13,6 +13,7 @@
     ./kubectl.nix
     ./localrc.nix
     ./nix-index.nix
+    ./terraform.nix
     ./up.nix
     ./zoxide.nix
   ];
