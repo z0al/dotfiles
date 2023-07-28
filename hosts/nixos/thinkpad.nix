@@ -44,6 +44,7 @@
     };
 
     d.cli = {
+      aws.enable = true;
       kubectl.enable = true;
     };
   }];

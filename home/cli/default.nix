@@ -4,6 +4,8 @@
     ./git
     ./shell
     ./starship
+
+    ./aws.nix
     ./direnv.nix
     ./fzf.nix
     ./gh.nix
