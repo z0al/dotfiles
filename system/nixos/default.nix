@@ -14,6 +14,7 @@
     ./nix-ld.nix
     ./pkgs.nix
     ./sound.nix
+    ./systemd.nix
     ./trash.nix
     ./users.nix
   ];
