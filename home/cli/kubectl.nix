@@ -18,6 +18,7 @@ in
     home.packages = with pkgs; [
       kubectl
       kubelogin-oidc
+      kubectx
     ];
 
     d.fs.persisted = {
