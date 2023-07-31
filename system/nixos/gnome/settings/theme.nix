@@ -12,7 +12,7 @@ let
 
   gtkThemes = {
     catppuccin = {
-      name = "Catppuccin-Mocha-Standard-Lavender-Dark";
+      name = "Catppuccin-Mocha-Standard-Lavender-dark";
       package = pkgs.catppuccin-gtk;
     };
   };
