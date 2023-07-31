@@ -176,6 +176,7 @@
 
       package = {
         symbol = " ";
+        disabled = true;
       };
 
       pijul_channel = {
