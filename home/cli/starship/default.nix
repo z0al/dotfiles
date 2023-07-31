@@ -3,6 +3,10 @@
     ./themes.nix
   ];
 
+  home.sessionVariables = {
+    STARSHIP_LOG = "error";
+  };
+
   programs.starship = {
     enable = true;
 

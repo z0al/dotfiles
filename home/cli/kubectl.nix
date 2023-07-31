@@ -21,6 +21,10 @@ in
       kubectx
     ];
 
+    programs.starship.settings = {
+      kubernetes.disabled = false;
+    };
+
     d.fs.persisted = {
       directories = [ ".kube" ];
     };
