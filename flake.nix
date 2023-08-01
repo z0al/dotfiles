@@ -19,6 +19,9 @@
 
     nix-index.url = "github:Mic92/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "stable";
+
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    vscode-extensions.inputs.nixpkgs.follows = "stable";
   };
 
   outputs =
@@ -29,6 +32,7 @@
     , hardware
     , persistence
     , utils
+    , vscode-extensions
     , ...
     } @ inputs:
     let
@@ -95,6 +99,10 @@
         };
         unstable = { };
       };
+
+      sharedOverlays = [
+        vscode-extensions.overlays.default
+      ];
 
       hostDefaults = {
         channelName = "stable";

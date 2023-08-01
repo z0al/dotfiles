@@ -32,13 +32,14 @@ in
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = true;
 
-      extensions = with pkgs.vscode-extensions; ([
+      extensions = with pkgs.vscode-marketplace; ([
         # Git
         eamodio.gitlens
 
         # Languages
         bradlc.vscode-tailwindcss
         dotjoshjohnson.xml
+        hashicorp.terraform
         jnoortheen.nix-ide
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
@@ -53,7 +54,7 @@ in
         editorconfig.editorconfig
         esbenp.prettier-vscode
         streetsidesoftware.code-spell-checker
-        # JohnnyMorganz.stylua
+        johnnymorganz.stylua
       ] ++
       optionals (cfg.withCopilot) [ github.copilot ]);
     };
