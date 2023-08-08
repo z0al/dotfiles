@@ -41,6 +41,7 @@ in
         dotjoshjohnson.xml
         hashicorp.terraform
         jnoortheen.nix-ide
+        ronnidc.nunjucks
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         # ms-python.python not supported on Darwin (because of gdb)
@@ -53,8 +54,9 @@ in
         dbaeumer.vscode-eslint
         editorconfig.editorconfig
         esbenp.prettier-vscode
-        streetsidesoftware.code-spell-checker
         johnnymorganz.stylua
+        okitavera.vscode-nunjucks-formatter
+        streetsidesoftware.code-spell-checker
       ] ++
       optionals (cfg.withCopilot) [ github.copilot ]);
     };
