@@ -39,6 +39,7 @@ in
         lldb
         lua-language-server
         marksman
+        nil
         python311Packages.python-lsp-server
         taplo
         terraform-ls
