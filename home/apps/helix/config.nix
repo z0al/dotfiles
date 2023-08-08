@@ -11,9 +11,12 @@ in
     theme = themeMapping.${theme};
 
     editor = {
-      line-number = "relative";
-      cursorline = true;
+      bufferline = "never";
       color-modes = true;
+      cursorline = true;
+      indent-guides.render = true;
+      line-number = "relative";
+      soft-wrap.enable = true;
 
       cursor-shape = {
         insert = "bar";
@@ -21,7 +24,23 @@ in
         select = "underline";
       };
 
-      indent-guides.render = true;
+      statusline = {
+        mode.normal = "";
+        mode.insert = "";
+        mode.select = "";
+
+        left = [ "mode" "spacer" "spinner" "file-name" ];
+        right = [
+          "diagnostics"
+          "position"
+          "primary-selection-length"
+          "file-encoding"
+          "file-type"
+          "version-control"
+          "spacer"
+          "position-percentage"
+        ];
+      };
     };
   };
 }
