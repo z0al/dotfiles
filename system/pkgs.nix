@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim-unwrapped
+    helix
     wezterm
     chromium
 

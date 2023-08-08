@@ -13,7 +13,7 @@ The repository features a shared [home-manager][hm] configuration between NixOS 
 
 **Shared 🔥:**
 
-- Editors: [LazyVim][lazy] 💤 and [VS Code][vscode].
+- Editors: [Helix][helix] and [VS Code][vscode].
 - Terminal: [Wezterm][wezterm]. The best terminal ever.
 - Shell: [Fish][fish] 🐟️ (inc. [starship][starship], [zoxide][z], [fzf][fzf] and [more](./home/cli/))
 - Apps: 1Password (with git and ssh integration), Brave, Obsidian ..etc
@@ -47,7 +47,7 @@ MIT © Ahmed T. Ali
 [fzf]: https://github.com/junegunn/fzf
 [starship]: https://starship.rs
 [wezterm]: https://wezfurlong.org/wezterm
-[lazy]: https://www.lazyvim.org
+[helix]: https://helix-editor.com/
 [vscode]: https://code.visualstudio.com
 [cat]: https://github.com/catppuccin/catppuccin
 [yabai]: https://github.com/koekeishiya/yabai

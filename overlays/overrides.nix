@@ -17,7 +17,6 @@ channels: final: prev: {
 
     # Development
     helix
-    neovim
     vscode
     vscode-extensions
 
