@@ -22,6 +22,9 @@
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     vscode-extensions.inputs.nixpkgs.follows = "stable";
+
+    fenix.url = "github:nix-community/fenix";
+    fenix.inputs.nixpkgs.follows = "stable";
   };
 
   outputs =
@@ -33,6 +36,7 @@
     , persistence
     , utils
     , vscode-extensions
+    , fenix
     , ...
     } @ inputs:
     let
@@ -102,6 +106,7 @@
 
       sharedOverlays = [
         vscode-extensions.overlays.default
+        fenix.overlays.default
       ];
 
       hostDefaults = {

@@ -16,7 +16,14 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      rustup
+      (fenix.stable.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
+      rust-analyzer
     ];
 
     d.fs.persisted = {
