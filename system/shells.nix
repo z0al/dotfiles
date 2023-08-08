@@ -10,7 +10,7 @@ in
     shells = [ pkgs.fish ];
 
     variables = {
-      EDITOR = "nvim";
+      EDITOR = "hx";
       BROWSER = "brave";
     };
 

@@ -10,12 +10,13 @@ channels: final: prev: {
     bat
     fd
     fzf
-    starship
-    zoxide
     navi
+    starship
     wezterm
+    zoxide
 
     # Development
+    helix
     neovim
     vscode
     vscode-extensions

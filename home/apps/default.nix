@@ -1,5 +1,6 @@
 {
   imports = [
+    ./helix
     ./neovim
     ./rofi
     ./vscode

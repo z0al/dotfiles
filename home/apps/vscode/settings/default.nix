@@ -1,7 +1,7 @@
 { theme, ... }:
 
 let
-  themes = {
+  themeMapping = {
     catppuccin = "Catppuccin Mocha";
   };
 in
@@ -35,7 +35,7 @@ in
 
 
     # Workbench
-    "workbench.colorTheme" = themes.${theme};
+    "workbench.colorTheme" = themeMapping.${theme};
     "workbench.iconTheme" = "vs-seti";
     "workbench.startupEditor" = "none";
     "workbench.editor.showTabs" = false;
