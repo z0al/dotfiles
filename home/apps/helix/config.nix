@@ -42,5 +42,20 @@ in
         ];
       };
     };
+
+    keys.normal = {
+      i = [ "insert_mode" "collapse_selection" ];
+      a = [ "append_mode" "collapse_selection" ];
+
+      esc = [ "collapse_selection" "keep_primary_selection" ];
+    };
+
+    keys.insert = {
+      esc = [ "collapse_selection" "normal_mode" ];
+    };
+
+    keys.select = {
+      esc = [ "collapse_selection" "keep_primary_selection" "normal_mode" ];
+    };
   };
 }
