@@ -70,6 +70,7 @@ in
     "git.alwaysSignOff" = false;
     "git.suggestSmartCommit" = false;
     "git.confirmSync" = false;
+    "git.openRepositoryInParentFolders" = "always";
 
     # Other
     "search.showLineNumbers" = false;
