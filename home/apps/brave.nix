@@ -11,6 +11,8 @@ let
     google-translate = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
     grammarly = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
     json-formatter = "bcjindcccaagfpapjjmafapmmgkkhgoa";
+    netflix-extended = "gjcgfkhgpaccjpjokgpekpgpphgaanej";
+    netflix-imdb-rating = "lpgajkhkagnpdjklmpgjeplmgffnhhjj";
     omni = "mapjgeachilmcbbokkgcbgpbakaaeehi";
     react-developer-tools = "fmkadmapgofadopljbjfkapdkoienihi";
     sourcegraph = "dgjhfomjieaadpoljlnidmbgkdffpack";
