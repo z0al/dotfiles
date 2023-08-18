@@ -11,6 +11,7 @@ in
     theme = themeMapping.${theme};
 
     editor = {
+      auto-format = true;
       bufferline = "never";
       color-modes = true;
       cursorline = true;

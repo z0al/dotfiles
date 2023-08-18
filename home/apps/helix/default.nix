@@ -9,6 +9,7 @@ in
 {
   imports = [
     ./config.nix
+    ./languages.nix
   ];
 
   options.d.apps.helix = {
