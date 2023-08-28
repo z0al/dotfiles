@@ -22,6 +22,7 @@
     git
     gnumake
     gnupg
+    httpie
     killall
     lsof
     neofetch
