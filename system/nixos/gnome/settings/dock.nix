@@ -4,7 +4,6 @@
       "org.gnome.Nautilus.desktop"
       "brave-browser.desktop"
       "code.desktop"
-      "org.wezfurlong.wezterm.desktop"
       "1password.desktop"
     ];
   };

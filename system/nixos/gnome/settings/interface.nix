@@ -21,19 +21,23 @@ in
 
 {
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:";
-      focus-mode = "click";
-      auto-raise = false;
-      resize-with-right-button = false;
-    };
-
     "org/gnome/desktop/interface" = {
       clock-show-date = true;
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
       text-scaling-factor = 1.2;
       enable-hot-corners = false;
+    };
+
+    "org/gnome/desktop/session" = {
+      idle-delay = 900; # 15mins
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:";
+      focus-mode = "click";
+      auto-raise = false;
+      resize-with-right-button = false;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
