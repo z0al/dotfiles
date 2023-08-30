@@ -18,4 +18,8 @@ in
       end
     '';
   };
+
+  d.fs.persisted = {
+    files = [ ".localrc" ];
+  };
 }
