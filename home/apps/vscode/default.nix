@@ -45,7 +45,8 @@ in
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         prisma.prisma
-
+        ms-azuretools.vscode-docker
+        
         # Themes
         dracula-theme.theme-dracula
         catppuccin.catppuccin-vsc
