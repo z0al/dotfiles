@@ -44,7 +44,7 @@ in
         ronnidc.nunjucks
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
-        # ms-python.python not supported on Darwin (because of gdb)
+        prisma.prisma
 
         # Themes
         dracula-theme.theme-dracula
@@ -57,8 +57,9 @@ in
         johnnymorganz.stylua
         okitavera.vscode-nunjucks-formatter
         streetsidesoftware.code-spell-checker
-      ] ++
-      optionals (cfg.withCopilot) [ github.copilot ]);
+      ]
+      ++ (optionals (pkgs.stdenv.isLinux) [ ms-python.python ])
+      ++ (optionals (cfg.withCopilot) [ github.copilot ]));
     };
 
     d.fs.persisted = mkIf cfg.enable {
