@@ -46,6 +46,11 @@ in
         };
 
         pull.rebase = true;
+
+        # Autostash on "git pull ..."
+        merge.autoStash = true;
+        rebase.autoStash = true;
+
         push.autoSetupRemote = true;
       };
     };
