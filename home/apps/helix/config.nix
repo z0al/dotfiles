@@ -19,6 +19,9 @@ in
       line-number = "relative";
       soft-wrap.enable = true;
 
+      # FIXME: remove once https://github.com/helix-editor/helix/issues/1475 is fixed
+      auto-info = false;
+
       cursor-shape = {
         insert = "bar";
         normal = "block";
