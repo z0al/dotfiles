@@ -45,7 +45,7 @@ in
           abbrevCommit = true;
         };
 
-        pull.rebase = true;
+        pull.merge = true;
 
         # Autostash on "git pull ..."
         merge.autoStash = true;
