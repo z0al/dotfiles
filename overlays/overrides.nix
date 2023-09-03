@@ -16,7 +16,6 @@ channels: final: prev: {
     zoxide
 
     # Development
-    helix
     vscode
     vscode-extensions
 

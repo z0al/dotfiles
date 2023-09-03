@@ -25,6 +25,9 @@
 
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "stable";
+
+    helix.url = "github:helix-editor/helix";
+    helix.inputs.nixpkgs.follows = "stable";
   };
 
   outputs =
@@ -37,6 +40,7 @@
     , utils
     , vscode-extensions
     , fenix
+    , helix
     , ...
     } @ inputs:
     let
@@ -107,6 +111,7 @@
       sharedOverlays = [
         vscode-extensions.overlays.default
         fenix.overlays.default
+        helix.overlays.default
       ];
 
       hostDefaults = {
