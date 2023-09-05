@@ -1,15 +1,75 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, theme, ... }:
 
 with lib;
 
 let
   cfg = config.d.apps.helix;
+
+  themeMapping = {
+    catppuccin = "catppuccin_mocha";
+  };
+
+  settings = {
+    theme = themeMapping.${theme};
+
+    editor = {
+      auto-format = true;
+      bufferline = "never";
+      color-modes = true;
+      cursorline = true;
+      indent-guides.render = true;
+      line-number = "relative";
+      soft-wrap.enable = true;
+
+      # FIXME: remove once https://github.com/helix-editor/helix/issues/1475 is fixed
+      # auto-info = false;
+
+      cursor-shape = {
+        insert = "bar";
+        normal = "block";
+        select = "underline";
+      };
+
+      statusline = {
+        mode.normal = "";
+        mode.insert = "";
+        mode.select = "";
+
+        left = [ "mode" "spacer" "spinner" "file-name" ];
+        right = [
+          "diagnostics"
+          "position"
+          "primary-selection-length"
+          "file-encoding"
+          "file-type"
+          "version-control"
+          "spacer"
+          "position-percentage"
+        ];
+      };
+    };
+
+    keys.normal = {
+      i = [ "insert_mode" "collapse_selection" ];
+      a = [ "append_mode" "collapse_selection" ];
+
+      esc = [ "collapse_selection" "keep_primary_selection" ];
+    };
+
+    keys.insert = {
+      esc = [ "collapse_selection" "normal_mode" ];
+    };
+
+    keys.select = {
+      esc = [ "collapse_selection" "keep_primary_selection" "normal_mode" ];
+    };
+  };
 in
 
 {
   imports = [
-    ./config.nix
-    ./languages.nix
+    ./prettier.nix
+    ./typescript.nix
   ];
 
   options.d.apps.helix = {
@@ -22,6 +82,7 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
+      settings = settings;
     };
 
     # hx --health
@@ -29,9 +90,7 @@ in
     home.packages =
       (with pkgs.nodePackages; [
         bash-language-server
-        typescript-language-server
         yaml-language-server
-        vscode-langservers-extracted
       ]) ++
 
       (with pkgs; [
