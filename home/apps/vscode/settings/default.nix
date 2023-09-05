@@ -82,5 +82,6 @@ in
     # TypeScript
     "typescript.updateImportsOnFileMove.enabled" = "always";
     "javascript.updateImportsOnFileMove.enabled" = "always";
+    "typescript.inlayHints.parameterNames.enabled" = "literals";
   };
 }
