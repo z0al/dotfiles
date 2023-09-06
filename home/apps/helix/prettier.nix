@@ -5,13 +5,18 @@ let
 
   prettier = parser: {
     command = "${pkg}/bin/prettier";
-    args = [
-      "--parser"
-      parser
-      "--config-precedence"
-      "file-override"
-      "--use-tabs"
-      "--tab-width"
+    args = lib.flatten [
+      [ "--parser" parser ]
+
+      # Prefer project-specific config file over the options defined below.
+      [ "--config-precedence" "prefer-file" ]
+
+      # Formating Options:
+      [ "--use-tabs" ]
+      [ "--tab-width" 2 ]
+      [ "--print-width" 80 ]
+      [ "--quote-prop" "consistent" ]
+      [ "--prose-wrap" "always" ]
     ];
   };
 in
