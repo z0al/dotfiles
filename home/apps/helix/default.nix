@@ -68,6 +68,7 @@ in
 
 {
   imports = [
+    ./lua.nix
     ./prettier.nix
     ./typescript.nix
   ];
@@ -97,7 +98,6 @@ in
         delve
         gopls
         lldb
-        lua-language-server
         marksman
         nil
         python311Packages.python-lsp-server

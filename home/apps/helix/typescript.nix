@@ -2,23 +2,29 @@
 
 let
   cfg = {
-    language-servers = [
-      "typescript-language-server"
-      "eslint"
-    ];
-
     auto-format = true;
     indent = {
       tab-width = 2;
       unit = "\t";
     };
+
+    language-servers = [
+      "typescript-language-server"
+      "eslint"
+    ];
   };
+
+  lspBinPath = lang:
+    with pkgs.nodePackages;
+
+    if lang == "typescript"
+    then "${typescript-language-server}/bin/typescript-language-server"
+    else "${vscode-langservers-extracted}/bin/vscode-${lang}-language-server";
 in
 
 {
   home.packages = with pkgs.nodePackages; [
     typescript-language-server
-    # html, css, json, and eslint
     vscode-langservers-extracted
   ];
 
@@ -43,9 +49,14 @@ in
     ];
 
     language-server = {
+      typescript-language-server.command = lspBinPath "typescript";
+      vscode-css-language-server.command = lspBinPath "css";
+      vscode-html-language-server.command = lspBinPath "html";
+      vscode-json-language-server.command = lspBinPath "json";
+
       eslint = {
         args = [ "--stdio" ];
-        command = "vscode-eslint-language-server";
+        command = lspBinPath "eslint";
         config = {
           format = true;
           nodePath = "";

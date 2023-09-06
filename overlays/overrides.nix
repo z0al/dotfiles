@@ -18,6 +18,7 @@ channels: final: prev: {
     # Development
     vscode
     vscode-extensions
+    stylua
 
     # Apps
     _1password

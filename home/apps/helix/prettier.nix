@@ -13,8 +13,8 @@ let
 
       # Formating Options:
       [ "--use-tabs" ]
-      [ "--tab-width" 2 ]
-      [ "--print-width" 80 ]
+      [ "--tab-width" "2" ]
+      [ "--print-width" "80" ]
       [ "--quote-prop" "consistent" ]
       [ "--prose-wrap" "always" ]
     ];
