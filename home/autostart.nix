@@ -22,7 +22,7 @@ in
       (name: opts: {
         Service = {
           Type = "simple";
-          Restart = "always";
+          Restart = "on-failure";
           RestartSec = 1;
           ExecStart = "${pkgs.${name}}/bin/${opts.exec}";
         };
