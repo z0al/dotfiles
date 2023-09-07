@@ -70,6 +70,7 @@ in
   imports = [
     ./lua.nix
     ./prettier.nix
+    ./prisma.nix
     ./typescript.nix
   ];
 
