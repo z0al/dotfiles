@@ -39,7 +39,6 @@
     d.apps = {
       slack.enable = true;
       brave.withOkta = true;
-      vscode.withCopilot = false;
       zoom.enable = true;
     };
 
