@@ -10,8 +10,6 @@
     language = [
       {
         name = "lua";
-        auto-format = true;
-
         indent = {
           tab-width = 2;
           unit = "\t";

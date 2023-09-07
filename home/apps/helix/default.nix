@@ -69,6 +69,7 @@ in
 {
   imports = [
     ./lua.nix
+    ./nix.nix
     ./prettier.nix
     ./prisma.nix
     ./typescript.nix

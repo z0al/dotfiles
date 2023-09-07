@@ -2,7 +2,6 @@
 
 let
   cfg = {
-    auto-format = true;
     indent = {
       tab-width = 2;
       unit = "\t";
