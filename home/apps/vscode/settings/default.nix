@@ -72,6 +72,9 @@ in
     "git.confirmSync" = false;
     "git.openRepositoryInParentFolders" = "always";
 
+    # Extensions
+    "extensions.ignoreRecommendations" = true;
+
     # Other
     "search.showLineNumbers" = false;
     "debug.console.fontSize" = 13;
