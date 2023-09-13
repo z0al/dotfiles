@@ -18,7 +18,7 @@ let
       color-modes = true;
       cursorline = true;
       indent-guides.render = true;
-      line-number = "relative";
+      line-number = "absolute";
       soft-wrap.enable = true;
 
       # FIXME: remove once https://github.com/helix-editor/helix/issues/1475 is fixed
@@ -47,21 +47,6 @@ let
           "position-percentage"
         ];
       };
-    };
-
-    keys.normal = {
-      i = [ "insert_mode" "collapse_selection" ];
-      a = [ "append_mode" "collapse_selection" ];
-
-      esc = [ "collapse_selection" "keep_primary_selection" ];
-    };
-
-    keys.insert = {
-      esc = [ "collapse_selection" "normal_mode" ];
-    };
-
-    keys.select = {
-      esc = [ "collapse_selection" "keep_primary_selection" "normal_mode" ];
     };
   };
 in
