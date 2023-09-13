@@ -26,7 +26,7 @@
 
       # "gnome" -> Wayland
       # "gnome-xorg" -> X11
-      defaultSession = lib.mkDefault "gnome-xorg";
+      defaultSession = lib.mkDefault "gnome";
     };
   };
 
