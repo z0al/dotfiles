@@ -30,6 +30,7 @@ local config = {
 	enable_kitty_keyboard = true,
 
 	-- Window
+	enable_wayland = false,
 	window_padding = {
 		left = "0cell",
 		right = "0cell",
