@@ -1,4 +1,4 @@
-{ config, hardware, user, ... }:
+{ hardware, ... }:
 
 {
   # Hardware
@@ -33,6 +33,8 @@
 
   # Power management
   powerManagement.cpuFreqGovernor = "performance";
+
+  d.auto-login.enable = false;
 
   # Home manager
   d.hm = [{
