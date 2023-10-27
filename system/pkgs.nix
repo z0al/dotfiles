@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     helix
     wezterm
-    chromium
 
     # Langauges
     python3
