@@ -5,7 +5,6 @@
     brews = [
       {
         name = "yabai";
-        restart_service = "changed";
       }
     ];
 
@@ -19,6 +18,7 @@
       "yabai/yabairc" = {
         executable = true;
         source = ./yabairc;
+        onChange = "/opt/homebrew/bin/yabai --restart-service";
       };
     };
   }];
