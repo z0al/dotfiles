@@ -10,11 +10,3 @@ indent_size = 2
 
 [*.{yml,nix}]
 indent_style = space
-
-[*.py]
-indent_style = space
-indent_size = 4
-
-[bin/up]
-indent_style = space
-indent_size = 4
