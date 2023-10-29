@@ -1,11 +1,6 @@
 # Dotfiles
 
-My [NixOS][nixos] ❄ / macOS 🍏 configuration as a [flake][flakes]. It supports multiple hosts:
-
-- Desktop: Home desktop (NixOS)
-- MacBook: My personal MacBook Pro (M2)
-- Thinkpad: A ThinkPad X1 Carbon 7th edition for work
-- Sandbox: VirtualBox NixOS VM for testing
+My [NixOS][nixos] ❄ / macOS 🍏 configuration as a [flake][flakes]. It supports multiple hosts.
 
 The repository features a shared [home-manager][hm] configuration between NixOS and macOS (aka. [nix-darwin][darwin]) hosts.
 
