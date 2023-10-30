@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 let
   prettier = {
     "editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -44,5 +46,8 @@ in
 
     # Rust Analyzer
     "rust-analyzer.inlayHints.chainingHints.enable" = false;
+
+    # Nix IDE
+    "nix.formatterPath" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
   };
 }
