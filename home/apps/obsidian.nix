@@ -10,7 +10,7 @@ in
   options.d.apps.obsidian = {
     enable = mkOption {
       type = types.bool;
-      default = pkgs.stdenv.isLinux;
+      default = true;
     };
   };
 
