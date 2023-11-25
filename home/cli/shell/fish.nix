@@ -24,6 +24,10 @@ in
       bind \b backward-kill-word
     '';
 
+    shellAliases = {
+      unset = "set -e";
+    };
+
     interactiveShellInit = ''
       any-nix-shell fish --info-right | source
     '';
