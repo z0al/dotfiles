@@ -19,6 +19,7 @@ in
       "..." = "cd ../..";
       "...." = "cd ../../..";
 
+      clear = "tput reset";
       grep = "rg";
       mkdir = "mkdir -p";
       open = mkIf isLinux "xdg-open &> $HOME/.xdg-open.log";
