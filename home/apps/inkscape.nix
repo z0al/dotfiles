@@ -10,7 +10,7 @@ in
   options.d.apps.inkscape = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = pkgs.stdenv.isLinux;
     };
   };
 
