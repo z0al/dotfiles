@@ -24,7 +24,6 @@ channels: final: prev: {
     _1password
     _1password-gui
     android-studio
-    brave
     firefox-devedition-bin
     obsidian
     zoom-us

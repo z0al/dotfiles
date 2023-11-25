@@ -27,7 +27,7 @@ in
   options.d.apps.brave = {
     enable = mkOption {
       type = types.bool;
-      default = pkgs.stdenv.isLinux;
+      default = true;
     };
 
     withOkta = mkOption {
