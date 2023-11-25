@@ -1,8 +1,10 @@
 channels: final: prev:
+
 let
   oldColor = "#11111b";
   newColor = "#1e1e2e";
 in
+
 {
   __dontExport = true;
 
