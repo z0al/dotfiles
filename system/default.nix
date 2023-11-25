@@ -29,5 +29,5 @@
   };
 
   # Localization
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "Europe/London";
 }
