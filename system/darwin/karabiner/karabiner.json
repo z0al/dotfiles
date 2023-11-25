@@ -982,7 +982,7 @@
 						]
 					},
 					{
-						"description": "Restart/Exit Window Manager (Yabai) with Cmd-Shift-c/r/e",
+						"description": "Restart Window Manager (Yabai) with Cmd-Shift-r",
 						"manipulators": [
 							{
 								"conditions": [
@@ -995,52 +995,6 @@
 									}
 								],
 								"from": {
-									"key_code": "c",
-									"modifiers": {
-										"mandatory": ["control", "shift"]
-									}
-								},
-								"to": [
-									{
-										"shell_command": "/opt/homebrew/bin/yabai --restart-service"
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com\\.apple\\.Terminal$",
-											"^com\\.github\\.wez\\.wezterm$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "c",
-									"modifiers": {
-										"mandatory": ["command", "shift"]
-									}
-								},
-								"to": [
-									{
-										"shell_command": "/opt/homebrew/bin/yabai --restart-service"
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com\\.apple\\.Terminal$",
-											"^com\\.github\\.wez\\.wezterm$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
 									"key_code": "r",
 									"modifiers": {
 										"mandatory": ["control", "shift"]
@@ -1072,52 +1026,6 @@
 								"to": [
 									{
 										"shell_command": "/opt/homebrew/bin/yabai --restart-service"
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com\\.apple\\.Terminal$",
-											"^com\\.github\\.wez\\.wezterm$"
-										],
-										"type": "frontmost_application_unless"
-									}
-								],
-								"from": {
-									"key_code": "e",
-									"modifiers": {
-										"mandatory": ["control", "shift"]
-									}
-								},
-								"to": [
-									{
-										"shell_command": "/opt/homebrew/bin/brew services stop yabai"
-									}
-								],
-								"type": "basic"
-							},
-							{
-								"conditions": [
-									{
-										"bundle_identifiers": [
-											"^com\\.apple\\.Terminal$",
-											"^com\\.github\\.wez\\.wezterm$"
-										],
-										"type": "frontmost_application_if"
-									}
-								],
-								"from": {
-									"key_code": "e",
-									"modifiers": {
-										"mandatory": ["command", "shift"]
-									}
-								},
-								"to": [
-									{
-										"shell_command": "/opt/homebrew/bin/brew services stop yabai"
 									}
 								],
 								"type": "basic"
