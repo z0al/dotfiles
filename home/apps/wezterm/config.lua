@@ -46,7 +46,7 @@ local config = {
 	hide_tab_bar_if_only_one_tab = true,
 
 	-- Keybindings
-	disable_default_key_bindings = true,
+	disable_default_key_bindings = false,
 	keys = {
 		-- Copy
 		{
