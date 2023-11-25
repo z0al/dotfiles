@@ -1,7 +1,7 @@
 {
   homebrew = {
     enable = true;
-    global.autoUpdate = false;
+    global.autoUpdate = true;
 
     casks = [
       "1password"
