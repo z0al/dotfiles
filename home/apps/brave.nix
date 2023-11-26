@@ -36,9 +36,9 @@ in
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     programs.chromium = {
-      enable = cfg.enable;
+      enable = true;
       package = pkgs.brave;
 
       extensions = map (e: { id = e; })

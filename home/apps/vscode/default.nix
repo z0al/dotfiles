@@ -24,9 +24,9 @@ in
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     programs.vscode = {
-      enable = cfg.enable;
+      enable = true;
 
       mutableExtensionsDir = true;
       enableUpdateCheck = false;
@@ -46,7 +46,7 @@ in
         tamasfe.even-better-toml
         prisma.prisma
         ms-azuretools.vscode-docker
-        
+
         # Themes
         dracula-theme.theme-dracula
         catppuccin.catppuccin-vsc
