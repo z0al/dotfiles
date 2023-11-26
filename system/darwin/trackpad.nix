@@ -4,7 +4,7 @@
     Clicking = true;
 
     # Whether to enable tap-to-drag. The default is false.
-    Dragging = true;
+    Dragging = false;
 
     # Whether to enable three finger drag. The default is false.
     TrackpadThreeFingerDrag = true;
