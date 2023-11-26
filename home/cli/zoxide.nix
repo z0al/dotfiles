@@ -5,11 +5,9 @@
 
   programs.zoxide = {
     enable = true;
+    enableFishIntegration = true;
 
     options = [ "--no-cmd" ];
-
-    enableBashIntegration = true;
-    enableFishIntegration = true;
   };
 
   d.fs.persisted = {

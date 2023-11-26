@@ -4,8 +4,6 @@ with lib;
 
 let
   cfg = config.d.apps.onepassword;
-
-  shell-plugins = "$HOME/.config/op/plugins.sh";
 in
 
 {
@@ -60,8 +58,7 @@ in
 
     # Load 1Password Shell Plugins
     programs = {
-      bash.extraSources = [ shell-plugins ];
-      fish.extraSources = [ shell-plugins ];
+      fish.extraSources = [ "$HOME/.config/op/plugins.sh" ];
     };
 
 

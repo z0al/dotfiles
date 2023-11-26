@@ -1,11 +1,6 @@
-let
-  path = "$HOME/.localrc";
-in
-
 {
   programs = {
-    bash.extraSources = [ path ];
-    fish.extraSources = [ path ];
+    fish.extraSources = [ "$HOME/.localrc" ];
   };
 
   d.fs.persisted = {

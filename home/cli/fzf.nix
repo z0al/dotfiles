@@ -14,8 +14,6 @@ in
 {
   programs.fzf = rec {
     enable = true;
-
-    enableBashIntegration = true;
     enableFishIntegration = true;
 
     defaultOptions = themes.${theme} ++ [

@@ -22,7 +22,6 @@ in
   ];
 
   programs = {
-    bash.shellAliases = aliases;
     fish.shellAbbrs = aliases;
 
     git = {

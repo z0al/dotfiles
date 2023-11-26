@@ -20,22 +20,6 @@ in
   };
 
   programs = {
-    zsh.initExtra = ''
-      if [ -e '${nixDaemon}' ]; then
-        . '${nixDaemon}'
-      fi
-
-      # https://github.com/LnL7/nix-darwin#install
-      if test -e /etc/static/zshrc; then
-        . /etc/static/zshrc;
-      fi
-
-      # Homebrew
-      if test -e /opt/homebrew/bin/brew; then
-        ${initBrew};
-      fi
-    '';
-
     fish.interactiveShellInit = ''
       if test -e '${nixDaemon}';
         fenv source '${nixDaemon}'
