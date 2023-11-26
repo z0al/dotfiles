@@ -1,11 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Use 1Password for authentication
-  home.shellAliases = {
-    gh = "op plugin run -- gh";
-  };
-
   programs.gh = {
     enable = true;
 

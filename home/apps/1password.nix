@@ -4,6 +4,8 @@ with lib;
 
 let
   cfg = config.d.apps.onepassword;
+
+  shell-plugins = "$HOME/.config/op/plugins.sh";
 in
 
 {
@@ -47,8 +49,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    # Use for SSH Authentication and Signing
     home.sessionVariables = {
-      OP_PLUGIN_ALIASES_SOURCED = 1;
       SSH_AUTH_SOCK = cfg.ssh.agent;
     };
 
@@ -56,12 +58,20 @@ in
       IdentityAgent "${cfg.ssh.agent}"
     '';
 
+    # Load 1Password Shell Plugins
+    programs = {
+      bash.extraSources = [ shell-plugins ];
+      fish.extraSources = [ shell-plugins ];
+    };
+
+
     d.autostart._1password-gui = {
       exec = "1password --silent";
     };
 
     d.fs.persisted = {
       directories = [
+        ".config/op"
         ".config/1Password/settings"
       ];
 
