@@ -7,7 +7,7 @@
     ./finder.nix
     ./login.nix
     ./pkgs.nix
-    ./touchpad.nix
+    ./trackpad.nix
   ];
 
   system.stateVersion = 4;
