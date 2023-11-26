@@ -7,7 +7,6 @@
     ./boot.nix
     ./docker.nix
     ./envfs.nix
-    ./file-system.nix
     ./hardware.nix
     ./hidpi.nix
     ./network.nix
@@ -15,6 +14,7 @@
     ./pkgs.nix
     ./sound.nix
     ./systemd.nix
+    ./tmpfs.nix
     ./trash.nix
     ./users.nix
   ];

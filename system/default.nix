@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ./file-system.nix
     ./hm.nix
     ./nix.nix
     ./pkgs.nix
     ./shells.nix
+    ./tmpfs.nix
   ];
 
   # Fonts

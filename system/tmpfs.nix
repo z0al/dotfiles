@@ -38,7 +38,7 @@ in
   };
 
   config = {
-    # Easily co-locale apps persistence config when using home-manager
+    # Easily co-locate apps persistence config when using home-manager
     d.hm = [{
       options.d.fs = {
         persisted = persistence;

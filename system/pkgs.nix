@@ -8,7 +8,6 @@
     # Langauges
     python3
     python3.pkgs.pip
-    sqlite
 
     # Utils
     cmake
@@ -26,6 +25,7 @@
     lsof
     neofetch
     ripgrep
+    sqlite
     unzip
   ];
 }
