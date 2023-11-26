@@ -30,6 +30,9 @@
     # Change the default search scope. Use “SCcf” to default to current
     # folder. The default is unset (“This Mac”).
     FXDefaultSearchScope = "SCcf";
+
+    # Whether to show warnings when change the file extension of
+    # files. The default is true.
     FXEnableExtensionChangeWarning = false;
   };
 }

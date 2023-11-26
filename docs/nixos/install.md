@@ -8,7 +8,7 @@
 
 - Full Disk Encryption (LUKS v2)
 - Root (`/`) partition is mounted as `tmpfs`
-- Data is persited to `/nix/data`
+- Data is persisted to `/nix/data`
 
 ## 1. Partitioning
 
@@ -104,7 +104,7 @@ Copy the following configurations from `etc/nixos/hardware-configuration.nix` to
 
 > **Note:**
 >
-> While I could just use my flake setup to bootstrap the new system, I perfer to have a bare minimum working setup initially.
+> While I could just use my flake setup to bootstrap the new system, I prefer to have a bare minimum working setup initially.
 
 1. Configure boot
 
