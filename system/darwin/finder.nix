@@ -35,4 +35,12 @@
     # files. The default is true.
     FXEnableExtensionChangeWarning = false;
   };
+
+  d.hm = [{
+    targets.darwin.currentHostDefaults = {
+      "com.apple.finder" = {
+        DisableAllAnimations = true;
+      };
+    };
+  }];
 }
