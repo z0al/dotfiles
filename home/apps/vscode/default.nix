@@ -55,6 +55,7 @@ in
         dbaeumer.vscode-eslint
         editorconfig.editorconfig
         esbenp.prettier-vscode
+        foxundermoon.shell-format
         johnnymorganz.stylua
         okitavera.vscode-nunjucks-formatter
         streetsidesoftware.code-spell-checker

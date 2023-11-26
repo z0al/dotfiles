@@ -12,5 +12,6 @@
   home.packages = with pkgs; [
     nixpkgs-fmt
     stylua
+    shfmt
   ];
 }

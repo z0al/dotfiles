@@ -49,5 +49,9 @@ in
 
     # Nix IDE
     "nix.formatterPath" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+
+    # Shell Format
+    "shellformat.useEditorConfig" = true;
+    "shellformat.path" = "${pkgs.shfmt}/bin/shfmt";
   };
 }

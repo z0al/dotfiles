@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -26,7 +26,11 @@ switch)
 	flake switch
 	;;
 test)
-	flake test --fast
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		flake switch
+	else
+		flake test --fast
+	fi
 	;;
 prune)
 	nix-collect-garbage
