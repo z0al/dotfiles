@@ -4,19 +4,8 @@ in
 
 {
   programs = {
-    # Bash Integration
-    bash.initExtra = ''
-      if [ -f "${path}" ]; then
-        . "${path}"
-      fi
-    '';
-
-    # Fish Integration
-    fish.interactiveShellInit = ''
-      if test -e "${path}"
-        source "${path}"
-      end
-    '';
+    bash.extraSources = [ path ];
+    fish.extraSources = [ path ];
   };
 
   d.fs.persisted = {
