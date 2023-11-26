@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 let
-  wallpaper = "${../../../../assets/wallpaper.jpg}";
-  avatar = "${../../../../assets/avatar.png}";
+  wallpaper = "${../../assets/wallpaper.jpg}";
+  avatar = "${../../assets/avatar.png}";
 in
 
 {
