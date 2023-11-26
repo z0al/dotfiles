@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ config, pkgs, user, ... }:
 
 let
   aliases = {
@@ -28,17 +28,22 @@ in
     git = {
       enable = true;
 
-      userName = user;
-      userEmail = "${user}@users.noreply.github.com";
+      userName = "z0al";
+      userEmail = "z0al@users.noreply.github.com";
 
       # Signing is done via the 1Password app
       signing = {
         signByDefault = true;
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
+        key = config.d.apps.onepassword.ssh.key;
       };
 
       extraConfig = {
         init.defaultBranch = "main";
+
+        gpg = {
+          format = "ssh";
+          ssh.program = config.d.apps.onepassword.ssh.sign;
+        };
 
         log = {
           decorate = true;
