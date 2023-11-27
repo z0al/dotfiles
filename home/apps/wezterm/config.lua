@@ -47,6 +47,7 @@ local config = {
 
 	-- Keybindings
 	disable_default_key_bindings = false,
+
 	keys = {
 		-- Copy
 		{
