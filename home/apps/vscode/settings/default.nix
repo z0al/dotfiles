@@ -1,4 +1,4 @@
-{ theme, ... }:
+{ pkgs, theme, ... }:
 
 let
   themeMapping = {
@@ -38,8 +38,8 @@ in
     "workbench.colorTheme" = themeMapping.${theme};
     "workbench.iconTheme" = "vs-seti";
     "workbench.startupEditor" = "none";
-    "workbench.editor.showTabs" = false;
-    "workbench.activityBar.visible" = false;
+    "workbench.editor.showTabs" = "single";
+    "workbench.activityBar.location" = "hidden";
     "workbench.settings.editor" = "json";
     "workbench.welcomePage.walkthroughs.openOnInstall" = false;
 
@@ -58,7 +58,7 @@ in
     # Terminal
     "terminal.integrated.fontSize" = 13;
     "terminal.explorerKind" = "external";
-    "terminal.external.linuxExec" = "wezterm";
+    "terminal.external.linuxExec" = "${pkgs.wezterm}/bin/wezterm";
     "terminal.external.osxExec" = "Terminal.app";
     "terminal.integrated.tabs.enabled" = false;
 
