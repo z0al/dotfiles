@@ -61,7 +61,6 @@ in
       fish.extraSources = [ "$HOME/.config/op/plugins.sh" ];
     };
 
-
     d.autostart._1password-gui = {
       exec = "1password --silent";
     };
