@@ -12,10 +12,9 @@ let
 
     src = fetchurl {
       url = "https://github.com/brave/brave-browser/releases/download/v${version}/Brave-Browser-universal.dmg";
-      sha256 = "sha256-vnJnvXorHNJKSq8SfLDBS/OBQSCJWZDqt5mzw/QWji4=";
+      sha256 = "sha256-wYXCl5KYqntNXllhwautBWDTsmfbyzkwgGd2/dRZRas=";
     };
 
-    # buildInputs = [ ];
     nativeBuildInputs = [ makeWrapper undmg ];
 
     dontConfigure = true;
