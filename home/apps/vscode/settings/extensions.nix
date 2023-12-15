@@ -53,5 +53,10 @@ in
     # Shell Format
     "shellformat.useEditorConfig" = true;
     "shellformat.path" = "${pkgs.shfmt}/bin/shfmt";
+
+    # Docker
+    "[dockerfile]" = {
+      "editor.defaultFormatter" = "ms-azuretools.vscode-docker";
+    };
   };
 }
