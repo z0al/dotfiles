@@ -2,7 +2,6 @@
 
 {
   users.users.${user} = {
-    description = "Ahmed";
     home = "/Users/${user}";
     shell = pkgs.fish;
   };
