@@ -2,13 +2,13 @@
   description = "My NixOS ❄ / MacOS 🍏 Configuration";
 
   inputs = {
-    stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    stable.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "stable";
 
-    hm.url = "github:nix-community/home-manager/release-23.05";
+    hm.url = "github:nix-community/home-manager/release-23.11";
     hm.inputs.nixpkgs.follows = "stable";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
@@ -72,23 +72,22 @@
         ];
       };
 
-      mkHosts = dir: listToAttrs (map
-        (file:
-          let
-            base =
-              if hasSuffix "darwin" dir
-              then darwinConfig else nixosConfig;
-
-            extend = {
-              modules = base.modules ++ [ file ];
-            };
-          in
-          {
-            name = removeSuffix ".nix" (baseNameOf file);
-            value = base // extend;
-          }
-        )
-        (listFilesRecursive dir));
+      mkHosts = dir:
+        let
+          platform =
+            if hasSuffix "darwin" dir
+            then darwinConfig else nixosConfig;
+        in
+        listToAttrs (map
+          (host:
+            {
+              name = removeSuffix ".nix" (baseNameOf host);
+              value = platform // {
+                modules = platform.modules ++ [ host ];
+              };
+            }
+          )
+          (listFilesRecursive dir));
 
     in
     mkFlake {
@@ -120,7 +119,7 @@
         extraArgs = {
           user = "z0al";
           theme = "catppuccin";
-          version = "23.05";
+          version = "23.11";
         };
       };
 
