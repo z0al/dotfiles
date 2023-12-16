@@ -3,7 +3,7 @@
 set -euo pipefail
 
 src="$HOME/.dotfiles"
-host="$src#$D_HOSTNAME"
+host="$src#${D_HOSTNAME-}"
 
 nix() {
 	command nix --experimental-features 'nix-command flakes' $@
@@ -19,7 +19,7 @@ flake() {
 	fi
 }
 
-case ${1-default} in
+case ${1-} in
 build)
 	flake build
 	;;
