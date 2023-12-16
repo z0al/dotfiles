@@ -13,12 +13,12 @@
   environment.systemPackages = with pkgs; [
     # Apps
     blanket
-    brave
     dialect
     eyedropper
     firefox-devedition-bin
     gnome-obfuscate
     gnome.gnome-tweaks
+    google-chrome
     gparted
     video-trimmer
     wezterm

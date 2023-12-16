@@ -6,7 +6,7 @@
     ./wezterm
 
     ./1password.nix
-    ./brave.nix
+    ./browser.nix
     ./flameshot.nix
     ./gimp.nix
     ./inkscape.nix

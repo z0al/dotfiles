@@ -2,7 +2,7 @@
   dconf.settings."org/gnome/shell" = {
     favorite-apps = [
       "org.gnome.Nautilus.desktop"
-      "brave-browser.desktop"
+      "google-chrome.desktop"
       "code.desktop"
       "1password.desktop"
     ];

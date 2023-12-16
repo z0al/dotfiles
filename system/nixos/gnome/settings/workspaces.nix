@@ -73,6 +73,7 @@ in
         # 1. Web (Browsers)
         (toWorkspace 1 [
           "brave-browser"
+          "google-chrome"
           "firefox-devedition"
         ]) ++
 

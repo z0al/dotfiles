@@ -11,7 +11,7 @@ The repository features a shared [home-manager][hm] configuration between NixOS 
 - Editors: [Helix][helix] and [VS Code][vscode].
 - Terminal: [Wezterm][wezterm]. The best terminal ever.
 - Shell: [Fish][fish] 🐟️ (inc. [starship][starship], [zoxide][z], [fzf][fzf] and [more](./home/cli/))
-- Apps: 1Password (with git and ssh integration), Brave, Obsidian ..etc
+- Apps: 1Password (with git and ssh integration), Obsidian ..etc
 - Other goodies: [catppuccin][cat]-themed editors/terminal, custom `nix*` CLI [wrapper](./bin/up)
 
 **NixOS ❄:**

@@ -12,7 +12,6 @@ in
 
   home.sessionVariables = {
     EDITOR = "hx";
-    BROWSER = "brave";
   };
 
   home.shellAliases = {
