@@ -1,28 +1,47 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
+with pkgs.stdenv;
 
 let
-  inherit (lib) mkIf;
-  inherit (pkgs.stdenv) isLinux;
+  cfg = config.d.shell;
+
+  module = {
+    aliases = mkOption {
+      type = types.attrs;
+      default = { };
+    };
+
+    variables = mkOption {
+      type = types.attrs;
+      default = { };
+    };
+
+    sources = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+    };
+  };
 in
 
 {
   imports = [
+    ./aliases.nix
     ./fish.nix
   ];
 
-  home.sessionVariables = {
-    EDITOR = "hx";
+  options.d.shell = module // {
+    linux = module;
+    darwin = module;
   };
 
-  home.shellAliases = {
-    ".." = "cd ..";
-    "..." = "cd ../..";
-    "...." = "cd ../../..";
+  config = {
+    home.sessionVariables = cfg.variables //
+      (mkIf isLinux cfg.linux.variables) //
+      (mkIf isDarwin cfg.darwin.variables);
 
-    clear = "tput reset";
-    grep = "rg";
-    mkdir = "mkdir -p";
-    open = mkIf isLinux "xdg-open &> $HOME/.xdg-open.log";
-    xargs = mkIf isLinux "xargs -r";
+    home.shellAliases = cfg.aliases //
+      (mkIf isLinux cfg.linux.aliases) //
+      (mkIf isDarwin cfg.darwin.aliases);
   };
 }

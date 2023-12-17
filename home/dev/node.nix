@@ -21,7 +21,7 @@ in
       nodePackages.prettier
     ];
 
-    home.shellAliases = {
+    d.shell.aliases = {
       nvm = "fnm";
     };
 

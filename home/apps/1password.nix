@@ -48,7 +48,7 @@ in
 
   config = mkIf cfg.enable {
     # Use for SSH Authentication and Signing
-    home.sessionVariables = {
+    d.shell.variables = {
       SSH_AUTH_SOCK = cfg.ssh.agent;
     };
 
@@ -57,9 +57,9 @@ in
     '';
 
     # Load 1Password Shell Plugins
-    programs = {
-      fish.extraSources = [ "$HOME/.config/op/plugins.sh" ];
-    };
+    d.shell.sources = [
+      "$HOME/.config/op/plugins.sh"
+    ];
 
     d.autostart._1password-gui = {
       exec = "1password --silent";

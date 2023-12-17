@@ -1,5 +1,5 @@
 {
-  home.shellAliases = {
+  d.shell.aliases = {
     j = "__zoxide_zi";
   };
 

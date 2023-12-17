@@ -73,6 +73,10 @@ in
       settings = settings;
     };
 
+    d.shell.variables = {
+      EDITOR = "hx";
+    };
+
     # hx --health
     # Languages servers & tools
     home.packages =

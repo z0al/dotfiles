@@ -1,9 +1,6 @@
-{ lib, user, ... }:
+{ lib, ... }:
 
 let
-  # https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos
-  nixDaemon = "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh";
-
   # https://brew.sh
   initBrew = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
 in
@@ -19,17 +16,16 @@ in
     '';
   };
 
+  d.shell.sources = [
+    # https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos
+    "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+
+    # https://github.com/LnL7/nix-darwin#install
+    "/etc/static/fish/config.fish"
+  ];
+
   programs = {
     fish.interactiveShellInit = ''
-      if test -e '${nixDaemon}';
-        fenv source '${nixDaemon}'
-      end
-
-      # https://github.com/LnL7/nix-darwin#install
-      if test -e /etc/static/fish/config.fish;
-        source /etc/static/fish/config.fish;
-      end
-
       # Homebrew
       if test -e /opt/homebrew/bin/brew;
         ${initBrew};
