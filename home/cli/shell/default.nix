@@ -16,11 +16,6 @@ let
       type = types.attrs;
       default = { };
     };
-
-    sources = mkOption {
-      type = types.listOf types.str;
-      default = [ ];
-    };
   };
 in
 
@@ -33,15 +28,24 @@ in
   options.d.shell = module // {
     linux = module;
     darwin = module;
+
+    sources = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+    };
   };
 
   config = {
-    home.sessionVariables = cfg.variables //
-      (mkIf isLinux cfg.linux.variables) //
-      (mkIf isDarwin cfg.darwin.variables);
+    home.sessionVariables = mkMerge [
+      cfg.variables
+      (mkIf isLinux cfg.linux.variables)
+      (mkIf isDarwin cfg.darwin.variables)
+    ];
 
-    home.shellAliases = cfg.aliases //
-      (mkIf isLinux cfg.linux.aliases) //
-      (mkIf isDarwin cfg.darwin.aliases);
+    home.shellAliases = mkMerge [
+      cfg.aliases
+      (mkIf isLinux cfg.linux.aliases)
+      (mkIf isLinux cfg.darwin.aliases)
+    ];
   };
 }
