@@ -26,7 +26,7 @@ in
     };
 
     programs.fish.interactiveShellInit = ''
-      fnm env --use-on-cd | source
+      fnm env --use-on-cd --version-file-strategy recursive | source
     '';
 
     d.fs.persisted = {
