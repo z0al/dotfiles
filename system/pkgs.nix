@@ -13,6 +13,7 @@
     cmake
     coreutils
     curl
+    entr
     fd
     file
     fzf
