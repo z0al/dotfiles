@@ -25,8 +25,10 @@ in
       nvm = "fnm";
     };
 
+    # Should ideally use --version-file-strategy recursive
+    # https://github.com/Schniz/fnm/issues/681
     programs.fish.interactiveShellInit = ''
-      fnm env --use-on-cd --version-file-strategy recursive | source
+      fnm env --use-on-cd | source
     '';
 
     d.fs.persisted = {
