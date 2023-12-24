@@ -21,6 +21,10 @@ in
     ./ui.nix
   ];
 
+  home.packages = with pkgs; [
+    git-ignore
+  ];
+
   programs = {
     fish.shellAbbrs = aliases;
 
