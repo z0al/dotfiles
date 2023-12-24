@@ -24,6 +24,12 @@ in
 
     d.shell.aliases = {
       nvm = "fnm";
+      npm = "corepack npm";
+      npx = "corepack npx";
+      pnpm = "corepack pnpm";
+      pnpx = "corepack pnpx";
+      yarn = "corepack yarn";
+      yarnpkg = "corepack yarnpkg";
     };
 
     home.file.".node-version".text = lts-major;
@@ -31,13 +37,6 @@ in
     programs.fish.interactiveShellInit = ''
       # Node.js
       fnm env --use-on-cd --version-file-strategy recursive | source
-
-      alias yarn="corepack yarn"
-      alias yarnpkg="corepack yarnpkg"
-      alias pnpm="corepack pnpm"
-      alias pnpx="corepack pnpx"
-      alias npm="corepack npm"
-      alias npx="corepack npx"
     '';
 
     d.fs.persisted = {

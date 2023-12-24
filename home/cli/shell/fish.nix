@@ -40,6 +40,7 @@ in
     interactiveShellInit = ''
       any-nix-shell fish --info-right | source
 
+      # d.shell.sources
       ${concatStringsSep "\n" (map (path: ''
         if test -e '${path}'
           ${source path}
