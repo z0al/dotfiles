@@ -41,15 +41,16 @@ in
         dotjoshjohnson.xml
         hashicorp.terraform
         jnoortheen.nix-ide
+        ms-azuretools.vscode-docker
+        ms-python.python
+        prisma.prisma
         ronnidc.nunjucks
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
-        prisma.prisma
-        ms-azuretools.vscode-docker
 
         # Themes
-        dracula-theme.theme-dracula
         catppuccin.catppuccin-vsc
+        dracula-theme.theme-dracula
 
         # Formatting and linting
         dbaeumer.vscode-eslint
@@ -57,10 +58,10 @@ in
         esbenp.prettier-vscode
         foxundermoon.shell-format
         johnnymorganz.stylua
+        ms-python.black-formatter
         okitavera.vscode-nunjucks-formatter
         streetsidesoftware.code-spell-checker
       ]
-      ++ (optionals (pkgs.stdenv.isLinux) [ ms-python.python ])
       ++ (optionals (cfg.withCopilot) [ github.copilot ]));
     };
 

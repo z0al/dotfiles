@@ -58,5 +58,11 @@ in
     "[dockerfile]" = {
       "editor.defaultFormatter" = "ms-azuretools.vscode-docker";
     };
+
+    # Python
+    "[python]" = {
+      "editor.defaultFormatter" = "ms-python.black-formatter";
+    };
+    # "black-formatter.path" = [ "${pkgs.black}/bin/black" ];
   };
 }

@@ -5,10 +5,6 @@
     helix
     wezterm
 
-    # Langauges
-    python3
-    python3.pkgs.pip
-
     # Utils
     cmake
     coreutils
