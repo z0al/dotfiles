@@ -1,0 +1,19 @@
+name: Update flake
+on:
+  schedule:
+    - cron: "0 0 * * *"
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: update flake
+        run: ./bin/up
+      - name: commit & push
+        run: |
+          git config --global user.name 'z0al'
+          git config --global user.email 'z0al@users.noreply.github.com'
+          git commit -am "chore: update flake"
+          git push
