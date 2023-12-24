@@ -16,9 +16,10 @@ channels: final: prev: {
     zoxide
 
     # Development
+    nodePackages
+    stylua
     vscode
     vscode-extensions
-    stylua
 
     # Apps
     _1password

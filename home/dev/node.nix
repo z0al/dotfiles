@@ -4,6 +4,8 @@ with lib;
 
 let
   cfg = config.d.dev.node;
+
+  lts-major = builtins.substring 0 2 pkgs.nodePackages.nodejs.version;
 in
 
 {
@@ -17,7 +19,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       fnm
-      nodejs
       nodePackages.prettier
     ];
 
@@ -25,10 +26,18 @@ in
       nvm = "fnm";
     };
 
-    # Should ideally use --version-file-strategy recursive
-    # https://github.com/Schniz/fnm/issues/681
+    home.file.".node-version".text = lts-major;
+
     programs.fish.interactiveShellInit = ''
-      fnm env --use-on-cd | source
+      # Node.js
+      fnm env --use-on-cd --version-file-strategy recursive | source
+
+      alias yarn="corepack yarn"
+      alias yarnpkg="corepack yarnpkg"
+      alias pnpm="corepack pnpm"
+      alias pnpx="corepack pnpx"
+      alias npm="corepack npm"
+      alias npx="corepack npx"
     '';
 
     d.fs.persisted = {
