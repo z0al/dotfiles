@@ -63,6 +63,7 @@ in
     "[python]" = {
       "editor.defaultFormatter" = "ms-python.black-formatter";
     };
-    # "black-formatter.path" = [ "${pkgs.black}/bin/black" ];
+
+    "black-formatter.args" = [ "--line-length" "80" ];
   };
 }
