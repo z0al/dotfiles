@@ -43,6 +43,7 @@ in
         jnoortheen.nix-ide
         ms-azuretools.vscode-docker
         ms-python.python
+        ms-python.vscode-pylance
         prisma.prisma
         ronnidc.nunjucks
         rust-lang.rust-analyzer
