@@ -13,7 +13,7 @@ jobs:
       - uses: cachix/install-nix-action@v24
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: ./bin/up pull
+      - run: nix --experimental-features 'nix-command flakes' flake update
       - name: commit & push
         run: |
           git config --global user.name 'z0al'
