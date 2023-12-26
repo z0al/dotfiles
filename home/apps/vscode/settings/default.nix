@@ -40,7 +40,7 @@ in
     "workbench.startupEditor" = "none";
     "workbench.editor.showTabs" = "single";
     "workbench.activityBar.location" = "hidden";
-    "workbench.settings.editor" = "json";
+    "workbench.settings.editor" = "ui";
     "workbench.welcomePage.walkthroughs.openOnInstall" = false;
 
     # Window

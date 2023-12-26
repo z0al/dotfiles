@@ -1,3 +1,4 @@
 {
-	"cSpell.words": ["Karabiner", "Raycast", "wezterm", "yabai"]
+	"cSpell.words": ["Karabiner", "Raycast", "wezterm", "yabai"],
+	"git.rebaseWhenSync": true
 }
