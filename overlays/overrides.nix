@@ -16,6 +16,7 @@ channels: final: prev: {
     zoxide
 
     # Development
+    bun
     nodePackages
     stylua
     vscode
