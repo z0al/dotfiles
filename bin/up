@@ -23,9 +23,6 @@ case ${1-} in
 build)
 	flake build
 	;;
-switch)
-	flake switch
-	;;
 test)
 	if [[ "$OSTYPE" == "darwin"* ]]; then
 		flake switch
@@ -36,7 +33,10 @@ test)
 prune)
 	nix-collect-garbage
 	;;
-*)
+pull)
 	nix flake update $src
+	;;
+*)
+	flake switch
 	;;
 esac
