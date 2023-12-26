@@ -1,6 +1,6 @@
 name: Update flake
 on:
-	push:
+  push:
   schedule:
     - cron: "0 0 * * *"
 permissions:
@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v24
-				with:
-					github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - run: ./bin/up pull
       - name: commit & push
         run: |
