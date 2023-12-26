@@ -1,19 +1,23 @@
 name: Update flake
 on:
+	push:
   schedule:
     - cron: "0 0 * * *"
 permissions:
   contents: write
 jobs:
-  report:
+  fetch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: update flake
-        run: ./bin/up
+      - uses: cachix/install-nix-action@v24
+				with:
+					github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: ./bin/up pull
       - name: commit & push
         run: |
           git config --global user.name 'z0al'
           git config --global user.email 'z0al@users.noreply.github.com'
-          git commit -am "chore: update flake"
+          git add flake.lock
+          git commit -m "chore: update flake"
           git push
