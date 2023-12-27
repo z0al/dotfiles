@@ -24,7 +24,7 @@
 
       nix_shell = {
         format = "in [$symbol$state(\\($name\\))]($style) ";
-        symbol: "❄️ ",
+        symbol = "❄️ ";
         impure_msg = "";
         pure_msg = "pure ";
       };
