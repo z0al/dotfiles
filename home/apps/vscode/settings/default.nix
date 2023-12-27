@@ -25,7 +25,7 @@ in
     "editor.insertSpaces" = false;
     "editor.lineNumbers" = "on";
     "editor.minimap.enabled" = false;
-    "editor.occurrencesHighlight" = false;
+    "editor.occurrencesHighlight" = "off";
     "editor.renderWhitespace" = "none";
     "editor.selectionHighlight" = false;
     "editor.useTabStops" = true;
