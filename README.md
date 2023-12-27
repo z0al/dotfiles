@@ -1,8 +1,6 @@
 # Dotfiles
 
-My [NixOS][nixos] ❄ / macOS 🍏 configuration as a [flake][flakes]. It supports multiple hosts.
-
-The repository features a shared [home-manager][hm] configuration between NixOS and macOS (aka. [nix-darwin][darwin]) hosts.
+My [NixOS][nixos] & macOS configuration as a [flake][flakes]. It features a shared [home-manager][hm] configuration between NixOS and macOS (aka. [nix-darwin][darwin]) hosts as well as host/platform specific configs.
 
 ## Highlights
 
@@ -22,7 +20,6 @@ The repository features a shared [home-manager][hm] configuration between NixOS 
 **macOS 🍏:**
 
 - [Yabai][yabai]: A tiling window manager.
-- Linux-like Keyboard shortcuts ⌨️ (via [Karabiner-elements][karabiner] and more)
 
 ## Credits
 
@@ -46,4 +43,3 @@ MIT © Ahmed T. Ali
 [vscode]: https://code.visualstudio.com
 [cat]: https://github.com/catppuccin/catppuccin
 [yabai]: https://github.com/koekeishiya/yabai
-[karabiner]: https://karabiner-elements.pqrs.org
