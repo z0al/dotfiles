@@ -82,8 +82,9 @@ in
       "nunjucks" = "html";
     };
 
-    # TypeScript
+    # TypeScript/JavaScript
     "typescript.updateImportsOnFileMove.enabled" = "always";
     "javascript.updateImportsOnFileMove.enabled" = "always";
+    "typescript.preferences.preferTypeOnlyAutoImports" = true;
   };
 }
