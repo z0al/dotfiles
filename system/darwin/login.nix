@@ -23,5 +23,13 @@
     PowerOffDisabledWhileLoggedIn = true;
   };
 
+  system.defaults.CustomUserPreferences = {
+    "com.apple.screensaver" = {
+      # Require password immediately after sleep or screen saver begins
+      askForPassword = 1;
+      askForPasswordDelay = 0;
+    };
+  };
+
   security.pam.enableSudoTouchIdAuth = true;
 }
