@@ -37,7 +37,7 @@ in
 
     programs.fish.interactiveShellInit = ''
       # Node.js
-      fnm env --use-on-cd --version-file-strategy recursive | source
+      fnm env --use-on-cd --version-file-strategy recursive --log-level quiet | source
     '';
 
     d.fs.persisted = {
