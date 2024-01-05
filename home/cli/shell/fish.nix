@@ -13,8 +13,8 @@ let
 
   source = path:
     if hasSuffix ".fish" path
-    then "source '${path}'"
-    else "fenv source '${path}'";
+    then ''source "${path}"'';
+    else ''fenv source "${path}"'';
 in
 
 {
@@ -42,7 +42,7 @@ in
 
       # d.shell.sources
       ${concatStringsSep "\n" (map (path: ''
-        if test -e '${path}'
+        if test -e "${path}"
           ${source path}
         end
       '') cfg.sources)}
