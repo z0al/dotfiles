@@ -13,7 +13,7 @@ let
 
   source = path:
     if hasSuffix ".fish" path
-    then ''source "${path}"'';
+    then ''source "${path}"''
     else ''fenv source "${path}"'';
 in
 
