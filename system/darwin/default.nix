@@ -5,6 +5,7 @@
     ./yabai
     ./dock.nix
     ./finder.nix
+    ./keyboard.nix
     ./login.nix
     ./pkgs.nix
     ./safari.nix
