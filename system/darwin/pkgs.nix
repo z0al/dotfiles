@@ -16,7 +16,7 @@
       "karabiner-elements"
       "raycast"
       "scroll-reverser"
-      "openscad"
+      "openscad-snapshot"
     ];
 
     taps = [
