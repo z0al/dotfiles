@@ -1,42 +1,80 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-set -euo pipefail
+# Usage:
+# Switches to the configuration using the default host name:
+# $ up
+#
+# Switches to the configuration for "myhost":
+# $ up -h myhost
+#
+# Use a different dotfiles directory (default is ~/.dotfiles):
+# $ up -d /path/to/dotfiles
+#
+# Build without switching system configuration:
+# $ up build
+#
+# Switch configuration but don't add boot menu entry (nixos only):
+# $ up test
+#
+# Reclaim disk space:
+# $ up prune
+#
+# Unknown flags are passed down. For example, to show trace use the
+# following:
+# $ up --show-trace
 
-src="$HOME/.dotfiles"
-host="$src#${D_HOSTNAME-}"
+function nix
+    command nix --experimental-features 'nix-command flakes' $argv
+end
 
-nix() {
-	command nix --experimental-features 'nix-command flakes' $@
-}
+function rebuild
+    switch (uname)
+        case Darwin
+            nix run nix-darwin -- $argv
+        case '*'
+            sudo nixos-rebuild $argv
+    end
+end
 
-flake() {
-	if
-		command -v nixos-rebuild >/dev/null 2>&1
-	then
-		sudo nixos-rebuild $@ --flake $host
-	else
-		nix run nix-darwin -- $@ --flake $host
-	fi
-}
+function up
+    # Using -i to ignore unknown flags so we can pass them down later
+    argparse -i -n up 'h/host=' 'd/dotfiles=' -- $argv
+    or return
 
-case ${1-} in
-build)
-	flake build
-	;;
-test)
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		flake switch
-	else
-		flake test --fast
-	fi
-	;;
-prune)
-	nix-collect-garbage
-	;;
-pull)
-	nix flake update $src
-	;;
-*)
-	flake switch
-	;;
-esac
+    # Default path to ~/.dotfiles
+    set -q _flag_dotfiles || set _flag_dotfiles $HOME/.dotfiles
+
+    # Nix expects --flake /path/to/flake#hostname. If the hostname is
+    # empty, then nix takes the current hostname.
+    set -l flake "$_flag_dotfiles#$_flag_host"
+
+    # Any unknown option is passed through to the underlying command.
+    set -l options $argv[2..-1]
+
+    switch $argv[1]
+        case build
+            rebuild build --flake $flake $options
+
+        case prune
+            nix-collect-garbage $options
+
+        case pull
+            nix flake update --flake $flake $options
+
+        case test
+            if test (uname) = Darwin
+                echo "'test' command is not supported on macOS"
+                return 1
+            end
+
+            rebuild test --fast --flake $flake $options
+
+        case '*'
+            # This is special since we don't have a subcommand
+            set -l options $argv
+
+            rebuild switch --flake $flake $options
+    end
+end
+
+up $argv
