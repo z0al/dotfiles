@@ -41,7 +41,7 @@
     #   14: Quick Note
     wvous-bl-corner = 1;
     wvous-br-corner = 1;
-    wvous-tl-corner = 1;
+    wvous-tl-corner = 3;
     wvous-tr-corner = 1;
   };
 }
