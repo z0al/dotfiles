@@ -5,7 +5,7 @@ A collection of [Nix modules](https://nix.dev/tutorials/module-system/module-sys
 **Structure:**
 
 - Module options _must_ be prefixed with `d` (for dotfiles) to avoid conflicts with upstream.
-- A module _must_ expose an `d.module.enable` option to enable/disable its configuration as needed.
+- A module _should_ expose a `d.module.enable` option to enable/disable its configuration as needed.
 - `d.module.enable` option must default to the relevant `d.profile.<name>.enable` (if any). Profiles are used to group relevant modules for convenience.
 
 **Compatibility:**

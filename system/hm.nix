@@ -8,7 +8,7 @@ in
 
 {
   options.d.hm = mkOption {
-    type = types.listOf types.attrs;
+    type = types.listOf types.deferredModule;
     default = [ ];
   };
 

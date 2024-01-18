@@ -114,7 +114,7 @@
 
       hostDefaults = {
         channelName = "stable";
-        modules = [ ./system ./modules ];
+        modules = [ ./system ];
 
         extraArgs = {
           user = "z0al";

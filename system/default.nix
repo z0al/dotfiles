@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../modules
     ./hm.nix
     ./nix.nix
     ./pkgs.nix
