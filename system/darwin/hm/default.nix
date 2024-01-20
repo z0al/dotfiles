@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./keymap
-    ./karabiner.nix
     ./shells.nix
   ];
 }

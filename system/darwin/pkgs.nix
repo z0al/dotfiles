@@ -13,7 +13,6 @@
       "1password-cli"
       "docker"
       "google-chrome"
-      "karabiner-elements"
       "raycast"
       "scroll-reverser"
       "openscad-snapshot"

@@ -12,7 +12,7 @@ local config = {
 		{ family = "Noto Color Emoji", scale = 0.8 },
 	}),
 
-	font_size = 11.0,
+	font_size = 13.0,
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
 	adjust_window_size_when_changing_font_size = false,
 	warn_about_missing_glyphs = false,
@@ -47,122 +47,10 @@ local config = {
 
 	-- Keybindings
 	disable_default_key_bindings = false,
-
-	keys = {
-		-- Copy
-		{
-			key = "c",
-			mods = "CTRL",
-			action = wz.action_callback(function(win, pane)
-				local has_selection = win:get_selection_text_for_pane(pane) ~= ""
-
-				if has_selection then
-					win:perform_action(
-						wz.action({
-							CopyTo = "Clipboard",
-						}),
-						pane
-					)
-					win:perform_action("ClearSelection", pane)
-				else
-					win:perform_action(
-						wz.action({
-							SendKey = { key = "c", mods = "CTRL" },
-						}),
-						pane
-					)
-				end
-			end),
-		},
-		{
-			key = "c",
-			mods = "SHIFT|CTRL",
-			action = act.CopyTo("Clipboard"),
-		},
-
-		-- Paste
-		{
-			key = "v",
-			mods = "CTRL",
-			action = act.PasteFrom("Clipboard"),
-		},
-		{
-			key = "v",
-			mods = "SHIFT|CTRL",
-			action = act.PasteFrom("Clipboard"),
-		},
-
-		-- Delete a word
-		{
-			key = "Backspace",
-			mods = "CTRL",
-			-- Relies on \b being configured to delete a word in the shell
-			action = act.SendString("\b"),
-		},
-
-		-- Zoom In/Out
-		{
-			key = "+",
-			mods = "CTRL",
-			action = act.IncreaseFontSize,
-		},
-		{
-			key = "+",
-			mods = "SHIFT|CTRL",
-			action = act.IncreaseFontSize,
-		},
-		{
-			key = "-",
-			mods = "CTRL",
-			action = act.DecreaseFontSize,
-		},
-		{
-			key = "_",
-			mods = "SHIFT|CTRL",
-			action = act.DecreaseFontSize,
-		},
-		{
-			key = "0",
-			mods = "CTRL",
-			action = act.ResetFontSize,
-		},
-
-		-- Tabs
-		{
-			key = "t",
-			mods = "SHIFT|CTRL",
-			action = act.SpawnTab("CurrentPaneDomain"),
-		},
-		{
-			key = "w",
-			mods = "SHIFT|CTRL",
-			action = act.CloseCurrentTab({
-				confirm = false,
-			}),
-		},
-		{
-			key = "Tab",
-			mods = "CTRL",
-			action = act.ActivateTabRelative(1),
-		},
-		{
-			key = "Tab",
-			mods = "SHIFT|CTRL",
-			action = act.ActivateTabRelative(-1),
-		},
-
-		-- New Window
-		{
-			key = "n",
-			mods = "SHIFT|CTRL",
-			action = act.SpawnWindow,
-		},
-	},
 }
 
 -- MacOS overrides
 if string.match(wz.target_triple, "apple") then
-	config.font_size = 13.0
 	config.window_decorations = "TITLE | RESIZE"
 
 	-- 	Use Command instead of Ctrl on MacOS
