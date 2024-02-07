@@ -3,7 +3,6 @@
 {
   imports = [
     ./node.nix
-    ./prisma.nix
     ./python.nix
     ./react-native.nix
     ./rust.nix
