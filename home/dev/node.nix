@@ -25,19 +25,13 @@ in
 
     d.shell.aliases = {
       nvm = "fnm";
-      npm = "corepack npm";
-      npx = "corepack npx";
-      pnpm = "corepack pnpm";
-      pnpx = "corepack pnpx";
-      yarn = "corepack yarn";
-      yarnpkg = "corepack yarnpkg";
     };
 
     home.file.".node-version".text = lts-major;
 
     programs.fish.interactiveShellInit = ''
       # Node.js
-      fnm env --use-on-cd --version-file-strategy recursive --log-level quiet | source
+      fnm env --use-on-cd --corepack-enabled --version-file-strategy recursive --log-level quiet | source
     '';
 
     d.fs.persisted = {

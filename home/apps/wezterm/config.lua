@@ -26,6 +26,8 @@ local config = {
 	cursor_blink_ease_out = "Constant",
 	cursor_blink_rate = 500,
 
+	scrollback_lines = 10000,
+
 	-- https://sw.kovidgoyal.net/kitty/keyboard-protocol/
 	enable_kitty_keyboard = true,
 
