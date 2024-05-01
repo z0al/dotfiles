@@ -30,6 +30,7 @@ in
     "editor.selectionHighlight" = false;
     "editor.useTabStops" = true;
     "editor.wordWrap" = "on";
+    "editor.accessibilitySupport" = "off";
     "diffEditor.ignoreTrimWhitespace" = false;
     "diffEditor.renderSideBySide" = false;
 
