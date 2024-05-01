@@ -33,6 +33,8 @@ in
     "editor.accessibilitySupport" = "off";
     "diffEditor.ignoreTrimWhitespace" = false;
     "diffEditor.renderSideBySide" = false;
+    "editor.scrollBeyondLastLine" = false;
+    "editor.padding.bottom" = 100;
 
 
     # Workbench
