@@ -35,6 +35,7 @@ in
     "diffEditor.renderSideBySide" = false;
     "editor.scrollBeyondLastLine" = false;
     "editor.padding.bottom" = 100;
+    "editor.rulers" = [ 80 ];
 
 
     # Workbench
