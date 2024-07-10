@@ -22,8 +22,8 @@
   system.stateVersion = version;
 
   # Desktop
-  # Renamed to enableDefaultPackages in 23.11
-  fonts.enableDefaultFonts = true;
+  fonts.enableDefaultPackages = true;
+  fontDir.enable = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
