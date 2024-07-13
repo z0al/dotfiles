@@ -14,6 +14,7 @@ in
     "gitlens.mode.statusBar.enabled" = false;
     "gitlens.keymap" = "none";
     "gitlens.showWelcomeOnInstall" = false;
+    "gitlens.launchpad.indicator.enabled" = false;
 
     ## Prettier
     "prettier.enable" = true;
