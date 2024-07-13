@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
+  home.packages = with pkgs.latest; [
     stylua
     lua-language-server
   ];

@@ -7,6 +7,7 @@
 
   programs.bat = {
     enable = true;
+    package = pkgs.latest.bat;
     config = {
       inherit theme;
       style = "plain";

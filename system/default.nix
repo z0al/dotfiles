@@ -11,7 +11,7 @@
 
   # Fonts
   fonts = {
-    packages = with pkgs; [
+    packages = with pkgs.latest; [
       cascadia-code
       fira-code
       jetbrains-mono

@@ -17,7 +17,7 @@ in
   config = mkIf cfg.enable {
     d.dev.node.enable = true;
 
-    home.packages = with pkgs; [
+    home.packages = with pkgs.latest; [
       android-studio
       nodePackages.expo-cli
       watchman

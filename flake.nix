@@ -2,20 +2,18 @@
   description = "My NixOS ❄ / MacOS 🍏 Configuration";
 
   inputs = {
-    stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    latest.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "stable";
 
-    hm.url = "github:nix-community/home-manager/release-23.11";
+    hm.url = "github:nix-community/home-manager/release-24.05";
     hm.inputs.nixpkgs.follows = "stable";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
     persistence.url = "github:nix-community/impermanence";
-
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     nix-index.url = "github:Mic92/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "stable";
@@ -26,112 +24,24 @@
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "stable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     # helix.url = "github:helix-editor/helix";
     # helix.inputs.nixpkgs.follows = "stable";
   };
 
   outputs =
-    { self
-    , stable
-    , darwin
-    , hm
-    , hardware
-    , persistence
-    , utils
-    , vscode-extensions
-    , fenix
-    , ...
-    } @ inputs:
-    let
-      inherit (utils.lib) mkFlake;
-      inherit (stable.lib.filesystem) listFilesRecursive;
-      inherit (stable.lib) listToAttrs hasSuffix removeSuffix removePrefix;
-
-      nixosConfig = {
-        system = "x86_64-linux";
-
-        specialArgs = {
-          inherit hardware;
-        };
-
-        modules = [
-          persistence.nixosModule
-          hm.nixosModules.home-manager
-          ./system/nixos
-        ];
-      };
-
-      darwinConfig = {
-        system = "aarch64-darwin";
-        output = "darwinConfigurations";
-        builder = darwin.lib.darwinSystem;
-
-        modules = [
-          hm.darwinModules.home-manager
-          ./system/darwin
-        ];
-      };
-
-      mkHosts = dir:
-        let
-          platform =
-            if hasSuffix "darwin" dir
-            then darwinConfig else nixosConfig;
-        in
-        listToAttrs (map
-          (host:
-            {
-              name = removeSuffix ".nix" (baseNameOf host);
-              value = platform // {
-                modules = platform.modules ++ [ host ];
-              };
-            }
-          )
-          (listFilesRecursive dir));
-
-    in
-    mkFlake {
-      inherit self inputs;
-
-      channelsConfig = {
-        allowUnfree = true;
-      };
-
-      channels = {
-        stable = { };
-        unstable = { };
-      };
-
-      sharedOverlays = [
-        vscode-extensions.overlays.default
-        fenix.overlays.default
-        # helix.overlays.default
-        (final: prev: {
-          unstable = import inputs.unstable {
-            system = final.system;
-            config.allowUnfree = true;
-          };
-        })
-        (import ./overlays/catppuccin-gtk.nix)
-        (import ./overlays/flameshot.nix)
-        (import ./overlays/kubectx.nix)
-        (import ./overlays/overrides.nix)
+    { flake-parts, ... } @ inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./flake/hosts.nix
+        ./flake/overlays.nix
       ];
 
-      hostDefaults = {
-        channelName = "stable";
-        modules = [ ./system ./modules ];
-
-        extraArgs = {
-          user = "z0al";
-          theme = "catppuccin";
-          version = "23.11";
-        };
-      };
-
-      hosts =
-        (mkHosts ./hosts/nixos) //
-        (mkHosts ./hosts/darwin);
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
     };
 
   nixConfig = {

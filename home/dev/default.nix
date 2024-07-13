@@ -9,7 +9,7 @@
   ];
 
   # Globally installed dev tools
-  home.packages = with pkgs; [
+  home.packages = with pkgs.latest; [
     nixpkgs-fmt
     stylua
     shfmt

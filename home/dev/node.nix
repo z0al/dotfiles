@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
+    home.packages = with pkgs.latest; [
       bun
       fnm
       nodePackages.prettier

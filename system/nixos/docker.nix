@@ -6,7 +6,7 @@
     autoPrune.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.latest; [
     docker-compose
   ];
 

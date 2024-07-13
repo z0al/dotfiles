@@ -7,7 +7,7 @@ let
 in
 
 {
-  home.packages = with pkgs; [
+  home.packages = with pkgs.latest; [
     any-nix-shell
   ];
 

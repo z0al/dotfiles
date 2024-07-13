@@ -21,7 +21,7 @@ in
     ./ui.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs.latest; [
     git-ignore
   ];
 

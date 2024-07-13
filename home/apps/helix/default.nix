@@ -70,6 +70,7 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
+      package = pkgs.latest.helix;
       settings = settings;
     };
 
@@ -91,7 +92,7 @@ in
         yaml-language-server
       ]) ++
 
-      (with pkgs; [
+      (with pkgs.latest; [
         delve
         gopls
         lldb

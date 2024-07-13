@@ -5,12 +5,19 @@
 
   # https://1password.community/discussion/comment/638537/#Comment_638537
   programs = {
-    _1password.enable = true;
-    _1password-gui.enable = true;
-    _1password-gui.polkitPolicyOwners = [ "root" user ];
+    _1password = {
+      enable = true;
+      package = pkgs.latest._1password;
+    };
+
+    _1password-gui = {
+      enable = true;
+      package = pkgs.latest._1password-gui;
+      polkitPolicyOwners = [ "root" user ];
+    };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.latest; [
     # Apps
     blanket
     dialect

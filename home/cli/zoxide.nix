@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   d.shell.aliases = {
     j = "__zoxide_zi";
@@ -5,6 +7,7 @@
 
   programs.zoxide = {
     enable = true;
+    package = pkgs.latest.zoxide;
     enableFishIntegration = true;
 
     options = [ "--no-cmd" ];
