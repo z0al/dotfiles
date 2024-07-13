@@ -98,11 +98,7 @@
       };
 
       channels = {
-        stable = {
-          overlaysBuilder = channels:
-            map (o: (import o channels))
-              (listFilesRecursive ./overlays);
-        };
+        stable = { };
         unstable = { };
       };
 
@@ -110,6 +106,16 @@
         vscode-extensions.overlays.default
         fenix.overlays.default
         # helix.overlays.default
+        (final: prev: {
+          unstable = import inputs.unstable {
+            system = final.system;
+            config.allowUnfree = true;
+          };
+        })
+        (import ./overlays/catppuccin-gtk.nix)
+        (import ./overlays/flameshot.nix)
+        (import ./overlays/kubectx.nix)
+        (import ./overlays/overrides.nix)
       ];
 
       hostDefaults = {

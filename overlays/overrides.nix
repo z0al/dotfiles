@@ -1,8 +1,8 @@
-channels: final: prev: {
+final: prev: {
   __dontExport = true;
 
   # Use the latest version for the following packages
-  inherit (channels.unstable)
+  inherit (final.unstable)
     # NixOS
     nix-ld
 

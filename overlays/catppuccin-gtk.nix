@@ -1,4 +1,4 @@
-channels: final: prev:
+final: prev:
 
 let
   oldColor = "#11111b";
@@ -8,7 +8,7 @@ in
 {
   __dontExport = true;
 
-  catppuccin-gtk = (channels.unstable.catppuccin-gtk.override {
+  catppuccin-gtk = (final.unstable.catppuccin-gtk.override {
     accents = [ "lavender" ];
     size = "standard";
     tweaks = [ ];

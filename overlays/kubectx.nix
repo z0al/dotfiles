@@ -1,4 +1,4 @@
-channels: final: prev:
+final: prev:
 
 with final;
 with final.lib;
@@ -33,7 +33,7 @@ with final.lib;
       cp completion/*.fish $out/share/fish/vendor_completions.d/
 
       for f in $out/bin/*; do
-        wrapProgram $f --prefix PATH : ${makeBinPath [ channels.unstable.kubectl ]}
+        wrapProgram $f --prefix PATH : ${makeBinPath [ unstable.kubectl ]}
       done
     '';
 
