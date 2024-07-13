@@ -4,26 +4,25 @@ with lib;
 
 let
   cfg = config.d.shell;
-
-  plugins = with pkgs.fishPlugins; [
-    sponge
-    autopair-fish
-    foreign-env
-  ];
-
-  source = path:
-    if hasSuffix ".fish" path
-    then ''source "${path}"''
-    else ''fenv source "${path}"'';
 in
 
 {
   home.packages = with pkgs; [
     any-nix-shell
-  ] ++ plugins;
+  ];
 
   programs.fish = {
     enable = true;
+
+    plugins = map
+      (pkg: {
+        name = pkg.name;
+        src = pkg.src;
+      })
+      (with pkgs.fishPlugins; [
+        sponge
+        autopair-fish
+      ]);
 
     shellInit = ''
       # Disable greeting message
@@ -38,12 +37,12 @@ in
     };
 
     interactiveShellInit = ''
-      any-nix-shell fish --info-right | source
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
 
       # d.shell.sources
       ${concatStringsSep "\n" (map (path: ''
-        if test -e "${path}"
-          ${source path}
+        if test -e ${path}
+          source ${path}
         end
       '') cfg.sources)}
     '';
