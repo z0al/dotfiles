@@ -11,10 +11,6 @@ in
 
 {
   # Profiles group related modules under a single flag for convenience.
-  #
-  # Notes:
-  # - Not every module is profiled. By design.
-  # - Individual modules can still be toggled independently.
   options.d.profiles = {
     # For: core configurations and programs e.g. system pkgs, fonts,
     # browsers, editors, terminal ..etc.

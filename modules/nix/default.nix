@@ -12,7 +12,7 @@
       options = "--delete-older-than 10d";
     };
 
-    package = pkgs.nixFlakes;
+    # https://yusef.napora.org/blog/pinning-nixpkgs-flake/
     registry.nixpkgs.flake = inputs.stable;
 
     extraOptions = ''

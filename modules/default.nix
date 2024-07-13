@@ -1,5 +1,6 @@
 {
   imports = [
+    ./nix
     ./profiles.nix
   ];
 }

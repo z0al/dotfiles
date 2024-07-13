@@ -1,1 +1,5 @@
-{ }
+{
+  imports = [
+    ./nix/darwin.nix
+  ];
+}

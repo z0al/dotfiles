@@ -19,12 +19,6 @@
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
-  # User that runs the garbage collector.
-  nix.gc.user = user;
-  services.nix-daemon = {
-    enable = true;
-  };
-
   d.hm = [
     { imports = [ ./hm ]; }
     {
