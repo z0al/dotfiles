@@ -66,5 +66,8 @@ in
     };
 
     "black-formatter.args" = [ "--line-length" "80" ];
+
+    # GitHub Copilot
+    "github.copilot.editor.enableCodeActions" = false;
   };
 }
