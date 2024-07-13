@@ -31,7 +31,7 @@ in
   options.d.apps.flameshot = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = pkgs.stdenv.isLinux;
     };
   };
 
