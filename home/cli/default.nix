@@ -2,6 +2,7 @@
   imports = [
     ./bat
     ./git
+    ./shell
     ./starship
 
     ./aws.nix
