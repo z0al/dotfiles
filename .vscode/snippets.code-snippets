@@ -1,0 +1,30 @@
+{
+  "Nix Module": {
+    "prefix": "module",
+    "scope": "nix",
+    "description": "Nix Module",
+    "body": [
+      "{ config, pkgs, lib, ... }:",
+      "",
+      "with lib;",
+      "",
+      "let",
+      "  cfg = config.d.${1:name};",
+      "in",
+      "",
+      "{",
+      "  options.d.${1:name} = {",
+      "    enable = mkOption {",
+      "      type = types.bool;",
+      "      default = false;",
+      "    };",
+      "  };",
+      "",
+      "  config = mkIf cfg.enable {",
+      "    $0",
+      "  };",
+      "}",
+      ""
+    ]
+  }
+}

@@ -1,7 +1,6 @@
 {
   imports = [
-    ./fonts
-    ./nix
+    ./etc
     ./profiles.nix
   ];
 }

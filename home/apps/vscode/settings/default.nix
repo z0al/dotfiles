@@ -1,4 +1,4 @@
-{ pkgs, theme, ... }:
+{ osConfig, pkgs, theme, ... }:
 
 let
   themeMapping = {
@@ -18,7 +18,7 @@ in
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
     "editor.emptySelectionClipboard" = false;
-    "editor.fontFamily" = "'JetBrains Mono','Symbols Nerd Font Mono','PowerlineSymbols','Noto Color Emoji'";
+    "editor.fontFamily" = "'${osConfig.d.fonts.mono}','Symbols Nerd Font Mono','PowerlineSymbols','Noto Color Emoji'";
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
