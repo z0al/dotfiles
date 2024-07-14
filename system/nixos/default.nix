@@ -37,9 +37,6 @@
 
   services.printing.enable = true;
 
-  # Shell
-  users.defaultUserShell = pkgs.fish;
-
   # Security
   security.polkit.enable = true;
 

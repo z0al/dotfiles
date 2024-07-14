@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  users.knownUsers = [
+    config.d.user.name
+  ];
+
   users.users.${config.d.user.name} = {
+    uid = 501;
     home = "/Users/${config.d.user.name}";
     shell = pkgs.fish;
   };

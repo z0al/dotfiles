@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   passDir = "/nix/data/passwords";
@@ -20,6 +20,7 @@ in
     description = user;
     extraGroups = [ "wheel" ];
     passwordFile = "${passDir}/${user}";
+    shell = pkgs.fish;
   };
 
   security.sudo.extraConfig = ''
