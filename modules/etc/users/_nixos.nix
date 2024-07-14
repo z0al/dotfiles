@@ -1,3 +1,5 @@
+{ config, ... }:
+
 let
   passDir = "/nix/data/passwords";
 in
@@ -6,7 +8,7 @@ in
   my.osUser = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    passwordFile = "${passDir}/${user}";
+    passwordFile = "${passDir}/${config.my.osUser.name}";
   };
 
   # Don't allow mutation of users outside of the config. When using
