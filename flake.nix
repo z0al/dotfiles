@@ -18,30 +18,54 @@
     nix-index.url = "github:Mic92/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "stable";
 
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    vscode-extensions.inputs.nixpkgs.follows = "stable";
+    vscode.url = "github:nix-community/nix-vscode-extensions";
+    vscode.inputs.nixpkgs.follows = "stable";
 
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "stable";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    parts.url = "github:hercules-ci/flake-parts";
 
     # helix.url = "github:helix-editor/helix";
     # helix.inputs.nixpkgs.follows = "stable";
   };
 
   outputs =
-    { flake-parts, ... } @ inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    { stable
+    , hm
+    , persistence
+    , parts
+    , ...
+    } @ inputs:
+    parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./flake/hosts.nix
         ./flake/overlays.nix
+        ./flake/pkgs.nix
       ];
 
       systems = [
         "x86_64-linux"
         "aarch64-darwin"
       ];
+
+      flake = {
+        nixosModules.default.imports = [
+          stable.nixosModules.readOnlyPkgs
+          hm.nixosModules.home-manager
+          persistence.nixosModule.impermanence
+          ./modules/nixos.nix
+          # Legacy
+          ./system/nixos
+        ];
+
+        darwinModules.default.imports = [
+          hm.darwinModules.home-manager
+          ./modules/darwin.nix
+          # Legacy
+          ./system/darwin
+        ];
+      };
     };
 
   nixConfig = {

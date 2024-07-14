@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
+    home.packages = with pkgs.latest; [
       (fenix.stable.withComponents [
         "cargo"
         "clippy"

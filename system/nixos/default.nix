@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../.
     ./gnome
     ./auto-login.nix
     ./boot.nix

@@ -1,4 +1,4 @@
-{ self, lib, inputs, ... }:
+{ self, lib, inputs, withSystem, ... }:
 
 let
   user = "z0al";
@@ -27,37 +27,25 @@ let
             then stable.lib.nixosSystem else darwin.lib.darwinSystem
           );
 
-          platformModules = with inputs;
+          platformModule = with inputs;
             if platform == "nixos"
-            then [ persistence.nixosModule ] else [ ];
+            then self.nixosModules.default
+            else self.darwinModules.default;
 
           modules = with inputs; [
-            {
-              networking = { inherit hostName; };
-              nixpkgs = {
-                config.allowUnfree = true;
-                overlays = [ self.overlays.default ];
-              };
-            }
-            hm."${platform}Modules".home-manager
-
-            ../modules
-            ../modules/${platform}.nix
-
-            # Legacy
-            ../system
-            ../system/${platform}
-          ] ++ platformModules;
+            platformModule
+            { networking = { inherit hostName; }; }
+          ];
         in
         {
           name = hostName;
-          value = builder {
+          value = withSystem system ({ pkgs, ... }: builder {
             inherit system modules;
 
             specialArgs = {
-              inherit inputs user theme version;
+              inherit pkgs inputs user theme version;
             };
-          };
+          });
         })
       (lib.filesystem.listFilesRecursive dir));
 in
