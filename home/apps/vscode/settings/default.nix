@@ -75,6 +75,8 @@ in
     "git.suggestSmartCommit" = false;
     "git.confirmSync" = false;
     "git.openRepositoryInParentFolders" = "always";
+    "scm.showIncomingChanges" = "never";
+    "scm.showOutgoingChanges" = "never";
 
     # Extensions
     "extensions.ignoreRecommendations" = true;
