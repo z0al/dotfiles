@@ -15,7 +15,6 @@
       "google-chrome"
       "raycast"
       "scroll-reverser"
-      "openscad-snapshot"
     ];
 
     taps = [
