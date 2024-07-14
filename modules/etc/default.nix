@@ -2,7 +2,7 @@
   imports = [
     ./fonts
     ./nix
+    ./sudoers
     ./users
-    ./sudoers.nix
   ];
 }

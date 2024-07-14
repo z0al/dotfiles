@@ -23,6 +23,4 @@
       askForPasswordDelay = 0;
     };
   };
-
-  security.pam.enableSudoTouchIdAuth = true;
 }
