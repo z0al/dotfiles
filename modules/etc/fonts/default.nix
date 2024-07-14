@@ -1,18 +1,7 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
-let
-  cfg = config.d.fonts;
-in
-
 {
-  options.d.fonts = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-    };
-
+  options.d.fonts = with lib; {
     mono = mkOption {
       type = types.enum [
         "Cascadia Code"
@@ -24,7 +13,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
+  config = {
     fonts = {
       packages = with pkgs.latest; [
         cascadia-code
