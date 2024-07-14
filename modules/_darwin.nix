@@ -3,5 +3,6 @@
   imports = [
     ./.
     ./etc/nix/_darwin.nix
+    ./etc/users/_darwin.nix
   ];
 }

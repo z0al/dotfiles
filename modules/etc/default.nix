@@ -2,5 +2,6 @@
   imports = [
     ./fonts
     ./nix
+    ./users
   ];
 }

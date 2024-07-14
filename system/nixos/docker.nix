@@ -10,7 +10,7 @@
     docker-compose
   ];
 
-  users.users.${config.d.user.name}.extraGroups = [ "docker" ];
+  my.osUser.extraGroups = [ "docker" ];
 
   d.fs.persisted = {
     directories = [ "/var/lib/docker/overlay2" ];

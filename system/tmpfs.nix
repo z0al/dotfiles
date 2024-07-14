@@ -38,7 +38,7 @@ in
   };
 
   # Easily co-locate apps persistence config when using home-manager
-  config.myUser = {
+  config.my.user = {
     options.d.fs = {
       persisted = persistence;
     };

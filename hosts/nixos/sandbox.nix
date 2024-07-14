@@ -2,12 +2,12 @@
 
 {
   # User configuration
-  users.users.${config.d.user.name} = {
+  my.osUser = {
     extraGroups = [ "vboxsf" ];
     password = "demo";
   };
 
-  myUser = {
+  my.user = {
     programs.git.extraConfig = {
       safe.directory = "*";
     };

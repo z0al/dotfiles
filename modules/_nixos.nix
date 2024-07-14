@@ -3,5 +3,6 @@
   imports = [
     ./.
     ./etc/fonts/_nixos.nix
+    ./etc/users/_nixos.nix
   ];
 }

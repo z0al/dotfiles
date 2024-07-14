@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.d.fs;
-  cfgHome = config.myUser.d.fs;
+  cfgHome = config.my.user.d.fs;
 in
 
 {

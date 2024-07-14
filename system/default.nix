@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./hm.nix
     ./pkgs.nix
     ./shells.nix
     ./tmpfs.nix

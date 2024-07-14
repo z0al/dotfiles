@@ -1,5 +1,5 @@
 {
-  myUser = {
+  my.user = {
     # Jamf enforces its own hostname rules, so we can't rely on the
     # default host value
     d.shell.aliases = {

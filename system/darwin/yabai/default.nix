@@ -24,7 +24,7 @@
     ];
   };
 
-  myUser = {
+  my.user = {
     xdg.configFile = {
       "yabai/yabairc" = {
         executable = true;

@@ -20,7 +20,7 @@
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
-  myUser = {
+  my.user = {
     imports = [ ./hm ];
     targets.darwin.currentHostDefaults = {
       "com.apple.controlcenter" = {

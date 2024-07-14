@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  myUser.imports = [
+  my.user.imports = [
     ./settings
     ./extensions.nix
   ];

@@ -4,7 +4,7 @@
   sound.enable = true;
   xdg.portal.enable = true;
 
-  users.users.${config.d.user.name}.extraGroups = [ "audio" ];
+  my.osUser.extraGroups = [ "audio" ];
 
   # Disable PulseAudio
   hardware.pulseaudio = {
