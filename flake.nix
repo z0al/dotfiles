@@ -54,14 +54,14 @@
           stable.nixosModules.readOnlyPkgs
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
-          ./modules/nixos.nix
+          ./modules/_nixos.nix
           # Legacy
           ./system/nixos
         ];
 
         darwinModules.default.imports = [
           hm.darwinModules.home-manager
-          ./modules/darwin.nix
+          ./modules/_darwin.nix
           # Legacy
           ./system/darwin
         ];
