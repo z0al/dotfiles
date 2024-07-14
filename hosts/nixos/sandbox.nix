@@ -7,11 +7,11 @@
     password = "demo";
   };
 
-  d.hm = [{
+  myUser = {
     programs.git.extraConfig = {
       safe.directory = "*";
     };
-  }];
+  };
 
   security = {
     sudo.wheelNeedsPassword = false;

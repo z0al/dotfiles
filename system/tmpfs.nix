@@ -37,12 +37,10 @@ in
     persisted = persistence;
   };
 
-  config = {
-    # Easily co-locate apps persistence config when using home-manager
-    d.hm = [{
-      options.d.fs = {
-        persisted = persistence;
-      };
-    }];
+  # Easily co-locate apps persistence config when using home-manager
+  config.myUser = {
+    options.d.fs = {
+      persisted = persistence;
+    };
   };
 }

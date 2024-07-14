@@ -1,12 +1,10 @@
 { pkgs, lib, ... }:
 
 {
-  d.hm = [{
-    imports = [
-      ./settings
-      ./extensions.nix
-    ];
-  }];
+  myUser.imports = [
+    ./settings
+    ./extensions.nix
+  ];
 
   # Enable the X11 windowing system
   services.xserver.enable = true;

@@ -24,7 +24,7 @@
     ];
   };
 
-  d.hm = [{
+  myUser = {
     xdg.configFile = {
       "yabai/yabairc" = {
         executable = true;
@@ -32,5 +32,5 @@
         onChange = "/opt/homebrew/bin/yabai --restart-service";
       };
     };
-  }];
+  };
 }

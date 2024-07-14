@@ -154,7 +154,7 @@ networking.hostName = "your-hostname";
 # Don't allow mutation of users outside of the config
 users.mutableUsers = false;
 
-users.users.myUser = {
+users.users.<user> = {
   isNormalUser = true;
   description = "myUser";
   extraGroups = [ "wheel" "networkmanager"];

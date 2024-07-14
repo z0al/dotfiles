@@ -20,16 +20,14 @@
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
-  d.hm = [
-    { imports = [ ./hm ]; }
-    {
-      targets.darwin.currentHostDefaults = {
-        "com.apple.controlcenter" = {
-          BatteryShowPercentage = true;
-        };
+  myUser = {
+    imports = [ ./hm ];
+    targets.darwin.currentHostDefaults = {
+      "com.apple.controlcenter" = {
+        BatteryShowPercentage = true;
       };
-    }
-  ];
+    };
+  };
 
   system.defaults.NSGlobalDomain = {
     AppleInterfaceStyle = "Dark";
