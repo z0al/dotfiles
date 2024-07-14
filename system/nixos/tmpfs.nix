@@ -1,10 +1,10 @@
-{ config, pkgs, lib, user, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
 let
   cfg = config.d.fs;
-  cfgHome = config.home-manager.users.${user}.d.fs;
+  cfgHome = config.myUser.d.fs;
 in
 
 {

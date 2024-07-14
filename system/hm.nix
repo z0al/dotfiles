@@ -1,10 +1,10 @@
-{ inputs, lib, version, user, theme, ... }:
+{ config, inputs, lib, theme, ... }:
 
 with lib;
 
 {
   imports = [
-    (mkAliasOptionModule [ "myUser" ] [ "home-manager" "users" user ])
+    (mkAliasOptionModule [ "myUser" ] [ "home-manager" "users" config.d.user.name ])
   ];
 
   home-manager = {
@@ -12,7 +12,7 @@ with lib;
     useUserPackages = true;
 
     extraSpecialArgs = {
-      inherit version user theme;
+      inherit theme;
     };
   };
 

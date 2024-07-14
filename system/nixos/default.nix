@@ -1,4 +1,4 @@
-{ pkgs, version, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -20,7 +20,7 @@
     ./users.nix
   ];
 
-  system.stateVersion = version;
+  system.stateVersion = config.d.version;
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {

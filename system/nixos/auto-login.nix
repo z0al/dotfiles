@@ -1,4 +1,4 @@
-{ config, lib, user, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -17,7 +17,7 @@ in
   config = mkIf cfg.enable {
     services.xserver.displayManager.autoLogin = {
       enable = true;
-      user = user;
+      user = config.d.user.name;
     };
 
     # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229

@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
   virtualisation.docker = {
@@ -10,7 +10,7 @@
     docker-compose
   ];
 
-  users.users.${user}.extraGroups = [ "docker" ];
+  users.users.${config.d.user.name}.extraGroups = [ "docker" ];
 
   d.fs.persisted = {
     directories = [ "/var/lib/docker/overlay2" ];

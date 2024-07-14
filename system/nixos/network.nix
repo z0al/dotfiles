@@ -1,7 +1,7 @@
-{ user, ... }:
+{ config, ... }:
 
 {
-  users.users.${user}.extraGroups = [ "networkmanager" ];
+  users.users.${config.d.user.name}.extraGroups = [ "networkmanager" ];
 
   networking = {
     networkmanager.enable = true;

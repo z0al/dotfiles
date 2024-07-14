@@ -1,4 +1,4 @@
-{ user, ... }:
+{ config, ... }:
 
 let
   passDir = "/nix/data/passwords";
@@ -15,6 +15,7 @@ in
   users.users.root.passwordFile = "${passDir}/root";
 
   users.users.${user} = {
+    home = "/home/${config.d.user.name}";
     isNormalUser = true;
     description = user;
     extraGroups = [ "wheel" ];

@@ -1,8 +1,8 @@
-{ pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
-  users.users.${user} = {
-    home = "/Users/${user}";
+  users.users.${config.d.user.name} = {
+    home = "/Users/${config.d.user.name}";
     shell = pkgs.fish;
   };
 

@@ -1,7 +1,7 @@
-{ config, lib, hardware, user, ... }:
+{ config, lib, inputs, ... }:
 
 {
-  imports = with hardware.nixosModules; [
+  imports = with inputs.hardware.nixosModules; [
     common-pc
     common-pc-ssd
     common-cpu-amd

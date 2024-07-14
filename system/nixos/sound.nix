@@ -1,10 +1,10 @@
-{ pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
   sound.enable = true;
   xdg.portal.enable = true;
 
-  users.users.${user}.extraGroups = [ "audio" ];
+  users.users.${config.d.user.name}.extraGroups = [ "audio" ];
 
   # Disable PulseAudio
   hardware.pulseaudio = {

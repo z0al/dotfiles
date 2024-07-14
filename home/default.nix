@@ -1,11 +1,4 @@
-{ pkgs, lib, user, version, ... }:
-
-let
-  homePrefix =
-    if pkgs.stdenv.isDarwin
-    then "/Users"
-    else "/home";
-in
+{ osConfig, pkgs, lib, ... }:
 
 {
   imports = [
@@ -16,9 +9,9 @@ in
   ];
 
   home = {
-    username = user;
-    homeDirectory = lib.mkForce "${homePrefix}/${user}";
-    stateVersion = version;
+    username = osConfig.d.user.name;
+    homeDirectory = osConfig.users.users."${osConfig.d.user.name}".home;
+    stateVersion = osConfig.d.version;
   };
 
   xdg.enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
   nixpkgs.hostPlatform = "x86_64-linux";
@@ -13,7 +13,7 @@
     _1password-gui = {
       enable = true;
       package = pkgs.latest._1password-gui;
-      polkitPolicyOwners = [ "root" user ];
+      polkitPolicyOwners = [ "root" config.d.user.name ];
     };
   };
 

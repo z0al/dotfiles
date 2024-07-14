@@ -1,8 +1,8 @@
-{ user, ... }:
+{ config, ... }:
 
 {
   nix.gc = {
-    inherit user;
+    user = config.d.user.name;
     interval.Day = 7;
   };
 

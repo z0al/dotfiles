@@ -1,9 +1,7 @@
 { self, lib, inputs, withSystem, ... }:
 
 let
-  user = "z0al";
   theme = "catppuccin";
-  version = "24.05";
 
   mkHosts = dir:
     lib.listToAttrs (map
@@ -43,7 +41,7 @@ let
             inherit system modules;
 
             specialArgs = {
-              inherit pkgs inputs user theme version;
+              inherit pkgs inputs theme;
             };
           });
         })

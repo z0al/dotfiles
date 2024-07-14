@@ -1,8 +1,8 @@
-{ config, lib, user, ... }:
+{ config, lib, ... }:
 
 {
   # User configuration
-  users.users.${user} = {
+  users.users.${config.d.user.name} = {
     extraGroups = [ "vboxsf" ];
     password = "demo";
   };
