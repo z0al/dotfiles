@@ -1,5 +1,8 @@
 # Dotfiles
 
+> [!IMPORTANT]
+> This repository is undergoing a major refactoring and the README is a bit outdated. if you want to go back before the refactoring started click [here](https://github.com/z0al/dotfiles/tree/7587fd6d3ee70338ae5234646d21de36d45cf87f).
+
 My [NixOS][nixos] & macOS configuration as a [flake][flakes]. It features a shared [home-manager][hm] configuration between NixOS and macOS (aka. [nix-darwin][darwin]) hosts as well as host/platform specific configs.
 
 ## Highlights
