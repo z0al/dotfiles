@@ -17,7 +17,6 @@
     ./systemd.nix
     ./tmpfs.nix
     ./trash.nix
-    ./users.nix
   ];
 
   system.stateVersion = config.d.version;

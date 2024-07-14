@@ -3,5 +3,6 @@
     ./fonts
     ./nix
     ./users
+    ./sudoers.nix
   ];
 }

@@ -25,11 +25,6 @@ in
       DATA = "/nix/data";
     };
 
-    # Avoid sudo lectures after each reboot.
-    security.sudo.extraConfig = mkIf cfg.rootOnTmpfs ''
-      Defaults lecture = never
-    '';
-
     # Persist system state to /nix/data
     environment.persistence."/nix/data" = mkIf cfg.rootOnTmpfs {
       hideMounts = true;
