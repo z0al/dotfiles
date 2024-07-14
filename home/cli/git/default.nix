@@ -16,11 +16,6 @@ let
 in
 
 {
-  imports = [
-    ./delta.nix
-    ./ui.nix
-  ];
-
   home.packages = with pkgs.latest; [
     git-ignore
   ];
