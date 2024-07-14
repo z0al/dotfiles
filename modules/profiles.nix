@@ -12,10 +12,6 @@ in
 {
   # Profiles group related modules under a single flag for convenience.
   options.d.profiles = {
-    # For: core configurations and programs e.g. system pkgs, fonts,
-    # browsers, editors, terminal ..etc.
-    base.enable = mkBool true;
-
     # For: Developers. Developers. Developers :)
     dev = {
       enable = mkBool true;

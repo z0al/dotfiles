@@ -10,7 +10,7 @@ in
   options.d.fonts = {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.base.enable;
+      default = true;
     };
 
     mono = mkOption {
