@@ -1,12 +1,5 @@
 {
-  homebrew = {
-    enable = true;
-    onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-      cleanup = "uninstall";
-    };
-
+  d.programs.homebrew = {
     casks = [
       # https://github.com/NixOS/nixpkgs/issues/254944
       "1password"
@@ -14,10 +7,6 @@
       "google-chrome"
       "raycast"
       "scroll-reverser"
-    ];
-
-    taps = [
-      "homebrew/cask-versions"
     ];
   };
 }
