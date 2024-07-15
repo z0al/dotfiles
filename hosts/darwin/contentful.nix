@@ -1,6 +1,8 @@
 {
   d.programs = {
+    aws.enable = true;
     docker.enable = true;
+    terraform.enable = true;
   };
 
   my.user = {
@@ -11,9 +13,7 @@
     };
 
     d.cli = {
-      aws.enable = true;
       kubectl.enable = true;
-      terraform.enable = true;
     };
   };
 }
