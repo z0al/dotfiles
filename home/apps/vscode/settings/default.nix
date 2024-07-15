@@ -4,6 +4,8 @@ let
   themeMapping = {
     catppuccin = "Catppuccin Mocha";
   };
+
+  fonts = osConfig.d.fonts;
 in
 
 {
@@ -18,7 +20,7 @@ in
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
     "editor.emptySelectionClipboard" = false;
-    "editor.fontFamily" = "'${osConfig.d.fonts.mono}','Symbols Nerd Font Mono','PowerlineSymbols','Noto Color Emoji'";
+    "editor.fontFamily" = "'${fonts.mono}','${fonts.symbol}','${fonts.emoji}'";
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
