@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }:
+{ config, inputs, ... }:
 
 {
   nix = {
     settings = {
       auto-optimise-store = true;
-      trusted-users = [ "root" "@wheel" "@admin" ];
+      trusted-users = [ "root" config.d.user.name ];
     };
 
     gc = {
