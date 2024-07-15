@@ -6,7 +6,6 @@
     ./gnome
     ./auto-login.nix
     ./boot.nix
-    ./docker.nix
     ./envfs.nix
     ./hardware.nix
     ./hidpi.nix
