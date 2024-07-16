@@ -5,10 +5,10 @@ let
 
   mkHosts = dir:
     lib.listToAttrs (map
-      (file:
+      (module:
         let
           platform =
-            if lib.hasInfix "nixos" file
+            if lib.hasInfix "nixos" module
             then "nixos"
             else "darwin";
 
@@ -17,7 +17,7 @@ let
             then "x86_64-linux" else "aarch64-darwin";
 
           hostName = with lib; (
-            removeSuffix ".nix" (baseNameOf file)
+            removeSuffix ".nix" (baseNameOf module)
           );
 
           builder = (with inputs;
@@ -31,6 +31,7 @@ let
             else self.darwinModules.default;
 
           modules = with inputs; [
+            module
             platformModule
             { networking = { inherit hostName; }; }
           ];
