@@ -11,7 +11,7 @@ let
 in
 
 {
-  d.shell.variables = {
+  home.sessionVariables = {
     TERMINAL = "wezterm";
   };
 

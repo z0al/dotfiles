@@ -17,7 +17,7 @@ in
   };
 
   config.my.user = lib.mkIf cfg.enable {
-    d.shell.aliases = {
+    home.shellAliases = {
       gi = "lazygit";
     };
 

@@ -1,7 +1,7 @@
 { pkgs, theme, ... }:
 
 {
-  d.shell.aliases = {
+  home.shellAliases = {
     "cat" = "bat";
   };
 

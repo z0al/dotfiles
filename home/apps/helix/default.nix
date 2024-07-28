@@ -74,14 +74,12 @@ in
       settings = settings;
     };
 
-    d.shell = {
-      variables = {
-        EDITOR = "hx";
-      };
+    home.sessionVariables = {
+      EDITOR = "hx";
+    };
 
-      aliases = {
-        vim = "hx";
-      };
+    home.shellAliases = {
+      vim = "hx";
     };
 
     # hx --health

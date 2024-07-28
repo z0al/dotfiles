@@ -5,7 +5,7 @@
     ./themes.nix
   ];
 
-  d.shell.variables = {
+  home.sessionVariables = {
     STARSHIP_LOG = "error";
   };
 

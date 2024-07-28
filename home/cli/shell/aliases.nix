@@ -1,5 +1,5 @@
 {
-  d.shell.aliases = {
+  home.shellAliases = {
     ".." = "cd ..";
     "..." = "cd ../..";
     "...." = "cd ../../..";
@@ -10,8 +10,8 @@
   };
 
   # Linux
-  d.shell.linux.aliases = {
-    open = "xdg-open &> $HOME/.xdg-open.log";
-    xargs = "xargs -r";
-  };
+  #  {
+  #   open = "xdg-open &> $HOME/.xdg-open.log";
+  #   xargs = "xargs -r";
+  # };
 }

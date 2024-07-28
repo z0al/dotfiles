@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  d.shell.aliases = {
+  home.shellAliases = {
     j = "__zoxide_zi";
   };
 

@@ -3,52 +3,60 @@
 with lib;
 
 let
-  cfg = config.d.shell;
+  cfg = config.programs.fish;
 in
 
 {
-  home.packages = with pkgs.latest; [
-    any-nix-shell
-  ];
 
-  programs.fish = {
-    enable = true;
+  options.programs.fish.sources = mkOption {
+    type = types.listOf types.str;
+    default = [ ];
+  };
 
-    plugins = map
-      (pkg: {
-        name = pkg.name;
-        src = pkg.src;
-      })
-      (with pkgs.fishPlugins; [
-        sponge
-        autopair-fish
-      ]);
+  config = {
+    home.packages = with pkgs.latest; [
+      any-nix-shell
+    ];
 
-    shellInit = ''
-      # Disable greeting message
-      set -U fish_greeting
+    programs.fish = {
+      enable = true;
 
-      # Bind CTRL+Backspace to delete a word
-      bind \b backward-kill-word
-    '';
+      plugins = map
+        (pkg: {
+          name = pkg.name;
+          src = pkg.src;
+        })
+        (with pkgs.fishPlugins; [
+          sponge
+          autopair-fish
+        ]);
 
-    shellAliases = {
-      unset = "set -e";
+      shellInit = ''
+        # Disable greeting message
+        set -U fish_greeting
+
+        # Bind CTRL+Backspace to delete a word
+        bind \b backward-kill-word
+      '';
+
+      shellAliases = {
+        unset = "set -e";
+      };
+
+      interactiveShellInit = ''
+        ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
+
+        ${concatStringsSep "\n" (map (path: ''
+          if test -e ${path}
+            source ${path}
+          end
+        '') cfg.sources)}
+      '';
     };
 
-    interactiveShellInit = ''
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
-
-      # d.shell.sources
-      ${concatStringsSep "\n" (map (path: ''
-        if test -e ${path}
-          source ${path}
-        end
-      '') cfg.sources)}
-    '';
+    d.fs.persisted = {
+      directories = [ ".local/share/fish" ];
+    };
   };
 
-  d.fs.persisted = {
-    directories = [ ".local/share/fish" ];
-  };
 }
