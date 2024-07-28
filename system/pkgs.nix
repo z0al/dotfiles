@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     helix
-    wezterm
 
     # Utils
     cmake

@@ -28,7 +28,6 @@
     google-chrome
     gparted
     video-trimmer
-    wezterm
 
     # Other
     binutils

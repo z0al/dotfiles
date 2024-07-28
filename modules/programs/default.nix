@@ -10,5 +10,6 @@
     ./delta.nix
     ./lazygit.nix
     ./terraform.nix
+    ./wezterm.nix
   ];
 }

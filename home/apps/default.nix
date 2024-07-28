@@ -3,7 +3,6 @@
     ./helix
     ./rofi
     ./vscode
-    ./wezterm
 
     ./1password.nix
     ./browser.nix
