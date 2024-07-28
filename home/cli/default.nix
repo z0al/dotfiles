@@ -1,6 +1,5 @@
 {
   imports = [
-    ./bat
     ./git
     ./shell
     ./starship

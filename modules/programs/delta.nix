@@ -1,8 +1,8 @@
-{ config, pkgs, lib, theme, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.d.programs.delta;
-  pkg = pkgs.latest.delta;
+  delta = "${pkgs.delta}/bin/delta";
 in
 
 {
@@ -14,19 +14,23 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.variables = {
+      DELTA_PAGER = "less --mouse";
+      GIT_PAGER = delta;
+    };
+
     my.user.programs.git.delta = {
       enable = true;
-      package = pkg;
+      package = pkgs.delta;
 
       options = {
         line-numbers = true;
-        # Note: compatible with Bat themes
-        syntax-theme = theme;
         hunk-header-style = "omit";
+        hyperlinks = true;
       };
     };
 
     # Integration with lazygit
-    d.programs.lazygit.pager = "${pkg}/bin/delta --dark --paging=never";
+    d.programs.lazygit.pager = "${delta} --paging=never";
   };
 }

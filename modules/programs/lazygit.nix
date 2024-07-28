@@ -2,6 +2,7 @@
 
 let
   cfg = config.d.programs.lazygit;
+  lazygit = "${pkgs.lazygit}/bin/lazygit";
 in
 
 {
@@ -18,12 +19,12 @@ in
 
   config.my.user = lib.mkIf cfg.enable {
     home.shellAliases = {
-      gi = "lazygit";
+      gi = lazygit;
     };
 
     programs.lazygit = {
       enable = true;
-      package = pkgs.latest.lazygit;
+      package = pkgs.lazygit;
 
       settings = {
         git.paging = {
