@@ -16,11 +16,11 @@ in
     dev = {
       enable = mkBool true;
 
-      js.enable = mkBool cfg.dev.enable;
+      javascript.enable = mkBool cfg.dev.enable;
 
       # Per machine
       go.enable = mkBool false;
-      py.enable = mkBool false;
+      python.enable = mkBool false;
       rust.enable = mkBool false;
 
       # docker, k8s, terraform ..etc

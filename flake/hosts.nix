@@ -22,15 +22,15 @@ let
 
           builder = (with inputs;
             if platform == "nixos"
-            then stable.lib.nixosSystem else darwin.lib.darwinSystem
+            then nixpkgs.lib.nixosSystem else darwin.lib.darwinSystem
           );
 
-          platformModule = with inputs;
+          platformModule =
             if platform == "nixos"
             then self.nixosModules.default
             else self.darwinModules.default;
 
-          modules = with inputs; [
+          modules = [
             module
             platformModule
             { networking = { inherit hostName; }; }
