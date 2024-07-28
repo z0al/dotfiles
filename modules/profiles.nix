@@ -22,6 +22,9 @@ in
       go.enable = mkBool false;
       py.enable = mkBool false;
       rust.enable = mkBool false;
+
+      # docker, k8s, terraform ..etc
+      ops.enable = mkBool false;
     };
 
     # For: Corporate programs e.g. Zoom, Slack, etc.

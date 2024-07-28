@@ -8,12 +8,12 @@ in
   options.d.programs.aws = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = config.d.profiles.dev.ops.enable;
     };
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs.latest; [
+    environment.systemPackages = with pkgs; [
       awscli2
     ];
   };

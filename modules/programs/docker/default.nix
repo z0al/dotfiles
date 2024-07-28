@@ -8,7 +8,7 @@ in
   options.d.programs.docker = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = config.d.profiles.dev.ops.enable;
     };
   };
 }
