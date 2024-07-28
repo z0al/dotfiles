@@ -4,7 +4,6 @@
     ./shell
     ./starship
 
-    ./direnv.nix
     ./fzf.nix
     ./gh.nix
     ./jq.nix
