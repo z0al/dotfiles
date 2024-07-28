@@ -34,6 +34,7 @@
 
       battery.disabled = true;
       package.disabled = true;
+      kubernetes.disabled = false;
     };
   };
 }

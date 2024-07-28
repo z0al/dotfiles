@@ -24,5 +24,24 @@
       "}",
       ""
     ]
+  },
+  "Nix Module Enabled": {
+    "prefix": "enable",
+    "scope": "nix",
+    "description": "Nix Module Enabled",
+    "body": [
+      "{ config, lib, ... }:",
+      "",
+      "let",
+      "  cfg = config.d.${1:name};",
+      "in",
+      "",
+      "{",
+      "  config = lib.mkIf cfg.enable {",
+      "    $0",
+      "  };",
+      "}",
+      ""
+    ]
   }
 }

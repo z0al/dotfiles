@@ -1,9 +1,6 @@
 {
-  d.programs = {
-    aws.enable = true;
-    docker.enable = true;
-    terraform.enable = true;
-  };
+  # docker, kubectl, terraform ..etc
+  d.profiles.dev.ops.enable = true;
 
   my.osUser.uid = 502;
 
@@ -12,10 +9,6 @@
     # default host value
     home.shellAliases = {
       up = "up --host contentful";
-    };
-
-    d.cli = {
-      kubectl.enable = true;
     };
   };
 }

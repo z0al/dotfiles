@@ -5,6 +5,7 @@
     ./direnv
     ./docker
     ./homebrew
+    ./kubectl
 
     ./delta.nix
     ./lazygit.nix
