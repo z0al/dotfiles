@@ -2,36 +2,36 @@
   description = "My NixOS ❄ / MacOS 🍏 Configuration";
 
   inputs = {
-    stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    latest.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:LnL7/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "stable";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     hm.url = "github:nix-community/home-manager/release-24.05";
-    hm.inputs.nixpkgs.follows = "stable";
+    hm.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
     persistence.url = "github:nix-community/impermanence";
 
     nix-index.url = "github:Mic92/nix-index-database";
-    nix-index.inputs.nixpkgs.follows = "stable";
+    nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
     vscode.url = "github:nix-community/nix-vscode-extensions";
-    vscode.inputs.nixpkgs.follows = "stable";
+    vscode.inputs.nixpkgs.follows = "nixpkgs";
 
     fenix.url = "github:nix-community/fenix";
-    fenix.inputs.nixpkgs.follows = "stable";
+    fenix.inputs.nixpkgs.follows = "nixpkgs";
 
     parts.url = "github:hercules-ci/flake-parts";
 
     # helix.url = "github:helix-editor/helix";
-    # helix.inputs.nixpkgs.follows = "stable";
+    # helix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    { stable
+    { nixpkgs
     , hm
     , persistence
     , parts
@@ -51,7 +51,7 @@
 
       flake = {
         nixosModules.default.imports = [
-          stable.nixosModules.readOnlyPkgs
+          nixpkgs.nixosModules.readOnlyPkgs
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
           ./modules/_nixos.nix

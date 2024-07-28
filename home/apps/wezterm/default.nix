@@ -15,7 +15,7 @@ in
     TERMINAL = "wezterm";
   };
 
-  home.packages = with pkgs.latest; [
+  home.packages = with pkgs.unstable; [
     wezterm
   ];
 

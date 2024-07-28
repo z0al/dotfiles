@@ -7,7 +7,6 @@
 
   programs.zoxide = {
     enable = true;
-    package = pkgs.latest.zoxide;
     enableFishIntegration = true;
 
     options = [ "--no-cmd" ];

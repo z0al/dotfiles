@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs.latest; [
+  environment.systemPackages = with pkgs; [
     helix
     wezterm
 

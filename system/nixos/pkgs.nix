@@ -7,17 +7,17 @@
   programs = {
     _1password = {
       enable = true;
-      package = pkgs.latest._1password;
+      package = pkgs._1password;
     };
 
     _1password-gui = {
       enable = true;
-      package = pkgs.latest._1password-gui;
+      package = pkgs._1password-gui;
       polkitPolicyOwners = [ "root" config.d.user.name ];
     };
   };
 
-  environment.systemPackages = with pkgs.latest; [
+  environment.systemPackages = with pkgs; [
     # Apps
     blanket
     dialect

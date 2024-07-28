@@ -14,7 +14,7 @@ in
   };
 
   config = {
-    home.packages = with pkgs.latest; [
+    home.packages = with pkgs; [
       any-nix-shell
     ];
 

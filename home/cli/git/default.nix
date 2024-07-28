@@ -16,7 +16,7 @@ let
 in
 
 {
-  home.packages = with pkgs.latest; [
+  home.packages = with pkgs; [
     git-ignore
   ];
 

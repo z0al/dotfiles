@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  pkg = pkgs.latest.nodePackages.prettier;
+  pkg = pkgs.nodePackages.prettier;
 
   prettier = parser: {
     command = "${pkg}/bin/prettier";

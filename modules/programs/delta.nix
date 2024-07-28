@@ -21,7 +21,6 @@ in
 
     my.user.programs.git.delta = {
       enable = true;
-      package = pkgs.delta;
 
       options = {
         line-numbers = true;

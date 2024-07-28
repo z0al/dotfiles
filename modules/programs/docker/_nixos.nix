@@ -12,7 +12,7 @@ in
       autoPrune.enable = true;
     };
 
-    environment.systemPackages = with pkgs.latest; [
+    environment.systemPackages = with pkgs; [
       docker-compose
     ];
 

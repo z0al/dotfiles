@@ -10,12 +10,12 @@ in
 
 {
   perSystem = { system, ... }: {
-    _module.args.pkgs = import inputs.stable {
+    _module.args.pkgs = import inputs.nixpkgs {
       inherit system config;
 
       overlays = overlays ++ [
         (final: prev: {
-          latest = import inputs.latest {
+          unstable = import inputs.nixpkgs-unstable {
             inherit system config overlays;
           };
         })

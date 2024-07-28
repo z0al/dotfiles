@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
 let
-  monospace = with pkgs.latest; [
+  monospace = with pkgs; [
     cascadia-code
     fira-code
     jetbrains-mono
   ];
 
-  symbols = with pkgs.latest; [
+  symbols = with pkgs; [
     (nerdfonts.override {
       fonts = [
         "NerdFontsSymbolsOnly"
@@ -15,7 +15,7 @@ let
     })
   ];
 
-  emoji = with pkgs.latest; [
+  emoji = with pkgs; [
     noto-fonts-color-emoji
   ];
 in

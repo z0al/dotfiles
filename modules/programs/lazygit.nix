@@ -24,7 +24,6 @@ in
 
     programs.lazygit = {
       enable = true;
-      package = pkgs.lazygit;
 
       settings = {
         git.paging = {

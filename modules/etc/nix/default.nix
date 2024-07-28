@@ -13,7 +13,7 @@
     };
 
     # https://yusef.napora.org/blog/pinning-nixpkgs-flake/
-    registry.nixpkgs.flake = inputs.stable;
+    registry.nixpkgs.flake = inputs.nixpkgs-unstable;
 
     extraOptions = ''
       experimental-features = nix-command flakes

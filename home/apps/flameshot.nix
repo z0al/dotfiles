@@ -36,7 +36,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs.latest; [
+    home.packages = with pkgs; [
       flameshot
     ];
 

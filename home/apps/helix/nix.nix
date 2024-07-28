@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs.latest; [
+  home.packages = with pkgs; [
     nil
     nixpkgs-fmt
   ];
@@ -17,7 +17,6 @@
           binary = "${pkgs.nix}/bin/nix";
           flake = {
             autoEvalInputs = true;
-            nixpkgsInputName = "latest";
           };
         };
       };

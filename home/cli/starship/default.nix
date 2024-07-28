@@ -11,7 +11,6 @@
 
   programs.starship = {
     enable = true;
-    package = pkgs.latest.starship;
     enableFishIntegration = true;
 
     settings = {
