@@ -15,6 +15,8 @@ in
     "gitlens.keymap" = "none";
     "gitlens.showWelcomeOnInstall" = false;
     "gitlens.launchpad.indicator.enabled" = false;
+    "gitlens.currentLine.scrollable" = false;
+    "gitlens.hovers.currentLine.over" = "line";
 
     ## Prettier
     "prettier.enable" = true;
