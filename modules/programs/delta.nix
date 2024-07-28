@@ -23,9 +23,9 @@ in
       enable = true;
 
       options = {
-        line-numbers = true;
-        hunk-header-style = "omit";
         hyperlinks = true;
+        line-numbers = true;
+        hunk-header-style = "syntax";
       };
     };
 
