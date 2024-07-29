@@ -4,7 +4,6 @@
     ./rofi
     ./vscode
 
-    ./1password.nix
     ./browser.nix
     ./flameshot.nix
     ./gimp.nix

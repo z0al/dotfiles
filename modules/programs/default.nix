@@ -1,5 +1,6 @@
 {
   imports = [
+    ./1password
     ./aws
     ./bat
     ./direnv

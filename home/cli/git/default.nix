@@ -29,19 +29,11 @@ in
       userName = osConfig.d.git.user;
       userEmail = osConfig.d.git.email;
 
-      # Signing is done via the 1Password app
-      signing = {
-        signByDefault = true;
-        key = config.d.apps.onepassword.ssh.key;
-      };
+      signing.signByDefault = true;
+      signing.key = osConfig.d.user.ssh.key;
 
       extraConfig = {
         init.defaultBranch = "main";
-
-        gpg = {
-          format = "ssh";
-          ssh.program = config.d.apps.onepassword.ssh.sign;
-        };
 
         log = {
           decorate = true;

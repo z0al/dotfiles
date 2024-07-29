@@ -17,6 +17,7 @@ in
     user = {
       name = mkString "z0al";
       title = mkString cfg.user.name;
+      ssh.key = mkString "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
     };
 
     git = {
