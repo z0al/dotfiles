@@ -8,13 +8,14 @@ let
     toLua { } {
       # Fonts
       font_size = 13.0;
-      font = mkLuaInline ''
-        wz.font_with_fallback({
-          "${cfgFonts.mono}",
-          { family = "${cfgFonts.symbol}", scale = 0.8 },
-          { family = "${cfgFonts.emoji}", scale = 0.8 },
-        })
-      '';
+      font = mkLuaInline ''wz.font_with_fallback(${
+        (toLua { indent = "  "; } [
+          cfgFonts.mono
+          { family = cfgFonts.symbol; scale = 0.8; }
+          { family = cfgFonts.emoji; scale = 0.8; }
+        ])
+      })'';
+
       allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace";
       adjust_window_size_when_changing_font_size = false;
       warn_about_missing_glyphs = false;
