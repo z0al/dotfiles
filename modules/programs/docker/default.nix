@@ -11,4 +11,10 @@ in
       default = config.d.profiles.dev.ops.enable;
     };
   };
+
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      docker-compose
+    ];
+  };
 }
