@@ -2,20 +2,27 @@
 
 let
   cfg = config.d.programs.vscode;
-  userHome = config.my.osUser.home;
-
-  cfgPath =
-    if pkgs.stdenv.isDarwin
-    then "${userHome}/Library/Application Support/Code"
-    else "${userHome}/.config/Code";
-
-  extPath = "${userHome}/.vscode/extensions";
-
   pkg = pkgs.unstable.vscode;
 
-  settings = builtins.toJSON cfg.settings;
-  keybindings = builtins.toJSON cfg.keybindings;
-  extensions = pkgs.vscode-utils.toExtensionJson cfg.extensions;
+  userHome = config.my.osUser.home;
+
+  cfgDir =
+    if pkgs.stdenv.isDarwin
+    then "${userHome}/Library/Application Support/Code/User"
+    else "${userHome}/.config/Code/User";
+
+  extDir = "${userHome}/.vscode/extensions";
+
+  write = path: content: ''
+    run mkdir -p $(dirname "${path}")
+    run echo '${content}' > "${path}"
+  '';
+
+  # https://discourse.nixos.org/t/vscode-extensions-setup/1801/2
+  installExt = ext: ''
+    run mkdir -p "${extDir}"
+    run ln -sf ${ext}/share/vscode/extensions/* "${extDir}/"
+  '';
 in
 
 {
@@ -50,28 +57,21 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkg ];
 
-    my.user = { lib, ... }: {
-      home.activation = {
-        configure-vscode = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          # Settings
-          mkdir -p '${cfgPath}/User'
-          echo '${settings}' > '${cfgPath}/User/settings.json'
+    d.run.configureVsCode = ''
+      ${write "${cfgDir}/settings.json" (builtins.toJSON cfg.settings)}
+      ${write "${cfgDir}/keybindings.json" (builtins.toJSON cfg.keybindings)}
 
-          # Keybindings
-          echo '${keybindings}' > '${cfgPath}/User/keybindings.json'
+      # Extensions
+      if [ -d "${extDir}" ]; then
+        run rm -rf "${extDir}"
+      fi
 
-          # Extensions
-          if [ -d '${extPath}' ]; then
-            rm -rf '${extPath}'
-          fi
-          mkdir -p '${extPath}'
-          ${lib.concatStringsSep "\n" (map (ext: ''
-            ln -sf ${ext}/share/vscode/extensions/* '${extPath}/'
-          '') cfg.extensions)}
-          echo '${extensions}' > '${extPath}/extensions.json'
-          ${lib.getExe pkg} --list-extensions > /dev/null
-        '';
-      };
-    };
+      ${lib.concatLines (map installExt cfg.extensions)}
+      ${write
+        "${extDir}/extensions.json"
+        (pkgs.vscode-utils.toExtensionJson cfg.extensions)}
+
+      run --quiet ${lib.getExe pkg} --list-extensions
+    '';
   };
 }
