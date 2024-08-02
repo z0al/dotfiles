@@ -1,26 +1,22 @@
-{ osConfig, pkgs, theme, ... }:
+{ config, pkgs, lib, ... }:
 
 let
-  themeMapping = {
-    catppuccin = "Catppuccin Mocha";
-  };
-
-  fonts = osConfig.d.fonts;
+  cfgFonts = config.d.fonts;
 in
 
 {
-  imports = [
-    ./extensions.nix
-  ];
-
-  programs.vscode.userSettings = {
+  d.programs.vscode.settings = {
     # Editor
     "files.enableTrash" = true;
     "files.autoSave" = "off";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
     "editor.emptySelectionClipboard" = false;
-    "editor.fontFamily" = "'${fonts.mono}','${fonts.symbol}','${fonts.emoji}'";
+    "editor.fontFamily" = lib.concatStringsSep "," [
+      "'${cfgFonts.mono}'"
+      "'${cfgFonts.symbol}'"
+      "'${cfgFonts.emoji}'"
+    ];
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
@@ -39,9 +35,7 @@ in
     "editor.padding.bottom" = 100;
     "editor.rulers" = [ 80 ];
 
-
     # Workbench
-    "workbench.colorTheme" = themeMapping.${theme};
     "workbench.iconTheme" = "vs-seti";
     "workbench.startupEditor" = "none";
     "workbench.editor.showTabs" = "single";
@@ -68,31 +62,16 @@ in
     "terminal.external.osxExec" = "Terminal.app";
     "terminal.integrated.tabs.enabled" = false;
 
-    # Git
-    "git.autofetch" = false;
-    "git.autoStash" = true;
-    "git.pullTags" = true;
-    "git.enableCommitSigning" = true;
-    "git.alwaysSignOff" = false;
-    "git.suggestSmartCommit" = false;
-    "git.confirmSync" = false;
-    "git.openRepositoryInParentFolders" = "always";
-    "scm.showIncomingChanges" = "never";
-    "scm.showOutgoingChanges" = "never";
-
     # Extensions
     "extensions.ignoreRecommendations" = true;
+    "extensions.autoCheckUpdates" = false;
 
     # Other
+    "update.mode" = "none";
     "search.showLineNumbers" = false;
     "debug.console.fontSize" = 13;
     "emmet.includeLanguages" = {
       "nunjucks" = "html";
     };
-
-    # TypeScript/JavaScript
-    "typescript.updateImportsOnFileMove.enabled" = "always";
-    "javascript.updateImportsOnFileMove.enabled" = "always";
-    "typescript.preferences.preferTypeOnlyAutoImports" = true;
   };
 }

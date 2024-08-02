@@ -2,7 +2,6 @@
   imports = [
     ./helix
     ./rofi
-    ./vscode
 
     ./browser.nix
     ./flameshot.nix

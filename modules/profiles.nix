@@ -16,6 +16,7 @@ in
     dev = {
       enable = mkBool true;
 
+      copilot.enable = mkBool cfg.dev.enable;
       javascript.enable = mkBool cfg.dev.enable;
 
       # Per machine

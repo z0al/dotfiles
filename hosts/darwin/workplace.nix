@@ -1,6 +1,8 @@
 {
   d.profiles = {
     dev = {
+      enable = true;
+      copilot.enable = true;
       javascript.enable = true;
       ops.enable = true;
     };
