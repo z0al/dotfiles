@@ -1,11 +1,11 @@
 { config, lib, ... }:
 
 let
-  cfgKubectl = config.d.programs.kubectl;
+  cfg = config.d.programs.kubectl;
 in
 
 {
-  config = lib.mkIf cfgKubectl.enable {
+  config = lib.mkIf cfg.enable {
     d.fs.persisted = {
       directories = [ "~/.kube" ];
     };
