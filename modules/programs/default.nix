@@ -14,6 +14,7 @@
     ./fd.nix
     ./fzf.nix
     ./lazygit.nix
+    ./nix-index.nix
     ./nixpkgs-fmt.nix
     ./starship.nix
     ./terraform.nix

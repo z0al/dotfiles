@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, theme, ... }:
+{ config, pkgs, lib, theme, ... }:
 
 let
   cfg = config.d.user;
@@ -29,7 +29,6 @@ in
     };
 
     my.user.imports = [
-      inputs.nix-index.hmModules.nix-index
       ../../../home # Legacy
     ];
 

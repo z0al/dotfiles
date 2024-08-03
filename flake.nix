@@ -35,6 +35,7 @@
     , hm
     , persistence
     , parts
+    , nix-index
     , ...
     } @ inputs:
     parts.lib.mkFlake { inherit inputs; } {
@@ -54,6 +55,7 @@
           nixpkgs.nixosModules.readOnlyPkgs
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
+          nix-index.nixosModules.nix-index
           ./modules/_nixos.nix
           # Legacy
           ./system/nixos
@@ -61,6 +63,7 @@
 
         darwinModules.default.imports = [
           hm.darwinModules.home-manager
+          nix-index.darwinModules.nix-index
           ./modules/_darwin.nix
           # Legacy
           ./system/darwin
