@@ -6,15 +6,13 @@
     ./direnv
     ./docker
     ./homebrew
-    ./kubectl
+    ./k8s
     ./vscode
     ./zoxide
 
     ./delta.nix
     ./fd.nix
     ./fzf.nix
-    ./kubelogin.nix
-    ./kubeswitch.nix
     ./lazygit.nix
     ./nix-index.nix
     ./nixpkgs-fmt.nix

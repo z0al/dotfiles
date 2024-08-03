@@ -5,6 +5,11 @@ let
 in
 
 {
+  imports = [
+    ./kubelogin.nix
+    ./kubeswitch.nix
+  ];
+
   options.d.programs.kubectl = with lib; {
     enable = mkOption {
       type = types.bool;
