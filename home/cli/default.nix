@@ -4,6 +4,5 @@
 
     ./jq.nix
     ./localrc.nix
-    ./up.nix
   ];
 }

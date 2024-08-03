@@ -1,4 +1,6 @@
 {
+  my.osUser.uid = 502;
+
   d.profiles = {
     dev = {
       enable = true;
@@ -8,11 +10,7 @@
     };
   };
 
-  my.osUser.uid = 502;
-
-  environment.shellAliases = {
-    # Jamf enforces its own hostname rules, so we can't rely on the
-    # default host value
-    up = "up --host workplace";
-  };
+  # Jamf enforces its own hostname rules, so we can't rely on the
+  # default host value
+  d.programs.up.target = "workplace";
 }

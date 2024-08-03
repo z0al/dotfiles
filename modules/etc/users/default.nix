@@ -16,6 +16,10 @@ in
       [ "users" "users" cfg.name ])
 
     (mkAliasOptionModule
+      [ "my" "packages" ]
+      [ "users" "users" cfg.name "packages" ])
+
+    (mkAliasOptionModule
       [ "my" "user" ]
       [ "home-manager" "users" cfg.name ])
   ];

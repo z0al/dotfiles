@@ -37,19 +37,49 @@ function rebuild
 end
 
 function up
+    # Options:
+    # -t/--target   configuration target
+    set -l options (fish_opt -s t -l target -r)
+
+    # -f/--flake    path to flake
+    set options $options (fish_opt -s f -l flake -r)
+
+    # -h/--help        show help
+    set options $options (fish_opt -s h -l help)
+
     # Using -i to ignore unknown flags so we can pass them down later
-    argparse -i -n up 'h/host=' 'd/dotfiles=' -- $argv
+    argparse -i -n up $options -- $argv
     or return
 
-    # Default path to ~/.dotfiles
-    set -q _flag_dotfiles || set _flag_dotfiles $HOME/.dotfiles
+    # Default flake path to $(pwd)
+    set -q _flag_flake || set _flag_flake $(pwd)
 
-    # Nix expects --flake /path/to/flake#hostname. If the hostname is
+    # Nix expects --flake /path/to/flake#target. If the target is
     # empty, then nix takes the current hostname.
-    set -l flake "$_flag_dotfiles#$_flag_host"
+    set -l flake "$_flag_flake#$_flag_target"
 
     # Any unknown option is passed through to the underlying command.
     set -l options $argv[2..-1]
+
+    if set -q _flag_help
+        echo "Apply flake-based system configuration using Nix"
+        echo ""
+        echo "Usage: up [options] [command]"
+        echo ""
+        echo "Options:"
+        echo "  -t, --target name    Target flake configuration"
+        echo "  -f, --flake PATH     Use the flake at PATH"
+        echo "  -h, --help           Show help"
+        echo ""
+        echo "Commands:"
+        echo "  build                Build the configuration"
+        echo "  prune                Reclaim disk space"
+        echo "  pull                 Update the flake"
+        echo "  test                 Apply without adding boot entry (Linux only)"
+        echo ""
+        echo "Note: unknown flags are passed down to the underlying command"
+        return 0
+    end
 
     switch $argv[1]
         case build

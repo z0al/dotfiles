@@ -21,6 +21,7 @@
     ./nixpkgs-fmt.nix
     ./starship.nix
     ./terraform.nix
+    ./up.nix
     ./wezterm.nix
   ];
 }
