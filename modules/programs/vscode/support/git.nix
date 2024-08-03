@@ -21,6 +21,7 @@ in
       "git.openRepositoryInParentFolders" = "always";
       "scm.showIncomingChanges" = "never";
       "scm.showOutgoingChanges" = "never";
+      "scm.showHistoryGraph" = false;
 
       "gitlens.statusBar.enabled" = false;
       "gitlens.statusBar.pullRequests.enabled" = false;
