@@ -7,6 +7,7 @@ in
 {
   d.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
+      bmalehorn.vscode-fish
       bradlc.vscode-tailwindcss
       dotjoshjohnson.xml
       editorconfig.editorconfig
