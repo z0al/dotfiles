@@ -2,7 +2,6 @@
   imports = [
     ./git
     ./shell
-    ./starship
 
     ./fzf.nix
     ./jq.nix

@@ -13,6 +13,7 @@
     ./delta.nix
     ./lazygit.nix
     ./nixpkgs-fmt.nix
+    ./starship.nix
     ./terraform.nix
     ./wezterm.nix
   ];
