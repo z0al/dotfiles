@@ -13,6 +13,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    d.programs.fzf.enable = true;
+
     environment = {
       systemPackages = with pkgs; [
         zoxide

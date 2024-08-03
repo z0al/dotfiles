@@ -11,6 +11,8 @@
     ./zoxide
 
     ./delta.nix
+    ./fd.nix
+    ./fzf.nix
     ./lazygit.nix
     ./nixpkgs-fmt.nix
     ./starship.nix
