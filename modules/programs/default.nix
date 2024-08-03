@@ -13,6 +13,7 @@
     ./delta.nix
     ./fd.nix
     ./fzf.nix
+    ./git.nix
     ./kubelogin.nix
     ./kubeswitch.nix
     ./lazygit.nix

@@ -9,7 +9,7 @@ in
   options.d.programs.delta = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = config.d.programs.git.enable;
     };
   };
 

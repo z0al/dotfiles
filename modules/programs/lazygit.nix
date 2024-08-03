@@ -9,7 +9,7 @@ in
   options.d.programs.lazygit = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = config.d.programs.git.enable;
     };
 
     pager = mkOption {
@@ -19,7 +19,7 @@ in
 
   config.my.user = lib.mkIf cfg.enable {
     home.shellAliases = {
-      gi = lazygit;
+      lz = lazygit;
     };
 
     programs.lazygit = {
