@@ -8,6 +8,7 @@
     ./homebrew
     ./kubectl
     ./vscode
+    ./zoxide
 
     ./delta.nix
     ./lazygit.nix

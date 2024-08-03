@@ -10,6 +10,5 @@
     ./localrc.nix
     ./nix-index.nix
     ./up.nix
-    ./zoxide.nix
   ];
 }

@@ -10,5 +10,6 @@
     ./programs/docker/_nixos.nix
     ./programs/kubectl/_nixos.nix
     ./programs/vscode/_nixos.nix
+    ./programs/zoxide/_nixos.nix
   ];
 }
