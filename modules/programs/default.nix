@@ -13,6 +13,8 @@
     ./delta.nix
     ./fd.nix
     ./fzf.nix
+    ./kubelogin.nix
+    ./kubeswitch.nix
     ./lazygit.nix
     ./nix-index.nix
     ./nixpkgs-fmt.nix
