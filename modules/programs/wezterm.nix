@@ -73,7 +73,7 @@ in
       wezterm
     ];
 
-    environment.variables = {
+    d.shell.variables = {
       TERMINAL = "wezterm";
     };
 

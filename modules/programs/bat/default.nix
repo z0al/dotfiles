@@ -27,7 +27,7 @@ in
       cat = bat;
     };
 
-    environment.variables = {
+    d.shell.variables = {
       BAT_THEME = cfg.theme;
     };
 

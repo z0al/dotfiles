@@ -15,6 +15,11 @@ in
       type = types.attrsOf types.str;
       default = { };
     };
+
+    variables = mkOption {
+      type = types.attrsOf types.str;
+      default = { };
+    };
   };
 
   config = {
@@ -22,25 +27,27 @@ in
 
     environment = {
       shells = [ pkgs.fish ];
+
+      variables = cfg.variables;
+
+      shellAliases = cfg.aliases // {
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+
+        clear = "tput reset";
+        grep = "rg";
+        mkdir = "mkdir -p";
+      };
+
+      interactiveShellInit = ''
+        if [ -f ~/.localrc ]; then
+          source ~/.localrc
+        fi
+
+        ${cfg.init}
+      '';
     };
-
-    environment.shellAliases = cfg.aliases // {
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
-
-      clear = "tput reset";
-      grep = "rg";
-      mkdir = "mkdir -p";
-    };
-
-    environment.interactiveShellInit = ''
-      if [ -f ~/.localrc ]; then
-        source ~/.localrc
-      fi
-
-      ${cfg.init}
-    '';
   };
 }
 

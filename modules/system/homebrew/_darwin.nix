@@ -14,7 +14,7 @@ in
     };
   };
 
-  environment.variables = {
+  d.shell.variables = {
     HOMEBREW_AUTO_UPDATE_SECS = toString (60 * 60 * 24 * 7); # 1 week;
   };
 

@@ -82,7 +82,7 @@ in
       starship
     ];
 
-    environment.variables = {
+    d.shell.variables = {
       STARSHIP_LOG = "error";
     };
 
