@@ -2,16 +2,14 @@
 
 let
   cfg = config.d.programs.helix;
+  package = pkgs.unstable.vscode-langservers-extracted;
 
-  json-lang-server-bin = with pkgs;
-    "${vscode-langservers-extracted}/bin/vscode-json-language-server";
+  json-lang-server-bin = "${package}/bin/vscode-json-language-server";
 in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = with pkgs; [
-      vscode-langservers-extracted
-    ];
+    packages = [ package ];
 
     languages = {
       language = [{

@@ -24,14 +24,14 @@ let
     ];
   };
 
-  eslint-lang-server-bin = with pkgs;
+  eslint-lang-server-bin = with pkgs.unstable;
     "${vscode-langservers-extracted}/bin/vscode-eslint-language-server";
 in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = with pkgs; [
-      unstable.typescript-language-server
+    packages = with pkgs.unstable; [
+      typescript-language-server
       vscode-langservers-extracted
     ];
 

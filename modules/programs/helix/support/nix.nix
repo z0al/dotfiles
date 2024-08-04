@@ -2,13 +2,12 @@
 
 let
   cfg = config.d.profiles.dev.nix;
+  package = pkgs.unstable.nil;
 in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = with pkgs; [
-      nil
-    ];
+    packages = [ package ];
 
     languages = {
       language = [{
@@ -23,7 +22,7 @@ in
       }];
 
       language-server.nil = {
-        command = lib.getExe pkgs.nil;
+        command = lib.getExe package;
 
         config.nil.nix = {
           binary = lib.getExe pkgs.nix;

@@ -38,7 +38,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = cfg.packages ++ (
-      with pkgs; [
+      with pkgs.unstable; [
         helix
       ]
     );

@@ -2,17 +2,16 @@
 
 let
   cfg = config.d.profiles.dev.lua;
+  package = pkgs.unstable.lua-language-server;
 in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = with pkgs; [
-      lua-language-server
-    ];
+    packages = [ package ];
 
     languages = {
       language-server.lua-language-server = {
-        command = lib.getExe pkgs.lua-language-server;
+        command = lib.getExe package;
       };
 
       language = [{

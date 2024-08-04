@@ -6,7 +6,7 @@ in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = with pkgs; [
+    packages = with pkgs.unstable; [
       delve
       gopls
     ];
