@@ -16,13 +16,20 @@ in
       type = types.lines;
       default = "";
     };
+
+    plugins = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs.fishPlugins; [
-      sponge
-      autopair-fish
-    ];
+    environment.systemPackages = cfg.plugins ++ (
+      with pkgs.fishPlugins; [
+        sponge
+        autopair-fish
+      ]
+    );
 
     programs.fish = {
       enable = true;

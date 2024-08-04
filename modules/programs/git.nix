@@ -15,15 +15,11 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       git
-      git-ignore
     ];
 
     d.shell.aliases = {
       g = "git status";
-      ga = "git add .";
       gcm = "git commit -m";
-      gco = "git checkout";
-      gl = "git log";
       gp = "git pull";
       gP = "git push";
     };

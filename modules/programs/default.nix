@@ -13,6 +13,7 @@
     ./delta.nix
     ./fd.nix
     ./fish.nix
+    ./forgit.nix
     ./fzf.nix
     ./git.nix
     ./jq.nix
