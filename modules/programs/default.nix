@@ -28,6 +28,7 @@
     ./nix-index.nix
     ./nixpkgs-fmt.nix
     ./obsidian.nix
+    ./prettier.nix
     ./python.nix
     ./rustup.nix
     ./shfmt.nix
