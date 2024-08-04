@@ -6,4 +6,8 @@
       rust.enable = true;
     };
   };
+
+  d.programs = {
+    obsidian.enable = true;
+  };
 }

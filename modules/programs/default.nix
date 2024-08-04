@@ -17,6 +17,7 @@
     ./expo.nix
     ./fd.nix
     ./fish.nix
+    ./flameshot.nix
     ./forgit.nix
     ./fzf.nix
     ./git.nix
@@ -26,6 +27,7 @@
     ./lazygit.nix
     ./nix-index.nix
     ./nixpkgs-fmt.nix
+    ./obsidian.nix
     ./python.nix
     ./rustup.nix
     ./shfmt.nix
