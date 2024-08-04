@@ -10,6 +10,7 @@
     ./vscode
     ./zoxide
 
+    ./any-nix-shell.nix
     ./delta.nix
     ./fd.nix
     ./fzf.nix
