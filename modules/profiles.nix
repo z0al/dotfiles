@@ -17,8 +17,9 @@ in
       enable = mkBool true;
 
       copilot.enable = mkBool cfg.dev.enable;
-      nodejs.enable = mkBool cfg.dev.enable;
+      typescript.enable = mkBool cfg.dev.enable;
       lua.enable = mkBool cfg.dev.enable;
+      nix.enable = mkBool cfg.dev.enable;
 
       # Per machine
       go.enable = mkBool false;

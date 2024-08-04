@@ -2,7 +2,7 @@
   d.profiles = {
     dev = {
       enable = true;
-      nodejs.enable = true;
+      typescript.enable = true;
       rust.enable = true;
     };
   };

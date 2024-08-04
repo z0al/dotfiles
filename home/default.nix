@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./apps
     ./autostart.nix
   ];
 

@@ -1,14 +1,21 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
+
+let
+  cfg = config.d.profiles.dev.lua;
+in
 
 {
-  home.packages = with pkgs; [
-    stylua
-    lua-language-server
-  ];
+  config.d.programs.helix = lib.mkIf cfg.enable {
+    packages = with pkgs; [
+      lua-language-server
+    ];
 
-  programs.helix.languages = {
-    language = [
-      {
+    languages = {
+      language-server.lua-language-server = {
+        command = lib.getExe pkgs.lua-language-server;
+      };
+
+      language = [{
         name = "lua";
         indent = {
           tab-width = 2;
@@ -16,7 +23,7 @@
         };
 
         formatter = {
-          command = "${pkgs.stylua}/bin/stylua";
+          command = lib.getExe pkgs.stylua;
           args = lib.flatten [
             [ "-" ]
 
@@ -27,11 +34,7 @@
             [ "--sort-requires" ]
           ];
         };
-      }
-    ];
-
-    language-server.lua-language-server = {
-      command = "${pkgs.lua-language-server}/bin/lua-language-server";
+      }];
     };
   };
 }

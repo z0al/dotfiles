@@ -5,7 +5,7 @@
     dev = {
       enable = true;
       copilot.enable = true;
-      nodejs.enable = true;
+      typescript.enable = true;
       ops.enable = true;
     };
   };

@@ -30,7 +30,7 @@
     "scope": "nix",
     "description": "Nix Module Enabled",
     "body": [
-      "{ config, lib, ... }:",
+      "{ config, pkgs, lib, ... }:",
       "",
       "let",
       "  cfg = config.d.${1:name};",

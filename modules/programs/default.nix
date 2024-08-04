@@ -7,6 +7,7 @@
     ./direnv
     ./docker
     ./fnm
+    ./helix
     ./kubectl
     ./vscode
     ./zoxide

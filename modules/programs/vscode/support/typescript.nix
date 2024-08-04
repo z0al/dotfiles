@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.profiles.dev.nodejs;
+  cfg = config.d.profiles.dev.typescript;
 in
 
 {
