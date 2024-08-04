@@ -13,11 +13,7 @@
 
   # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
   homebrew = {
-    brews = [
-      {
-        name = "yabai";
-      }
-    ];
+    brews = [ "yabai" ];
 
     taps = [
       "koekeishiya/formulae"

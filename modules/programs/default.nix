@@ -5,7 +5,6 @@
     ./bat
     ./direnv
     ./docker
-    ./homebrew
     ./kubectl
     ./vscode
     ./zoxide

@@ -1,5 +1,5 @@
 {
-  d.programs.homebrew = {
+  homebrew = {
     casks = [
       "google-chrome"
       "raycast"
