@@ -3,6 +3,7 @@
   imports = [
     ./.
     ./programs/1password/_darwin.nix
+    ./programs/chrome/_darwin.nix
     ./programs/docker/_darwin.nix
     ./system/homebrew/_darwin.nix
     ./system/nix/_darwin.nix

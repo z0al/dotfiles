@@ -3,7 +3,6 @@
     ./helix
     ./rofi
 
-    ./browser.nix
     ./flameshot.nix
     ./gimp.nix
     ./inkscape.nix

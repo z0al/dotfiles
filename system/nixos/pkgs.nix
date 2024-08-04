@@ -11,7 +11,6 @@
     firefox-devedition-bin
     gnome-obfuscate
     gnome.gnome-tweaks
-    google-chrome
     gparted
     video-trimmer
 

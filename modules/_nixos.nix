@@ -4,6 +4,7 @@
     ./.
     ./programs/1password/_nixos.nix
     ./programs/aws/_nixos.nix
+    ./programs/chrome/_nixos.nix
     ./programs/direnv/_nixos.nix
     ./programs/docker/_nixos.nix
     ./programs/fnm/_nixos.nix
