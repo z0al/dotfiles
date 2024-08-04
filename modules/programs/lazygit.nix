@@ -2,6 +2,7 @@
 
 let
   cfg = config.d.programs.lazygit;
+  toYAML = lib.generators.toYAML { };
 in
 
 {
@@ -26,14 +27,12 @@ in
     };
 
     my.user = {
-      programs.lazygit = {
-        enable = true;
+      xdg.configFile."lazygit/config.yml".text = toYAML {
+        disableStartupPopups = true;
 
-        settings = {
-          git.paging = {
-            colorArg = "always";
-            pager = cfg.pager;
-          };
+        git.paging = {
+          colorArg = "always";
+          pager = cfg.pager;
         };
       };
     };
