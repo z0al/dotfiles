@@ -1,8 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-let
-  cfg = config.d.programs.chrome;
-in
+{ lib, ... }:
 
 {
   options.d.programs.chrome = with lib; {

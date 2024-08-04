@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 let
   wallpaper = "${../../assets/wallpaper.jpg}";
   avatar = "${../../assets/avatar.png}";

@@ -1,4 +1,4 @@
-{ pkgs, lib, theme, ... }:
+{ pkgs, theme, ... }:
 
 let
   themeMapping = {

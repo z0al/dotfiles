@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   my.osUser.extraGroups = [ "networkmanager" ];
 

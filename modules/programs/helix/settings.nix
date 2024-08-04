@@ -1,4 +1,4 @@
-{ config, pkgs, lib, theme, ... }:
+{ config, lib, theme, ... }:
 
 let
   cfg = config.d.programs.helix;

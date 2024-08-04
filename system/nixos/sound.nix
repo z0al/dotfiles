@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   sound.enable = true;
   xdg.portal.enable = true;

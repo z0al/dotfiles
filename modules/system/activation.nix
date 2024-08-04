@@ -13,7 +13,7 @@ in
   config = {
     my.user = { lib, ... }: {
       home.activation = lib.mapAttrs
-        (name: script: lib.hm.dag.entryAfter [ "writeBoundary" ] script)
+        (_name: script: lib.hm.dag.entryAfter [ "writeBoundary" ] script)
         cfg;
     };
   };

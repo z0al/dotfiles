@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   boot = {
     loader = {

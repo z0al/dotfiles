@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 let
   prefix = "/opt/homebrew";
 in
