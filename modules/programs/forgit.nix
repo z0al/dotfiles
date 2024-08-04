@@ -22,7 +22,6 @@ in
     };
 
     d.shell.aliases = {
-      g = "git status";
       ga = "git-forgit add";
       gbd = "git-forgit branch_delete";
       gbl = "git-forgit blame";
