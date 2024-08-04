@@ -31,17 +31,21 @@ in
       home = homeFolder;
     };
 
-    my.user.imports = [
-      ../../../home # Legacy
-    ];
-
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+    };
 
-      extraSpecialArgs = {
-        inherit theme;
+    my.user = {
+      home = {
+        username = cfg.name;
+        homeDirectory = homeFolder;
+        stateVersion = config.d.version;
       };
+
+      xdg.enable = true;
+      programs.ssh.enable = true;
+      programs.home-manager.enable = true;
     };
   };
 }
