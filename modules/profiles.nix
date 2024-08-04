@@ -17,12 +17,14 @@ in
       enable = mkBool true;
 
       copilot.enable = mkBool cfg.dev.enable;
-      javascript.enable = mkBool cfg.dev.enable;
+      nodejs.enable = mkBool cfg.dev.enable;
+      lua.enable = mkBool cfg.dev.enable;
 
       # Per machine
       go.enable = mkBool false;
       python.enable = mkBool false;
       rust.enable = mkBool false;
+      react-native.enable = mkBool false;
 
       # docker, k8s, terraform ..etc
       ops.enable = mkBool false;

@@ -5,12 +5,15 @@
     ./bat
     ./direnv
     ./docker
+    ./fnm
     ./kubectl
     ./vscode
     ./zoxide
 
     ./any-nix-shell.nix
+    ./black.nix
     ./delta.nix
+    ./expo.nix
     ./fd.nix
     ./fish.nix
     ./forgit.nix
@@ -22,9 +25,14 @@
     ./lazygit.nix
     ./nix-index.nix
     ./nixpkgs-fmt.nix
+    ./python.nix
+    ./rustup.nix
+    ./shfmt.nix
     ./starship.nix
+    ./stylua.nix
     ./terraform.nix
     ./up.nix
+    ./watchman.nix
     ./wezterm.nix
   ];
 }

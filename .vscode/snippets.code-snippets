@@ -14,7 +14,7 @@
       "  options.d.${1:name} = with lib; {",
       "    enable = mkOption {",
       "      type = types.bool;",
-      "      default = false;",
+      "      default = ${2:false};",
       "    };",
       "  };",
       "",

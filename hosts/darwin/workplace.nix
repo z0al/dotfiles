@@ -5,7 +5,7 @@
     dev = {
       enable = true;
       copilot.enable = true;
-      javascript.enable = true;
+      nodejs.enable = true;
       ops.enable = true;
     };
   };

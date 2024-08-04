@@ -2,7 +2,7 @@
   d.profiles = {
     dev = {
       enable = true;
-      javascript.enable = true;
+      nodejs.enable = true;
       rust.enable = true;
     };
   };
