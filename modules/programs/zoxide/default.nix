@@ -14,18 +14,15 @@ in
 
   config = lib.mkIf cfg.enable {
     d.programs.fzf.enable = true;
+    environment.systemPackages = with pkgs; [
+      zoxide
+    ];
 
-    environment = {
-      systemPackages = with pkgs; [
-        zoxide
-      ];
-
-      shellAliases = {
-        j = "__zoxide_zi";
-      };
+    d.shell.aliases = {
+      j = "__zoxide_zi";
     };
 
-    programs.fish.interactiveShellInit = ''
+    d.programs.fish.init = ''
       ${lib.getExe pkgs.zoxide} init fish --no-cmd | source
     '';
   };

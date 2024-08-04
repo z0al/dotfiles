@@ -2,8 +2,9 @@
 
 let
   cfg = config.d.programs.homebrew;
-
-  brewPrefix = if pkgs.stdenv.isDarwin then "/opt/homebrew" else "/usr/local";
+  brew =
+    if pkgs.stdenv.isDarwin then "/opt/homebrew/bin/brew"
+    else "/usr/local/bin/bew";
 in
 
 {
@@ -30,13 +31,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    my.user.programs = {
-      fish.interactiveShellInit = ''
-        # d.programs.homebrew
-        if test -e ${brewPrefix}/bin/brew;
-          eval "$(${brewPrefix}/bin/brew shellenv)"
-        end
-      '';
-    };
+    environment.interactiveShellInit = ''
+      if [ -f ${brew} ]; then
+        eval "$(${brew} shellenv)"
+      fi
+    '';
   };
 }

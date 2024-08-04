@@ -2,7 +2,6 @@
 
 let
   cfg = config.d.programs.lazygit;
-  lazygit = "${pkgs.lazygit}/bin/lazygit";
 in
 
 {
@@ -17,18 +16,24 @@ in
     };
   };
 
-  config.my.user = lib.mkIf cfg.enable {
-    home.shellAliases = {
-      lz = lazygit;
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      lazygit
+    ];
+
+    d.shell.aliases = {
+      lz = lib.getExe pkgs.lazygit;
     };
 
-    programs.lazygit = {
-      enable = true;
+    my.user = {
+      programs.lazygit = {
+        enable = true;
 
-      settings = {
-        git.paging = {
-          colorArg = "always";
-          pager = cfg.pager;
+        settings = {
+          git.paging = {
+            colorArg = "always";
+            pager = cfg.pager;
+          };
         };
       };
     };

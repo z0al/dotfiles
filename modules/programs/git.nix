@@ -18,7 +18,7 @@ in
       git-ignore
     ];
 
-    environment.shellAliases = {
+    d.shell.aliases = {
       g = "git status";
       ga = "git add .";
       gcm = "git commit -m";

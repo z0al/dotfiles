@@ -3,7 +3,6 @@
 {
   imports = [
     ./apps
-    ./cli
     ./dev
     ./autostart.nix
   ];

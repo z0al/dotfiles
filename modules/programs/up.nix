@@ -27,11 +27,11 @@ in
     };
 
   config = lib.mkIf cfg.enable {
-    my.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       (pkgs.writeScriptBin "up" (builtins.readFile ../../bin/up))
     ];
 
-    my.user.home.shellAliases = {
+    d.shell.aliases = {
       up = "up ${flake} ${target}";
     };
   };

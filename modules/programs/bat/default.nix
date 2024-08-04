@@ -23,7 +23,7 @@ in
       pkgs.bat
     ];
 
-    environment.shellAliases = {
+    d.shell.aliases = {
       cat = bat;
     };
 

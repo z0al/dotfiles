@@ -46,7 +46,7 @@ in
       };
     };
 
-    programs.fish.interactiveShellInit = ''
+    d.programs.fish.init = ''
       ${lib.getExe pkgs.fzf} --fish | source
     '';
   };

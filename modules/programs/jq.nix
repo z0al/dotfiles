@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.any-nix-shell;
+  cfg = config.d.programs.jq;
 in
 
 {
-  options.d.programs.any-nix-shell = with lib; {
+  options.d.programs.jq = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -14,11 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      any-nix-shell
+      jq
     ];
-
-    d.programs.fish.init = ''
-      ${lib.getExe pkgs.any-nix-shell} fish | source
-    '';
   };
 }

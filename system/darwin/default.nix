@@ -21,7 +21,6 @@
   '';
 
   my.user = {
-    imports = [ ./hm ];
     targets.darwin.currentHostDefaults = {
       "com.apple.controlcenter" = {
         BatteryShowPercentage = true;

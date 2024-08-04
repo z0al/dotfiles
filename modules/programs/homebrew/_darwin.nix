@@ -19,7 +19,7 @@ in
       };
     };
 
-    my.user.home.sessionVariables = {
+    environment.variables = {
       HOMEBREW_AUTO_UPDATE_SECS = toString updateInterval;
     };
   };

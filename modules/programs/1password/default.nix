@@ -28,15 +28,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    d.shell.init = ''
+      if [ -f ~/.config/op/plugins.sh ]; then
+        source ~/.config/op/plugins.sh
+      fi
+    '';
+
     my.user = {
       programs.ssh.extraConfig = ''
         IdentityAgent "${ssh.agent}"
       '';
-
-      # Load 1Password Shell Plugins
-      programs.fish.sources = [
-        "~/.config/op/plugins.sh"
-      ];
 
       # Git Intergration
       programs.git.extraConfig.gpg = {

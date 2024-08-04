@@ -1,8 +1,7 @@
 {
   imports = [
-    ./etc
     ./programs
-    ./activation.nix
+    ./system
     ./config.nix
     ./profiles.nix
   ];

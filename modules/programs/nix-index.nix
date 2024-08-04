@@ -18,7 +18,7 @@ in
     programs.nix-index-database.comma.enable = true;
 
     # See https://github.com/nix-community/nix-index/issues/126
-    programs.fish.interactiveShellInit =
+    d.programs.fish.init =
       let
         wrapper = pkgs.writeScript "command-not-found" ''
           #!${pkgs.bash}/bin/bash

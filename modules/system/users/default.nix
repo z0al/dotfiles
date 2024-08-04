@@ -29,7 +29,6 @@ in
       name = cfg.name;
       description = cfg.name;
       home = homeFolder;
-      shell = pkgs.fish;
     };
 
     my.user.imports = [

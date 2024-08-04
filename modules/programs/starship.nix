@@ -86,7 +86,7 @@ in
       STARSHIP_LOG = "error";
     };
 
-    programs.fish.interactiveShellInit = ''
+    d.programs.fish.init = ''
       ${lib.getExe pkgs.starship} init fish | source
     '';
 
