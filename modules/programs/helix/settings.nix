@@ -13,6 +13,11 @@ in
     theme = themeMapping.${theme};
 
     editor = {
+      auto-save.after-delay = {
+        enable = true;
+        timeout = 1000;
+      };
+
       auto-format = true;
       bufferline = "never";
       color-modes = true;
