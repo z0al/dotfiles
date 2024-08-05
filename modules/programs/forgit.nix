@@ -27,14 +27,14 @@ in
       gbl = "git-forgit blame";
       gcb = "git-forgit checkout_branch";
       gcf = "git-forgit checkout_file";
-      gclean = "git-forgit clean";
+      gcl = "git-forgit clean";
       gco = "git-forgit checkout_commit";
       gcp = "git-forgit cherry_pick_from_branch";
       gct = "git-forgit checkout_tag";
       gd = "git-forgit diff";
       gfu = "git-forgit fixup";
       gi = "git-forgit ignore";
-      glo = "git-forgit log";
+      gl = "git-forgit log";
       grb = "git-forgit rebase";
       grc = "git-forgit revert_commit";
       grh = "git-forgit reset_head";
