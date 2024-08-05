@@ -21,13 +21,7 @@
     vscode.url = "github:nix-community/nix-vscode-extensions";
     vscode.inputs.nixpkgs.follows = "nixpkgs";
 
-    fenix.url = "github:nix-community/fenix";
-    fenix.inputs.nixpkgs.follows = "nixpkgs";
-
     parts.url = "github:hercules-ci/flake-parts";
-
-    # helix.url = "github:helix-editor/helix";
-    # helix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
