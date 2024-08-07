@@ -10,6 +10,7 @@
     ./helix
     ./kubectl
     ./vscode
+    ./wezterm
     ./zoxide
 
     ./any-nix-shell.nix
@@ -38,6 +39,5 @@
     ./terraform.nix
     ./up.nix
     ./watchman.nix
-    ./wezterm.nix
   ];
 }
