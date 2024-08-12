@@ -27,7 +27,7 @@ in
 
         {
           key = "c";
-          mods = "CTRL|SHIFT";
+          mods = "${mod}|SHIFT";
           action = actions.copy;
         }
 
@@ -40,7 +40,7 @@ in
 
         {
           key = "v";
-          mods = "CTRL|SHIFT";
+          mods = "${mod}|SHIFT";
           action = actions.paste;
         }
 
