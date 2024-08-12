@@ -49,6 +49,7 @@ in
         };
 
         battery.disabled = true;
+        docker_context.disabled = true;
         package.disabled = true;
         kubernetes.disabled = false;
 
