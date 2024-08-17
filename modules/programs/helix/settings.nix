@@ -13,9 +13,13 @@ in
     theme = themeMapping.${theme};
 
     editor = {
-      auto-save.after-delay = {
-        enable = true;
-        timeout = 1000;
+      auto-save = {
+        focus-lost = true;
+
+        after-delay = {
+          enable = true;
+          timeout = 5000;
+        };
       };
 
       auto-format = true;
