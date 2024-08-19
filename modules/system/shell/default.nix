@@ -45,6 +45,8 @@ in
           source ~/.localrc
         fi
 
+        export PATH="$HOME/.local/bin:$PATH"
+
         ${cfg.init}
       '';
     };
