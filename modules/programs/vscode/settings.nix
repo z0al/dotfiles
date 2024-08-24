@@ -34,6 +34,7 @@ in
     "editor.scrollBeyondLastLine" = false;
     "editor.padding.bottom" = 100;
     "editor.rulers" = [ 80 ];
+    "editor.guides.indentation" = false;
 
     # Workbench
     "workbench.iconTheme" = "vs-seti";
