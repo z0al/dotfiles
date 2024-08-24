@@ -33,6 +33,7 @@ in
 
       variables = {
         FZF_DEFAULT_OPTS = lib.concatStringsSep " " (themes.${theme} ++ [
+          "--exact"
           "--layout=reverse"
           "--inline-info"
           "--height=50%"
