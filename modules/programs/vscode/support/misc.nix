@@ -14,11 +14,11 @@ in
       foxundermoon.shell-format
       hashicorp.terraform
       jnoortheen.nix-ide
-      jock.svg
       johnnymorganz.stylua
       ms-azuretools.vscode-docker
       okitavera.vscode-nunjucks-formatter
       ronnidc.nunjucks
+      sndst00m.vscode-native-svg-preview
       tamasfe.even-better-toml
       xaver.clang-format
       yzhang.markdown-all-in-one
