@@ -32,9 +32,12 @@ in
     my.user = {
       xdg.configFile."${cfgFile}".source = toTOML "starship.toml" {
         character = {
-          success_symbol = "[󱞩](bold prompt)";
-          error_symbol = "[󱞩](bold red)";
-          vicmd_symbol = "[](bold prompt)";
+          success_symbol = "[](bold purple)";
+          error_symbol = "[](bold red)";
+          vicmd_symbol = "[](bold purple)";
+          vimcmd_replace_symbol = "[](bold red)";
+          vimcmd_replace_one_symbol = "[](bold red)";
+          vimcmd_visual_symbol = "[](bold yellow)";
         };
 
         cmd_duration = {
@@ -62,8 +65,6 @@ in
         # Catppuccin (Mocha)
         # https://github.com/catppuccin/starship
         palettes.catppuccin = {
-          prompt = "#cba6f7";
-
           rosewater = "#f5e0dc";
           flamingo = "#f2cdcd";
           pink = "#f5c2e7";
