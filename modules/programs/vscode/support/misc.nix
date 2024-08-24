@@ -19,6 +19,7 @@ in
       okitavera.vscode-nunjucks-formatter
       ronnidc.nunjucks
       tamasfe.even-better-toml
+      xaver.clang-format
     ];
 
     settings = {
@@ -38,6 +39,11 @@ in
 
       # Nix
       "nix.formatterPath" = lib.getExe pkgs.nixpkgs-fmt;
+
+      # C/C++
+      "[c]" = {
+        "editor.defaultFormatter" = "xaver.clang-format";
+      };
     };
   };
 }
