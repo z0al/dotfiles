@@ -47,6 +47,9 @@ in
       interactiveShellInit = ''
         set -U fish_greeting
 
+        # https://github.com/meaningful-ooo/sponge
+        set sponge_purge_only_on_exit true
+
         ${cfg.init}
       '';
     };
