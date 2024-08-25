@@ -23,7 +23,6 @@
     ./forgit.nix
     ./fzf.nix
     ./git.nix
-    ./jq.nix
     ./kubelogin.nix
     ./kubeswitch.nix
     ./lazygit.nix

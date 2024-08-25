@@ -5,6 +5,8 @@
     ./shell
     ./sudoers
     ./users
+
     ./activation.nix
+    ./std.nix
   ];
 }

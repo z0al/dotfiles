@@ -1,6 +1,5 @@
 {
   imports = [
-    ./pkgs.nix
     ./shells.nix
     ./tmpfs.nix
   ];
