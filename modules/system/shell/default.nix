@@ -44,6 +44,8 @@ in
           source ~/.localrc
         fi
 
+        # https://github.com/LnL7/nix-darwin/issues/122
+        export PATH="/run/current-system/sw/bin:$PATH"
         export PATH="$HOME/.local/bin:$PATH"
 
         ${cfg.init}
