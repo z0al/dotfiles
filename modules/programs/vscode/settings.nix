@@ -57,7 +57,7 @@ in
     "explorer.openEditors.visible" = 0;
 
     # Terminal
-    "terminal.integrated.fontSize" = 13;
+    "terminal.integrated.fontSize" = 12;
     "terminal.explorerKind" = "external";
     "terminal.external.linuxExec" = "${pkgs.wezterm}/bin/wezterm";
     "terminal.external.osxExec" = "Terminal.app";
