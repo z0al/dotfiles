@@ -16,6 +16,7 @@
     ./any-nix-shell.nix
     ./black.nix
     ./delta.nix
+    ./devenv.nix
     ./expo.nix
     ./fd.nix
     ./fish.nix

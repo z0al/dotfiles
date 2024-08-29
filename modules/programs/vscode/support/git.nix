@@ -23,7 +23,6 @@ in
       "scm.showOutgoingChanges" = "never";
       "scm.showHistoryGraph" = false;
 
-
       "betterGitLineBlame.annotateWholeLine" = false;
       "betterGitLineBlame.enableHoverMessages" = true;
       "betterGitLineBlame.ignoreWhitespaceChanges" = true;

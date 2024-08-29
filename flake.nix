@@ -11,6 +11,8 @@
     hm.url = "github:nix-community/home-manager/release-24.05";
     hm.inputs.nixpkgs.follows = "nixpkgs";
 
+    parts.url = "github:hercules-ci/flake-parts";
+
     hardware.url = "github:NixOS/nixos-hardware/master";
 
     persistence.url = "github:nix-community/impermanence";
@@ -20,8 +22,6 @@
 
     vscode.url = "github:nix-community/nix-vscode-extensions";
     vscode.inputs.nixpkgs.follows = "nixpkgs";
-
-    parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
