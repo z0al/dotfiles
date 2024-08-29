@@ -7,7 +7,7 @@ in
 {
   d.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
-      eamodio.gitlens
+      mk12.better-git-line-blame
     ];
 
     settings = {
@@ -23,15 +23,11 @@ in
       "scm.showOutgoingChanges" = "never";
       "scm.showHistoryGraph" = false;
 
-      "gitlens.statusBar.enabled" = false;
-      "gitlens.statusBar.pullRequests.enabled" = false;
-      "gitlens.graph.statusBar.enabled" = false;
-      "gitlens.mode.statusBar.enabled" = false;
-      "gitlens.keymap" = "none";
-      "gitlens.showWelcomeOnInstall" = false;
-      "gitlens.launchpad.indicator.enabled" = false;
-      "gitlens.currentLine.scrollable" = false;
-      "gitlens.hovers.currentLine.over" = "line";
+
+      "betterGitLineBlame.annotateWholeLine" = false;
+      "betterGitLineBlame.enableHoverMessages" = true;
+      "betterGitLineBlame.ignoreWhitespaceChanges" = true;
+      "betterGitLineBlame.showStatusBarItem" = false;
     };
   };
 }
