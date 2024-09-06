@@ -7,6 +7,31 @@ let
       command = "workbench.view.scm";
       when = "workbench.scm.active";
     }
+
+    # Extension: Markdown All In One
+    # Restrict cmd+b & cmd+i shortcuts to selected text
+    {
+      key = "cmd+b";
+      command = "markdown.extension.editing.toggleBold";
+      when = "editorHasSelection && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+    }
+
+    {
+      key = "cmd+i";
+      command = "markdown.extension.editing.toggleItalic";
+      when = "editorHasSelection && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+    }
+
+    {
+      key = "cmd+b";
+      command = "-markdown.extension.editing.toggleBold";
+      when = "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+    }
+    {
+      key = "cmd+i";
+      command = "-markdown.extension.editing.toggleItalic";
+      when = "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+    }
   ];
 
   mapCmdToCtrl = binding:
