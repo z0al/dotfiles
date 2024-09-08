@@ -44,4 +44,9 @@
     wvous-tl-corner = 2;
     wvous-tr-corner = 1;
   };
+
+  system.defaults.CustomUserPreferences."com.apple.dock" = {
+    # https://superuser.com/questions/1778079/disable-switching-window-on-different-desktop
+    workspaces-auto-swoosh = false;
+  };
 }
