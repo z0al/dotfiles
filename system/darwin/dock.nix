@@ -18,7 +18,7 @@
     # main one. The default is false.
     appswitcher-all-displays = true;
 
-    # Whether to group windows by applic ation in Mission Control’s
+    # Whether to group windows by application in Mission Control’s
     # Exposé. The default is true.
     expose-group-by-app = true;
 
@@ -47,6 +47,6 @@
 
   system.defaults.CustomUserPreferences."com.apple.dock" = {
     # https://superuser.com/questions/1778079/disable-switching-window-on-different-desktop
-    workspaces-auto-swoosh = false;
+    workspaces-auto-swoosh = true;
   };
 }
