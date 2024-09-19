@@ -5,7 +5,6 @@
     ./bat
     ./chrome
     ./direnv
-    ./docker
     ./fnm
     ./helix
     ./kubectl
@@ -17,6 +16,7 @@
     ./black.nix
     ./delta.nix
     ./devenv.nix
+    ./docker.nix
     ./expo.nix
     ./fd.nix
     ./fish.nix
