@@ -93,7 +93,7 @@ function up
             nix-collect-garbage $options
 
         case pull
-            nix flake update $flake $options
+            nix flake update $_flag_flake $options
 
         case test
             if test (uname) = Darwin
