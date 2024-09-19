@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, lib, inputs, ... }:
 
 {
   nix = {
@@ -13,7 +13,8 @@
     };
 
     # https://yusef.napora.org/blog/pinning-nixpkgs-flake/
-    registry.nixpkgs.flake = inputs.nixpkgs-unstable;
+    # FIXME: should be fixed by LnL7/nix-darwin#1083
+    # registry.nixpkgs.flake = lib.mkForce inputs.nixpkgs-unstable;
 
     extraOptions = ''
       experimental-features = nix-command flakes
