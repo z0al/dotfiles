@@ -11,9 +11,9 @@ in
     [
       ./etc
       ./hm
-      ./homebrew
       ./programs
       ./security
+      ./services
       ./wm
 
       ./config.nix
