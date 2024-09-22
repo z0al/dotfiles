@@ -19,7 +19,7 @@ in
       fnm
     ];
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       nvm = "fnm";
     };
 

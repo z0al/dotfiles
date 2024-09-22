@@ -18,7 +18,7 @@ in
       zoxide
     ];
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       j = "__zoxide_zi";
     };
 

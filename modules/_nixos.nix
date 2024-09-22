@@ -11,7 +11,6 @@
     ./programs/kubectl/_nixos.nix
     ./programs/vscode/_nixos.nix
     ./programs/zoxide/_nixos.nix
-    ./system/shell/_nixos.nix
     ./user/_nixos.nix
   ];
 }

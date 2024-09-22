@@ -23,11 +23,11 @@ in
       pkgs.bat
     ];
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       cat = bat;
     };
 
-    d.shell.variables = {
+    environment.variables = {
       BAT_THEME = cfg.theme;
     };
 

@@ -17,7 +17,7 @@ in
       git
     ];
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       g = "git status";
       gcm = "git commit -m";
       gp = "git pull";

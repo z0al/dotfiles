@@ -22,7 +22,7 @@ in
       lazygit
     ];
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       lz = lib.getExe pkgs.lazygit;
     };
 

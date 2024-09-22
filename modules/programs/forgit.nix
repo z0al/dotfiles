@@ -17,11 +17,11 @@ in
       forgit
     ];
 
-    d.shell.variables = {
+    environment.variables = {
       FORGIT_NO_ALIASES = "1";
     };
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       ga = "git-forgit add";
       gbd = "git-forgit branch_delete";
       gbl = "git-forgit blame";

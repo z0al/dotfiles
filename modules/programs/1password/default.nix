@@ -28,7 +28,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.shell.init = ''
+    environment.interactiveShellInit = ''
       if [ -f ~/.config/op/plugins.sh ]; then
         source ~/.config/op/plugins.sh
       fi

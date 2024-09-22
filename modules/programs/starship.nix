@@ -20,7 +20,7 @@ in
       starship
     ];
 
-    d.shell.variables = {
+    environment.variables = {
       STARSHIP_CONFIG = "${config.my.user.xdg.configHome}/${cfgFile}";
       STARSHIP_LOG = "error";
     };

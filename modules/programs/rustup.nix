@@ -14,7 +14,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.shell.variables = {
+    environment.variables = {
       CARGO_HOME = "${cfgDataHome}/cargo";
       RUSTUP_HOME = "${cfgDataHome}/rustup";
     };

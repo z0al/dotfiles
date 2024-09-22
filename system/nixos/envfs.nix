@@ -10,7 +10,7 @@
     '';
   };
 
-  d.shell.variables = {
+  environment.variables = {
     ENVFS_RESOLVE_ALWAYS = "1";
   };
 }

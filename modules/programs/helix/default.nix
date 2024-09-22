@@ -43,11 +43,11 @@ in
       ]
     );
 
-    d.shell.variables = {
+    environment.variables = {
       EDITOR = "hx";
     };
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       vim = "hx";
     };
 

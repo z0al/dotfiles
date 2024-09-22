@@ -21,7 +21,7 @@ in
       docker-compose
     ];
 
-    d.shell.variables = {
+    environment.variables = {
       DOCKER_HOST = "unix://${colimaHome}/default/docker.sock";
     };
 

@@ -12,11 +12,11 @@ in
     };
   };
 
-  d.shell.variables = {
+  environment.variables = {
     HOMEBREW_AUTO_UPDATE_SECS = toString (60 * 60 * 24 * 7); # 1 week;
   };
 
-  d.shell.init = ''
+  environment.interactiveShellInit = ''
     if [ -f ${prefix}/bin/brew ]; then
       eval "$(${prefix}/bin/brew shellenv)"
     fi

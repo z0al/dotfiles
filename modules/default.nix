@@ -1,5 +1,6 @@
 {
   imports = [
+    ./etc
     ./fonts
     ./programs
     ./security

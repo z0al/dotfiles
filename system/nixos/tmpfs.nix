@@ -21,7 +21,7 @@ in
       };
     };
 
-    d.shell.variables = mkIf cfg.rootOnTmpfs {
+    environment.variables = mkIf cfg.rootOnTmpfs {
       DATA = "/nix/data";
     };
 

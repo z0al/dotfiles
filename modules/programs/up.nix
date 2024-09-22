@@ -31,7 +31,7 @@ in
       (pkgs.writeScriptBin "up" (builtins.readFile ../../bin/up))
     ];
 
-    d.shell.aliases = {
+    environment.shellAliases = {
       up = "up ${flake} ${target}";
     };
   };
