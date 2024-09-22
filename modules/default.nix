@@ -10,11 +10,9 @@ in
   imports = lib.flatten [
     [
       ./etc
-      ./fonts
       ./programs
       ./security
       ./system
-      ./user
 
       ./config.nix
       ./profiles.nix
