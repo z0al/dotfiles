@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.profiles.dev.python;
+  cfg = config.d.presets.python;
 in
 
 {

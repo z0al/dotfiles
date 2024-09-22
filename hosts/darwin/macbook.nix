@@ -1,11 +1,8 @@
 {
-  d.profiles = {
-    dev = {
-      enable = true;
-      typescript.enable = true;
-      python.enable = true;
-      rust.enable = true;
-    };
+  d.presets = {
+    typescript.enable = true;
+    python.enable = true;
+    rust.enable = true;
   };
 
   d.programs = {

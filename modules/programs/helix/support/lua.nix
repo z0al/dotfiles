@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.profiles.dev.lua;
+  cfg = config.d.presets.lua;
   package = pkgs.unstable.lua-language-server;
 in
 

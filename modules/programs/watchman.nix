@@ -8,7 +8,7 @@ in
   options.d.programs.watchman = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.enable;
+      default = config.d.presets.react-native.enable;
     };
   };
 

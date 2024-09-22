@@ -8,7 +8,7 @@ in
   options.d.programs.stylua = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.lua.enable;
+      default = config.d.presets.lua.enable;
     };
   };
 

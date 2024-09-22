@@ -8,7 +8,7 @@ in
   options.d.programs.prettier = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.enable;
+      default = true;
     };
   };
 

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.profiles.dev.copilot;
+  cfg = config.d.presets.copilot;
 in
 
 {

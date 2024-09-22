@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.profiles.dev.nix;
+  cfg = config.d.presets.nix;
   package = pkgs.unstable.nil;
 in
 

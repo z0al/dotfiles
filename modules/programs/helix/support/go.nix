@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.profiles.dev.go;
+  cfg = config.d.presets.go;
 in
 
 {

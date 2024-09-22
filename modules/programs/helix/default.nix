@@ -16,7 +16,7 @@ in
   options.d.programs.helix = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.enable;
+      default = true;
     };
 
     settings = mkOption {

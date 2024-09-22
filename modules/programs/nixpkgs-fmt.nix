@@ -8,7 +8,7 @@ in
   options.d.programs.nixpkgs-fmt = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.nix.enable;
+      default = config.d.presets.nix.enable;
     };
   };
 

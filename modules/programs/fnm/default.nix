@@ -17,7 +17,7 @@ in
   options.d.programs.fnm = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.typescript.enable;
+      default = config.d.presets.typescript.enable;
     };
   };
 

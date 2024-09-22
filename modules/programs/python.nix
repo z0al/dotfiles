@@ -8,7 +8,7 @@ in
   options.d.programs.python = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.python.enable;
+      default = config.d.presets.python.enable;
     };
   };
 

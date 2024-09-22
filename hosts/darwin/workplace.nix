@@ -1,13 +1,10 @@
 {
   my.osUser.uid = 502;
 
-  d.profiles = {
-    dev = {
-      enable = true;
-      copilot.enable = true;
-      typescript.enable = true;
-      ops.enable = true;
-    };
+  d.presets = {
+    copilot.enable = true;
+    typescript.enable = true;
+    ops.enable = true;
   };
 
   # Jamf enforces its own hostname rules, so we can't rely on the

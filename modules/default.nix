@@ -18,7 +18,7 @@ in
       ./wm
 
       ./config.nix
-      ./profiles.nix
+      ./presets.nix
       ./std.nix
     ]
 

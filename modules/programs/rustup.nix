@@ -9,7 +9,7 @@ in
   options.d.programs.rustup = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.rust.enable;
+      default = config.d.presets.rust.enable;
     };
   };
 

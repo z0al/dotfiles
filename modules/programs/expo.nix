@@ -8,7 +8,7 @@ in
   options.d.programs.expo = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.profiles.dev.react-native.enable;
+      default = config.d.presets.react-native.enable;
     };
   };
 
