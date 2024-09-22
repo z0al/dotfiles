@@ -42,7 +42,8 @@ in
       vendor.completions.enable = true;
 
       shellAliases = cfgEnv.shellAliases // {
-        unset = "set -e";
+        unset = "set -ge";
+        unalias = "functions --erase";
       };
 
       interactiveShellInit = ''
