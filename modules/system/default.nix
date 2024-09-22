@@ -1,6 +1,5 @@
 {
   imports = [
     ./homebrew
-    ./std.nix
   ];
 }

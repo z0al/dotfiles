@@ -17,6 +17,7 @@ in
 
       ./config.nix
       ./profiles.nix
+      ./std.nix
     ]
 
     # **/*/_nixos.nix
