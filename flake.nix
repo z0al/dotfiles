@@ -46,11 +46,10 @@
 
       flake = {
         nixosModules.default.imports = [
-          nixpkgs.nixosModules.readOnlyPkgs
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
           nix-index.nixosModules.nix-index
-          ./modules/_nixos.nix
+          ./modules
           # Legacy
           ./system/nixos
         ];
@@ -58,7 +57,7 @@
         darwinModules.default.imports = [
           hm.darwinModules.home-manager
           nix-index.darwinModules.nix-index
-          ./modules/_darwin.nix
+          ./modules
           # Legacy
           ./system/darwin
         ];

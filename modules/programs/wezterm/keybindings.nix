@@ -177,7 +177,7 @@ in
         }
       ]
 
-      (lib.optional pkgs.stdenv.isDarwin [
+      (lib.optionals pkgs.stdenv.isDarwin [
         {
           key = "c";
           mods = mod;
