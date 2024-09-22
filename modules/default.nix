@@ -15,7 +15,7 @@ in
       ./services
       ./shells
       ./system
-      ./wm
+      ./window-manager
 
       ./config.nix
       ./presets.nix
