@@ -10,6 +10,10 @@ in
       upgrade = true;
       cleanup = "uninstall";
     };
+
+    taps = [
+      "homebrew/services"
+    ];
   };
 
   environment.variables = {

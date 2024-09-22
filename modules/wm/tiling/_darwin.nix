@@ -8,12 +8,12 @@ in
 
 {
   config = lib.mkIf cfg.enable {
-    homebrew.casks = [
-      "aerospace"
-    ];
-
     homebrew.taps = [
       "nikitabobko/tap"
+    ];
+
+    homebrew.casks = [
+      "aerospace"
     ];
 
     my.user.targets.darwin.defaults = {
@@ -49,8 +49,8 @@ in
         on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
         gaps = {
-          inner.horizontal = 5;
-          inner.vertical = 5;
+          inner.horizontal = 4;
+          inner.vertical = 4;
         };
 
         mode.main.binding = {
