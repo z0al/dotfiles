@@ -1,6 +1,6 @@
 {
   imports = [
-    ./activation.nix
+    ./homebrew
     ./std.nix
   ];
 }

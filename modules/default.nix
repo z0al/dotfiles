@@ -10,6 +10,7 @@ in
   imports = lib.flatten [
     [
       ./etc
+      ./hm
       ./programs
       ./security
       ./system
