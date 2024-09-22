@@ -22,6 +22,10 @@ in
       j = "__zoxide_zi";
     };
 
+    d.programs.bash.interactiveShellInit = ''
+      eval "$(${lib.getExe pkgs.zoxide} init bash --no-cmd)"
+    '';
+
     d.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.zoxide} init fish --no-cmd | source
     '';

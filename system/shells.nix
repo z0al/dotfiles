@@ -1,5 +1,0 @@
-{
-  programs = {
-    bash.enableCompletion = true;
-  };
-}

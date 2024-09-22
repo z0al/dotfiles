@@ -25,6 +25,10 @@ in
       STARSHIP_LOG = "error";
     };
 
+    d.programs.bash.interactiveShellInit = ''
+      eval "$(${lib.getExe pkgs.starship} init bash)"
+    '';
+
     d.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.starship} init fish | source
     '';

@@ -1,6 +1,5 @@
 {
   imports = [
-    ./shells.nix
     ./tmpfs.nix
   ];
 

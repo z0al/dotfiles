@@ -47,6 +47,10 @@ in
       };
     };
 
+    d.programs.bash.interactiveShellInit = ''
+      eval "$(${lib.getExe pkgs.fzf} --bash)"
+    '';
+
     d.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fzf} --fish | source
     '';

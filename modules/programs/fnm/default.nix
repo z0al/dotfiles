@@ -4,6 +4,13 @@ let
   cfg = config.d.programs.fnm;
 
   lts-major = builtins.substring 0 2 pkgs.nodePackages.nodejs.version;
+
+  cliOptions = lib.concatStringsSep " " [
+    "--use-on-cd"
+    "--corepack-enabled"
+    "--version-file-strategy recursive"
+    "--log-level quiet"
+  ];
 in
 
 {
@@ -23,8 +30,12 @@ in
       nvm = "fnm";
     };
 
+    d.programs.bash.interactiveShellInit = ''
+      eval "$(${lib.getExe pkgs.fnm} env --shell bash ${cliOptions})"
+    '';
+
     d.programs.fish.interactiveShellInit = ''
-      ${lib.getExe pkgs.fnm} env --use-on-cd --corepack-enabled --version-file-strategy recursive --log-level quiet | source
+      ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
 
     my.user = {

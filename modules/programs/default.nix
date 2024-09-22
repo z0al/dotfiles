@@ -13,6 +13,7 @@
     ./zoxide
 
     ./any-nix-shell.nix
+    ./bash.nix
     ./black.nix
     ./delta.nix
     ./devenv.nix
