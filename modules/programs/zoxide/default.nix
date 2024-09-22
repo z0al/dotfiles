@@ -22,7 +22,7 @@ in
       j = "__zoxide_zi";
     };
 
-    d.programs.fish.init = ''
+    d.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.zoxide} init fish --no-cmd | source
     '';
   };

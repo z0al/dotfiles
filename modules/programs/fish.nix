@@ -6,15 +6,16 @@ let
 in
 
 {
+  imports = with lib; [
+    (mkAliasOptionModule
+      [ "d" "programs" "fish" "interactiveShellInit" ]
+      [ "programs" "fish" "interactiveShellInit" ])
+  ];
+
   options.d.programs.fish = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
-    };
-
-    init = mkOption {
-      type = types.lines;
-      default = "";
     };
 
     plugins = mkOption {
@@ -49,8 +50,6 @@ in
 
         # https://github.com/meaningful-ooo/sponge
         set sponge_purge_only_on_exit true
-
-        ${cfg.init}
       '';
     };
   };

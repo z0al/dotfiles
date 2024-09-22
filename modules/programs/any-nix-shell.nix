@@ -17,7 +17,7 @@ in
       any-nix-shell
     ];
 
-    d.programs.fish.init = ''
+    d.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.any-nix-shell} fish | source
     '';
   };

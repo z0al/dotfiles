@@ -22,7 +22,7 @@ in
     fi
   '';
 
-  d.programs.fish.init = ''
+  d.programs.fish.interactiveShellInit = ''
     if test -d ${prefix}/share/fish/completions"
       set -p fish_complete_path ${prefix}/share/fish/completions
     end

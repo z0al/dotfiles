@@ -23,7 +23,7 @@ in
       nvm = "fnm";
     };
 
-    d.programs.fish.init = ''
+    d.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --use-on-cd --corepack-enabled --version-file-strategy recursive --log-level quiet | source
     '';
 
