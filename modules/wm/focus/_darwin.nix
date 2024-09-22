@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.wm.focus;
+  cfg = config.d.windowManager.focus;
 in
 
 {

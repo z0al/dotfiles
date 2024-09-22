@@ -1,7 +1,5 @@
 {
   imports = [
     ./fonts
-    ./shells
-    ./users
   ];
 }

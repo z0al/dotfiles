@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.wm.tiling;
+  cfg = config.d.windowManager.tiling;
 
   toTOML = (pkgs.formats.toml { }).generate;
 in

@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.wm.focus;
+  cfg = config.d.windowManager.focus;
 in
 
 {
-  options.d.wm.focus = with lib; {
+  options.d.windowManager.focus = with lib; {
     mode = mkOption {
       type = types.enum [
         "click"

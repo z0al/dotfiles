@@ -5,8 +5,6 @@
     (lib.mkAliasOptionModule
       [ "my" "user" ]
       [ "home-manager" "users" config.d.user.name ])
-
-    ./activation.nix
   ];
 
   home-manager = {

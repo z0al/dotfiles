@@ -9,11 +9,12 @@ in
 {
   imports = lib.flatten [
     [
-      ./etc
-      ./hm
+      ./desktop
       ./programs
       ./security
       ./services
+      ./shells
+      ./system
       ./wm
 
       ./config.nix
