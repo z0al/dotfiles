@@ -14,6 +14,7 @@ in
       ./homebrew
       ./programs
       ./security
+      ./wm
 
       ./config.nix
       ./profiles.nix

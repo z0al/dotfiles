@@ -1,7 +1,6 @@
 {
   imports = [
     ../.
-    ./yabai
     ./dock.nix
     ./finder.nix
     ./keyboard.nix
