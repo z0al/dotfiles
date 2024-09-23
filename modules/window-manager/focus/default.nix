@@ -12,7 +12,7 @@ in
         "sloppy"
       ];
 
-      default = "sloppy";
+      default = "click";
     };
   };
 }
