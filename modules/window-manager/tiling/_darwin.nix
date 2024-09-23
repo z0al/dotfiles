@@ -58,11 +58,8 @@ in
         };
 
         mode.main.binding = {
-          alt-enter = ''exec-and-forget osascript -e '
-            tell application id "com.github.wez.wezterm"
-                do script
-                activate
-            end tell'
+          alt-enter = ''
+            exec-and-forget open -b "com.github.wez.wezterm"
           '';
 
           alt-j = "focus left";
@@ -141,5 +138,3 @@ in
     };
   };
 }
-
-
