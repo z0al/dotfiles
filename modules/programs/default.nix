@@ -8,6 +8,7 @@
     ./fnm
     ./helix
     ./kubectl
+    ./kubectx
     ./vscode
     ./wezterm
     ./zoxide
@@ -26,7 +27,6 @@
     ./fzf.nix
     ./git.nix
     ./kubelogin.nix
-    ./kubeswitch.nix
     ./lazygit.nix
     ./nix-index.nix
     ./nixpkgs-fmt.nix
