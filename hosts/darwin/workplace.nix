@@ -4,7 +4,7 @@
   d.presets = {
     copilot.enable = true;
     typescript.enable = true;
-    ops.enable = true;
+    devOps.enable = true;
   };
 
   # Jamf enforces its own hostname rules, so we can't rely on the
