@@ -20,7 +20,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.bash = {
-      enableCompletion = true;
+      completion.enable = true;
 
       # https://github.com/mrzool/bash-sensible
       interactiveShellInit = ''

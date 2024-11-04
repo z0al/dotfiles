@@ -2,9 +2,9 @@
 
 {
   environment.shellAliases = {
-    ".." = "../";
-    "..." = "../../";
-    "...." = "../../../";
+    ".." = "cd ../";
+    "..." = "cd ../../";
+    "...." = "cd ../../../";
 
     clear = "tput reset";
     mkdir = "mkdir -p";
