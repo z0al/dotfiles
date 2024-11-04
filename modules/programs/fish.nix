@@ -49,6 +49,11 @@ in
       interactiveShellInit = ''
         set -U fish_greeting
 
+        # Abbreviations
+        abbr -a .. --position anywhere --set-cursor -- ../%
+        abbr -a ... --position anywhere --set-cursor -- ../../%
+        abbr -a .... --position anywhere --set-cursor -- ../../../%
+
         # https://github.com/meaningful-ooo/sponge
         set sponge_purge_only_on_exit true
       '';
