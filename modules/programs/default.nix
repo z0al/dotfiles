@@ -9,6 +9,7 @@
     ./helix
     ./kubectl
     ./kubectx
+    ./openscad
     ./vscode
     ./wezterm
     ./zoxide
