@@ -20,20 +20,15 @@ in
       docker-client
       docker-compose
       docker-credential-helpers
+
+      # docker-up command
+      (pkgs.writeScriptBin "docker-up" ''
+        ${lib.getExe colima} start --cpu 8 --memory 12 --disk 120
+      '')
     ];
 
     environment.variables = {
       DOCKER_HOST = "unix://${colimaHome}/default/docker.sock";
     };
-
-    # my.user = {
-    #   xdg.configFile."colima/default/colima.yaml".source = toYAML "colima.yaml" {
-    #     cpu = 8;
-    #     memory = 12;
-    #     disk = 120;
-    #     runtime = "docker";
-    #     autoActivate = true;
-    #   };
-    # };
   };
 }
