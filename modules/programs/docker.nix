@@ -19,6 +19,7 @@ in
       colima
       docker-client
       docker-compose
+      docker-credential-helpers
     ];
 
     environment.variables = {
