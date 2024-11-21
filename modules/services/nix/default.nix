@@ -3,7 +3,6 @@
 {
   nix = {
     settings = {
-      auto-optimise-store = true;
       trusted-users = [ "root" config.d.user.name ];
     };
 
@@ -12,8 +11,10 @@
       options = "--delete-older-than 10d";
     };
 
+    optimise.automatic = true;
+
     # https://yusef.napora.org/blog/pinning-nixpkgs-flake/
-    # FIXME: should be fixed by LnL7/nix-darwin#1083
+
     # registry.nixpkgs.flake = lib.mkForce inputs.nixpkgs-unstable;
 
     extraOptions = ''
