@@ -2,7 +2,8 @@
   description = "My NixOS ❄ / MacOS 🍏 Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/aecd17c0dbd112d6df343827d9324f071ef9c502";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:LnL7/nix-darwin/master";
@@ -17,7 +18,8 @@
 
     persistence.url = "github:nix-community/impermanence";
 
-    nix-index.url = "github:Mic92/nix-index-database";
+    # https://github.com/nix-community/nix-index-database/pull/131
+    nix-index.url = "github:Mic92/nix-index-database/bdba246946fb079b87b4cada4df9b1cdf1c06132";
     nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
     vscode.url = "github:nix-community/nix-vscode-extensions";
