@@ -18,8 +18,7 @@
 
     persistence.url = "github:nix-community/impermanence";
 
-    # https://github.com/nix-community/nix-index-database/pull/131
-    nix-index.url = "github:Mic92/nix-index-database/bdba246946fb079b87b4cada4df9b1cdf1c06132";
+    nix-index.url = "github:Mic92/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
     vscode.url = "github:nix-community/nix-vscode-extensions";
