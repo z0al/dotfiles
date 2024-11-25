@@ -13,7 +13,6 @@ in
       editorconfig.editorconfig
       foxundermoon.shell-format
       hashicorp.terraform
-      jnoortheen.nix-ide
       johnnymorganz.stylua
       ms-azuretools.vscode-docker
       okitavera.vscode-nunjucks-formatter
@@ -38,9 +37,6 @@ in
       "[dockerfile]" = {
         "editor.defaultFormatter" = "ms-azuretools.vscode-docker";
       };
-
-      # Nix
-      "nix.formatterPath" = lib.getExe pkgs.nixpkgs-fmt;
 
       # C/C++
       "[c]" = {

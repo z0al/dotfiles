@@ -3,6 +3,7 @@
     ./copilot.nix
     ./git.nix
     ./misc.nix
+    ./nix.nix
     ./prettier.nix
     ./python.nix
     ./rust.nix

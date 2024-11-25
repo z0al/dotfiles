@@ -52,10 +52,15 @@ in
       type = types.listOf types.package;
       default = [ ];
     };
+
+    packages = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ pkg ];
+    environment.systemPackages = cfg.packages ++ [ pkg ];
 
     d.run.configureVsCode = ''
       ${write "${cfgDir}/settings.json" (builtins.toJSON cfg.settings)}
