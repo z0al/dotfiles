@@ -1,8 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-let
-  cfg = config.d.windowManager.focus;
-in
+{ lib, ... }:
 
 {
   options.d.windowManager.focus = with lib; {

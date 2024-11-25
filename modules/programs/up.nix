@@ -28,7 +28,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      (pkgs.writeScriptBin "up" (builtins.readFile ../../bin/up))
+      (writeScriptBin "up" (builtins.readFile ../../bin/up))
     ];
 
     environment.shellAliases = {

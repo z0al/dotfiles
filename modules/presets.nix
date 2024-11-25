@@ -1,8 +1,6 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 let
-  cfg = config.d.presets;
-
   mkBool = default: lib.mkOption {
     type = lib.types.bool;
     default = default;

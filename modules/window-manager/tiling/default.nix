@@ -1,8 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-let
-  cfg = config.d.windowManager.tiling;
-in
+{ lib, ... }:
 
 {
   options.d.windowManager.tiling = with lib; {

@@ -1,8 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-let
-  cfg = config.d.desktop.launcher;
-in
+{ lib, ... }:
 
 {
   options.d.desktop.launcher = with lib; {

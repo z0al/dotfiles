@@ -26,8 +26,7 @@
   };
 
   outputs =
-    { nixpkgs
-    , hm
+    { hm
     , persistence
     , parts
     , nix-index
