@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   homebrew = {
     enable = true;
@@ -14,12 +16,14 @@
   };
 
   environment.variables = {
+    HOMEBREW_NO_ENV_HINTS = "1";
     HOMEBREW_AUTO_UPDATE_SECS = toString (60 * 60 * 24 * 7); # 1 week;
   };
 
-  environment.interactiveShellInit = ''
-    if [ -f /opt/homebrew/bin/brew ]; then
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
-  '';
+  # Nix Darwin doesn't install homebrew. The following module does.
+  nix-homebrew = {
+    enable = true;
+    autoMigrate = true;
+    user = config.d.user.name;
+  };
 }

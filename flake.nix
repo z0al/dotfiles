@@ -23,6 +23,8 @@
 
     vscode.url = "github:nix-community/nix-vscode-extensions";
     vscode.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
   outputs =
@@ -30,6 +32,7 @@
     , persistence
     , parts
     , nix-index
+    , nix-homebrew
     , ...
     } @ inputs:
     parts.lib.mkFlake { inherit inputs; } {
@@ -56,6 +59,7 @@
 
         darwinModules.default.imports = [
           hm.darwinModules.home-manager
+          nix-homebrew.darwinModules.nix-homebrew
           nix-index.darwinModules.nix-index
           ./modules
           # Legacy
