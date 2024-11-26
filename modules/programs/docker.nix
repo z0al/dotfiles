@@ -18,6 +18,9 @@ let
         if [[ $err =~ "Is the docker daemon running?" ]]; then
           ${runtime} start --cpu 8 --memory 12 --disk 120 &> /dev/null
           exec ${docker} "$@"
+        elif [[ $err ]]; then
+          >&2 echo "$err"
+          exit 1
         fi
       '';
     in
