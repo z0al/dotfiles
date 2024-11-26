@@ -20,6 +20,10 @@ in
       "nix.serverSettings" = {
         nixd.formatting.command = [ (lib.getExe pkgs.nixpkgs-fmt) ];
       };
+
+      "nix.hiddenLanguageServerErrors" = [
+        "textDocument/definition"
+      ];
     };
   };
 }
