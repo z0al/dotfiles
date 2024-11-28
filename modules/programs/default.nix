@@ -10,6 +10,7 @@
     ./kubectl
     ./kubectx
     ./openscad
+    ./vim
     ./vscode
     ./wezterm
     ./zoxide

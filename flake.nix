@@ -21,6 +21,9 @@
     nix-index.url = "github:Mic92/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixvim.url = "github:nix-community/nixvim/nixos-24.05";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
     vscode.url = "github:nix-community/nix-vscode-extensions";
     vscode.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -33,6 +36,7 @@
     , parts
     , nix-index
     , nix-homebrew
+    , nixvim
     , ...
     } @ inputs:
     parts.lib.mkFlake { inherit inputs; } {
@@ -52,6 +56,7 @@
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
           nix-index.nixosModules.nix-index
+          nixvim.nixosModules.nixvim
           ./modules
           # Legacy
           ./system/nixos
@@ -61,6 +66,7 @@
           hm.darwinModules.home-manager
           nix-homebrew.darwinModules.nix-homebrew
           nix-index.darwinModules.nix-index
+          nixvim.nixDarwinModules.nixvim
           ./modules
           # Legacy
           ./system/darwin
