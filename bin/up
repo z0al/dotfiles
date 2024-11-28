@@ -77,8 +77,8 @@ function up
         echo ""
         echo "Commands:"
         echo "  build                Build the configuration"
+        echo "  fetch                Update the flake"
         echo "  prune                Reclaim disk space"
-        echo "  pull                 Update the flake"
         echo "  test                 Apply without adding boot entry (Linux only)"
         echo ""
         echo "Note: unknown flags are passed down to the underlying command"
@@ -89,11 +89,11 @@ function up
         case build
             rebuild build --flake $flake $options
 
+        case fetch
+            nix flake update $_flag_flake $options
+
         case prune
             nix-collect-garbage $options
-
-        case pull
-            nix flake update $_flag_flake $options
 
         case test
             if test (uname) = Darwin
