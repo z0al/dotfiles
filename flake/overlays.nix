@@ -6,6 +6,7 @@
       # (final: prev: {
       #   ...
       # })
+      helix.overlays.default
       vscode.overlays.default
     ]
   );
