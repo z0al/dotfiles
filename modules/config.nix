@@ -12,7 +12,7 @@ in
 
 {
   options.d = {
-    version = mkString "24.05";
+    version = mkString "24.11";
 
     user = {
       name = mkString "z0al";
