@@ -2,12 +2,14 @@
 
 let
   cfg = config.d.presets.nix;
-  package = pkgs.unstable.nil;
 in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = [ package ];
+    packages = with pkgs.unstable; [
+      nixd
+      nil
+    ];
 
     languages = {
       language = [{
@@ -19,10 +21,15 @@ in
         };
 
         formatter.command = lib.getExe pkgs.nixpkgs-fmt;
+        language-servers = [ "nixd" "nil" ];
       }];
 
+      language-server.nixd = {
+        command = lib.getExe pkgs.unstable.nixd;
+      };
+
       language-server.nil = {
-        command = lib.getExe package;
+        command = lib.getExe pkgs.unstable.nil;
 
         config.nil.nix = {
           binary = lib.getExe pkgs.nix;
