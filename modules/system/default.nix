@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fonts
     ./users
 
     ./activation.nix
