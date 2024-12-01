@@ -1,14 +1,14 @@
 { config, ... }:
 
 let
-  passDir = "/nix/data/passwords";
+  # passDir = "/nix/data/passwords";
 in
 
 {
   my.osUser = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    passwordFile = "${passDir}/${config.my.osUser.name}";
+    # passwordFile = "${passDir}/${config.my.osUser.name}";
   };
 
   # Don't allow mutation of users outside of the config. When using
@@ -18,6 +18,6 @@ in
 
   # Note: Content of $passDir/* have been generated with
   # the command: mkpasswd -m SHA-512 -s
-  users.users.root.passwordFile = "${passDir}/root";
+  # users.users.root.passwordFile = "${passDir}/root";
 }
 

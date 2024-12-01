@@ -30,7 +30,8 @@
   };
 
   outputs =
-    { hm
+    { self
+    , hm
     , persistence
     , parts
     , nix-index
@@ -67,6 +68,8 @@
           # Legacy
           ./system/darwin
         ];
+
+        packages.aarch64-darwin.default = self.nixosConfigurations.vm.config.system.build.vm;
       };
     };
 
@@ -82,4 +85,5 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
+
 }
