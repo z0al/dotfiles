@@ -22,7 +22,9 @@ in
       };
 
       "nix.hiddenLanguageServerErrors" = [
+        "textDocument/completion"
         "textDocument/definition"
+        "textDocument/documentSymbol"
       ];
     };
   };
