@@ -14,7 +14,7 @@ let
 
           system =
             if platform == "nixos"
-            then "x86_64-linux" else "aarch64-darwin";
+            then "aarch64-linux" else "aarch64-darwin";
 
           hostName = with lib; (
             removeSuffix ".nix" (baseNameOf module)

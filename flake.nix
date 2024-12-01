@@ -45,7 +45,7 @@
       ];
 
       systems = [
-        "x86_64-linux"
+        "aarch64-linux"
         "aarch64-darwin"
       ];
 
@@ -56,7 +56,7 @@
           nix-index.nixosModules.nix-index
           ./modules
           # Legacy
-          ./system/nixos
+          # ./system/nixos
         ];
 
         darwinModules.default.imports = [
