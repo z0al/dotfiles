@@ -40,6 +40,7 @@ in
           "--scrollbar='┃'"
           "--separator=''"
           "--pointer='┃'"
+          "--select-1"
         ]);
         FZF_DEFAULT_COMMAND = "${fd} --type f";
         FZF_CTRL_T_COMMAND = "${fd} --type f";
