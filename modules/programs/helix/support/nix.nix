@@ -20,6 +20,8 @@ in
           unit = "\t";
         };
 
+        auto-format = true;
+
         formatter.command = lib.getExe pkgs.nixpkgs-fmt;
         language-servers = [ "nixd" "nil" ];
       }];
