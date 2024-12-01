@@ -3,43 +3,40 @@
 let
   theme = "catppuccin";
 
+  cfgNixos = {
+    system = "x86_64-linux";
+    builder = inputs.nixpkgs.lib.nixosSystem;
+    modules = [ self.nixosModules.default ];
+  };
+
+  cfgDarwin = {
+    system = "aarch64-darwin";
+    builder = inputs.darwin.lib.darwinSystem;
+    modules = [ self.darwinModules.default ];
+  };
+
   mkHosts = dir:
     lib.listToAttrs (map
       (module:
         let
-          platform =
+          cfg =
             if lib.hasInfix "nixos" module
-            then "nixos"
-            else "darwin";
-
-          system =
-            if platform == "nixos"
-            then "x86_64-linux" else "aarch64-darwin";
+            then cfgNixos
+            else cfgDarwin;
 
           hostName = with lib; (
             removeSuffix ".nix" (baseNameOf module)
           );
-
-          builder = (with inputs;
-            if platform == "nixos"
-            then nixpkgs.lib.nixosSystem else darwin.lib.darwinSystem
-          );
-
-          platformModule =
-            if platform == "nixos"
-            then self.nixosModules.default
-            else self.darwinModules.default;
-
-          modules = [
-            module
-            platformModule
-            { networking = { inherit hostName; }; }
-          ];
         in
         {
           name = hostName;
-          value = withSystem system ({ pkgs, ... }: builder {
-            inherit system modules;
+          value = withSystem cfg.system ({ pkgs, ... }: cfg.builder {
+            inherit (cfg) system;
+
+            modules = cfg.modules ++ [
+              module
+              { networking = { inherit hostName; }; }
+            ];
 
             specialArgs = {
               inherit pkgs inputs theme;
