@@ -24,6 +24,9 @@ in
       adjust_window_size_when_changing_font_size = false;
       warn_about_missing_glyphs = false;
 
+      front_end = "WebGpu";
+      webgpu_power_preference = "HighPerformance";
+
       # Colors
       color_scheme = cfg.theme;
 
