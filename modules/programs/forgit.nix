@@ -16,5 +16,9 @@ in
     d.programs.fish.plugins = with pkgs.fishPlugins; [
       forgit
     ];
+
+    environment.variables = {
+      forgit_log = "gl";
+    };
   };
 }
