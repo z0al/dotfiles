@@ -4,7 +4,7 @@ let
   cfg = config.d.programs.vscode;
   pkg = pkgs.unstable.vscode;
 
-  userHome = config.my.osUser.home;
+  userHome = config.my.user.home;
 
   cfgDir =
     if pkgs.stdenv.isDarwin

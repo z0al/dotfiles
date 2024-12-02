@@ -1,5 +1,5 @@
 {
-  my.osUser.uid = 502;
+  my.user.uid = 502;
 
   d.presets = {
     copilot.enable = true;

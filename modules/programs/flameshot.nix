@@ -19,7 +19,7 @@ in
       flameshot
     ];
 
-    my.user.xdg.configFile."flameshot/flameshot.ini" = {
+    my.hm.config.xdg.configFile."flameshot/flameshot.ini" = {
       source = toIni "flameshot.ini" {
         General = {
           uiColor = "#ffffff";
@@ -27,7 +27,7 @@ in
           contrastOpacity = 188;
 
           saveAsFileExtension = ".png";
-          savePath = "${config.d.osUser.home}/Pictures";
+          savePath = "${config.my.user.home}/Pictures";
 
           showHelp = false;
           startupLaunch = false;

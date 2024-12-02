@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  my.user.imports = [
+  my.hm.config.imports = [
     ./settings
     ./extensions.nix
   ];

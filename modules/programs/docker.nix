@@ -3,7 +3,7 @@
 let
   cfg = config.d.programs.docker;
 
-  cfgHome = config.my.user.xdg.configHome;
+  cfgHome = config.my.hm.config.xdg.configHome;
 
   wrapped = with pkgs.unstable;
     let

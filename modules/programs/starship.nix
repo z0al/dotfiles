@@ -21,7 +21,7 @@ in
     ];
 
     environment.variables = {
-      STARSHIP_CONFIG = "${config.my.user.xdg.configHome}/${cfgFile}";
+      STARSHIP_CONFIG = "${config.my.hm.config.xdg.configHome}/${cfgFile}";
       STARSHIP_LOG = "error";
     };
 
@@ -33,7 +33,7 @@ in
       ${lib.getExe pkgs.starship} init fish | source
     '';
 
-    my.user = {
+    my.hm.config = {
       xdg.configFile."${cfgFile}".source = toTOML "starship.toml" {
         character = {
           success_symbol = "[](bold purple)";

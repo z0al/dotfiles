@@ -12,12 +12,12 @@ in
 {
   imports = with lib; [
     (mkAliasOptionModule
-      [ "my" "osUser" ]
+      [ "my" "user" ]
       [ "users" "users" username ])
   ];
 
   config = {
-    my.osUser = {
+    my.user = {
       name = username;
       description = username;
       home = homeFolder;

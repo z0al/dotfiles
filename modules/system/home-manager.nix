@@ -3,7 +3,7 @@
 {
   imports = [
     (lib.mkAliasOptionModule
-      [ "my" "user" ]
+      [ "my" "hm" "config" ]
       [ "home-manager" "users" config.d.user.name ])
   ];
 
@@ -12,17 +12,17 @@
     useUserPackages = true;
   };
 
-  environment.sessionVariables = {
+  environment.variables = {
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
   };
 
-  my.user = {
+  my.hm.config = {
     home = {
-      username = config.my.osUser.name;
-      homeDirectory = config.my.osUser.home;
+      username = config.my.user.name;
+      homeDirectory = config.my.user.home;
       stateVersion = config.d.version;
     };
 

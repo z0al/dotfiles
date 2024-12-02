@@ -16,7 +16,7 @@ in
       "aerospace"
     ];
 
-    my.user.targets.darwin.defaults = {
+    my.hm.config.targets.darwin.defaults = {
       # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
       "com.apple.dock" = {
         expose-group-apps = true;
@@ -34,7 +34,7 @@ in
     };
 
     # https://nikitabobko.github.io/AeroSpace/goodness#i3-like-config
-    my.user.xdg.configFile = {
+    my.hm.config.xdg.configFile = {
       "aerospace/aerospace.toml".source = toTOML "aerospace.toml" {
         start-at-login = true;
         default-root-container-layout = "tiles";

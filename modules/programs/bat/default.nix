@@ -35,7 +35,7 @@ in
       --style='plain'
     '';
 
-    my.user = {
+    my.hm.config = {
       home.file.".config/bat/themes" = {
         recursive = true;
         source = ./themes;

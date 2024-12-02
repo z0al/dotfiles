@@ -8,23 +8,22 @@ let
 in
 
 {
-  options.d.programs.up = with lib;
-    {
-      enable = mkOption {
-        type = types.bool;
-        default = true;
-      };
-
-      target = mkOption {
-        type = types.str;
-        default = "";
-      };
-
-      flake = mkOption {
-        type = types.str;
-        default = "${config.my.osUser.home}/.dotfiles";
-      };
+  options.d.programs.up = with lib; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
     };
+
+    target = mkOption {
+      type = types.str;
+      default = "";
+    };
+
+    flake = mkOption {
+      type = types.str;
+      default = "${config.my.user.home}/.dotfiles";
+    };
+  };
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

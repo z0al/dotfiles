@@ -2,7 +2,7 @@
   sound.enable = true;
   xdg.portal.enable = true;
 
-  my.osUser.extraGroups = [ "audio" ];
+  my.user.extraGroups = [ "audio" ];
 
   # Disable PulseAudio
   hardware.pulseaudio = {

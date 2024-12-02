@@ -47,7 +47,7 @@ in
       EDITOR = "hx";
     };
 
-    my.user.xdg.configFile = {
+    my.hm.config.xdg.configFile = {
       "helix/config.toml".source = toTOML "hx-conf.toml" cfg.settings;
       "helix/languages.toml".source = toTOML "hx-langs.toml" cfg.languages;
     };

@@ -38,7 +38,7 @@ in
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
 
-    my.user = {
+    my.hm.config = {
       home.file.".node-version".text = lts-major;
     };
   };

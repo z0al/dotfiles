@@ -19,7 +19,7 @@ in
       GIT_PAGER = delta;
     };
 
-    my.user.programs.git.delta = {
+    my.hm.config.programs.git.delta = {
       enable = true;
 
       options = {

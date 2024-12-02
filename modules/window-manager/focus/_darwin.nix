@@ -28,7 +28,7 @@ in
   }];
 
   # https://github.com/sbmpost/AutoRaise
-  my.user.xdg = lib.mkIf sloppy {
+  my.hm.config.xdg = lib.mkIf sloppy {
     configFile."AutoRaise/config".text = ''
       delay=10
       focusDelay=1

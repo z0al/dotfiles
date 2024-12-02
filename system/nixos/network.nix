@@ -1,5 +1,5 @@
 {
-  my.osUser.extraGroups = [ "networkmanager" ];
+  my.user.extraGroups = [ "networkmanager" ];
 
   networking = {
     networkmanager.enable = true;

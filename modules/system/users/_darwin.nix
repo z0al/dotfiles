@@ -1,12 +1,12 @@
 { config, lib, ... }:
 
 {
-  my.osUser = {
+  my.user = {
     uid = lib.mkDefault 501;
   };
 
   users.knownUsers = [
-    config.my.osUser.name
+    config.my.user.name
   ];
 }
 

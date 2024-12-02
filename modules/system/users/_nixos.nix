@@ -5,10 +5,10 @@ let
 in
 
 {
-  my.osUser = {
+  my.user = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    passwordFile = "${passDir}/${config.my.osUser.name}";
+    passwordFile = "${passDir}/${config.my.user.name}";
   };
 
   # Don't allow mutation of users outside of the config. When using

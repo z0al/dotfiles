@@ -17,7 +17,7 @@
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
-  my.user = {
+  my.hm.config = {
     targets.darwin.currentHostDefaults = {
       "com.apple.controlcenter" = {
         BatteryShowPercentage = true;
