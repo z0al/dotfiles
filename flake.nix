@@ -41,7 +41,6 @@
       imports = [
         ./flake/hosts.nix
         ./flake/overlays.nix
-        ./flake/pkgs.nix
       ];
 
       systems = [
