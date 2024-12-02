@@ -13,9 +13,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.programs.fish.plugins = with pkgs.fishPlugins; [
-      forgit
-    ];
+    d.programs = {
+      fzf.enable = true;
+
+      fish.plugins = with pkgs.fishPlugins; [
+        forgit
+      ];
+    };
 
     environment.variables = {
       forgit_log = "gl";
