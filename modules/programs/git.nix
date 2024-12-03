@@ -37,6 +37,9 @@ in
         extraConfig = {
           init.defaultBranch = "main";
 
+          # Don't guess user.name or user.email if not set
+          user.useConfigOnly = true;
+
           log = {
             decorate = true;
             abbrevCommit = true;

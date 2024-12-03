@@ -22,7 +22,7 @@ in
 
     git = {
       user = mkString "z0al";
-      email = mkString "z0al@users.noreply.github.com";
+      email = mkString "12673605+z0al@users.noreply.github.com";
     };
   };
 }
