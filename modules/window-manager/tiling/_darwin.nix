@@ -1,42 +1,15 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.d.windowManager.tiling;
-
-  toTOML = (pkgs.formats.toml { }).generate;
 in
 
 {
   config = lib.mkIf cfg.enable {
-    homebrew.taps = [
-      "nikitabobko/tap"
-    ];
+    services.aerospace = {
+      enable = true;
 
-    homebrew.casks = [
-      "aerospace"
-    ];
-
-    my.hm.config.targets.darwin.defaults = {
-      # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
-      "com.apple.dock" = {
-        expose-group-apps = true;
-      };
-
-      # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
-      "com.apple.spaces" = {
-        spans-displays = false;
-      };
-
-      NSGlobalDomain = {
-        # https://nikitabobko.github.io/AeroSpace/goodness#disable-open-animations
-        NSAutomaticWindowAnimationsEnabled = false;
-      };
-    };
-
-    # https://nikitabobko.github.io/AeroSpace/goodness#i3-like-config
-    my.hm.config.xdg.configFile = {
-      "aerospace/aerospace.toml".source = toTOML "aerospace.toml" {
-        start-at-login = true;
+      settings = {
         default-root-container-layout = "tiles";
         default-root-container-orientation = "auto";
 
@@ -57,6 +30,7 @@ in
           outer.right = 7;
         };
 
+        # https://nikitabobko.github.io/AeroSpace/goodness#i3-like-config
         mode.main.binding = {
           alt-enter = ''
             exec-and-forget open -b "com.github.wez.wezterm"
@@ -134,6 +108,23 @@ in
           enter = "mode main";
           esc = "mode main";
         };
+      };
+    };
+
+    my.hm.config.targets.darwin.defaults = {
+      # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
+      "com.apple.dock" = {
+        expose-group-apps = true;
+      };
+
+      # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+      "com.apple.spaces" = {
+        spans-displays = false;
+      };
+
+      NSGlobalDomain = {
+        # https://nikitabobko.github.io/AeroSpace/goodness#disable-open-animations
+        NSAutomaticWindowAnimationsEnabled = false;
       };
     };
   };
