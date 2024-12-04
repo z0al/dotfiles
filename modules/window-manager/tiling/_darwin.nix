@@ -6,12 +6,16 @@ in
 
 {
   config = lib.mkIf cfg.enable {
+    assertions = lib.mkForce [ ];
+
     services.aerospace = {
       enable = true;
 
       settings = {
         default-root-container-layout = "tiles";
         default-root-container-orientation = "auto";
+
+        after-startup-command = [ "layout tiles" ];
 
         # Normalizations eliminate all sorts of weird tree configurations that
         # don't make sense. Enable to use join-with command.
