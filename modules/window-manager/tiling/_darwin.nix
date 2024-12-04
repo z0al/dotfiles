@@ -6,8 +6,6 @@ in
 
 {
   config = lib.mkIf cfg.enable {
-    assertions = lib.mkForce [ ];
-
     services.aerospace = {
       enable = true;
 

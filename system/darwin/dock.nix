@@ -20,7 +20,7 @@
 
     # Whether to group windows by application in Mission Control’s
     # Exposé. The default is true.
-    expose-group-by-app = true;
+    expose-group-apps = true;
 
     # Whether to minimize windows into their application icon. The
     # default is false.
