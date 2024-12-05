@@ -11,17 +11,7 @@ in
 
       settings = {
         default-root-container-layout = "tiles";
-        default-root-container-orientation = "auto";
-
         after-startup-command = [ "layout tiles" ];
-
-        # Normalizations eliminate all sorts of weird tree configurations that
-        # don't make sense. Enable to use join-with command.
-        enable-normalization-flatten-containers = false;
-        enable-normalization-opposite-orientation-for-nested-containers = false;
-
-        # Mouse follows focus when focused monitor changes
-        on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
         gaps = {
           inner.horizontal = 8;
@@ -32,43 +22,41 @@ in
           outer.right = 7;
         };
 
-        # https://nikitabobko.github.io/AeroSpace/goodness#i3-like-config
+        # https://github.com/pop-os/cosmic-comp/blob/master/data/keybindings.ron
         mode.main.binding = {
           alt-enter = ''
             exec-and-forget open -b "com.github.wez.wezterm"
           '';
 
-          alt-j = "focus left";
-          alt-k = "focus down";
-          alt-l = "focus up";
-          alt-semicolon = "focus right";
+          alt-h = "focus left";
+          alt-j = "focus down";
+          alt-k = "focus up";
+          alt-l = "focus right";
 
           # alt-up = "focus up";
           # alt-down = "focus down";
           # alt-left = "focus left";
           # alt-right = "focus right";
 
-          alt-shift-j = "move left";
-          alt-shift-k = "move down";
-          alt-shift-l = "move up";
-          alt-shift-semicolon = "move right";
+          alt-shift-h = "move left";
+          alt-shift-j = "move down";
+          alt-shift-k = "move up";
+          alt-shift-l = "move right";
 
           # alt-shift-up = "move up";
           # alt-shift-down = "move down";
           # alt-shift-left = "move left";
           # alt-shift-right = "move right";
 
-          # Consider using 'join-with' command as a 'split' replacement if you
-          # have normalizations enabled.
-          alt-h = "split horizontal";
-          alt-v = "split vertical";
-
           # Toggle layouts
-          alt-s = "layout v_accordion";
-          alt-w = "layout h_accordion";
-          alt-e = "layout tiles horizontal vertical";
+          alt-s = "layout accordion tiles";
+          alt-o = "layout horizontal vertical";
+          alt-y = "layout tiles accordion";
+          alt-g = "layout tiling floating";
+          # https://github.com/nikitabobko/AeroSpace/issues/8
+          # alt-x = "swap";
 
-          alt-shift-space = "layout floating tiling";
+          alt-m = "fullscreen";
 
           alt-1 = "workspace 1";
           alt-2 = "workspace 2";
@@ -110,6 +98,28 @@ in
           enter = "mode main";
           esc = "mode main";
         };
+
+        on-window-detected = [
+          {
+            "if".app-name-regex-substring = "chrome|firefox|safari";
+            run = [ "move-node-to-workspace 1" ];
+          }
+
+          {
+            "if".app-name-regex-substring = "code|wezterm|ghostty|terminal";
+            run = [ "move-node-to-workspace 2" ];
+          }
+
+          {
+            "if".app-name-regex-substring = "obsidian|slack";
+            run = [ "move-node-to-workspace 3" ];
+          }
+
+          {
+            "if".app-name-regex-substring = "zoom";
+            run = [ "move-node-to-workspace 10" ];
+          }
+        ];
       };
     };
 
