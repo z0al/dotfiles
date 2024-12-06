@@ -47,20 +47,20 @@ in
           "${mod}-k" = "focus up";
           "${mod}-l" = "focus right";
 
-          "${mod}-up" = "focus up";
-          "${mod}-down" = "focus down";
-          "${mod}-left" = "focus left";
-          "${mod}-right" = "focus right";
+          # "${mod}-up" = "focus up";
+          # "${mod}-down" = "focus down";
+          # "${mod}-left" = "focus left";
+          # "${mod}-right" = "focus right";
 
           "${mod}-shift-h" = "move left";
           "${mod}-shift-j" = "move down";
           "${mod}-shift-k" = "move up";
           "${mod}-shift-l" = "move right";
 
-          "${mod}-shift-up" = "move up";
-          "${mod}-shift-down" = "move down";
-          "${mod}-shift-left" = "move left";
-          "${mod}-shift-right" = "move right";
+          # "${mod}-shift-up" = "move up";
+          # "${mod}-shift-down" = "move down";
+          # "${mod}-shift-left" = "move left";
+          # "${mod}-shift-right" = "move right";
 
           # Toggle layouts
           "${mod}-s" = "layout accordion tiles";
