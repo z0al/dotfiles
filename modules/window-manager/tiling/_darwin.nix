@@ -3,7 +3,7 @@
 let
   cfg = config.d.windowManager.tiling;
 
-  meh = "ctrl-alt-cmd";
+  mod = "alt";
 in
 
 {
@@ -26,76 +26,76 @@ in
 
         # https://github.com/pop-os/cosmic-comp/blob/master/data/keybindings.ron
         mode.main.binding = {
-          "${meh}-b" = ''
+          "${mod}-b" = ''
             exec-and-forget open -b "com.google.Chrome"
           '';
 
-          "${meh}-e" = ''
+          "${mod}-e" = ''
             exec-and-forget open -b "com.microsoft.VSCode"
           '';
 
-          "${meh}-t" = ''
+          "${mod}-t" = ''
             exec-and-forget open -b "com.github.wez.wezterm"
           '';
 
-          "${meh}-slash" = ''
+          "${mod}-slash" = ''
             exec-and-forget open -b "com.raycast.macos"
           '';
 
-          "${meh}-h" = "focus left";
-          "${meh}-j" = "focus down";
-          "${meh}-k" = "focus up";
-          "${meh}-l" = "focus right";
+          "${mod}-h" = "focus left";
+          "${mod}-j" = "focus down";
+          "${mod}-k" = "focus up";
+          "${mod}-l" = "focus right";
 
-          "${meh}-up" = "focus up";
-          "${meh}-down" = "focus down";
-          "${meh}-left" = "focus left";
-          "${meh}-right" = "focus right";
+          "${mod}-up" = "focus up";
+          "${mod}-down" = "focus down";
+          "${mod}-left" = "focus left";
+          "${mod}-right" = "focus right";
 
-          "${meh}-shift-h" = "move left";
-          "${meh}-shift-j" = "move down";
-          "${meh}-shift-k" = "move up";
-          "${meh}-shift-l" = "move right";
+          "${mod}-shift-h" = "move left";
+          "${mod}-shift-j" = "move down";
+          "${mod}-shift-k" = "move up";
+          "${mod}-shift-l" = "move right";
 
-          "${meh}-shift-up" = "move up";
-          "${meh}-shift-down" = "move down";
-          "${meh}-shift-left" = "move left";
-          "${meh}-shift-right" = "move right";
+          "${mod}-shift-up" = "move up";
+          "${mod}-shift-down" = "move down";
+          "${mod}-shift-left" = "move left";
+          "${mod}-shift-right" = "move right";
 
           # Toggle layouts
-          "${meh}-s" = "layout accordion tiles";
-          "${meh}-o" = "layout horizontal vertical";
-          "${meh}-y" = "layout tiles accordion";
-          "${meh}-g" = "layout tiling floating";
+          "${mod}-s" = "layout accordion tiles";
+          "${mod}-o" = "layout horizontal vertical";
+          "${mod}-y" = "layout tiles accordion";
+          "${mod}-g" = "layout tiling floating";
           # https://github.com/nikitabobko/AeroSpace/issues/8
           # "${meh}-x" = "swap";
 
-          "${meh}-m" = "fullscreen";
+          "${mod}-m" = "fullscreen";
 
-          "${meh}-1" = "workspace 1";
-          "${meh}-2" = "workspace 2";
-          "${meh}-3" = "workspace 3";
-          "${meh}-4" = "workspace 4";
-          "${meh}-5" = "workspace 5";
-          "${meh}-6" = "workspace 6";
-          "${meh}-7" = "workspace 7";
-          "${meh}-8" = "workspace 8";
-          "${meh}-9" = "workspace 9";
-          "${meh}-0" = "workspace 10";
+          "${mod}-1" = "workspace 1";
+          "${mod}-2" = "workspace 2";
+          "${mod}-3" = "workspace 3";
+          "${mod}-4" = "workspace 4";
+          "${mod}-5" = "workspace 5";
+          "${mod}-6" = "workspace 6";
+          "${mod}-7" = "workspace 7";
+          "${mod}-8" = "workspace 8";
+          "${mod}-9" = "workspace 9";
+          "${mod}-0" = "workspace 10";
 
-          "${meh}-shift-1" = [ "move-node-to-workspace 1" "workspace 1" ];
-          "${meh}-shift-2" = [ "move-node-to-workspace 2" "workspace 2" ];
-          "${meh}-shift-3" = [ "move-node-to-workspace 3" "workspace 3" ];
-          "${meh}-shift-4" = [ "move-node-to-workspace 4" "workspace 4" ];
-          "${meh}-shift-5" = [ "move-node-to-workspace 5" "workspace 5" ];
-          "${meh}-shift-6" = [ "move-node-to-workspace 6" "workspace 6" ];
-          "${meh}-shift-7" = [ "move-node-to-workspace 7" "workspace 7" ];
-          "${meh}-shift-8" = [ "move-node-to-workspace 8" "workspace 8" ];
-          "${meh}-shift-9" = [ "move-node-to-workspace 9" "workspace 9" ];
-          "${meh}-shift-0" = [ "move-node-to-workspace 10" "workspace 10" ];
+          "${mod}-shift-1" = [ "move-node-to-workspace 1" "workspace 1" ];
+          "${mod}-shift-2" = [ "move-node-to-workspace 2" "workspace 2" ];
+          "${mod}-shift-3" = [ "move-node-to-workspace 3" "workspace 3" ];
+          "${mod}-shift-4" = [ "move-node-to-workspace 4" "workspace 4" ];
+          "${mod}-shift-5" = [ "move-node-to-workspace 5" "workspace 5" ];
+          "${mod}-shift-6" = [ "move-node-to-workspace 6" "workspace 6" ];
+          "${mod}-shift-7" = [ "move-node-to-workspace 7" "workspace 7" ];
+          "${mod}-shift-8" = [ "move-node-to-workspace 8" "workspace 8" ];
+          "${mod}-shift-9" = [ "move-node-to-workspace 9" "workspace 9" ];
+          "${mod}-shift-0" = [ "move-node-to-workspace 10" "workspace 10" ];
 
-          "${meh}-shift-c" = "reload-config";
-          "${meh}-r" = "mode resize";
+          "${mod}-shift-c" = "reload-config";
+          "${mod}-r" = "mode resize";
         };
 
         mode.resize.binding = {
