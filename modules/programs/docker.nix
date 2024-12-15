@@ -16,7 +16,11 @@ let
         { err=$(exec ${docker} "$@" 2>&1 1>&$out); } {out}>&1
 
         if [[ $err =~ "Is the docker daemon running?" ]]; then
-          ${runtime} start --cpu 8 --memory 12 --disk 120 &> /dev/null
+          ${runtime} start \
+            --cpu 8 \
+            --memory 12 \
+            --disk 120 \
+            --save-config=false &> /dev/null
           exec ${docker} "$@"
         elif [[ $err ]]; then
           >&2 echo "$err"
@@ -50,6 +54,7 @@ in
     ];
 
     environment.variables = {
+      COLIMA_SAVE_CONFIG = "0";
       DOCKER_HOST = "unix://${cfgHome}/colima/default/docker.sock";
     };
   };
