@@ -1,19 +1,12 @@
 {
+  defaults.dock = {
+    position = "bottom";
+    showRecentApps = false;
+    autoHide.enable = true;
+    minimize.effect = "scale";
+    minimize.toApplicationIcon = true;
+  };
   system.defaults.dock = {
-    # Whether to automatically hide and show the dock. The default
-    # is false.
-    autohide = true;
-
-    # Position of the dock on screen. Must be one of “bottom”, “left”,
-    # or “right”. The default is “bottom”
-    orientation = "bottom";
-
-    # Size of the icons in the dock. The default is 64.
-    tilesize = 64;
-
-    # Show recent applications in the dock. The default is true.
-    show-recents = false;
-
     # Whether to display the appswitcher on all displays or only the
     # main one. The default is false.
     appswitcher-all-displays = true;
@@ -21,10 +14,6 @@
     # Whether to group windows by application in Mission Control’s
     # Exposé. The default is true.
     expose-group-apps = true;
-
-    # Whether to minimize windows into their application icon. The
-    # default is false.
-    minimize-to-application = true;
 
     # Hot corner actions. Valid values include:
     #   1: Disabled
