@@ -59,8 +59,8 @@ in
     # Terminal
     "terminal.integrated.fontSize" = 12;
     "terminal.explorerKind" = "external";
-    "terminal.external.linuxExec" = "${pkgs.wezterm}/bin/wezterm";
-    "terminal.external.osxExec" = "Terminal.app";
+    # "terminal.external.linuxExec" = lib.getExe pkgs.ghostty;
+    # "terminal.external.osxExec" = lib.getExe pkgs.ghostty;
     "terminal.integrated.tabs.enabled" = false;
 
     # Extensions
