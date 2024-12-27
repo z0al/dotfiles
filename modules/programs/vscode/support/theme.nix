@@ -1,9 +1,7 @@
-{ pkgs, theme, ... }:
+{ config, pkgs, ... }:
 
 let
-  themeMapping = {
-    catppuccin = "Catppuccin Mocha";
-  };
+  cfg = config.d.programs.vscode;
 in
 
 {
@@ -14,7 +12,7 @@ in
     ];
 
     settings = {
-      "workbench.colorTheme" = themeMapping.${theme};
+      "workbench.colorTheme" = cfg.theme;
     };
   };
 }

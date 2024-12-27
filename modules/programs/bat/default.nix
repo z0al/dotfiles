@@ -1,4 +1,4 @@
-{ config, pkgs, lib, theme, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.d.programs.bat;
@@ -14,7 +14,6 @@ in
 
     theme = mkOption {
       type = types.str;
-      default = theme;
     };
   };
 

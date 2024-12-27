@@ -1,16 +1,7 @@
-{ config, pkgs, lib, theme, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.d.programs.fzf;
-
-  themes = {
-    # https://github.com/catppuccin/fzf#Mocha
-    catppuccin = [
-      "--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8,gutter:#1e1e2e"
-      "--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc"
-      "--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-    ];
-  };
 
   fd = lib.getExe pkgs.fd;
 in
@@ -20,6 +11,10 @@ in
     enable = mkOption {
       type = types.bool;
       default = true;
+    };
+
+    theme = mkOption {
+      type = types.listOf types.str;
     };
   };
 
@@ -32,7 +27,7 @@ in
       ];
 
       variables = {
-        FZF_DEFAULT_OPTS = lib.concatStringsSep " " (themes.${theme} ++ [
+        FZF_DEFAULT_OPTS = lib.concatStringsSep " " (cfg.theme ++ [
           "--exact"
           "--layout=reverse"
           "--inline-info"

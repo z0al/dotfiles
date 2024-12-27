@@ -13,7 +13,6 @@ in
 
     theme = mkOption {
       type = types.str;
-      default = "catppuccin-mocha";
     };
   };
 

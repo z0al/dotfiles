@@ -38,6 +38,10 @@ in
       default = true;
     };
 
+    theme = mkOption {
+      type = types.str;
+    };
+
     settings = mkOption {
       type = types.attrs;
       default = { };

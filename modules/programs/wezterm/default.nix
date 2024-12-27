@@ -37,7 +37,6 @@ in
 
     theme = mkOption {
       type = types.str;
-      default = "Catppuccin Mocha";
     };
 
     settings = mkOption {

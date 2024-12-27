@@ -1,8 +1,6 @@
 { self, lib, inputs, withSystem, ... }:
 
 let
-  theme = "catppuccin";
-
   cfgNixos = {
     system = "x86_64-linux";
     builder = inputs.nixpkgs.lib.nixosSystem;
@@ -39,7 +37,7 @@ let
             ];
 
             specialArgs = {
-              inherit pkgs inputs theme;
+              inherit pkgs inputs;
             };
           });
         })

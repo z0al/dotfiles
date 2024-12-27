@@ -1,16 +1,12 @@
-{ config, lib, theme, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.d.programs.helix;
-
-  themeMapping = {
-    catppuccin = "catppuccin_mocha";
-  };
 in
 
 {
   config.d.programs.helix.settings = lib.mkIf cfg.enable {
-    theme = themeMapping.${theme};
+    theme = cfg.theme;
 
     editor = {
       auto-save = {
