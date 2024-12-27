@@ -7,6 +7,5 @@
 
   d.programs = {
     obsidian.enable = true;
-    openscad.enable = true;
   };
 }
