@@ -1,8 +1,10 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.d.programs.ghostty;
   fonts = config.d.style.fonts;
+
+  mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";
 in
 
 {
@@ -29,7 +31,20 @@ in
       font-family = ${fonts.mono}
       font-size = 13
 
+      window-padding-x = 5
+      window-padding-y = 0
+      window-padding-balance = true
+
       scrollback-limit = 10000
+
+      confirm-close-surface = false
+
+      # Keybindings
+      keybind = ctrl+insert=copy_to_clipboard
+      keybind = ${mod}+shift+c=copy_to_clipboard
+
+      keybind = shift+insert=paste_from_clipboard
+      keybind = ${mod}+shift+v=paste_from_clipboard
     '';
   };
 }
