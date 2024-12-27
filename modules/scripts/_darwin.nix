@@ -1,17 +1,16 @@
 { config, lib, ... }:
 
 let
-  scripts = config.d.scripts;
+  cfg = config.d.scripts;
 in
 
 {
-  system.activationScripts.postActivation.text = lib.concatLines (
-    lib.attrValues (
-      lib.mapAttrs
-        (name: script: ''
-          echo "Activating ${name}"
-          ${script}
-        '')
-        scripts
+  system.activationScripts.postActivation.text = with lib;
+    concatLines (attrValues (mapAttrs
+      (name: script: ''
+        echo "Activating ${name}"
+        ${script}
+      '')
+      cfg
     ));
 }
