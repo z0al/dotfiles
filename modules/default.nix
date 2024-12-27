@@ -9,17 +9,13 @@ in
 {
   imports = lib.flatten [
     [
-      ./desktop
+      ./config
       ./programs
-      ./security
-      ./services
-      ./shells
       ./system
       ./window-manager
 
       ./config.nix
       ./presets.nix
-      ./std.nix
     ]
 
     # **/*/_nixos.nix
