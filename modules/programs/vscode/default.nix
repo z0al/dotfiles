@@ -3,6 +3,7 @@
 let
   cfg = config.d.programs.vscode;
   pkg = pkgs.unstable.vscode;
+  toJson = (pkgs.formats.json { }).generate;
 
   userHome = config.my.user.home;
 
@@ -13,15 +14,15 @@ let
 
   extDir = "${userHome}/.vscode/extensions";
 
-  write = path: content: ''
-    run mkdir -p $(dirname "${path}")
-    run echo '${content}' > "${path}"
+  writeJson = path: content: ''
+    mkdir -p "$(dirname '${path}')"
+    cp ${toJson path content} '${path}'
   '';
 
   # https://discourse.nixos.org/t/vscode-extensions-setup/1801/2
   installExt = ext: ''
-    run mkdir -p "${extDir}"
-    run ln -sf ${ext}/share/vscode/extensions/* "${extDir}/"
+    mkdir -p '${extDir}'
+    ln -sf ${ext}/share/vscode/extensions/* '${extDir}/'
   '';
 in
 
@@ -66,21 +67,21 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = cfg.packages ++ [ pkg ];
 
-    d.run.configureVsCode = ''
-      ${write "${cfgDir}/settings.json" (builtins.toJSON cfg.settings)}
-      ${write "${cfgDir}/keybindings.json" (builtins.toJSON cfg.keybindings)}
+    d.scripts.configureVsCode = ''
+      ${writeJson "${cfgDir}/settings.json" cfg.settings}
+      ${writeJson "${cfgDir}/keybindings.json" cfg.keybindings}
 
       # Extensions
-      if [ -d "${extDir}" ]; then
-        run rm -rf "${extDir}"
+      if [ -d '${extDir}' ]; then
+        rm -rf '${extDir}'
       fi
 
       ${lib.concatLines (map installExt cfg.extensions)}
-      ${write
+      ${writeJson
         "${extDir}/extensions.json"
-        (pkgs.vscode-utils.toExtensionJson cfg.extensions)}
+        (map pkgs.vscode-utils.toExtensionJsonEntry cfg.extensions)}
 
-      run --quiet ${lib.getExe pkg} --list-extensions
+      ${lib.getExe pkg} --list-extensions > /dev/null
     '';
   };
 }

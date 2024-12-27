@@ -10,7 +10,7 @@ in
   # Click mode (Default)
   # Nothing to configure but we may as well terminate AutoRaise if previously
   # enabled.
-  d.run.stopAutoRaise = lib.mkIf (cfg.mode == "click") ''
+  d.scripts.stopAutoRaise = lib.mkIf (cfg.mode == "click") ''
     ${lib.getExe pkgs.killall} AutoRaise &> /dev/null || true
   '';
 

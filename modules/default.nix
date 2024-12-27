@@ -11,10 +11,10 @@ in
     [
       ./config
       ./programs
+      ./scripts
       ./style
       ./window-manager
 
-      ./activation.nix
       ./config.nix
       ./presets.nix
     ]
