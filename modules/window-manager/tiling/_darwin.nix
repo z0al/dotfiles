@@ -35,7 +35,7 @@ in
           '';
 
           "${mod}-t" = ''
-            exec-and-forget open -b "com.github.wez.wezterm"
+            exec-and-forget open -b "com.mitchellh.ghostty"
           '';
 
           "${mod}-slash" = ''
