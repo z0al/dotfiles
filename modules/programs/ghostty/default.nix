@@ -2,6 +2,7 @@
 
 let
   cfg = config.d.programs.ghostty;
+  fonts = config.d.style.fonts;
 in
 
 {
@@ -24,6 +25,11 @@ in
 
     my.hm.config.xdg.configFile."ghostty/config".text = ''
       theme = ${cfg.theme}
+
+      font-family = ${fonts.mono}
+      font-size = 13
+
+      scrollback-limit = 10000
     '';
   };
 }
