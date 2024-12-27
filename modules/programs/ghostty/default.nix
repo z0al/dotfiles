@@ -39,6 +39,8 @@ in
 
       confirm-close-surface = false
 
+      macos-option-as-alt = true
+
       # Keybindings
       keybind = ctrl+insert=copy_to_clipboard
       keybind = ${mod}+shift+c=copy_to_clipboard
