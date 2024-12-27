@@ -6,6 +6,7 @@
     ./chrome
     ./direnv
     ./fnm
+    ./ghostty
     ./helix
     ./kubectl
     ./kubectx
