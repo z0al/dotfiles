@@ -11,7 +11,7 @@
     hm.url = "github:nix-community/home-manager/release-24.11";
     hm.inputs.nixpkgs.follows = "nixpkgs";
 
-    parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -30,19 +30,18 @@
 
     better-defaults.url = "git+ssh://git@github.com/z0al/better-defaults.nix";
     better-defaults.inputs.nixpkgs.follows = "nixpkgs";
-    better-defaults.inputs.nix-darwin.follows = "darwin";
   };
 
   outputs =
     { hm
     , persistence
-    , parts
+    , flake-parts
     , nix-index
     , nix-homebrew
     , better-defaults
     , ...
     } @ inputs:
-    parts.lib.mkFlake { inherit inputs; } {
+    flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./flake/hosts.nix
         ./flake/overlays.nix

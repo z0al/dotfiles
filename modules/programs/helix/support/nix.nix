@@ -6,7 +6,7 @@ in
 
 {
   config.d.programs.helix = lib.mkIf cfg.enable {
-    packages = with pkgs.unstable; [
+    packages = with pkgs; [
       nixd
       nil
     ];
@@ -27,11 +27,11 @@ in
       }];
 
       language-server.nixd = {
-        command = lib.getExe pkgs.unstable.nixd;
+        command = lib.getExe pkgs.nixd;
       };
 
       language-server.nil = {
-        command = lib.getExe pkgs.unstable.nil;
+        command = lib.getExe pkgs.nil;
 
         config.nil.nix = {
           binary = lib.getExe pkgs.nix;

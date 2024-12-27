@@ -5,7 +5,7 @@ let
 
   cfgHome = config.my.hm.config.xdg.configHome;
 
-  wrapped = with pkgs.unstable;
+  wrapped = with pkgs;
     let
       runtime = lib.getExe colima;
       docker = lib.getExe docker-client;
@@ -46,7 +46,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs.unstable; [
+    environment.systemPackages = with pkgs; [
       colima
       wrapped
       docker-compose

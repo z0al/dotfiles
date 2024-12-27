@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.helix;
-  package = pkgs.unstable.vscode-langservers-extracted;
+  package = pkgs.vscode-langservers-extracted;
 
   json-lang-server-bin = "${package}/bin/vscode-json-language-server";
 in

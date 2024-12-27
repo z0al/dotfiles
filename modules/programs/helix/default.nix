@@ -41,11 +41,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = cfg.packages ++ (
-      with pkgs.unstable; [
-        helix
-      ]
-    );
+    environment.systemPackages = cfg.packages ++ [
+      pkgs.helix
+    ];
 
     environment.variables = {
       EDITOR = "hx";

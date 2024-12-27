@@ -14,7 +14,6 @@
     optimise.automatic = true;
 
     # https://yusef.napora.org/blog/pinning-nixpkgs-flake/
-
     # registry.nixpkgs.flake = lib.mkForce inputs.nixpkgs-unstable;
 
     extraOptions = ''

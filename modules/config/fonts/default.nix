@@ -6,7 +6,7 @@
     fira-code
     jetbrains-mono
 
-    unstable.nerd-fonts.symbols-only
+    nerd-fonts.symbols-only
     noto-fonts-color-emoji
   ];
 }

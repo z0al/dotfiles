@@ -2,13 +2,13 @@
 
 let
   cfg = config.d.presets.nix;
-
-  server = pkgs.unstable.nixd;
 in
 
 {
   d.programs.vscode = lib.mkIf cfg.enable {
-    packages = [ server ];
+    packages = with pkgs; [
+      nixd
+    ];
 
     extensions = with pkgs.vscode-marketplace; [
       jnoortheen.nix-ide
@@ -16,7 +16,7 @@ in
 
     settings = {
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = lib.getExe server;
+      "nix.serverPath" = lib.getExe pkgs.nixd;
       "nix.serverSettings" = {
         nixd.formatting.command = [ (lib.getExe pkgs.nixpkgs-fmt) ];
       };

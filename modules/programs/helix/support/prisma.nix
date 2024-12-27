@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.helix;
-  package = pkgs.unstable.nodePackages."@prisma/language-server";
+  package = pkgs.nodePackages."@prisma/language-server";
 in
 
 {

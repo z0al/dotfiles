@@ -6,26 +6,41 @@ let
   };
 
   overlays = with inputs; [
-    # (final: prev: {
-    #   ...
-    # })
     helix.overlays.default
     vscode.overlays.default
   ];
 in
 
 {
-  perSystem = { system, ... }: {
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system config;
+  perSystem = { system, ... }:
+    let
+      createChannel = src: overlays: import src {
+        inherit system config overlays;
+      };
 
-      overlays = overlays ++ [
-        (_final: _prev: {
-          unstable = import inputs.nixpkgs-unstable {
-            inherit system config overlays;
-          };
-        })
-      ];
+      unstable = createChannel inputs.nixpkgs-unstable overlays;
+
+      overrides = (final: prev: {
+        inherit (unstable)
+          # Dev tools
+          colima
+          helix
+          nil
+          nixd
+          nodePackages
+          rust-analyzer
+          typescript-language-server
+          vscode
+          vscode-langservers-extracted
+
+          # Other
+          nerd-fonts
+          ;
+      });
+    in
+    {
+      _module.args.pkgs = createChannel inputs.nixpkgs (
+        overlays ++ [ overrides ]
+      );
     };
-  };
 }

@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.helix;
-  package = pkgs.unstable.vscode-langservers-extracted;
+  package = pkgs.vscode-langservers-extracted;
 
   css-lang-server-bin = "${package}/bin/vscode-css-language-server";
 in

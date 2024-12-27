@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.vscode;
-  pkg = pkgs.unstable.vscode;
+
   toJson = (pkgs.formats.json { }).generate;
 
   userHome = config.my.user.home;
@@ -65,7 +65,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = cfg.packages ++ [ pkg ];
+    environment.systemPackages = cfg.packages ++ [ pkgs.vscode ];
 
     d.scripts.configureVsCode = ''
       ${writeJson "${cfgDir}/settings.json" cfg.settings}
@@ -81,7 +81,7 @@ in
         "${extDir}/extensions.json"
         (map pkgs.vscode-utils.toExtensionJsonEntry cfg.extensions)}
 
-      ${lib.getExe pkg} --list-extensions > /dev/null
+      ${lib.getExe pkgs.vscode} --list-extensions > /dev/null
     '';
   };
 }

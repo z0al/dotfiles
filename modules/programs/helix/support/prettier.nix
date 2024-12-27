@@ -4,7 +4,7 @@ let
   cfg = config.d.programs.helix;
 
   prettier = parser: {
-    command = lib.getExe pkgs.unstable.nodePackages.prettier;
+    command = lib.getExe pkgs.nodePackages.prettier;
     args = lib.flatten [
       [ "--parser" parser ]
 

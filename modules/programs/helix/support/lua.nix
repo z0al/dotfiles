@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.presets.lua;
-  package = pkgs.unstable.lua-language-server;
+  package = pkgs.lua-language-server;
 in
 
 {
