@@ -1,6 +1,7 @@
 {
   imports = [
     ./brew
+    ./fonts
     ./launcher
     ./nix
     ./shells

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfgFonts = config.d.fonts;
+  fonts = config.d.style.fonts;
 in
 
 {
@@ -13,9 +13,9 @@ in
     "editor.cursorStyle" = "line";
     "editor.emptySelectionClipboard" = false;
     "editor.fontFamily" = lib.concatStringsSep "," [
-      "'${cfgFonts.mono}'"
-      "'${cfgFonts.symbol}'"
-      "'${cfgFonts.emoji}'"
+      "'${fonts.mono}'"
+      "'${fonts.symbol}'"
+      "'${fonts.emoji}'"
     ];
     "editor.fontSize" = 13;
     "editor.formatOnSave" = true;
