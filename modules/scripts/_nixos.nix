@@ -6,10 +6,10 @@ in
 
 {
   system.userActivationScripts = with lib;
-    listToAttrs (attrValues (mapAttrs
+    listToAttrs (mapAttrsToList
       (name: script: {
         inherit name;
         value = { text = script; };
       })
-      cfg));
+      cfg);
 }

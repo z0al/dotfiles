@@ -6,11 +6,11 @@ in
 
 {
   system.activationScripts.postActivation.text = with lib;
-    concatLines (attrValues (mapAttrs
+    concatLines (mapAttrsToList
       (name: script: ''
         echo "Activating ${name}"
         ${script}
       '')
       cfg
-    ));
+    );
 }
