@@ -17,7 +17,7 @@ in
       "'${fonts.symbol}'"
       "'${fonts.emoji}'"
     ];
-    "editor.fontSize" = 13;
+    "editor.fontSize" = fonts.size;
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
     "editor.insertSpaces" = false;
@@ -70,7 +70,7 @@ in
     # Other
     "update.mode" = "none";
     "search.showLineNumbers" = false;
-    "debug.console.fontSize" = 13;
+    "debug.console.fontSize" = fonts.size;
     "emmet.includeLanguages" = {
       "nunjucks" = "html";
     };

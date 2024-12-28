@@ -11,7 +11,7 @@ in
   config.d.programs.wezterm = lib.mkIf cfg.enable {
     settings = {
       # Fonts
-      font_size = 13.0;
+      font_size = fonts.size;
       font = mkLua ''
         wz.font_with_fallback {
           "${fonts.mono}",

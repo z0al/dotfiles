@@ -39,7 +39,7 @@ in
       source = format.generate "ghostty" {
         theme = cfg.theme;
         font-family = fonts.mono;
-        font-size = 13;
+        font-size = fonts.size;
 
         window-padding-x = 5;
         window-padding-y = 2;

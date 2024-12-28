@@ -16,6 +16,11 @@
     };
 
     fonts = {
+      size = mkOption {
+        type = types.int;
+        default = 13;
+      };
+
       mono = mkOption {
         type = types.enum [
           "Cascadia Code"
