@@ -4,7 +4,17 @@ let
   cfg = config.d.programs.ghostty;
   fonts = config.d.style.fonts;
 
+  format = pkgs.formats.keyValue {
+    listsAsDuplicateKeys = true;
+  };
+
   mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";
+
+  bindKey = key:
+    lib.replaceStrings [ "-" "mod" ] [ "+" mod ] key;
+
+  pairToList = conf:
+    lib.mapAttrsToList (key: value: "${bindKey key}=${value}") conf;
 in
 
 {
@@ -20,33 +30,36 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # TODO: waiting for https://github.com/NixOS/nixpkgs/pull/368404
+    # TODO: waiting for nixpkgs availability
     # environment.systemPackages = with pkgs; [
     #   ghostty
     # ];
 
-    my.hm.config.xdg.configFile."ghostty/config".text = ''
-      theme = ${cfg.theme}
+    my.hm.config.xdg.configFile."ghostty/config" = {
+      source = format.generate "ghostty" {
+        theme = cfg.theme;
+        font-family = fonts.mono;
+        font-size = 13;
 
-      font-family = ${fonts.mono}
-      font-size = 13
+        window-padding-x = 5;
+        window-padding-y = 2;
+        window-padding-balance = true;
+        window-padding-color = "extend";
 
-      window-padding-x = 5
-      window-padding-y = 0
-      window-padding-balance = true
+        scrollback-limit = 10000;
+        confirm-close-surface = false;
 
-      scrollback-limit = 10000
+        macos-option-as-alt = true;
+        macos-titlebar-style = "tabs";
 
-      confirm-close-surface = false
+        keybind = pairToList {
+          ctrl-insert = "copy_to_clipboard";
+          mod-shift-c = "copy_to_clipboard";
 
-      macos-option-as-alt = true
-
-      # Keybindings
-      keybind = ctrl+insert=copy_to_clipboard
-      keybind = ${mod}+shift+c=copy_to_clipboard
-
-      keybind = shift+insert=paste_from_clipboard
-      keybind = ${mod}+shift+v=paste_from_clipboard
-    '';
+          shift-insert = "paste_from_clipboard";
+          mod-shift-v = "paste_from_clipboard";
+        };
+      };
+    };
   };
 }
