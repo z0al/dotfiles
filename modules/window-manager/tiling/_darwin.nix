@@ -113,27 +113,27 @@ in
           esc = "mode main";
         };
 
-        # on-window-detected = [
-        #   {
-        #     "if".app-name-regex-substring = "chrome|firefox|safari";
-        #     run = [ "move-node-to-workspace 1" ];
-        #   }
+        on-window-detected = [
+          {
+            "if".app-name-regex-substring = "chrome|firefox|safari";
+            run = [ "move-node-to-workspace 1" ];
+          }
 
-        #   {
-        #     "if".app-name-regex-substring = "code|wezterm|ghostty|terminal";
-        #     run = [ "move-node-to-workspace 2" ];
-        #   }
+          {
+            "if".app-name-regex-substring = "code|wezterm|ghostty|terminal";
+            run = [ "move-node-to-workspace 2" ];
+          }
 
-        #   {
-        #     "if".app-name-regex-substring = "obsidian|slack";
-        #     run = [ "move-node-to-workspace 3" ];
-        #   }
+          {
+            "if".app-name-regex-substring = "obsidian|slack";
+            run = [ "move-node-to-workspace 3" ];
+          }
 
-        #   {
-        #     "if".app-name-regex-substring = "zoom";
-        #     run = [ "move-node-to-workspace 10" ];
-        #   }
-        # ];
+          {
+            "if".app-name-regex-substring = "zoom";
+            run = [ "move-node-to-workspace 10" ];
+          }
+        ];
       };
     };
 
