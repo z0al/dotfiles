@@ -1,11 +1,12 @@
 {
-  defaults.dock = {
+  plist.dock = {
     position = "bottom";
     showRecentApps = false;
     autoHide.enable = true;
     minimize.effect = "scale";
     minimize.toApplicationIcon = true;
   };
+
   system.defaults.dock = {
     # Whether to display the appswitcher on all displays or only the
     # main one. The default is false.

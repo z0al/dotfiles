@@ -1,7 +1,9 @@
 {
-  defaults.desktop.showIcons = false;
+  plist.desktop = {
+    showIcons = false;
+  };
 
-  defaults.finder = {
+  plist.finder = {
     showHidden = true;
     showExtensions = true;
     keepFoldersOnTop = true;

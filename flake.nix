@@ -28,8 +28,8 @@
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
 
-    better-defaults.url = "git+ssh://git@github.com/z0al/better-defaults.nix";
-    better-defaults.inputs.nixpkgs.follows = "nixpkgs";
+    plist-manager.url = "github:/z0al/plist-manager";
+    plist-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -38,7 +38,7 @@
     , flake-parts
     , nix-index
     , nix-homebrew
-    , better-defaults
+    , plist-manager
     , ...
     } @ inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -66,7 +66,7 @@
           hm.darwinModules.home-manager
           nix-homebrew.darwinModules.nix-homebrew
           nix-index.darwinModules.nix-index
-          better-defaults.darwinModules.default
+          plist-manager.darwinModules.default
           ./modules
           # Legacy
           ./system/darwin
