@@ -52,6 +52,8 @@ in
         macos-option-as-alt = true;
         macos-titlebar-style = "tabs";
 
+        auto-update = "off";
+
         keybind = pairToList {
           ctrl-insert = "copy_to_clipboard";
           mod-shift-c = "copy_to_clipboard";
