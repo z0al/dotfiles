@@ -25,10 +25,7 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    helix.url = "github:helix-editor/helix";
-    helix.inputs.nixpkgs.follows = "nixpkgs";
-
-    plist-manager.url = "github:/z0al/plist-manager";
+    plist-manager.url = "github:z0al/plist-manager";
     plist-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 

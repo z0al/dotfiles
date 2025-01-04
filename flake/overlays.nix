@@ -6,7 +6,6 @@ let
   };
 
   overlays = with inputs; [
-    # helix.overlays.default
     vscode.overlays.default
   ];
 in
