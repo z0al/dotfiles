@@ -49,6 +49,7 @@ in
     environment.systemPackages = with pkgs; [
       colima
       wrapped
+      docker-buildx
       docker-compose
       docker-credential-helpers
     ];
