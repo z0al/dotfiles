@@ -16,6 +16,7 @@ in
       johnnymorganz.stylua
       ms-azuretools.vscode-docker
       okitavera.vscode-nunjucks-formatter
+      qezhu.gitlink
       ronnidc.nunjucks
       sndst00m.vscode-native-svg-preview
       tamasfe.even-better-toml
