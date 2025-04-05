@@ -63,6 +63,7 @@ in
         docker_context.disabled = true;
         package.disabled = true;
         kubernetes.disabled = false;
+        dotnet.disabled = true;
 
 
         ## Color Palettes
