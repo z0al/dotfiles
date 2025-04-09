@@ -8,7 +8,6 @@
     ./misc.nix
     ./nix.nix
     ./prettier.nix
-    ./prisma.nix
     ./python.nix
     ./typescript.nix
   ];
