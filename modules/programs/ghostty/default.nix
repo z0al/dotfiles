@@ -46,7 +46,7 @@ in
         window-padding-balance = true;
         window-padding-color = "extend";
 
-        scrollback-limit = 10000;
+        scrollback-limit = 100000;
         confirm-close-surface = false;
 
         macos-option-as-alt = true;
