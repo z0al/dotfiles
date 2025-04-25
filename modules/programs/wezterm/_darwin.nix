@@ -7,7 +7,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     homebrew.casks = [
-      "wezterm"
+      "wezterm@nightly"
     ];
   };
 }
