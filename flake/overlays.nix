@@ -23,15 +23,7 @@ in
         inherit (unstable)
           # Dev tools
           colima
-          helix
-          nil
-          nixd
-          nodePackages
-          rust-analyzer
-          typescript-language-server
           vscode
-          vscode-langservers-extracted
-          wezterm
 
           # Other
           nerd-fonts
