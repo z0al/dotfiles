@@ -31,6 +31,7 @@ in
           typescript-language-server
           vscode
           vscode-langservers-extracted
+          wezterm
 
           # Other
           nerd-fonts

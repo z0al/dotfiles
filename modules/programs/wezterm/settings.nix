@@ -44,10 +44,10 @@ in
       # Window
       enable_wayland = false;
       window_padding = {
-        left = "0cell";
-        right = "0cell";
-        top = "0cell";
-        bottom = "0cell";
+        left = "5pt";
+        right = "5pt";
+        top = "2pt";
+        bottom = "2pt";
       };
 
       window_close_confirmation = "NeverPrompt";

@@ -32,7 +32,7 @@ in
   options.d.programs.wezterm = with lib;{
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
     };
 
     theme = mkOption {

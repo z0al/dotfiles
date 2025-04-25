@@ -14,7 +14,7 @@ in
 
 {
   config.d.programs.wezterm = lib.mkIf cfg.enable {
-    settings.disable_default_key_bindings = true;
+    settings.disable_default_key_bindings = false;
 
     settings.keys = lib.flatten [
       [

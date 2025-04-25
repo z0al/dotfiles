@@ -13,6 +13,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.variables = {
+      DIRENV_WARN_TIMEOUT = "1m";
+    };
+
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
