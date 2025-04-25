@@ -17,7 +17,6 @@
 
   environment.variables = {
     HOMEBREW_NO_ENV_HINTS = "1";
-    HOMEBREW_AUTO_UPDATE_SECS = toString (60 * 60 * 24 * 7); # 1 week;
   };
 
   # Nix Darwin doesn't install homebrew. The following module does.

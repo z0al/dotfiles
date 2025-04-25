@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.ghostty;
+  cfg = config.d.programs.wezterm;
 in
 
 {
