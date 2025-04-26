@@ -34,11 +34,32 @@ in
     '';
 
     d.programs.fish.interactiveShellInit = ''
+      # Transient prompt
+      function starship_transient_prompt_func
+        # tput cuu1
+        starship module directory
+        starship module git_branch
+        starship module git_state
+        starship module git_status
+        echo ""
+        starship module character
+      end
+
       ${lib.getExe pkgs.starship} init fish | source
+
+      enable_transience
+
+      # https://github.com/starship/starship/issues/560
+      function prompt_newline --on-event fish_postexec
+        echo
+      end
     '';
 
     my.hm.config = {
       xdg.configFile."${cfgFile}".source = toTOML "starship.toml" {
+        # https://github.com/starship/starship/issues/560
+        add_newline = false;
+
         character = {
           success_symbol = "[](bold purple)";
           error_symbol = "[](bold red)";
