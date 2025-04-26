@@ -30,15 +30,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # TODO: waiting for nixpkgs availability
-    # environment.systemPackages = with pkgs; [
-    #   ghostty
-    # ];
-
     my.hm.config.xdg.configFile."ghostty/config" = {
       source = format.generate "ghostty" {
         theme = cfg.theme;
-        font-family = fonts.mono;
+
+        font-family = [
+          fonts.mono
+          fonts.symbol
+          fonts.emoji
+        ];
+
         font-size = fonts.size;
 
         window-padding-x = 5;
