@@ -43,6 +43,12 @@ in
       "[c]" = {
         "editor.defaultFormatter" = "xaver.clang-format";
       };
+
+      # SVG fix
+      # https://github.com/microsoft/vscode/issues/239834
+      "workbench.editorAssociations" = {
+        "*.svg" = "default";
+      };
     };
   };
 }
