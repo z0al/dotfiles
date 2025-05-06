@@ -25,6 +25,12 @@ in
           colima
           vscode
 
+          # LSPs
+          bash-language-server
+          typescript-language-server
+          vscode-langservers-extracted
+          yaml-language-server
+
           # Other
           nerd-fonts
           ;

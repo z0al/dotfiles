@@ -9,7 +9,8 @@ in
     extensions = with pkgs.vscode-marketplace; [
       ms-python.black-formatter
       ms-python.python
-      ms-python.vscode-pylance
+      # FIXME: re-enable after v25.05
+      # ms-python.vscode-pylance
     ];
 
     settings = {

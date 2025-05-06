@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nodePackages.expo-cli
+      nodePackages_latest.expo-cli
     ];
   };
 }

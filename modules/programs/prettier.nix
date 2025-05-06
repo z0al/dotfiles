@@ -10,11 +10,16 @@ in
       type = types.bool;
       default = true;
     };
+
+    package = mkOption {
+      type = types.package;
+      default = pkgs.nodePackages_latest.prettier;
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      nodePackages.prettier
+    environment.systemPackages = [
+      cfg.package
     ];
   };
 }

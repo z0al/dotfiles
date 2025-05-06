@@ -9,7 +9,7 @@ in
     packages = with pkgs; [
       lldb
       marksman
-      nodePackages.bash-language-server
+      bash-language-server
       taplo
       terraform-ls
       yaml-language-server

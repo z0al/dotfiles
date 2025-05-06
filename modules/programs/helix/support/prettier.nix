@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.d.programs.helix;
 
   prettier = parser: {
-    command = lib.getExe pkgs.nodePackages.prettier;
+    command = lib.getExe config.d.programs.prettier.package;
     args = lib.flatten [
       [ "--parser" parser ]
 
