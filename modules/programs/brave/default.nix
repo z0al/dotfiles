@@ -17,6 +17,11 @@ let
         type = types.bool;
         default = false;
       };
+
+      hosts = mkOption {
+        type = types.listOf types.str;
+        default = [ ];
+      };
     };
   };
 in

@@ -2,22 +2,36 @@
 
 let
   cfg = config.d.programs.brave;
+
+  extensionIds = map (e: e.id) cfg.extensions;
+
+  extensionSettings =
+    let
+      mkOrNull = cond: value:
+        if (cond == true) then value else null;
+
+      filterNulls = lib.filterAttrs (_: v: v != null);
+
+      setup = { id, pinned, hosts, ... }: {
+        "${id}" = {
+          toolbar_pin = mkOrNull pinned "force_pinned";
+          runtime_allowed_hosts = mkOrNull (hosts != [ ]) hosts;
+        };
+      };
+    in
+    lib.filterAttrs
+      (_name: value:
+        (filterNulls value) != { })
+      (lib.mergeAttrsList
+        (map setup cfg.extensions));
 in
 
 {
   config = lib.mkIf cfg.enable {
     d.programs.brave = {
       profile = {
-        ExtensionInstallForcelist = map (e: e.id) cfg.extensions;
-        ExtensionSettings = lib.mergeAttrsList
-          (map
-            (e: {
-              "${e.id}" = {
-                toolbar_pin = "force_pinned";
-              };
-            })
-            (lib.filter (e: e.pinned) cfg.extensions)
-          );
+        ExtensionInstallForcelist = extensionIds;
+        ExtensionSettings = extensionSettings;
       };
 
       extensions = [
@@ -46,6 +60,11 @@ in
         {
           name = "Refined GitHub";
           id = "hlepfoohegkhhmjieoechaddaejaokhf";
+
+          hosts = [
+            "https://github.com/*"
+            "https://gist.github.com/*"
+          ];
         }
 
         {
