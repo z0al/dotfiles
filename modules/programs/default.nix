@@ -3,7 +3,7 @@
     ./1password
     ./aws
     ./bat
-    ./chromium
+    ./brave
     ./direnv
     ./docker
     ./fnm
