@@ -3,8 +3,6 @@
 let
   cfg = config.d.programs.brave;
 
-  extensions = map (e: e.id) cfg.extensions;
-
   extensionModule = with lib; types.submodule {
     options = {
       name = mkOption {
@@ -13,6 +11,11 @@ let
 
       id = mkOption {
         type = types.str;
+      };
+
+      pinned = mkOption {
+        type = types.bool;
+        default = false;
       };
     };
   };
@@ -48,11 +51,8 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
+    # Remove bloat
     d.programs.brave.profile = {
-      # Install extensions
-      ExtensionInstallForcelist = extensions;
-
-      # Remove bloat
       BraveAIChatEnabled = false;
       BraveRewardsDisabled = true;
       BraveVPNDisabled = true;

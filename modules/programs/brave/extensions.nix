@@ -1,58 +1,83 @@
+{ config, lib, ... }:
+
+let
+  cfg = config.d.programs.brave;
+in
+
 {
-  d.programs.brave.extensions = [
-    {
-      name = "Privacy Badger";
-      id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
-    }
+  config = lib.mkIf cfg.enable {
+    d.programs.brave = {
+      profile = {
+        ExtensionInstallForcelist = map (e: e.id) cfg.extensions;
+        ExtensionSettings = lib.mergeAttrsList
+          (map
+            (e: {
+              "${e.id}" = {
+                toolbar_pin = "force_pinned";
+              };
+            })
+            (lib.filter (e: e.pinned) cfg.extensions)
+          );
+      };
 
-    {
-      name = "1Password";
-      id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-    }
+      extensions = [
+        {
+          name = "1Password";
+          id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+          pinned = true;
+        }
 
-    {
-      name = "Dark Reader";
-      id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-    }
+        {
+          name = "Dark Reader";
+          id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+          pinned = true;
+        }
 
-    {
-      name = "React Developer Tools";
-      id = "fmkadmapgofadopljbjfkapdkoienihi";
-    }
+        {
+          name = "Privacy Badger";
+          id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
+        }
 
-    {
-      name = "Refined GitHub";
-      id = "hlepfoohegkhhmjieoechaddaejaokhf";
-    }
+        {
+          name = "React Developer Tools";
+          id = "fmkadmapgofadopljbjfkapdkoienihi";
+        }
 
-    {
-      name = "Copy as Markdown";
-      id = "fkeaekngjflipcockcnpobkpbbfbhmdn";
-    }
+        {
+          name = "Refined GitHub";
+          id = "hlepfoohegkhhmjieoechaddaejaokhf";
+        }
 
-    {
-      name = "Don't F*** with Paste";
-      id = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
-    }
+        {
+          name = "Copy as Markdown";
+          id = "fkeaekngjflipcockcnpobkpbbfbhmdn";
+        }
 
-    {
-      name = "Google Translate";
-      id = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
-    }
+        {
+          name = "Don't F*** with Paste";
+          id = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
+        }
 
-    {
-      name = "Grammarly";
-      id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
-    }
+        {
+          name = "Google Translate";
+          id = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
+        }
 
-    {
-      name = "JSON Formatter";
-      id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
-    }
+        {
+          name = "Grammarly";
+          id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
+        }
 
-    {
-      name = "Disable Google Search Text Highlights";
-      id = "ompocnnmgiaoieoanemepjflbokldhom";
-    }
-  ];
+        {
+          name = "JSON Formatter";
+          id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
+        }
+
+        {
+          name = "Disable Google Search Text Highlights";
+          id = "ompocnnmgiaoieoanemepjflbokldhom";
+        }
+      ];
+    };
+  };
 }
