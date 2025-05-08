@@ -32,6 +32,7 @@ in
           yaml-language-server
 
           # Other
+          brave
           nerd-fonts
           ;
       });
