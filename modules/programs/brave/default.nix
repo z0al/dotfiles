@@ -66,7 +66,7 @@ in
 
       # Use Cloudflare DNS
       DnsOverHttpsMode = "secure";
-      DnsOverHttpsTemplates = "https://security.cloudflare-dns.com/dns-query";
+      DnsOverHttpsTemplates = "https://chrome.cloudflare-dns.com/dns-query";
 
       # Disable unwanted features
       AutofillAddressEnabled = false;
