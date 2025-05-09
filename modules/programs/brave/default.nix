@@ -56,14 +56,26 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    # Remove bloat
     d.programs.brave.profile = {
+      # Use Cloudflare DNS
+      DnsOverHttpsMode = "secure";
+      DnsOverHttpsTemplates = "https://security.cloudflare-dns.com/dns-query";
+
+      # Disable annoyances
+      # 2 -> Block for all sites. Sites can't ask for permission
+      DefaultNotificationsSetting = 2;
+      DefaultGeolocationSetting = 2;
+
+      # Disable unwanted features
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
       BraveAIChatEnabled = false;
       BraveRewardsDisabled = true;
       BraveVPNDisabled = true;
       BraveWalletDisabled = true;
-      TorDisabled = true;
       IPFSEnabled = false;
+      PasswordManagerEnabled = false;
+      TorDisabled = true;
     };
   };
 }
