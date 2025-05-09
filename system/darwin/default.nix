@@ -4,7 +4,6 @@
     ./finder.nix
     ./login.nix
     ./pkgs.nix
-    ./safari.nix
     ./trackpad.nix
   ];
 

@@ -8,6 +8,7 @@
     ./helix
     ./kubectx
     ./openscad
+    ./safari
     ./vscode
     ./wezterm
 
