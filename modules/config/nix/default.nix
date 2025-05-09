@@ -1,7 +1,9 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   nix = {
+    package = pkgs.nix;
+
     settings = {
       trusted-users = [ "root" config.d.user.name ];
 
