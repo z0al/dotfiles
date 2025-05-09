@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./tmpfs.nix
-  ];
-}
+{ }

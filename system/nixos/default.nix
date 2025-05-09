@@ -14,8 +14,6 @@
     ./pkgs.nix
     ./sound.nix
     ./systemd.nix
-    ./tmpfs.nix
-    ./trash.nix
   ];
 
   system.stateVersion = config.d.version;

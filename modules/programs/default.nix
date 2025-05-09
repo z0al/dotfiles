@@ -1,22 +1,22 @@
 {
   imports = [
     ./1password
-    ./aws
     ./bat
     ./brave
-    ./direnv
     ./docker
-    ./fnm
     ./ghostty
     ./helix
-    ./kubectl
     ./kubectx
     ./openscad
     ./vscode
     ./wezterm
-    ./zoxide
 
     ./any-nix-shell.nix
+    ./kubectl.nix
+    ./zoxide.nix
+    ./fnm.nix
+    ./direnv.nix
+    ./aws.nix
     ./bash.nix
     ./black.nix
     ./delta.nix
