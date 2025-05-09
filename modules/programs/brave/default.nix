@@ -60,6 +60,12 @@ in
       # Disable default browser check
       DefaultBrowserSettingEnabled = false;
 
+      # 5 = Open New Tab Page
+      # 1 = Restore the last session
+      # 4 = Open a list of URLs
+      # 6 = Open a list of URLs and restore the last session
+      RestoreOnStartup = 5;
+
       # Block sites from asking for certain permissions
       DefaultNotificationsSetting = 2;
       DefaultGeolocationSetting = 2;
