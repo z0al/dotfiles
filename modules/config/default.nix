@@ -5,6 +5,7 @@
     ./keyboard
     ./launcher
     ./nix
+    ./region
     ./shells
     ./style
     ./sudo

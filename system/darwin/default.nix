@@ -20,9 +20,4 @@
   };
 
   plist.appearance.theme = "dark";
-
-  system.defaults.NSGlobalDomain = {
-    AppleMeasurementUnits = "Centimeters";
-    AppleTemperatureUnit = "Celsius";
-  };
 }
