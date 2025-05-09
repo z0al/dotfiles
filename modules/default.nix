@@ -12,7 +12,6 @@ in
       ./config
       ./programs
       ./scripts
-      ./style
 
       ./config.nix
       ./presets.nix

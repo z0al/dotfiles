@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.wezterm;
-  fonts = config.d.style.fonts;
+  cfgFonts = config.d.fonts;
 
   mkLua = lib.generators.mkLuaInline;
 in
@@ -11,12 +11,12 @@ in
   config.d.programs.wezterm = lib.mkIf cfg.enable {
     settings = {
       # Fonts
-      font_size = fonts.size;
+      font_size = cfgFonts.size;
       font = mkLua ''
         wz.font_with_fallback {
-          "${fonts.mono}",
-          "${fonts.symbol}",
-          "${fonts.emoji}",
+          "${cfgFonts.mono}",
+          "${cfgFonts.symbol}",
+          "${cfgFonts.emoji}",
         }
       '';
 

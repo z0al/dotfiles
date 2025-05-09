@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.ghostty;
-  fonts = config.d.style.fonts;
+  cfgFonts = config.d.fonts;
 
   format = pkgs.formats.keyValue {
     listsAsDuplicateKeys = true;
@@ -35,12 +35,12 @@ in
         theme = cfg.theme;
 
         font-family = [
-          fonts.mono
-          fonts.symbol
-          fonts.emoji
+          cfgFonts.mono
+          cfgFonts.symbol
+          cfgFonts.emoji
         ];
 
-        font-size = fonts.size;
+        font-size = cfgFonts.size;
 
         window-padding-x = 5;
         window-padding-y = 2;

@@ -6,6 +6,7 @@
     ./launcher
     ./nix
     ./shells
+    ./style
     ./sudo
     ./tiling
     ./users

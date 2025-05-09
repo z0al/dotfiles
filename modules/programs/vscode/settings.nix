@@ -1,7 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
-  fonts = config.d.style.fonts;
+  cfgFonts = config.d.fonts;
 in
 
 {
@@ -13,11 +13,11 @@ in
     "editor.cursorStyle" = "line";
     "editor.emptySelectionClipboard" = false;
     "editor.fontFamily" = lib.concatStringsSep "," [
-      "'${fonts.mono}'"
-      "'${fonts.symbol}'"
-      "'${fonts.emoji}'"
+      "'${cfgFonts.mono}'"
+      "'${cfgFonts.symbol}'"
+      "'${cfgFonts.emoji}'"
     ];
-    "editor.fontSize" = fonts.size;
+    "editor.fontSize" = cfgFonts.size;
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
     "editor.insertSpaces" = false;
@@ -70,7 +70,7 @@ in
     # Other
     "update.mode" = "none";
     "search.showLineNumbers" = false;
-    "debug.console.fontSize" = fonts.size;
+    "debug.console.fontSize" = cfgFonts.size;
     "emmet.includeLanguages" = {
       "nunjucks" = "html";
     };
