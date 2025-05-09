@@ -18,6 +18,4 @@
       };
     };
   };
-
-  plist.appearance.theme = "dark";
 }
