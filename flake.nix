@@ -54,9 +54,7 @@
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
           nix-index.nixosModules.nix-index
-          ./modules
-          # Legacy
-          ./system/nixos
+          ./modules/nixos.nix
         ];
 
         darwinModules.default.imports = [
@@ -64,7 +62,7 @@
           nix-homebrew.darwinModules.nix-homebrew
           nix-index.darwinModules.nix-index
           plist-manager.darwinModules.default
-          ./modules
+          ./modules/darwin.nix
           # Legacy
           ./system/darwin
         ];

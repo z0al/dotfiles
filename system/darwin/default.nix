@@ -9,8 +9,6 @@
     ./trackpad.nix
   ];
 
-  system.stateVersion = 5;
-
   my.hm.config = {
     targets.darwin.currentHostDefaults = {
       "com.apple.controlcenter" = {
