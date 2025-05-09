@@ -57,14 +57,16 @@ in
     environment.systemPackages = [ cfg.package ];
 
     d.programs.brave.profile = {
+      # Disable default browser check
+      DefaultBrowserSettingEnabled = false;
+
+      # Block sites from asking for certain permissions
+      DefaultNotificationsSetting = 2;
+      DefaultGeolocationSetting = 2;
+
       # Use Cloudflare DNS
       DnsOverHttpsMode = "secure";
       DnsOverHttpsTemplates = "https://security.cloudflare-dns.com/dns-query";
-
-      # Disable annoyances
-      # 2 -> Block for all sites. Sites can't ask for permission
-      DefaultNotificationsSetting = 2;
-      DefaultGeolocationSetting = 2;
 
       # Disable unwanted features
       AutofillAddressEnabled = false;
