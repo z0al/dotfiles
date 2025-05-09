@@ -26,7 +26,9 @@ let
   };
 
   karabinerRules =
-    (lib.optional cfg.remapCapsLockToHyper capsLockToHyperRule);
+    (lib.optionals cfg.remapCapsLockToHyper [
+      capsLockToHyperRule
+    ]);
 
   karabinerProfile = pkgs.writeText "karabiner.json" (
     builtins.toJSON {
