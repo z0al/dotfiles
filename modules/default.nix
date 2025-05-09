@@ -13,7 +13,6 @@ in
       ./programs
       ./scripts
       ./style
-      ./window-manager
 
       ./config.nix
       ./presets.nix

@@ -7,6 +7,7 @@
     ./nix
     ./shells
     ./sudo
+    ./tiling
     ./users
 
     ./home-manager.nix

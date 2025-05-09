@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./focus
-    ./tiling
-  ];
-}
