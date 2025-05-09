@@ -68,6 +68,11 @@ in
         }
 
         {
+          name = "Floccus Bookmarks Sync";
+          id = "fnaicdffflnofjppbagibeoednhnbjhg";
+        }
+
+        {
           name = "Copy as Markdown";
           id = "fkeaekngjflipcockcnpobkpbbfbhmdn";
         }
