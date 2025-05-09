@@ -3,7 +3,7 @@
 let
   cfg = config.d.windowManager.tiling;
 
-  mod = "ctrl";
+  mod = "ctrl-alt-cmd";
 in
 
 {
@@ -26,22 +26,6 @@ in
 
         # https://github.com/pop-os/cosmic-comp/blob/master/data/keybindings.ron
         mode.main.binding = {
-          "${mod}-b" = ''
-            exec-and-forget open -b "com.google.Chrome"
-          '';
-
-          "${mod}-e" = ''
-            exec-and-forget open -b "com.microsoft.VSCode"
-          '';
-
-          "${mod}-t" = ''
-            exec-and-forget open -b "com.mitchellh.ghostty"
-          '';
-
-          "${mod}-slash" = ''
-            exec-and-forget open -b "com.raycast.macos"
-          '';
-
           "${mod}-h" = "focus left";
           "${mod}-j" = "focus down";
           "${mod}-k" = "focus up";
@@ -115,7 +99,7 @@ in
 
         on-window-detected = [
           {
-            "if".app-name-regex-substring = "chrome|firefox|safari";
+            "if".app-name-regex-substring = "chrome|firefox|safari|brave";
             run = [ "move-node-to-workspace 1" ];
           }
 
