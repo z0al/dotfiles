@@ -2,6 +2,7 @@
   imports = [
     ./brew
     ./fonts
+    ./keyboard
     ./launcher
     ./nix
     ./shells
