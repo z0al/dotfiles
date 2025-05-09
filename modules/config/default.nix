@@ -11,6 +11,7 @@
     ./style
     ./sudo
     ./tiling
+    ./trackpad
     ./users
 
     ./home-manager.nix

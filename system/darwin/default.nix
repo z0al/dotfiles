@@ -4,7 +4,6 @@
     ./finder.nix
     ./login.nix
     ./pkgs.nix
-    ./trackpad.nix
   ];
 
   my.hm.config = {
