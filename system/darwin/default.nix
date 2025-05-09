@@ -1,7 +1,6 @@
 {
   imports = [
     ../.
-    ./dock.nix
     ./finder.nix
     ./login.nix
     ./pkgs.nix

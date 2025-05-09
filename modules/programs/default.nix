@@ -12,22 +12,21 @@
     ./wezterm
 
     ./any-nix-shell.nix
-    ./kubectl.nix
-    ./zoxide.nix
-    ./fnm.nix
-    ./direnv.nix
     ./aws.nix
     ./bash.nix
     ./black.nix
     ./delta.nix
     ./devenv.nix
+    ./direnv.nix
     ./expo.nix
     ./fd.nix
     ./fish.nix
     ./flameshot.nix
+    ./fnm.nix
     ./forgit.nix
     ./fzf.nix
     ./git.nix
+    ./kubectl.nix
     ./kubelogin.nix
     ./lazygit.nix
     ./nix-index.nix
@@ -42,5 +41,6 @@
     ./terraform.nix
     ./up.nix
     ./watchman.nix
+    ./zoxide.nix
   ];
 }

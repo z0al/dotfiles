@@ -1,8 +1,14 @@
+{ config, ... }:
+
+let
+  cfg = config.d.dock;
+in
+
 {
   plist.dock = {
-    position = "bottom";
+    position = cfg.position;
+    autoHide.enable = cfg.autoHide;
     showRecentApps = false;
-    autoHide.enable = true;
     minimize.effect = "scale";
     minimize.toApplicationIcon = true;
   };
@@ -34,9 +40,5 @@
     wvous-tl-corner = 1;
     wvous-tr-corner = 1;
   };
-
-  system.defaults.CustomUserPreferences."com.apple.dock" = {
-    # https://superuser.com/questions/1778079/disable-switching-window-on-different-desktop
-    workspaces-auto-swoosh = true;
-  };
 }
+

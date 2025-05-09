@@ -1,6 +1,7 @@
 {
   imports = [
     ./brew
+    ./dock
     ./fonts
     ./keyboard
     ./launcher
