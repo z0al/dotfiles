@@ -1,5 +1,5 @@
 {
-  description = "My NixOS ❄ / MacOS 🍏 Configuration";
+  description = "An opinionated flake-based system configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";

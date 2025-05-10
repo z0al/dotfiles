@@ -20,6 +20,8 @@ Here are some unique features of my configuration you might find interesting:
 
 - [**🪟 Tiling**](./modules/config/tiling/_darwin.nix): Configures [AeroSpace](https://nikitabobko.github.io/AeroSpace/guide) for automatic window tiling on macOS.
 
+- [**⚙️ Plist-manager**](https://github.com/z0al/plist-manager): A human-friendly macOS user defaults manager. The module has since been extracted and moved to [z0al/plist-manager](https://github.com/z0al/plist-manager).
+
 ## Structure
 
 ### Unified Modules
