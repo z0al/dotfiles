@@ -7,6 +7,7 @@ in
 {
   imports = [
     ./extensions.nix
+    ./site-search.nix
   ];
 
   options.d.programs.brave = with lib; {
@@ -33,10 +34,10 @@ in
       # Disable default browser check
       DefaultBrowserSettingEnabled = false;
 
-      # 5 = Open New Tab Page
-      # 1 = Restore the last session
-      # 4 = Open a list of URLs
-      # 6 = Open a list of URLs and restore the last session
+      # On macOS, this policy is only available on instances that are managed
+      # via MDM, joined to a domain via MCX or enrolled in Chrome Enterprise
+      # Core.
+      # Ref: https://chromeenterprise.google/policies/#RestoreOnStartup
       RestoreOnStartup = 5;
 
       # Block sites from asking for certain permissions
