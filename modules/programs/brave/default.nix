@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.d.programs.brave;
@@ -16,11 +16,6 @@ in
       default = true;
     };
 
-    package = mkOption {
-      type = types.package;
-      default = pkgs.brave;
-    };
-
     profile = mkOption {
       type = types.attrsOf types.anything;
       default = { };
@@ -28,11 +23,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
-
     d.programs.brave.profile = {
       # Disable default browser check
       DefaultBrowserSettingEnabled = false;
+
+      # General
+      ShowHomeButton = false;
+      HomepageIsNewTabPage = true;
 
       # On macOS, this policy is only available on instances that are managed
       # via MDM, joined to a domain via MCX or enrolled in Chrome Enterprise
@@ -48,15 +45,17 @@ in
       DnsOverHttpsMode = "secure";
       DnsOverHttpsTemplates = "https://chrome.cloudflare-dns.com/dns-query";
 
-      # Disable unwanted features
+      # Autofill
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+      PasswordManagerEnabled = false;
+
+      # Brave being brave
       BraveAIChatEnabled = false;
       BraveRewardsDisabled = true;
       BraveVPNDisabled = true;
       BraveWalletDisabled = true;
       IPFSEnabled = false;
-      PasswordManagerEnabled = false;
       TorDisabled = true;
     };
   };
