@@ -1,7 +1,0 @@
-{
-  homebrew = {
-    casks = [
-      "scroll-reverser"
-    ];
-  };
-}

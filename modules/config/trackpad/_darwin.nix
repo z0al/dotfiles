@@ -11,4 +11,8 @@ in
     tapToClick = cfg.tapToClick;
     naturalScrolling = cfg.naturalScrolling;
   };
+
+  homebrew.casks = [
+    "scroll-reverser"
+  ];
 }

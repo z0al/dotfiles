@@ -63,8 +63,6 @@
           nix-index.darwinModules.nix-index
           plist-manager.darwinModules.default
           ./modules/darwin.nix
-          # Legacy
-          ./system/darwin
         ];
       };
     };
