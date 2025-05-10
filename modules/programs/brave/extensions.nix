@@ -69,6 +69,11 @@ in
         }
 
         {
+          name = "AdGuard";
+          id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
+        }
+
+        {
           name = "Dark Reader";
           id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
           pinned = true;
