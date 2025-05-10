@@ -10,6 +10,3 @@ indent_size = 2
 
 [bin/up]
 indent_size = 4
-
-[*.md]
-indent_style = tab
