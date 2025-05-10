@@ -25,7 +25,7 @@ in
     ];
 
     environment.variables = {
-      STARSHIP_CONFIG = "${config.my.hm.config.xdg.configHome}/${cfgFile}";
+      STARSHIP_CONFIG = "${config.hm.xdg.configHome}/${cfgFile}";
       STARSHIP_LOG = "error";
     };
 
@@ -57,7 +57,7 @@ in
       alias clear "command clear; commandline -f clear-screen"
     '';
 
-    my.hm.config = {
+    hm = {
       xdg.configFile."${cfgFile}".source = toTOML "starship.toml" {
         # https://github.com/starship/starship/issues/560
         add_newline = false;

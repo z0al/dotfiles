@@ -30,7 +30,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    my.hm.config.xdg.configFile."ghostty/config" = {
+    hm.xdg.configFile."ghostty/config" = {
       source = format.generate "ghostty" {
         theme = cfg.theme;
 

@@ -26,7 +26,7 @@ in
       lz = lib.getExe pkgs.lazygit;
     };
 
-    my.hm.config = {
+    hm = {
       xdg.configFile."lazygit/config.yml".text = toYAML {
         disableStartupPopups = true;
 

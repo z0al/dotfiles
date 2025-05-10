@@ -59,7 +59,7 @@ in
   };
 
   config = {
-    my.hm.config.home.file."nix.mobileconfig" = {
+    hm.home.file."nix.mobileconfig" = {
       text = nixProfile;
       force = true;
       onChange = ''

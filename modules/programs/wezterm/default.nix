@@ -50,7 +50,7 @@ in
       wezterm
     ];
 
-    my.hm.config = {
+    hm = {
       xdg.configFile."wezterm/wezterm.lua".source = format configFile;
     };
   };

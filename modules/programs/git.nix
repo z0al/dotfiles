@@ -24,7 +24,7 @@ in
       gP = "git push";
     };
 
-    my.hm.config = {
+    hm = {
       programs.git = {
         enable = true;
 

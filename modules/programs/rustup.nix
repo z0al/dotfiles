@@ -2,7 +2,7 @@
 
 let
   cfg = config.d.programs.rustup;
-  cfgDataHome = config.my.hm.config.xdg.dataHome;
+  cfgDataHome = config.hm.xdg.dataHome;
 in
 
 {

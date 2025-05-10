@@ -3,7 +3,7 @@
 {
   imports = [
     (lib.mkAliasOptionModule
-      [ "my" "hm" "config" ]
+      [ "hm" ]
       [ "home-manager" "users" config.d.user.name ])
   ];
 
@@ -20,7 +20,7 @@
     XDG_STATE_HOME = "$HOME/.local/state";
   };
 
-  my.hm.config = {
+  hm = {
     home = {
       username = config.my.user.name;
       homeDirectory = config.my.user.home;

@@ -34,7 +34,7 @@ in
       fi
     '';
 
-    my.hm.config = {
+    hm = {
       programs.ssh.extraConfig = ''
         IdentityAgent "${ssh.agent}"
       '';
