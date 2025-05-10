@@ -4,7 +4,7 @@
     ./programs
     ./scripts
 
-    ./config.nix
     ./presets.nix
+    ./vars.nix
   ];
 }
