@@ -13,7 +13,15 @@ in
     d.mdm.profiles = [{
       name = "Brave Browser";
       domain = "com.brave.Browser";
-      payload = cfg.profile;
+      payload = lib.removeAttrs cfg.profile [
+        "DefaultSearchProviderEnabled"
+        "DefaultSearchProviderKeyword"
+        "DefaultSearchProviderName"
+        "DefaultSearchProviderSearchURL"
+        "HomepageIsNewTabPage"
+        "RestoreOnStartup"
+        "SiteSearchSettings"
+      ];
     }];
   };
 }

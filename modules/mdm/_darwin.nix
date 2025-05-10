@@ -64,7 +64,7 @@ in
       force = true;
       onChange = ''
         ${warn} "mdm: ~/nix.mobileconfig has chanaged. Install the \
-        profile via system preferences to apply latest changes."
+        profile via system preferences for changes to take affect"
       '';
     };
   };

@@ -29,13 +29,6 @@ in
 
       # General
       ShowHomeButton = false;
-      HomepageIsNewTabPage = true;
-
-      # On macOS, this policy is only available on instances that are managed
-      # via MDM, joined to a domain via MCX or enrolled in Chrome Enterprise
-      # Core.
-      # Ref: https://chromeenterprise.google/policies/#RestoreOnStartup
-      RestoreOnStartup = 5;
 
       # Block sites from asking for certain permissions
       DefaultNotificationsSetting = 2;
@@ -57,6 +50,26 @@ in
       BraveWalletDisabled = true;
       IPFSEnabled = false;
       TorDisabled = true;
+
+      # The follwoing policies are not available on macOS unless managed via a
+      # cloud-based Mobile Device Management (MDM) solution.
+      #
+      # Ref:
+      # - https://chromeenterprise.google/policies/atomic-groups/#Homepage
+      # - https://chromeenterprise.google/policies/atomic-groups/#RestoreOnStartup
+      # - https://chromeenterprise.google/policies/atomic-groups/#DefaultSearchProvider
+
+      # Search
+      DefaultSearchProviderEnabled = true;
+      DefaultSearchProviderName = "Google";
+      DefaultSearchProviderKeyword = "go";
+      DefaultSearchProviderSearchURL = "https://www.google.com/search?q=%s";
+
+      # Use blank new tab as homepage
+      HomepageIsNewTabPage = true;
+
+      # Do not restore tabs on startup
+      RestoreOnStartup = 5;
     };
   };
 }

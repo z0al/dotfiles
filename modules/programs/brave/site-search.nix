@@ -28,9 +28,6 @@ in
 
   config = lib.mkIf cfg.enable {
     d.programs.brave = {
-      # On macOS, this policy is only available on instances that are managed
-      # via MDM, joined to a domain via MCX or enrolled in Chrome Enterprise
-      # Core.
       profile.SiteSearchSettings = cfg.siteSearch;
 
       siteSearch = [
@@ -60,14 +57,26 @@ in
 
         {
           name = "GitHub";
-          shortcut = "gh";
+          shortcut = "g";
           url = "https://github.com/search?q=%s&ref=opensearch";
         }
 
         {
           name = "Nixpkgs GitHub";
-          shortcut = "nix";
+          shortcut = "gpkgs";
           url = "https://github.com/search?q=repo%3ANixOS%2Fnixpkgs%20%s&type=code";
+        }
+
+        {
+          name = "Nix Darwin GitHub";
+          shortcut = "gdar";
+          url = "https://github.com/search?q=repo%3Anix-darwin%2Fnix-darwin%20%s&type=code";
+        }
+
+        {
+          name = "Home Manager GitHub";
+          shortcut = "ghm";
+          url = "https://github.com/search?q=repo%3Anix-community%2Fhome-manager%20%s&type=code";
         }
       ];
     };
