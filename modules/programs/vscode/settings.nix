@@ -30,7 +30,9 @@ in
     "editor.wordWrap" = "on";
     "editor.accessibilitySupport" = "off";
     "diffEditor.ignoreTrimWhitespace" = false;
-    "diffEditor.renderSideBySide" = false;
+
+    # https://github.com/microsoft/vscode/issues/8226
+    "diffEditor.renderSideBySide" = true;
     "editor.scrollBeyondLastLine" = false;
     "editor.padding.bottom" = 100;
     "editor.rulers" = [ 80 ];
