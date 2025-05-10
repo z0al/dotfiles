@@ -12,7 +12,7 @@ Here are some unique features of my configuration you might find interesting:
 
 - [**🦁 Brave Module**](./modules/programs/brave): A custom module that uses [managed policies](https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy) to de-bloat Brave and automate extensions and other settings.
 
-- [**💻 Mobile Device Management (MDM)**](./modules/mdm/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS, which can then be manually installed via System Settings. The module warns you if the profile changes and needs reapplying.
+- [**💻 Mobile Device Management (MDM)**](./modules/mdm/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS, which can then be manually installed via System Settings. The module warns the user if the profile changes and needs reapplying.
 
 - [**👨‍💻 VS Code**](./modules/programs/vscode): A fully declarative VS Code configuration. The final `settings.json` file is copied (not linked), allowing for quick on-the-fly tweaks.
 
