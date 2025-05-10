@@ -94,8 +94,8 @@ in
           id = "hlepfoohegkhhmjieoechaddaejaokhf";
 
           hosts = [
-            "https://github.com/*"
-            "https://gist.github.com/*"
+            "https://github.com"
+            "https://gist.github.com"
           ];
         }
 
