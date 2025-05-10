@@ -63,7 +63,7 @@ in
       text = nixProfile;
       force = true;
       onChange = ''
-        ${warn} "mdm: ~/.nix.mobileconfig has chanaged. Install the \
+        ${warn} "mdm: ~/nix.mobileconfig has chanaged. Install the \
         profile via system preferences to apply latest changes."
       '';
     };
