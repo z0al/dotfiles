@@ -4,6 +4,7 @@
     ./bat
     ./brave
     ./docker
+    ./finder
     ./ghostty
     ./helix
     ./kubectx
