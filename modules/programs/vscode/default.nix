@@ -5,6 +5,7 @@ let
 
   toJson = (pkgs.formats.json { }).generate;
 
+  userName = config.my.user.name;
   userHome = config.my.user.home;
 
   cfgDir =
@@ -72,9 +73,9 @@ in
       ${writeJson "${cfgDir}/keybindings.json" cfg.keybindings}
 
       # Extensions
-      if [ -d '${extDir}' ]; then
-        rm -rf '${extDir}'
-      fi
+      rm -rf '${extDir}'
+      mkdir -p '${extDir}'
+      chown -R '${userName}' '${extDir}'
 
       ${lib.concatLines (map installExt cfg.extensions)}
       ${writeJson
