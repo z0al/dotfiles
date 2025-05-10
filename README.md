@@ -1,6 +1,6 @@
 # Dotfiles
 
-A declarative and opinionated [flake](https://nix.dev/concepts/flakes)-based system configuration for both [NixOS](https://nixos.org)[^1] and macOS (via [nix-darwin](https://github.com/nix-darwin/nix-darwin)).
+An opinionated [flake](https://nix.dev/concepts/flakes)-based system configuration for both [NixOS](https://nixos.org)[^1] and macOS (via [nix-darwin](https://github.com/nix-darwin/nix-darwin)).
 
 If you have no idea what any of that means, I highly recommend checking out Matthias's excellent [YouTube mini-course](https://youtu.be/AGVXJ-TIv3Y).
 
@@ -8,15 +8,15 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 Here are some unique features of my configuration you might find interesting:
 
-- [**🙅‍♂️ No home modules**](https://nix-community.github.io/home-manager/index.xhtml#ch-writing-modules): I find the split between `home-manager` and system-level modules (e.g. NixOS or nix-darwin modules) overly dramatic. It doesn't scale well when configs span both user and system layers, and it's unnecessary for single-user setups. Instead, I [group modules by feature](#unified-modules).
+- [**🙅‍♂️ No home modules**](https://nix-community.github.io/home-manager/index.xhtml#ch-writing-modules): I find the split between `home-manager` and system-level modules (e.g. NixOS or nix-darwin modules) overly dramatic. It doesn't scale well when configuration spans both user and system layers, and it's unnecessary for single-user setups. Instead, [I group modules by feature](#unified-modules).
 
 - [**🦁 Brave Module**](./modules/programs/brave): A custom module that uses [managed policies](https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy) to de-bloat Brave and automate extensions and other settings.
 
-- [**💻 Mobile Device Management (MDM)**](./modules/mdm/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS that can be manually installed via System Settings (a known macOS limitation). The module warns you if the profile changes and needs reapplying.
+- [**💻 Mobile Device Management (MDM)**](./modules/mdm/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS, which can then be manually installed via System Settings. The module warns you if the profile changes and needs reapplying.
 
-- [**👨‍💻 VS Code**](./modules/programs/vscode): A fully declarative VS Code configuration. The final `settings.json` is copied (not linked), allowing for quick on-the-fly tweaks.
+- [**👨‍💻 VS Code**](./modules/programs/vscode): A fully declarative VS Code configuration. The final `settings.json` file is copied (not linked), allowing for quick on-the-fly tweaks.
 
-- [**🔐 1Password**](./modules/programs/1password): Uses 1Password as an SSH agent, Git auth, and signing program. This keeps SSH keys and tokens in the password manager instead of on disk.
+- [**🔐 1Password**](./modules/programs/1password): Uses 1Password as an SSH agent, Git authentication, and signing program. This keeps SSH keys and tokens in the password manager instead of on disk.
 
 - [**🪟 Tiling**](./modules/config/tiling/_darwin.nix): Configures [AeroSpace](https://nikitabobko.github.io/AeroSpace/guide) for automatic window tiling on macOS.
 
@@ -80,4 +80,4 @@ MIT © z0al
 
 [^1]:
     This repo used to be heavily focused on NixOS, but life happens and I'm currently stuck on macOS 😔.
-    While most NixOS-specific config has been removed, the repo is still NixOS-ready and waiting for the day I switch back soon ™️ (looking at you, [Asahi Linux](https://asahilinux.org/) 👀).
+    While most NixOS-specific configurations has been removed, the repo is still NixOS-ready and waiting for the day I switch back soon ™️ (looking at you, [Asahi Linux](https://asahilinux.org/) 👀).
