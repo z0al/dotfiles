@@ -2,28 +2,6 @@
 
 let
   cfg = config.d.programs.brave;
-
-  extensionModule = with lib; types.submodule {
-    options = {
-      name = mkOption {
-        type = types.str;
-      };
-
-      id = mkOption {
-        type = types.str;
-      };
-
-      pinned = mkOption {
-        type = types.bool;
-        default = false;
-      };
-
-      hosts = mkOption {
-        type = types.listOf types.str;
-        default = [ ];
-      };
-    };
-  };
 in
 
 {
@@ -40,11 +18,6 @@ in
     package = mkOption {
       type = types.package;
       default = pkgs.brave;
-    };
-
-    extensions = mkOption {
-      type = types.listOf extensionModule;
-      default = [ ];
     };
 
     profile = mkOption {

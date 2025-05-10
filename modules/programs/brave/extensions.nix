@@ -24,9 +24,36 @@ let
         (filterNulls value) != { })
       (lib.mergeAttrsList
         (map setup cfg.extensions));
+
+  extensionModule = with lib; types.submodule {
+    options = {
+      name = mkOption {
+        type = types.str;
+      };
+
+      id = mkOption {
+        type = types.str;
+      };
+
+      pinned = mkOption {
+        type = types.bool;
+        default = false;
+      };
+
+      hosts = mkOption {
+        type = types.listOf types.str;
+        default = [ ];
+      };
+    };
+  };
 in
 
 {
+  options.d.programs.brave.extensions = with lib; mkOption {
+    type = types.listOf extensionModule;
+    default = [ ];
+  };
+
   config = lib.mkIf cfg.enable {
     d.programs.brave = {
       profile = {
