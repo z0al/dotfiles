@@ -21,7 +21,7 @@ in
     };
 
     profile = mkOption {
-      type = types.attrs;
+      type = types.attrsOf types.anything;
       default = { };
     };
   };

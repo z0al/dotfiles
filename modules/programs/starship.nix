@@ -15,7 +15,7 @@ in
     };
 
     theme = mkOption {
-      type = types.attrs;
+      type = types.attrsOf types.anything;
     };
   };
 
