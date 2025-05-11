@@ -14,7 +14,6 @@
     ./trackpad
     ./users
 
-    ./home-manager.nix
     ./std.nix
   ];
 }

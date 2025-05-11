@@ -23,6 +23,6 @@
   nix-homebrew = {
     enable = true;
     autoMigrate = true;
-    user = config.d.user.name;
+    user = config.my.user.name;
   };
 }

@@ -28,11 +28,11 @@ in
       programs.git = {
         enable = true;
 
-        userName = config.d.git.user;
-        userEmail = config.d.git.email;
+        userName = config.my.user.name;
+        userEmail = config.my.user.email;
 
         signing.signByDefault = true;
-        signing.key = config.d.user.ssh.key;
+        signing.key = config.my.user.sshKey;
 
         extraConfig = {
           init.defaultBranch = "main";

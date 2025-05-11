@@ -9,7 +9,7 @@ let
     PayloadDisplayName = "Nix Profile";
     PayloadUUID = identifier;
     PayloadIdentifier = identifier;
-    PayloadOrganization = config.d.user.name;
+    PayloadOrganization = config.my.user.name;
     PayloadType = "Configuration";
     PayloadVersion = 1;
     PayloadContent = map

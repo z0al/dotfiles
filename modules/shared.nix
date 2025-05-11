@@ -5,6 +5,5 @@
     ./programs
 
     ./presets.nix
-    ./vars.nix
   ];
 }

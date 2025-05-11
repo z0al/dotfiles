@@ -12,7 +12,7 @@ in
 
       _1password-gui = {
         enable = true;
-        polkitPolicyOwners = [ "root" config.d.user.name ];
+        polkitPolicyOwners = [ "root" config.my.user.name ];
       };
     };
   };

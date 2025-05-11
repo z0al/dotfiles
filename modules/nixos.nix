@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 let
   nixosModules = lib.fileset.toList (
@@ -13,5 +13,5 @@ in
     ./shared.nix
   ];
 
-  system.stateVersion = config.d.version;
+  system.stateVersion = lib.trivial.release;
 }

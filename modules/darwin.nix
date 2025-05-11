@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 let
   darwinModules = lib.fileset.toList (
@@ -13,7 +13,7 @@ in
     ./shared.nix
   ];
 
-  system.stateVersion = 5;
+  system.stateVersion = config.system.maxStateVersion;
 
   # Random settings that don't fit anywhere else
   system.defaults.CustomUserPreferences = {

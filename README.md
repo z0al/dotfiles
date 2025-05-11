@@ -69,7 +69,7 @@ For convenience, I use the following option aliases:
 - `my.user` → `users.users.<username>`
   - e.g., `my.user.extraGroups`
 
-The `<username>` refers to the primary user login, configured in [`modules/vars.nix`](./modules/vars.nix).
+The `<username>` refers to the primary user login, configured in [`modules/config/users`](./modules/config/users/default.nix).
 
 ## 📚 Credits
 

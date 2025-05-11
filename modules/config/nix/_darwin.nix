@@ -2,7 +2,7 @@
 
 {
   nix.gc = {
-    user = config.d.user.name;
+    user = config.my.user.name;
     interval.Day = 7;
   };
 

@@ -5,7 +5,7 @@
     package = pkgs.nix;
 
     settings = {
-      trusted-users = [ "root" config.d.user.name ];
+      trusted-users = [ "root" config.my.user.name ];
 
       # https://github.com/NixOS/nix/issues/11728
       download-buffer-size = 1 * 1024 * 1024 * 1024; # 1GB
