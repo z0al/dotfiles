@@ -8,7 +8,7 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 Here are some unique features of my configuration you might find interesting:
 
-- [**🙅‍♂️ No home modules**](https://nix-community.github.io/home-manager/index.xhtml#ch-writing-modules): I find the split between `home-manager` and system-level modules (e.g. NixOS or nix-darwin modules) overly dramatic. It doesn't scale well when configuration spans both user and system layers, and it's unnecessary for single-user setups IMHO. Instead, [I group modules by feature](#unified-modules) and use system-level modules everywhere.
+- [**🙅‍♂️ No home modules**](https://nix-community.github.io/home-manager/index.xhtml#ch-writing-modules): I find the split between `home-manager` and system-level modules (e.g. NixOS or nix-darwin modules) overly dramatic. It doesn't scale well when configurations span both user and system layers, and it's unnecessary for single-user setups IMHO. Instead, [I group modules by feature](#unified-modules) and use system-level modules everywhere.
 
 - [**🦁 Brave Module**](./modules/programs/brave): A custom module that uses [managed policies](https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy) to de-bloat Brave and automate extensions and other settings.
 
@@ -26,25 +26,32 @@ Here are some unique features of my configuration you might find interesting:
 
 ### Unified Modules
 
-This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules`:
+This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules` e.g.
 
 ```
-<module>
-  ├── _nixos.nix
-  ├── _darwin.nix
-  ├── ...
-  └── default.nix
+modules
+├── config
+│   ├── ...
+│   └── <module-a>.nix         # cross-platform module
+├── programs
+│   ├── <module-b>             # module with platform-specific implementations
+│   │   ├── _darwin.nix        # → nix-darwin module
+│   │   ├── _nixos.nix         # → nixos module
+│   │   └── default.nix
+│   ├── ...
+│   └── <module-c>.nix         # another cross-platform module
+└── ...
 ```
 
 **How does it work?**
 
-- `default.nix` defines the shared module configuration. It typically includes the module option definitions like `my.<module>.enable`. All custom modules are prefixed with `my.*` to avoid conflicts with upstream modules.
-- `**/*/_nixos.nix` files are automatically loaded on NixOS via [`modules/nixos.nix`](./modules/nixos.nix).
-- `**/*/_darwin.nix` files are automatically loaded on macOS via [`modules/darwin.nix`](./modules/darwin.nix).
+- `<module>/default.nix` defines the shared module configuration. It typically includes the module option definitions like `my.<module>.enable`. All custom modules are prefixed with `my.*` to avoid conflicts with upstream modules.
+- `**/*/_nixos.nix` files are automatically imported in [`modules/nixos.nix`](./modules/nixos.nix).
+- `**/*/_darwin.nix` files are automatically imported in [`modules/darwin.nix`](./modules/darwin.nix).
 - Wherever possible, NixOS/nix-darwin modules are preferred over `home-manager`. I aim to eventually remove `home-manager` entirely once there's a viable standalone replacement for [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file).
 - When `home-manager` is required, configuration is written inline using the `hm.*` [alias](#aliases).
 
-A practical example of this structure is the 1Password module at [`modules/programs/1password`](./modules/programs/1password).
+A practical example of a module that defines both `_nixos.nix` and `_darwin.nix` is the 1Password module in [`modules/programs/1password`](./modules/programs/1password).
 
 ### Presets
 
@@ -82,4 +89,4 @@ MIT © z0al
 
 [^1]:
     This repo used to be heavily focused on NixOS, but life happens and I'm currently stuck on macOS 😔.
-    While most NixOS-specific configurations has been removed, the repo is still NixOS-ready and waiting for the day I switch back soon ™️ (looking at you, [Asahi Linux](https://asahilinux.org/) 👀).
+    While most NixOS-specific configurations have been removed, the repo is still NixOS-ready and waiting for the day I switch back soon ™️ (looking at you, [Asahi Linux](https://asahilinux.org/) 👀).
