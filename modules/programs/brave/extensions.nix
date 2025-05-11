@@ -63,14 +63,14 @@ in
 
       extensions = [
         {
-          name = "1Password";
-          id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-          pinned = true;
+          name = "Tabby Cat";
+          id = "mefhakmgclhhfbdadeojlkbllmecialg";
         }
 
         {
-          name = "AdGuard";
-          id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
+          name = "1Password";
+          id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+          pinned = true;
         }
 
         {
@@ -80,8 +80,18 @@ in
         }
 
         {
+          name = "AdGuard";
+          id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
+        }
+
+        {
           name = "Privacy Badger";
           id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
+        }
+
+        {
+          name = "Floccus Bookmarks Sync";
+          id = "fnaicdffflnofjppbagibeoednhnbjhg";
         }
 
         {
@@ -100,8 +110,8 @@ in
         }
 
         {
-          name = "Floccus Bookmarks Sync";
-          id = "fnaicdffflnofjppbagibeoednhnbjhg";
+          name = "Grammarly";
+          id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
         }
 
         {
@@ -117,11 +127,6 @@ in
         {
           name = "Google Translate";
           id = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
-        }
-
-        {
-          name = "Grammarly";
-          id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
         }
 
         {
