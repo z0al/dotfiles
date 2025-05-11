@@ -24,6 +24,12 @@ let
   };
 
   warn = "${lib.getExe pkgs.gum} style --foreground 3";
+
+  # https://archive.is/948rD
+  openPreferences = pane:
+    ''
+      /usr/bin/open "x-apple.systempreferences:${pane}"
+    '';
 in
 
 {
@@ -64,7 +70,9 @@ in
       force = true;
       onChange = ''
         ${warn} "Device Manager: ~/nix.mobileconfig has chanaged. Install the \
-        profile via system preferences for changes to take affect"
+        new profile via system preferences for changes to take affect."
+
+        ${openPreferences "com.apple.preferences.configurationprofiles"}
       '';
     };
   };
