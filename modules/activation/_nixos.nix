@@ -9,7 +9,15 @@ in
     listToAttrs (mapAttrsToList
       (name: script: {
         inherit name;
-        value = { text = script; };
+        value = {
+          text = ''
+            # Home-manager inspired activation variables
+            oldGenPath=/run/current-system
+            newGenPath=$(readlink -f "$systemConfig")
+
+            ${script}
+          '';
+        };
       })
       cfg);
 }
