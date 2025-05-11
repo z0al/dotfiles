@@ -10,7 +10,7 @@ in
       "brave-browser"
     ];
 
-    d.mdm.profiles = [{
+    d.deviceManager.profiles = [{
       name = "Brave Browser";
       domain = "com.brave.Browser";
       payload = lib.removeAttrs cfg.profile [

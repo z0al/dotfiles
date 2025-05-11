@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.mdm;
+  cfg = config.d.deviceManager;
 
   identifier = "com.nix.managed.profile";
 
@@ -27,7 +27,7 @@ let
 in
 
 {
-  options.d.mdm = with lib; {
+  options.d.deviceManager = with lib; {
     profiles = mkOption {
       type = types.listOf
         (types.submodule {
@@ -63,7 +63,7 @@ in
       text = nixProfile;
       force = true;
       onChange = ''
-        ${warn} "mdm: ~/nix.mobileconfig has chanaged. Install the \
+        ${warn} "Device Manager: ~/nix.mobileconfig has chanaged. Install the \
         profile via system preferences for changes to take affect"
       '';
     };
