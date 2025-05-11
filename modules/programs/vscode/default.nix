@@ -68,7 +68,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = cfg.packages ++ [ pkgs.vscode ];
 
-    d.scripts.configureVsCode = ''
+    d.activation.configureVscode = ''
       ${writeJson "${cfgDir}/settings.json" cfg.settings}
       ${writeJson "${cfgDir}/keybindings.json" cfg.keybindings}
 

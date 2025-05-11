@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.scripts;
+  cfg = config.d.activation;
 in
 
 {
