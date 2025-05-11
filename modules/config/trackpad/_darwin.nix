@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  cfg = config.d.trackpad;
+  cfg = config.my.trackpad;
 in
 
 {

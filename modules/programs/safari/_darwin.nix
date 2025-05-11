@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.safari;
+  cfg = config.my.programs.safari;
 in
 
 {

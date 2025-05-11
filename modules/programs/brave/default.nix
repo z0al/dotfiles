@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.brave;
+  cfg = config.my.programs.brave;
 in
 
 {
@@ -10,7 +10,7 @@ in
     ./site-search.nix
   ];
 
-  options.d.programs.brave = with lib; {
+  options.my.programs.brave = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -23,7 +23,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.programs.brave.profile = {
+    my.programs.brave.profile = {
       # Disable default browser check
       DefaultBrowserSettingEnabled = false;
 

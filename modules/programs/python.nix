@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.python;
+  cfg = config.my.programs.python;
 in
 
 {
-  options.d.programs.python = with lib; {
+  options.my.programs.python = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.python.enable;
+      default = config.my.presets.python.enable;
     };
   };
 

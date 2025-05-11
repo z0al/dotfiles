@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.fd;
+  cfg = config.my.programs.fd;
 in
 
 {
-  options.d.programs.fd = with lib; {
+  options.my.programs.fd = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

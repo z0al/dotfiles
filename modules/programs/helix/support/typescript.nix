@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.typescript;
+  cfg = config.my.presets.typescript;
 
   languages = [
     "jsx"
@@ -29,7 +29,7 @@ let
 in
 
 {
-  config.d.programs.helix = lib.mkIf cfg.enable {
+  config.my.programs.helix = lib.mkIf cfg.enable {
     packages = with pkgs; [
       typescript-language-server
       vscode-langservers-extracted

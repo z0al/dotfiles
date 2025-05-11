@@ -1,11 +1,11 @@
 { config, lib, ... }:
 
 let
-  cfgFonts = config.d.fonts;
+  cfgFonts = config.my.fonts;
 in
 
 {
-  d.programs.vscode.settings = {
+  my.programs.vscode.settings = {
     # Editor
     "files.enableTrash" = true;
     "files.autoSave" = "onFocusChange";

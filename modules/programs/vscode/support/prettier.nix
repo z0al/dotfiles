@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.vscode;
+  cfg = config.my.programs.vscode;
 
   languages = [
     "css"
@@ -27,7 +27,7 @@ let
 in
 
 {
-  d.programs.vscode = lib.mkIf cfg.enable {
+  my.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
       esbenp.prettier-vscode
     ];

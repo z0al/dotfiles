@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.ghostty;
-  cfgFonts = config.d.fonts;
+  cfg = config.my.programs.ghostty;
+  cfgFonts = config.my.fonts;
 
   format = pkgs.formats.keyValue {
     listsAsDuplicateKeys = true;
@@ -18,7 +18,7 @@ let
 in
 
 {
-  options.d.programs.ghostty = with lib; {
+  options.my.programs.ghostty = with lib; {
     enable = mkOption {
       type = types.bool;
       default = false;

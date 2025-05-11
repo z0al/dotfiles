@@ -27,7 +27,7 @@
     '';
   };
 
-  d.programs.fish.interactiveShellInit = ''
+  my.programs.fish.interactiveShellInit = ''
     source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
   '';
 }

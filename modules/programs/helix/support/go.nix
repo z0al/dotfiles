@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.go;
+  cfg = config.my.presets.go;
 in
 
 {
-  config.d.programs.helix = lib.mkIf cfg.enable {
+  config.my.programs.helix = lib.mkIf cfg.enable {
     packages = with pkgs; [
       delve
       gopls

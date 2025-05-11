@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.helix;
+  cfg = config.my.programs.helix;
   package = pkgs.vscode-langservers-extracted;
 
   css-lang-server-bin = "${package}/bin/vscode-css-language-server";
 in
 
 {
-  config.d.programs.helix = lib.mkIf cfg.enable {
+  config.my.programs.helix = lib.mkIf cfg.enable {
     packages = [ package ];
 
     languages = {

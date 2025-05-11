@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs._1password;
+  cfg = config.my.programs._1password;
 
   # https://developer.1password.com/docs/ssh/get-started/
   ssh = with pkgs.stdenv; {
@@ -20,7 +20,7 @@ let
 in
 
 {
-  options.d.programs._1password = with lib; {
+  options.my.programs._1password = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  cfg = config.d.style;
+  cfg = config.my.style;
 in
 
 {

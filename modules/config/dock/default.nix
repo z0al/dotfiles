@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  options.d.dock = with lib; {
+  options.my.dock = with lib; {
     position = mkOption {
       type = types.enum [ "left" "bottom" "right" ];
       default = "bottom";

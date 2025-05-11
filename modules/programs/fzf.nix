@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.fzf;
+  cfg = config.my.programs.fzf;
 
   fd = lib.getExe pkgs.fd;
 in
 
 {
-  options.d.programs.fzf = with lib; {
+  options.my.programs.fzf = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -19,7 +19,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.programs.fd.enable = true;
+    my.programs.fd.enable = true;
 
     environment = {
       systemPackages = with pkgs; [
@@ -43,11 +43,11 @@ in
       };
     };
 
-    d.programs.bash.interactiveShellInit = ''
+    my.programs.bash.interactiveShellInit = ''
       eval "$(${lib.getExe pkgs.fzf} --bash)"
     '';
 
-    d.programs.fish.interactiveShellInit = ''
+    my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fzf} --fish | source
     '';
   };

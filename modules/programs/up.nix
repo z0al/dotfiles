@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.up;
+  cfg = config.my.programs.up;
 
   flake = "--flake ${cfg.flake}";
   target = if (cfg.target != "") then "--target ${cfg.target}" else "";
 in
 
 {
-  options.d.programs.up = with lib; {
+  options.my.programs.up = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

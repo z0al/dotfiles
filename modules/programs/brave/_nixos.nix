@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.brave;
+  cfg = config.my.programs.brave;
 in
 
 {

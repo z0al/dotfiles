@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.nixpkgs-fmt;
+  cfg = config.my.programs.nixpkgs-fmt;
 in
 
 {
-  options.d.programs.nixpkgs-fmt = with lib; {
+  options.my.programs.nixpkgs-fmt = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.nix.enable;
+      default = config.my.presets.nix.enable;
     };
   };
 

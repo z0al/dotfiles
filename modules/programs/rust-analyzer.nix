@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.rust-analyzer;
+  cfg = config.my.programs.rust-analyzer;
 in
 
 {
-  options.d.programs.rust-analyzer = with lib; {
+  options.my.programs.rust-analyzer = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.rust.enable;
+      default = config.my.presets.rust.enable;
     };
   };
 

@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.python;
+  cfg = config.my.presets.python;
 in
 
 {
-  d.programs.vscode = lib.mkIf cfg.enable {
+  my.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
       ms-python.black-formatter
       ms-python.python

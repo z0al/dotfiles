@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.git;
+  cfg = config.my.programs.git;
 in
 
 {
-  options.d.programs.git = with lib; {
+  options.my.programs.git = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

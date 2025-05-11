@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.fnm;
+  cfg = config.my.programs.fnm;
 
   lts-major = builtins.substring 0 2 pkgs.nodePackages.nodejs.version;
 
@@ -14,10 +14,10 @@ let
 in
 
 {
-  options.d.programs.fnm = with lib; {
+  options.my.programs.fnm = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.typescript.enable;
+      default = config.my.presets.typescript.enable;
     };
   };
 
@@ -30,11 +30,11 @@ in
       nvm = "fnm";
     };
 
-    d.programs.bash.interactiveShellInit = ''
+    my.programs.bash.interactiveShellInit = ''
       eval "$(${lib.getExe pkgs.fnm} env --shell bash ${cliOptions})"
     '';
 
-    d.programs.fish.interactiveShellInit = ''
+    my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
 

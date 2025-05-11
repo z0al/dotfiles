@@ -1,18 +1,18 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.fish;
+  cfg = config.my.programs.fish;
   cfgEnv = config.environment;
 in
 
 {
   imports = with lib; [
     (mkAliasOptionModule
-      [ "d" "programs" "fish" "interactiveShellInit" ]
+      [ "my" "programs" "fish" "interactiveShellInit" ]
       [ "programs" "fish" "interactiveShellInit" ])
   ];
 
-  options.d.programs.fish = with lib; {
+  options.my.programs.fish = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

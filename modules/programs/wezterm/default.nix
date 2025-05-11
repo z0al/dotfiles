@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.wezterm;
+  cfg = config.my.programs.wezterm;
 
   configFile = /* lua */''
     local wz = require("wezterm")
@@ -29,7 +29,7 @@ in
     ./settings.nix
   ];
 
-  options.d.programs.wezterm = with lib;{
+  options.my.programs.wezterm = with lib;{
     enable = mkOption {
       type = types.bool;
       default = true;

@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.kubectl;
+  cfg = config.my.programs.kubectl;
 in
 
 {
-  options.d.programs.kubectl = with lib; {
+  options.my.programs.kubectl = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.devOps.enable;
+      default = config.my.presets.devOps.enable;
     };
   };
 

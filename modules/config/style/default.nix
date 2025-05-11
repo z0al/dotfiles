@@ -5,7 +5,7 @@
     ./themes
   ];
 
-  options.d.style = with lib; {
+  options.my.style = with lib; {
     dark = mkOption {
       type = types.bool;
       default = true;

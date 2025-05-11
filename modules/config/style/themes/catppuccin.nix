@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.style;
+  cfg = config.my.style;
 
   titleCase = "Catppuccin Mocha";
   snakeCase = "catppuccin_mocha";
@@ -10,7 +10,7 @@ in
 
 {
   config = lib.mkIf (cfg.theme == "catppuccin") {
-    d.programs = {
+    my.programs = {
       bat.theme = kebabCase;
       ghostty.theme = kebabCase;
       helix.theme = snakeCase;

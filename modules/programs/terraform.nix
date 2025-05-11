@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.terraform;
+  cfg = config.my.programs.terraform;
 in
 
 {
-  options.d.programs.terraform = with lib; {
+  options.my.programs.terraform = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.devOps.enable;
+      default = config.my.presets.devOps.enable;
     };
   };
 

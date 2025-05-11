@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.vscode;
+  cfg = config.my.programs.vscode;
 in
 
 {
-  d.programs.vscode = lib.mkIf cfg.enable {
+  my.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
       streetsidesoftware.code-spell-checker
     ];

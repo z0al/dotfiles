@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.ghostty;
+  cfg = config.my.programs.ghostty;
 in
 
 {

@@ -1,11 +1,11 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.direnv;
+  cfg = config.my.programs.direnv;
 in
 
 {
-  options.d.programs.direnv = with lib; {
+  options.my.programs.direnv = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

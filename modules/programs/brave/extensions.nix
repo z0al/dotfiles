@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.brave;
+  cfg = config.my.programs.brave;
 
   extensionIds = map (e: e.id) cfg.extensions;
 
@@ -49,13 +49,13 @@ let
 in
 
 {
-  options.d.programs.brave.extensions = with lib; mkOption {
+  options.my.programs.brave.extensions = with lib; mkOption {
     type = types.listOf extensionModule;
     default = [ ];
   };
 
   config = lib.mkIf cfg.enable {
-    d.programs.brave = {
+    my.programs.brave = {
       profile = {
         ExtensionInstallForcelist = extensionIds;
         ExtensionSettings = extensionSettings;

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.openscad;
+  cfg = config.my.programs.openscad;
 in
 
 {

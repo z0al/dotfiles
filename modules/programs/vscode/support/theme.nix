@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 let
-  cfg = config.d.programs.vscode;
+  cfg = config.my.programs.vscode;
 in
 
 {
-  d.programs.vscode = {
+  my.programs.vscode = {
     extensions = with pkgs.vscode-marketplace; [
       catppuccin.catppuccin-vsc
       pmndrs.pmndrs

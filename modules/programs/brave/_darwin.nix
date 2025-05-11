@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.brave;
+  cfg = config.my.programs.brave;
 in
 
 {
@@ -10,7 +10,7 @@ in
       "brave-browser"
     ];
 
-    d.deviceManager.profiles = [{
+    my.deviceManager.profiles = [{
       name = "Brave Browser";
       domain = "com.brave.Browser";
       payload = lib.removeAttrs cfg.profile [

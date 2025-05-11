@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  options.d.fonts = with lib; {
+  options.my.fonts = with lib; {
     size = mkOption {
       type = types.int;
     };
@@ -37,9 +37,9 @@
       noto-fonts-color-emoji
     ];
 
-    d.fonts.size = 13;
-    d.fonts.mono = "JetBrains Mono";
-    d.fonts.symbol = "Symbols Nerd Font Mono";
-    d.fonts.emoji = "Noto Color Emoji";
+    my.fonts.size = 13;
+    my.fonts.mono = "JetBrains Mono";
+    my.fonts.symbol = "Symbols Nerd Font Mono";
+    my.fonts.emoji = "Noto Color Emoji";
   };
 }

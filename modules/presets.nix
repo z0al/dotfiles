@@ -9,7 +9,7 @@ in
 
 {
   # group related modules under a single flag for convenience.
-  options.d.presets = {
+  options.my.presets = {
     copilot.enable = mkBool true;
     typescript.enable = mkBool true;
     lua.enable = mkBool true;

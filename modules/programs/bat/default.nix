@@ -1,12 +1,12 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.bat;
+  cfg = config.my.programs.bat;
   bat = "${pkgs.bat}/bin/bat";
 in
 
 {
-  options.d.programs.bat = with lib; {
+  options.my.programs.bat = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

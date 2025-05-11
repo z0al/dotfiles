@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.keyboard;
+  cfg = config.my.keyboard;
 
   capsLockToHyperRule = {
     description = "Map Caps Lock to Hyper";

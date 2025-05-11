@@ -1,14 +1,14 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.wezterm;
-  cfgFonts = config.d.fonts;
+  cfg = config.my.programs.wezterm;
+  cfgFonts = config.my.fonts;
 
   mkLua = lib.generators.mkLuaInline;
 in
 
 {
-  config.d.programs.wezterm = lib.mkIf cfg.enable {
+  config.my.programs.wezterm = lib.mkIf cfg.enable {
     settings = {
       # Fonts
       font_size = cfgFonts.size;

@@ -42,7 +42,7 @@ let
 in
 
 {
-  d.programs.vscode.keybindings =
+  my.programs.vscode.keybindings =
     if pkgs.stdenv.isDarwin
     then bindings
     else map mapCmdToCtrl bindings;

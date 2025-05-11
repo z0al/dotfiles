@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.expo;
+  cfg = config.my.programs.expo;
 in
 
 {
-  options.d.programs.expo = with lib; {
+  options.my.programs.expo = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.react-native.enable;
+      default = config.my.presets.react-native.enable;
     };
   };
 

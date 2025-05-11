@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.nix;
+  cfg = config.my.presets.nix;
 in
 
 {
-  d.programs.vscode = lib.mkIf cfg.enable {
+  my.programs.vscode = lib.mkIf cfg.enable {
     packages = with pkgs; [
       nixd
     ];

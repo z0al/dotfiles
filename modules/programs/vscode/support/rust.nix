@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.rust;
+  cfg = config.my.presets.rust;
 in
 
 {
-  d.programs.vscode = lib.mkIf cfg.enable {
+  my.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
       rust-lang.rust-analyzer
     ];

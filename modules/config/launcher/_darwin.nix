@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.desktop.launcher;
+  cfg = config.my.desktop.launcher;
 in
 
 {

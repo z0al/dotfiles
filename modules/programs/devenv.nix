@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.devenv;
+  cfg = config.my.programs.devenv;
 in
 
 {
-  options.d.programs.devenv = with lib; {
+  options.my.programs.devenv = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

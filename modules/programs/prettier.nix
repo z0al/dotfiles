@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.prettier;
+  cfg = config.my.programs.prettier;
 in
 
 {
-  options.d.programs.prettier = with lib; {
+  options.my.programs.prettier = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

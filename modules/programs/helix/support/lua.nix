@@ -1,12 +1,12 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.lua;
+  cfg = config.my.presets.lua;
   package = pkgs.lua-language-server;
 in
 
 {
-  config.d.programs.helix = lib.mkIf cfg.enable {
+  config.my.programs.helix = lib.mkIf cfg.enable {
     packages = [ package ];
 
     languages = {

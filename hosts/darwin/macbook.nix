@@ -1,11 +1,11 @@
 {
-  d.presets = {
+  my.presets = {
     typescript.enable = true;
     python.enable = true;
     rust.enable = true;
   };
 
-  d.programs = {
+  my.programs = {
     obsidian.enable = true;
   };
 }

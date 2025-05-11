@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.watchman;
+  cfg = config.my.programs.watchman;
 in
 
 {
-  options.d.programs.watchman = with lib; {
+  options.my.programs.watchman = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.react-native.enable;
+      default = config.my.presets.react-native.enable;
     };
   };
 

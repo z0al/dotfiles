@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs._1password;
+  cfg = config.my.programs._1password;
 in
 
 {

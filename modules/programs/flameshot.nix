@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.flameshot;
+  cfg = config.my.programs.flameshot;
 
   toIni = (pkgs.formats.ini { }).generate;
 in
 
 {
-  options.d.programs.flameshot = with lib; {
+  options.my.programs.flameshot = with lib; {
     enable = mkOption {
       type = types.bool;
       default = false;

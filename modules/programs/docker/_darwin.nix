@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.docker;
+  cfg = config.my.programs.docker;
 in
 
 {

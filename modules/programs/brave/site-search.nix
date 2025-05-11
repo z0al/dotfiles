@@ -1,11 +1,11 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.brave;
+  cfg = config.my.programs.brave;
 in
 
 {
-  options.d.programs.brave.siteSearch = with lib; mkOption {
+  options.my.programs.brave.siteSearch = with lib; mkOption {
     type = types.listOf (types.submodule {
       options = {
         name = mkOption {
@@ -27,7 +27,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.programs.brave = {
+    my.programs.brave = {
       profile.SiteSearchSettings = cfg.siteSearch;
 
       siteSearch = [

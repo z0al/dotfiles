@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.zoxide;
+  cfg = config.my.programs.zoxide;
 in
 
 {
-  options.d.programs.zoxide = with lib; {
+  options.my.programs.zoxide = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -13,7 +13,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    d.programs.fzf.enable = true;
+    my.programs.fzf.enable = true;
     environment.systemPackages = with pkgs; [
       zoxide
     ];
@@ -22,11 +22,11 @@ in
       j = "__zoxide_zi";
     };
 
-    d.programs.bash.interactiveShellInit = ''
+    my.programs.bash.interactiveShellInit = ''
       eval "$(${lib.getExe pkgs.zoxide} init bash --no-cmd)"
     '';
 
-    d.programs.fish.interactiveShellInit = ''
+    my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.zoxide} init fish --no-cmd | source
     '';
   };

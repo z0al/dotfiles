@@ -1,15 +1,15 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.lazygit;
+  cfg = config.my.programs.lazygit;
   toYAML = lib.generators.toYAML { };
 in
 
 {
-  options.d.programs.lazygit = with lib; {
+  options.my.programs.lazygit = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.programs.git.enable;
+      default = config.my.programs.git.enable;
     };
 
     pager = mkOption {

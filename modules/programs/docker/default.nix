@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.docker;
+  cfg = config.my.programs.docker;
 in
 
 {
-  options.d.programs.docker = with lib; {
+  options.my.programs.docker = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.devOps.enable;
+      default = config.my.presets.devOps.enable;
     };
   };
 

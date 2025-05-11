@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.obsidian;
+  cfg = config.my.programs.obsidian;
 in
 
 {
-  options.d.programs.obsidian = with lib; {
+  options.my.programs.obsidian = with lib; {
     enable = mkOption {
       type = types.bool;
       default = false;

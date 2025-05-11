@@ -1,17 +1,17 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.bash;
+  cfg = config.my.programs.bash;
 in
 
 {
   imports = with lib; [
     (mkAliasOptionModule
-      [ "d" "programs" "bash" "interactiveShellInit" ]
+      [ "my" "programs" "bash" "interactiveShellInit" ]
       [ "programs" "bash" "interactiveShellInit" ])
   ];
 
-  options.d.programs.bash = with lib; {
+  options.my.programs.bash = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

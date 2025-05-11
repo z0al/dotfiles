@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.presets.typescript;
+  cfg = config.my.presets.typescript;
 in
 
 {
-  d.programs.vscode = lib.mkIf cfg.enable {
+  my.programs.vscode = lib.mkIf cfg.enable {
     extensions = with pkgs.vscode-marketplace; [
       dbaeumer.vscode-eslint
     ];

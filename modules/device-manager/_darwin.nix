@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.deviceManager;
+  cfg = config.my.deviceManager;
 
   identifier = "com.nix.managed.profile";
 
@@ -27,7 +27,7 @@ let
 in
 
 {
-  options.d.deviceManager = with lib; {
+  options.my.deviceManager = with lib; {
     profiles = mkOption {
       type = types.listOf
         (types.submodule {

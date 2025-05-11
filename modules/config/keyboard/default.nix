@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  options.d.keyboard = with lib; {
+  options.my.keyboard = with lib; {
     remapTilde = mkOption {
       type = types.bool;
       default = true;

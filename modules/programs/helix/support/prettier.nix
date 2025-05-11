@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.helix;
+  cfg = config.my.programs.helix;
 
   prettier = parser: {
-    command = lib.getExe config.d.programs.prettier.package;
+    command = lib.getExe config.my.programs.prettier.package;
     args = lib.flatten [
       [ "--parser" parser ]
 
@@ -42,7 +42,7 @@ let
 in
 
 {
-  config.d.programs.helix = lib.mkIf cfg.enable {
+  config.my.programs.helix = lib.mkIf cfg.enable {
     languages.language = map format languages;
   };
 }

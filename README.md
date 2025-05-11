@@ -38,7 +38,7 @@ This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Inste
 
 **How does it work?**
 
-- `default.nix` defines the shared module configuration. It typically includes the module option definitions like `d.<module>.enable`. With very few exceptions, all custom modules are prefixed with `d.*` to avoid conflicts with upstream modules.
+- `default.nix` defines the shared module configuration. It typically includes the module option definitions like `my.<module>.enable`. All custom modules are prefixed with `my.*` to avoid conflicts with upstream modules.
 - `**/*/_nixos.nix` files are automatically loaded on NixOS via [`modules/nixos.nix`](./modules/nixos.nix).
 - `**/*/_darwin.nix` files are automatically loaded on macOS via [`modules/darwin.nix`](./modules/darwin.nix).
 - Wherever possible, NixOS/nix-darwin modules are preferred over `home-manager`. I aim to eventually remove `home-manager` entirely once there's a viable standalone replacement for [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file).
@@ -48,14 +48,14 @@ A practical example of this structure is the 1Password module at [`modules/progr
 
 ### Presets
 
-Presets are flags that group related programs. For example, enabling `d.presets.devOps.enable` activates Docker, Kubernetes, Terraform, and others by default.
+Presets are flags that group related programs. For example, enabling `my.presets.devOps.enable` activates Docker, Kubernetes, Terraform, and others by default.
 
 ```nix
 # Enable DevOps tools e.g. Docker, Terraform ..etc
-d.presets.devOps.enable = true;
+my.presets.devOps.enable = true;
 
 # Exclude Terraform
-d.programs.terraform.enable = false;
+my.programs.terraform.enable = false;
 ```
 
 Available presets can be found in [`modules/presets.nix`](./modules/presets.nix).

@@ -1,15 +1,15 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.rustup;
+  cfg = config.my.programs.rustup;
   cfgDataHome = config.hm.xdg.dataHome;
 in
 
 {
-  options.d.programs.rustup = with lib; {
+  options.my.programs.rustup = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.d.presets.rust.enable;
+      default = config.my.presets.rust.enable;
     };
   };
 

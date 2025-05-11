@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.starship;
+  cfg = config.my.programs.starship;
   cfgFile = "starship/starship.toml";
 
   toTOML = (pkgs.formats.toml { }).generate;
 in
 
 {
-  options.d.programs.starship = with lib; {
+  options.my.programs.starship = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -29,11 +29,11 @@ in
       STARSHIP_LOG = "error";
     };
 
-    d.programs.bash.interactiveShellInit = ''
+    my.programs.bash.interactiveShellInit = ''
       eval "$(${lib.getExe pkgs.starship} init bash)"
     '';
 
-    d.programs.fish.interactiveShellInit = ''
+    my.programs.fish.interactiveShellInit = ''
       # Transient prompt
       function starship_transient_prompt_func
         # tput cuu1

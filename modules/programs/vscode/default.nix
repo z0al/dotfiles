@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.vscode;
+  cfg = config.my.programs.vscode;
 
   toJson = (pkgs.formats.json { }).generate;
 
@@ -34,7 +34,7 @@ in
     ./settings.nix
   ];
 
-  options.d.programs.vscode = with lib; {
+  options.my.programs.vscode = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -68,7 +68,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = cfg.packages ++ [ pkgs.vscode ];
 
-    d.activation.configureVscode = ''
+    my.activation.configureVscode = ''
       ${writeJson "${cfgDir}/settings.json" cfg.settings}
       ${writeJson "${cfgDir}/keybindings.json" cfg.keybindings}
 

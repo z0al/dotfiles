@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  cfg = config.d.dock;
+  cfg = config.my.dock;
 in
 
 {

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.wezterm;
+  cfg = config.my.programs.wezterm;
 
   mod = if pkgs.stdenv.isDarwin then "CMD" else "CTRL";
   mkLua = lib.generators.mkLuaInline;
@@ -13,7 +13,7 @@ let
 in
 
 {
-  config.d.programs.wezterm = lib.mkIf cfg.enable {
+  config.my.programs.wezterm = lib.mkIf cfg.enable {
     settings.disable_default_key_bindings = false;
 
     settings.keys = lib.flatten [

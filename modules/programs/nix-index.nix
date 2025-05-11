@@ -1,12 +1,12 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.nix-index;
+  cfg = config.my.programs.nix-index;
   package = config.programs.nix-index.package;
 in
 
 {
-  options.d.programs.nix-index = with lib; {
+  options.my.programs.nix-index = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -17,12 +17,12 @@ in
     programs.nix-index.enable = true;
     programs.nix-index-database.comma.enable = true;
 
-    d.programs.bash.interactiveShellInit = ''
+    my.programs.bash.interactiveShellInit = ''
       source ${package}/etc/profile.d/command-not-found.sh
     '';
 
     # See https://github.com/nix-community/nix-index/issues/126
-    d.programs.fish.interactiveShellInit =
+    my.programs.fish.interactiveShellInit =
       let
         wrapper = pkgs.writeScript "command-not-found" ''
           #!${pkgs.bash}/bin/bash

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.d.programs.helix;
+  cfg = config.my.programs.helix;
 
   toml = pkgs.formats.toml { };
   toTOML = toml.generate;
@@ -13,7 +13,7 @@ in
     ./settings.nix
   ];
 
-  options.d.programs.helix = with lib; {
+  options.my.programs.helix = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

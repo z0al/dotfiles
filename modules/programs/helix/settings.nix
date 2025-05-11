@@ -1,11 +1,11 @@
 { config, lib, ... }:
 
 let
-  cfg = config.d.programs.helix;
+  cfg = config.my.programs.helix;
 in
 
 {
-  config.d.programs.helix.settings = lib.mkIf cfg.enable {
+  config.my.programs.helix.settings = lib.mkIf cfg.enable {
     theme = cfg.theme;
 
     editor = {
