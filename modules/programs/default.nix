@@ -2,6 +2,7 @@
   imports = [
     ./1password
     ./bat
+    ./beekeeper-studio
     ./brave
     ./docker
     ./finder
