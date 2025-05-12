@@ -46,6 +46,85 @@ let
       };
     };
   };
+
+  extensions = [
+    {
+      name = "Tabby Cat";
+      id = "mefhakmgclhhfbdadeojlkbllmecialg";
+    }
+
+    {
+      name = "1Password";
+      id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+      pinned = true;
+    }
+
+    {
+      name = "Dark Reader";
+      id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+      pinned = true;
+    }
+
+    {
+      name = "AdGuard";
+      id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
+    }
+
+    {
+      name = "Privacy Badger";
+      id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
+    }
+
+    {
+      name = "Floccus Bookmarks Sync";
+      id = "fnaicdffflnofjppbagibeoednhnbjhg";
+    }
+
+    {
+      name = "React Developer Tools";
+      id = "fmkadmapgofadopljbjfkapdkoienihi";
+    }
+
+    {
+      name = "Refined GitHub";
+      id = "hlepfoohegkhhmjieoechaddaejaokhf";
+
+      hosts = [
+        "https://github.com"
+        "https://gist.github.com"
+      ];
+    }
+
+    {
+      name = "Grammarly";
+      id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
+    }
+
+    {
+      name = "Copy as Markdown";
+      id = "fkeaekngjflipcockcnpobkpbbfbhmdn";
+    }
+
+    {
+      name = "Don't F*** with Paste";
+      id = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
+    }
+
+    {
+      name = "Google Translate";
+      id = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
+    }
+
+    {
+      name = "JSON Formatter";
+      id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
+    }
+
+    {
+      name = "Disable Google Search Text Highlights";
+      id = "ompocnnmgiaoieoanemepjflbokldhom";
+    }
+  ];
 in
 
 {
@@ -61,84 +140,7 @@ in
         ExtensionSettings = extensionSettings;
       };
 
-      extensions = [
-        {
-          name = "Tabby Cat";
-          id = "mefhakmgclhhfbdadeojlkbllmecialg";
-        }
-
-        {
-          name = "1Password";
-          id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-          pinned = true;
-        }
-
-        {
-          name = "Dark Reader";
-          id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-          pinned = true;
-        }
-
-        {
-          name = "AdGuard";
-          id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
-        }
-
-        {
-          name = "Privacy Badger";
-          id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
-        }
-
-        {
-          name = "Floccus Bookmarks Sync";
-          id = "fnaicdffflnofjppbagibeoednhnbjhg";
-        }
-
-        {
-          name = "React Developer Tools";
-          id = "fmkadmapgofadopljbjfkapdkoienihi";
-        }
-
-        {
-          name = "Refined GitHub";
-          id = "hlepfoohegkhhmjieoechaddaejaokhf";
-
-          hosts = [
-            "https://github.com"
-            "https://gist.github.com"
-          ];
-        }
-
-        {
-          name = "Grammarly";
-          id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
-        }
-
-        {
-          name = "Copy as Markdown";
-          id = "fkeaekngjflipcockcnpobkpbbfbhmdn";
-        }
-
-        {
-          name = "Don't F*** with Paste";
-          id = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
-        }
-
-        {
-          name = "Google Translate";
-          id = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
-        }
-
-        {
-          name = "JSON Formatter";
-          id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
-        }
-
-        {
-          name = "Disable Google Search Text Highlights";
-          id = "ompocnnmgiaoieoanemepjflbokldhom";
-        }
-      ];
+      extensions = extensions;
     };
   };
 }
