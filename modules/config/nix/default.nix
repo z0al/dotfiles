@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   nix = {
@@ -20,7 +20,7 @@
     optimise.automatic = true;
 
     # https://yusef.napora.org/blog/pinning-nixpkgs-flake/
-    # registry.nixpkgs.flake = lib.mkForce inputs.nixpkgs-unstable;
+    registry.nixpkgs.flake = inputs.nixpkgs;
 
     extraOptions = ''
       experimental-features = nix-command flakes
