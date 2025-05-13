@@ -11,6 +11,7 @@ let
     PayloadIdentifier = identifier;
     PayloadOrganization = config.my.user.name;
     PayloadType = "Configuration";
+    PayloadScope = "System"; # Default is User
     PayloadVersion = 1;
     PayloadContent = map
       (profile: profile.payload // {

@@ -50,6 +50,10 @@ let
 
     # Do not restore tabs on startup
     RestoreOnStartup = 5;
+
+    # Merge policies when possible. Must have for managed work machines
+    PolicyListMultipleSourceMergeList = [ "*" ];
+    PolicyDictionaryMultipleSourceMergeList = [ "*" ];
   };
 in
 
