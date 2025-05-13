@@ -48,6 +48,12 @@ let
       "wifiConfigurations"
     ];
 
+    # Privacy
+    PrivacySandboxPromptEnabled = false;
+    PrivacySandboxAdTopicsEnabled = false;
+    PrivacySandboxSiteEnabledAdsEnabled = false;
+    PrivacySandboxAdMeasurementEnabled = false;
+
     # Merge policies when possible. Must have for managed work machines
     PolicyListMultipleSourceMergeList = [ "*" ];
     PolicyDictionaryMultipleSourceMergeList = [ "*" ];
