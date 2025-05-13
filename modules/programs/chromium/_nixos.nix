@@ -1,16 +1,16 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.my.programs.brave;
+  cfg = config.my.programs.chromium;
 in
 
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.brave
+      pkgs.google-chrome
     ];
 
-    environment.etc."brave/policies/managed/default.json" = {
+    environment.etc."opt/chrome/policies/managed/default.json" = {
       text = builtins.toJSON cfg.profile;
     };
   };

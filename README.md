@@ -10,9 +10,7 @@ Here are some unique features of my configuration you might find interesting:
 
 - [**🙅‍♂️ No home modules**](https://nix-community.github.io/home-manager/index.xhtml#ch-writing-modules): I find the split between `home-manager` and system-level modules (e.g. NixOS or nix-darwin modules) overly dramatic. It doesn't scale well when configurations span both user and system layers, and it's unnecessary for single-user setups IMHO. Instead, [I group modules by feature](#unified-modules) and use system-level modules everywhere.
 
-- [**🦁 Brave Module**](./modules/programs/brave): A custom module that uses [managed policies](https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy) to de-bloat Brave and automate extensions and other settings.
-
-- [**💻 Device Manager**](./modules/device-manager/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS, which can then be manually installed via System Settings. The module warns the user if the profile changes and needs reapplying.
+- [**💻 Device Manager**](./modules/device-manager/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS e.g. used to configure policies for Chromium-based browsers, which can then be manually installed via System Settings. The module warns the user if the profile changes and needs reapplying.
 
 - [**👨‍💻 VS Code**](./modules/programs/vscode): A fully declarative VS Code configuration. The final `settings.json` file is copied (not linked), allowing for quick on-the-fly tweaks.
 
@@ -26,7 +24,7 @@ Here are some unique features of my configuration you might find interesting:
 
 ### Unified Modules
 
-This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules` e.g.
+This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules` and ALL modules are system (nixos/nix-darwin) modules e.g.
 
 ```
 modules

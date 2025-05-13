@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.brave;
+  cfg = config.my.programs.chromium;
 
   extensionIds = map (e: e.id) cfg.extensions;
 
@@ -47,22 +47,11 @@ let
     };
   };
 
-  extensions = [
+  # Extensions
+  privacyExtensions = [
     {
-      name = "Tabby Cat";
-      id = "mefhakmgclhhfbdadeojlkbllmecialg";
-    }
-
-    {
-      name = "1Password";
-      id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-      pinned = true;
-    }
-
-    {
-      name = "Dark Reader";
-      id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-      pinned = true;
+      name = "uBlock Origin Lite";
+      id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
     }
 
     {
@@ -74,15 +63,18 @@ let
       name = "Privacy Badger";
       id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
     }
+  ];
 
+  uiExtensions = [
     {
-      name = "Floccus Bookmarks Sync";
-      id = "fnaicdffflnofjppbagibeoednhnbjhg";
+      name = "Tabby Cat";
+      id = "mefhakmgclhhfbdadeojlkbllmecialg";
     }
 
     {
-      name = "React Developer Tools";
-      id = "fmkadmapgofadopljbjfkapdkoienihi";
+      name = "Dark Reader";
+      id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+      pinned = true;
     }
 
     {
@@ -96,6 +88,31 @@ let
     }
 
     {
+      name = "JSON Formatter";
+      id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
+    }
+
+    {
+      name = "Disable Google Search Text Highlights";
+      id = "ompocnnmgiaoieoanemepjflbokldhom";
+    }
+  ];
+
+  devExtensions = [
+    {
+      name = "React Developer Tools";
+      id = "fmkadmapgofadopljbjfkapdkoienihi";
+    }
+  ];
+
+  otherExtensions = [
+    {
+      name = "1Password";
+      id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+      pinned = true;
+    }
+
+    {
       name = "Grammarly";
       id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
     }
@@ -106,41 +123,36 @@ let
     }
 
     {
-      name = "Don't F*** with Paste";
-      id = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
-    }
-
-    {
       name = "Google Translate";
       id = "aapbdbdomjkkjkaonfhkkikfgjllcleb";
     }
 
     {
-      name = "JSON Formatter";
-      id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
-    }
-
-    {
-      name = "Disable Google Search Text Highlights";
-      id = "ompocnnmgiaoieoanemepjflbokldhom";
+      name = "Don't F*** with Paste";
+      id = "nkgllhigpcljnhoakjkgaieabnkmgdkb";
     }
   ];
 in
 
 {
-  options.my.programs.brave.extensions = with lib; mkOption {
+  options.my.programs.chromium.extensions = with lib; mkOption {
     type = types.listOf extensionModule;
     default = [ ];
   };
 
   config = lib.mkIf cfg.enable {
-    my.programs.brave = {
+    my.programs.chromium = {
       profile = {
         ExtensionInstallForcelist = extensionIds;
         ExtensionSettings = extensionSettings;
       };
 
-      extensions = extensions;
+      extensions = lib.concatLists [
+        privacyExtensions
+        uiExtensions
+        devExtensions
+        otherExtensions
+      ];
     };
   };
 }

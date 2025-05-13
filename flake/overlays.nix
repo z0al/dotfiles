@@ -32,7 +32,7 @@ in
           yaml-language-server
 
           # Other
-          brave
+          google-chrome
           nerd-fonts
           ;
       });

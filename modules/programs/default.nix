@@ -3,7 +3,7 @@
     ./1password
     ./bat
     ./beekeeper-studio
-    ./brave
+    ./chromium
     ./docker
     ./finder
     ./ghostty

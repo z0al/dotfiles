@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.brave;
+  cfg = config.my.programs.chromium;
 
   sites = [
     {
@@ -55,7 +55,7 @@ let
 in
 
 {
-  options.my.programs.brave.siteSearch = with lib; mkOption {
+  options.my.programs.chromium.siteSearch = with lib; mkOption {
     type = types.listOf (types.submodule {
       options = {
         name = mkOption {
@@ -77,7 +77,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    my.programs.brave = {
+    my.programs.chromium = {
       profile.SiteSearchSettings = cfg.siteSearch;
 
       siteSearch = sites;
