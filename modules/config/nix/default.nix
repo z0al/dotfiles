@@ -2,6 +2,7 @@
 
 {
   nix = {
+    enable = true;
     package = pkgs.nix;
 
     settings = {
@@ -26,8 +27,4 @@
       warn-dirty = false
     '';
   };
-
-  my.programs.fish.interactiveShellInit = ''
-    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
-  '';
 }
