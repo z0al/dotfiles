@@ -44,6 +44,11 @@ let
         type = types.listOf types.str;
         default = [ ];
       };
+
+      settings = mkOption {
+        type = types.attrsOf types.anything;
+        default = { };
+      };
     };
   };
 
@@ -52,6 +57,23 @@ let
     {
       name = "uBlock Origin Lite";
       id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
+      settings = {
+        defaultFiltering = "complete";
+        strictBlockMode = true;
+        rulesets = [
+          "-*"
+          "+default"
+          "+ublock-badware"
+          "+urlhaus-full"
+          "+adguard-spyware-url"
+          "+annoyances-cookies"
+          "+annoyances-overlays"
+          "+annoyances-social"
+          "+annoyances-widgets"
+          "+annoyances-others"
+          "+deu-0"
+        ];
+      };
     }
 
     {

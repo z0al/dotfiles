@@ -2,6 +2,22 @@
 
 let
   cfg = config.my.programs.chromium;
+
+  defaultProfile = {
+    name = "Chrome Browser";
+    domain = "com.google.Chrome";
+    payload = cfg.profile;
+  };
+
+  extensionProfiles = map
+    (ext: {
+      name = "Chrome Browser: ${ext.name}";
+      domain = "com.google.Chrome.extensions.${ext.id}";
+      payload = ext.settings;
+    })
+    (lib.filter
+      (ext: ext.settings != { })
+      cfg.extensions);
 in
 
 {
@@ -10,10 +26,9 @@ in
       "google-chrome"
     ];
 
-    my.deviceManager.profiles = [{
-      name = "Chrome Browser";
-      domain = "com.google.Chrome";
-      payload = cfg.profile;
-    }];
+    my.deviceManager.profiles = lib.concatLists [
+      [ defaultProfile ]
+      extensionProfiles
+    ];
   };
 }
