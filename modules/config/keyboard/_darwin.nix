@@ -8,7 +8,12 @@ let
     manipulators = [
       {
         type = "basic";
-        from = { key_code = "caps_lock"; };
+        from = {
+          key_code = "caps_lock";
+          modifiers = {
+            optional = [ "any" ];
+          };
+        };
 
         to = [
           {
