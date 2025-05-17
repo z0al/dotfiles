@@ -15,8 +15,8 @@
       type = types.bool;
       default = true;
       description = ''
-        Remap Caps Lock to Ctrl+Opt+Cmd in Drawin (this is "Meh" but I like
-        "Hyper" better) or Super/Winkey in Linux.
+        Remap Caps Lock to Hyper (without shift) in Drawin or Super/Winkey in
+        Linux.
       '';
     };
   };

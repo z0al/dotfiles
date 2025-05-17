@@ -47,7 +47,7 @@ in
         "${mod}-y" = "layout tiles accordion";
         "${mod}-g" = "layout tiling floating";
         # https://github.com/nikitabobko/AeroSpace/issues/8
-        # "${meh}-x" = "swap";
+        # "${mod}-x" = "swap";
 
         "${mod}-m" = "fullscreen";
 

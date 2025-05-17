@@ -53,7 +53,7 @@ in
 
           push.autoSetupRemote = true;
 
-          # Force use of SSH for GitHub
+          # Force use SSH for GitHub
           url."ssh://git@github.com".insteadof = "https://github.com";
         };
       };
