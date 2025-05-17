@@ -1,11 +1,27 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
+  cond = operants:
+    lib.concatStringsSep " && " operants;
+
   bindings = [
+    {
+      key = "cmd+space";
+      command = "editor.action.triggerSuggest";
+      when = cond [
+        "editorHasCompletionItemProvider"
+        "textInputFocus"
+        "!editorReadonly"
+        "!suggestWidgetVisible"
+      ];
+    }
+
     {
       key = "cmd+shift+g";
       command = "workbench.view.scm";
-      when = "workbench.scm.active";
+      when = cond [
+        "workbench.scm.active"
+      ];
     }
 
     # Extension: Markdown All In One
@@ -13,24 +29,41 @@ let
     {
       key = "cmd+b";
       command = "markdown.extension.editing.toggleBold";
-      when = "editorHasSelection && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+      when = cond [
+        "editorHasSelection"
+        "!editorReadonly"
+        "editorLangId =~ /^markdown$/"
+      ];
     }
 
     {
       key = "cmd+i";
       command = "markdown.extension.editing.toggleItalic";
-      when = "editorHasSelection && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+      when = cond [
+        "editorHasSelection"
+        "!editorReadonly"
+        "editorLangId =~ /^markdown$/"
+      ];
     }
 
     {
       key = "cmd+b";
       command = "-markdown.extension.editing.toggleBold";
-      when = "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+      when = cond [
+        "editorTextFocus"
+        "!editorReadonly"
+        "editorLangId =~ /^markdown$/"
+      ];
     }
+
     {
       key = "cmd+i";
       command = "-markdown.extension.editing.toggleItalic";
-      when = "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/";
+      when = cond [
+        "editorTextFocus"
+        "!editorReadonly"
+        "editorLangId =~ /^markdown$/"
+      ];
     }
   ];
 
