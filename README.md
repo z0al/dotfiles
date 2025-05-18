@@ -6,9 +6,7 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 ## 🛍️ Goodies
 
-Here are some unique features of my configuration you might find interesting:
-
-- [**🙅‍♂️ No home modules**](https://nix-community.github.io/home-manager/index.xhtml#ch-writing-modules): I find the split between `home-manager` and system-level modules (e.g. NixOS or nix-darwin modules) overly dramatic. It doesn't scale well when configurations span both user and system layers, and it's unnecessary for single-user setups IMHO. Instead, [I group modules by feature](#unified-modules) and use system-level modules everywhere.
+Here are some of the unique features of my configuration you might find interesting:
 
 - [**💻 Device Manager**](./modules/device-manager/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS e.g. used to configure policies for Chromium-based browsers, which can then be manually installed via System Settings. The module warns the user if the profile changes and needs reapplying.
 
@@ -22,7 +20,7 @@ Here are some unique features of my configuration you might find interesting:
 
 ## Structure
 
-### Unified Modules
+### Home vs NixOS/Darwin moduels
 
 This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules` and ALL modules are system (nixos/nix-darwin) modules e.g.
 
@@ -46,8 +44,8 @@ modules
 - `<module>/default.nix` defines the shared module configuration. It typically includes the module option definitions like `my.<module>.enable`. All custom modules are prefixed with `my.*` to avoid conflicts with upstream modules.
 - `**/*/_nixos.nix` files are automatically imported in [`modules/nixos.nix`](./modules/nixos.nix).
 - `**/*/_darwin.nix` files are automatically imported in [`modules/darwin.nix`](./modules/darwin.nix).
-- Wherever possible, NixOS/nix-darwin modules are preferred over `home-manager`. I aim to eventually remove `home-manager` entirely once there's a viable standalone replacement for [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file).
-- When `home-manager` is required, configuration is written inline using the `hm.*` [alias](#aliases).
+- Wherever possible, NixOS/nix-darwin modules are preferred over `home-manager`.
+- Home-manager is mostly used to link home content via [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file). When required, the configuration is written inline using the `hm.*` [alias](#aliases).
 
 A practical example of a module that defines both `_nixos.nix` and `_darwin.nix` is the 1Password module in [`modules/programs/1password`](./modules/programs/1password).
 
