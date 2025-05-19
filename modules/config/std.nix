@@ -18,6 +18,7 @@
     gzip
     jq
     killall
+    less
     lsof
     sqlite
     unzip

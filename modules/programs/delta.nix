@@ -15,7 +15,6 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.variables = {
-      DELTA_PAGER = "less --mouse";
       GIT_PAGER = delta;
     };
 
