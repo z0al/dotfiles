@@ -34,16 +34,15 @@ in
       fi
     '';
 
+    # Git Intergration
+    my.programs.git.settings = {
+      gpg.ssh.program = ssh.sign;
+    };
+
     hm = {
       programs.ssh.extraConfig = ''
         IdentityAgent "${ssh.agent}"
       '';
-
-      # Git Intergration
-      programs.git.extraConfig.gpg = {
-        format = "ssh";
-        ssh.program = ssh.sign;
-      };
     };
   };
 }

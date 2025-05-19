@@ -2,6 +2,41 @@
 
 let
   cfg = config.my.programs.git;
+
+  settings = {
+    user = {
+      name = config.my.user.name;
+      email = config.my.user.email;
+
+      # Don't guess user.name or user.email if not set
+      useConfigOnly = true;
+    };
+
+    init.defaultBranch = "main";
+
+    # Signing
+    gpg.format = "ssh";
+    user.signingKey = config.my.user.sshKey;
+
+    commit.gpgSign = true;
+    tags.gpgSign = true;
+
+    log = {
+      decorate = true;
+      abbrevCommit = true;
+    };
+
+    pull.rebase = false;
+
+    # Autostash on "git pull ..."
+    merge.autoStash = true;
+    rebase.autoStash = true;
+
+    push.autoSetupRemote = true;
+
+    # Force use SSH for GitHub
+    url."ssh://git@github.com".insteadof = "https://github.com";
+  };
 in
 
 {
@@ -9,6 +44,11 @@ in
     enable = mkOption {
       type = types.bool;
       default = true;
+    };
+
+    settings = mkOption {
+      type = types.attrsOf types.anything;
+      default = { };
     };
   };
 
@@ -24,39 +64,8 @@ in
       gP = "git push";
     };
 
-    hm = {
-      programs.git = {
-        enable = true;
+    my.programs.git.settings = settings;
 
-        userName = config.my.user.name;
-        userEmail = config.my.user.email;
-
-        signing.signByDefault = true;
-        signing.key = config.my.user.sshKey;
-
-        extraConfig = {
-          init.defaultBranch = "main";
-
-          # Don't guess user.name or user.email if not set
-          user.useConfigOnly = true;
-
-          log = {
-            decorate = true;
-            abbrevCommit = true;
-          };
-
-          pull.rebase = false;
-
-          # Autostash on "git pull ..."
-          merge.autoStash = true;
-          rebase.autoStash = true;
-
-          push.autoSetupRemote = true;
-
-          # Force use SSH for GitHub
-          url."ssh://git@github.com".insteadof = "https://github.com";
-        };
-      };
-    };
+    xdg.configFile."git/config".text = lib.generators.toGitINI cfg.settings;
   };
 }

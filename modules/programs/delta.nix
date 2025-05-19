@@ -2,7 +2,7 @@
 
 let
   cfg = config.my.programs.delta;
-  delta = "${pkgs.delta}/bin/delta";
+  delta = lib.getExe pkgs.delta;
 in
 
 {
@@ -14,14 +14,19 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [
+      pkgs.delta
+    ];
+
     environment.variables = {
       GIT_PAGER = delta;
     };
 
-    hm.programs.git.delta = {
-      enable = true;
+    my.programs.git.settings = {
+      core.pager = delta;
+      interactive.diffFilter = "${delta} --color-only";
 
-      options = {
+      delta = {
         hyperlinks = true;
         line-numbers = true;
         hunk-header-style = "syntax";
