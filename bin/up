@@ -31,9 +31,9 @@ function rebuild
     switch (uname)
         case Darwin
             if type -q darwin-rebuild
-                darwin-rebuild $argv
+                sudo darwin-rebuild $argv
             else
-                nix run nix-darwin -- $argv
+                sudo nix run nix-darwin -- $argv
             end
         case '*'
             sudo nixos-rebuild $argv

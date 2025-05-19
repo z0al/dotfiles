@@ -13,6 +13,7 @@ in
     ./shared.nix
   ];
 
+  system.primaryUser = config.my.user.name;
   system.stateVersion = config.system.maxStateVersion;
 
   # Random settings that don't fit anywhere else
