@@ -67,8 +67,6 @@ Available presets can be found in [`modules/presets.nix`](./modules/presets.nix)
 
 For convenience, I use the following option aliases:
 
-- `hm` → `home-manager.users.<username>`
-  - e.g., `hm.programs.git`
 - `home` → `home-manager.users.<username>.home`
   - e.g., `home.file`
 - `xdg` → `home-manager.users.<username>.xdg`

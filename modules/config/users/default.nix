@@ -16,10 +16,6 @@ in
       [ "users" "users" username ])
 
     (lib.mkAliasOptionModule
-      [ "hm" ]
-      [ "home-manager" "users" username ])
-
-    (lib.mkAliasOptionModule
       [ "home" ]
       [ "home-manager" "users" username "home" ])
 
@@ -64,18 +60,17 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "backup";
-    };
 
-    hm = {
-      home = {
-        username = username;
-        homeDirectory = homeFolder;
-        stateVersion = lib.trivial.release;
+      users."${username}" = {
+        home = {
+          username = username;
+          homeDirectory = homeFolder;
+          stateVersion = lib.trivial.release;
+        };
+
+        xdg.enable = true;
+        programs.home-manager.enable = true;
       };
-
-      xdg.enable = true;
-      programs.ssh.enable = true;
-      programs.home-manager.enable = true;
     };
   };
 }

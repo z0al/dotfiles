@@ -116,7 +116,7 @@ in
     };
   };
 
-  hm.targets.darwin.defaults = {
+  system.defaults.CustomUserPreferences = {
     # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
     "com.apple.dock" = {
       expose-group-apps = true;

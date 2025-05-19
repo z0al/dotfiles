@@ -39,10 +39,9 @@ in
       gpg.ssh.program = ssh.sign;
     };
 
-    hm = {
-      programs.ssh.extraConfig = ''
+    home.file.".ssh/config".text = ''
+      Host *
         IdentityAgent "${ssh.agent}"
-      '';
-    };
+    '';
   };
 }
