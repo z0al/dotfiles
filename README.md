@@ -45,7 +45,7 @@ modules
 - `**/*/_nixos.nix` files are automatically imported in [`modules/nixos.nix`](./modules/nixos.nix).
 - `**/*/_darwin.nix` files are automatically imported in [`modules/darwin.nix`](./modules/darwin.nix).
 - Wherever possible, NixOS/nix-darwin modules are preferred over `home-manager`.
-- Home-manager is mostly used to link home content via [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file). When required, the configuration is written inline using the `hm.*` [alias](#aliases).
+- Home-manager is mostly used to link home content via [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file). When required, the configuration is written inline using [aliass](#aliases).
 
 A practical example of a module that defines both `_nixos.nix` and `_darwin.nix` is the 1Password module in [`modules/programs/1password`](./modules/programs/1password).
 
@@ -68,7 +68,11 @@ Available presets can be found in [`modules/presets.nix`](./modules/presets.nix)
 For convenience, I use the following option aliases:
 
 - `hm` → `home-manager.users.<username>`
-  - e.g., `hm.xdg.configFile`
+  - e.g., `hm.programs.git`
+- `home` → `home-manager.users.<username>.home`
+  - e.g., `home.file`
+- `xdg` → `home-manager.users.<username>.xdg`
+  - e.g., `xdg.configFile`
 - `my.user` → `users.users.<username>`
   - e.g., `my.user.extraGroups`
 

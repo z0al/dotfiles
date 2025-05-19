@@ -19,7 +19,7 @@ in
       flameshot
     ];
 
-    hm.xdg.configFile."flameshot/flameshot.ini" = {
+    xdg.configFile."flameshot/flameshot.ini" = {
       source = toIni "flameshot.ini" {
         General = {
           uiColor = "#ffffff";

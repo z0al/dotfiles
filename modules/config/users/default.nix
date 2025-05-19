@@ -18,6 +18,14 @@ in
     (lib.mkAliasOptionModule
       [ "hm" ]
       [ "home-manager" "users" username ])
+
+    (lib.mkAliasOptionModule
+      [ "home" ]
+      [ "home-manager" "users" username "home" ])
+
+    (lib.mkAliasOptionModule
+      [ "xdg" ]
+      [ "home-manager" "users" username "xdg" ])
   ];
 
   # The typing system will take care of merging the extra options into the

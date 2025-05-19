@@ -2,7 +2,7 @@
   description = "An opinionated flake-based system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";

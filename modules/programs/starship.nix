@@ -25,7 +25,7 @@ in
     ];
 
     environment.variables = {
-      STARSHIP_CONFIG = "${config.hm.xdg.configHome}/${cfgFile}";
+      STARSHIP_CONFIG = "${config.xdg.configHome}/${cfgFile}";
       STARSHIP_LOG = "error";
     };
 
