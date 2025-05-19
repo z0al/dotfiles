@@ -20,7 +20,7 @@ Here are some of the unique features of my configuration you might find interest
 
 ## Structure
 
-### Home vs NixOS/Darwin moduels
+### Home vs NixOS/Darwin modules
 
 This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules` and ALL modules are system (nixos/nix-darwin) modules e.g.
 

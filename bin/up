@@ -90,7 +90,7 @@ function up
             rebuild build --flake $flake $options
 
         case fetch
-            nix flake update $_flag_flake $options
+            nix flake update --flake $_flag_flake $options
 
         case prune
             nix-collect-garbage $options
