@@ -38,8 +38,6 @@ in
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
 
-    hm = {
-      home.file.".node-version".text = lts-major;
-    };
+    home.file.".node-version".text = lts-major;
   };
 }

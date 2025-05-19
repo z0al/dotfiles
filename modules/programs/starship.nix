@@ -57,42 +57,40 @@ in
       alias clear "command clear; commandline -f clear-screen"
     '';
 
-    hm = {
-      xdg.configFile."${cfgFile}".source = toTOML "starship.toml" {
-        # https://github.com/starship/starship/issues/560
-        add_newline = false;
+    xdg.configFile."${cfgFile}".source = toTOML "starship.toml" {
+      # https://github.com/starship/starship/issues/560
+      add_newline = false;
 
-        character = {
-          success_symbol = "[](bold purple)";
-          error_symbol = "[](bold red)";
-          vicmd_symbol = "[](bold purple)";
-          vimcmd_replace_symbol = "[](bold red)";
-          vimcmd_replace_one_symbol = "[](bold red)";
-          vimcmd_visual_symbol = "[](bold yellow)";
-        };
-
-        cmd_duration = {
-          format = "[$duration]($style)";
-        };
-
-        nix_shell = {
-          format = "in [$symbol$state(\\($name\\))]($style) ";
-          symbol = "❄️ ";
-          impure_msg = "";
-          pure_msg = "pure ";
-        };
-
-        battery.disabled = true;
-        docker_context.disabled = true;
-        package.disabled = true;
-        kubernetes.disabled = false;
-        dotnet.disabled = true;
-
-
-        ## Color Palettes
-        palette = "custom";
-        palettes.custom = cfg.theme;
+      character = {
+        success_symbol = "[](bold purple)";
+        error_symbol = "[](bold red)";
+        vicmd_symbol = "[](bold purple)";
+        vimcmd_replace_symbol = "[](bold red)";
+        vimcmd_replace_one_symbol = "[](bold red)";
+        vimcmd_visual_symbol = "[](bold yellow)";
       };
+
+      cmd_duration = {
+        format = "[$duration]($style)";
+      };
+
+      nix_shell = {
+        format = "in [$symbol$state(\\($name\\))]($style) ";
+        symbol = "❄️ ";
+        impure_msg = "";
+        pure_msg = "pure ";
+      };
+
+      battery.disabled = true;
+      docker_context.disabled = true;
+      package.disabled = true;
+      kubernetes.disabled = false;
+      dotnet.disabled = true;
+
+
+      ## Color Palettes
+      palette = "custom";
+      palettes.custom = cfg.theme;
     };
   };
 }

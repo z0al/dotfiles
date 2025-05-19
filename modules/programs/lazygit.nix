@@ -26,14 +26,12 @@ in
       lz = lib.getExe pkgs.lazygit;
     };
 
-    hm = {
-      xdg.configFile."lazygit/config.yml".text = toYAML {
-        disableStartupPopups = true;
+    xdg.configFile."lazygit/config.yml".text = toYAML {
+      disableStartupPopups = true;
 
-        git.paging = {
-          colorArg = "always";
-          pager = cfg.pager;
-        };
+      git.paging = {
+        colorArg = "always";
+        pager = cfg.pager;
       };
     };
   };

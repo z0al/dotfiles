@@ -34,12 +34,10 @@ in
       --style='plain'
     '';
 
-    hm = {
-      home.file.".config/bat/themes" = {
-        recursive = true;
-        source = ./themes;
-        onChange = "${bat} cache --build > /dev/null";
-      };
+    home.file.".config/bat/themes" = {
+      recursive = true;
+      source = ./themes;
+      onChange = "${bat} cache --build > /dev/null";
     };
   };
 }
