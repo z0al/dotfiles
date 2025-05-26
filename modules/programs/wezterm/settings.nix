@@ -36,7 +36,8 @@ in
       scrollback_lines = 100000;
 
       # https://sw.kovidgoyal.net/kitty/keyboard-protocol/
-      enable_kitty_keyboard = true;
+      # https://github.com/wezterm/wezterm/issues/6982
+      enable_kitty_keyboard = false;
 
       # Window
       enable_wayland = false;
