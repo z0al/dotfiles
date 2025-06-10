@@ -26,6 +26,10 @@ in
       fnm
     ];
 
+    environment.variables = {
+      COREPACK_ENABLE_AUTO_PIN = "0";
+    };
+
     environment.shellAliases = {
       nvm = "fnm";
     };
