@@ -8,7 +8,6 @@ in
   my.programs.vscode.settings = {
     # Editor
     "files.enableTrash" = true;
-    "files.autoSave" = "onFocusChange";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.cursorStyle" = "line";
     "editor.emptySelectionClipboard" = false;

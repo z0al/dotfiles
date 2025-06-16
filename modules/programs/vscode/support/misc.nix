@@ -15,7 +15,6 @@ in
       foxundermoon.shell-format
       hashicorp.terraform
       johnnymorganz.stylua
-      ms-azuretools.vscode-docker
       okitavera.vscode-nunjucks-formatter
       qezhu.gitlink
       ronnidc.nunjucks
@@ -34,11 +33,6 @@ in
       # Shell Format
       "shellformat.useEditorConfig" = true;
       "shellformat.path" = lib.getExe pkgs.shfmt;
-
-      # Docker
-      "[dockerfile]" = {
-        "editor.defaultFormatter" = "ms-azuretools.vscode-docker";
-      };
 
       # C/C++
       "[c]" = {

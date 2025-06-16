@@ -2,6 +2,7 @@
   imports = [
     ./copilot.nix
     ./git.nix
+    ./helix.nix
     ./misc.nix
     ./nix.nix
     ./prettier.nix
