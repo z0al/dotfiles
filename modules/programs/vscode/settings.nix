@@ -40,6 +40,7 @@ in
     "workbench.iconTheme" = "vs-seti";
     "workbench.startupEditor" = "none";
     "workbench.editor.showTabs" = "single";
+    "workbench.activityBar.orientation" = "vertical";
     "workbench.activityBar.location" = "hidden";
     "workbench.settings.editor" = "ui";
     "workbench.welcomePage.walkthroughs.openOnInstall" = false;
