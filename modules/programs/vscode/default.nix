@@ -4,6 +4,24 @@ let
   cfg = config.my.programs.vscode;
 
   vscodePackage = pkgs.code-cursor;
+
+  userHome = config.my.user.home;
+
+  configDirName = {
+    "vscode" = "Code";
+    "cursor" = "Cursor";
+  }.${vscodePackage.pname};
+
+  configDir =
+    if pkgs.stdenv.isDarwin
+    then "${userHome}/Library/Application Support/${configDirName}/User"
+    else "${userHome}/.config/${configDirName}/User";
+
+  toJson = (pkgs.formats.json { }).generate;
+  writeJson = path: content: ''
+    mkdir -p "$(dirname '${path}')"
+    cp ${toJson path content} '${path}'
+  '';
 in
 
 {
@@ -50,9 +68,13 @@ in
       package = vscodePackage;
       mutableExtensionsDir = true;
       profiles.default = {
-        inherit (cfg) keybindings extensions;
-        userSettings = cfg.settings;
+        inherit (cfg) extensions;
       };
     };
+
+    my.activation.configureVscode = ''
+      ${writeJson "${configDir}/settings.json" cfg.settings}
+      ${writeJson "${configDir}/keybindings.json" cfg.keybindings}
+    '';
   };
 }
