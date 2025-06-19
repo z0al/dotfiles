@@ -155,10 +155,6 @@ in
 
     # Nix
     {
-      packages = with pkgs; [
-        nixd
-      ];
-
       extensions = with pkgs.vscode-marketplace; [
         jnoortheen.nix-ide
       ];

@@ -24,6 +24,7 @@ in
           # Dev tools
           colima
           vscode
+          code-cursor
 
           # LSPs
           bash-language-server

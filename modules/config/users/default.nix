@@ -16,6 +16,10 @@ in
       [ "users" "users" username ])
 
     (lib.mkAliasOptionModule
+      [ "hm" ]
+      [ "home-manager" "users" username ])
+
+    (lib.mkAliasOptionModule
       [ "home" ]
       [ "home-manager" "users" username "home" ])
 
