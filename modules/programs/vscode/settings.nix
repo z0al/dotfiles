@@ -64,6 +64,19 @@ in
     # "terminal.external.osxExec" = lib.getExe pkgs.ghostty;
     "terminal.integrated.tabs.enabled" = false;
 
+    # Git
+    "git.autofetch" = false;
+    "git.autoStash" = true;
+    "git.pullTags" = true;
+    "git.enableCommitSigning" = true;
+    "git.alwaysSignOff" = false;
+    "git.suggestSmartCommit" = false;
+    "git.confirmSync" = false;
+    "git.openRepositoryInParentFolders" = "always";
+    "scm.showIncomingChanges" = "never";
+    "scm.showOutgoingChanges" = "never";
+    "scm.showHistoryGraph" = false;
+
     # Extensions
     "extensions.ignoreRecommendations" = true;
     "extensions.autoCheckUpdates" = false;

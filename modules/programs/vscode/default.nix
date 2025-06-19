@@ -29,7 +29,7 @@ in
 
 {
   imports = [
-    ./support
+    ./extensions.nix
     ./keybindings.nix
     ./settings.nix
   ];
