@@ -91,7 +91,7 @@ in
         }
 
         {
-          "if".app-name-regex-substring = "code|wezterm|ghostty|terminal";
+          "if".app-name-regex-substring = "code|cursor|wezterm|ghostty|terminal";
           run = [ "move-node-to-workspace 2" ];
         }
 
