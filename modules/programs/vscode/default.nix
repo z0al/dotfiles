@@ -63,6 +63,10 @@ in
       nixd
     ];
 
+    environment.shellAliases = lib.mkIf (vscodePackage.pname == "cursor") {
+      code = "cursor";
+    };
+
     hm.programs.vscode = {
       enable = true;
       package = vscodePackage;
