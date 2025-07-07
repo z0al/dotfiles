@@ -1,12 +1,17 @@
 { pkgs, lib, ... }:
 
 let
+  mod =
+    if pkgs.stdenv.isDarwin
+    then "cmd"
+    else "ctrl";
+
   cond = operants:
     lib.concatStringsSep " && " operants;
 
   bindings = [
     {
-      key = "cmd+space";
+      key = "${mod}+space";
       command = "editor.action.triggerSuggest";
       when = cond [
         "editorHasCompletionItemProvider"
@@ -17,17 +22,28 @@ let
     }
 
     {
-      key = "cmd+shift+g";
+      key = "${mod}+shift+g";
       command = "workbench.view.scm";
       when = cond [
         "workbench.scm.active"
       ];
     }
 
+    # Code Navigation
+    {
+      key = "${mod}+]";
+      command = "workbench.action.navigateForward";
+    }
+
+    {
+      key = "${mod}+[";
+      command = "workbench.action.navigateBack";
+    }
+
     # Extension: Markdown All In One
     # Restrict cmd+b & cmd+i shortcuts to selected text
     {
-      key = "cmd+b";
+      key = "${mod}+b";
       command = "markdown.extension.editing.toggleBold";
       when = cond [
         "editorHasSelection"
@@ -37,7 +53,7 @@ let
     }
 
     {
-      key = "cmd+i";
+      key = "${mod}+i";
       command = "markdown.extension.editing.toggleItalic";
       when = cond [
         "editorHasSelection"
@@ -47,7 +63,7 @@ let
     }
 
     {
-      key = "cmd+b";
+      key = "${mod}+b";
       command = "-markdown.extension.editing.toggleBold";
       when = cond [
         "editorTextFocus"
@@ -57,7 +73,7 @@ let
     }
 
     {
-      key = "cmd+i";
+      key = "${mod}+i";
       command = "-markdown.extension.editing.toggleItalic";
       when = cond [
         "editorTextFocus"
@@ -66,17 +82,8 @@ let
       ];
     }
   ];
-
-  mapCmdToCtrl = binding:
-    let
-      key = builtins.replaceStrings [ "cmd" ] [ "ctrl" ] binding.key;
-    in
-    binding // { key = key; };
 in
 
 {
-  my.programs.vscode.keybindings =
-    if pkgs.stdenv.isDarwin
-    then bindings
-    else map mapCmdToCtrl bindings;
+  my.programs.vscode.keybindings = bindings;
 }
