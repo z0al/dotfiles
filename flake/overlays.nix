@@ -22,7 +22,6 @@ in
       overrides = (final: prev: {
         inherit (unstable)
           # Dev tools
-          colima
           vscode
           code-cursor
 
@@ -33,6 +32,7 @@ in
           yaml-language-server
 
           # Other
+          aerospace
           google-chrome
           nerd-fonts
           ;

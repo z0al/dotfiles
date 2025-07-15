@@ -46,8 +46,7 @@ in
         "${mod}-o" = "layout horizontal vertical";
         "${mod}-y" = "layout tiles accordion";
         "${mod}-g" = "layout tiling floating";
-        # https://github.com/nikitabobko/AeroSpace/issues/8
-        # "${mod}-x" = "swap";
+        # "${mod}-x" = "swap --wrap-around dfs-next";
 
         "${mod}-m" = "fullscreen";
 
