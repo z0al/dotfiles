@@ -46,7 +46,7 @@ in
         "${mod}-o" = "layout horizontal vertical";
         "${mod}-y" = "layout tiles accordion";
         "${mod}-g" = "layout tiling floating";
-        # "${mod}-x" = "swap --wrap-around dfs-next";
+        "${mod}-x" = "swap --wrap-around dfs-next";
 
         "${mod}-m" = "fullscreen";
 
