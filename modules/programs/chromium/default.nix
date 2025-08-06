@@ -21,8 +21,8 @@ let
     DefaultGeolocationSetting = 2;
 
     # Use Cloudflare DNS
-    DnsOverHttpsMode = "secure";
-    DnsOverHttpsTemplates = "https://chrome.cloudflare-dns.com/dns-query";
+    # DnsOverHttpsMode = "secure";
+    # DnsOverHttpsTemplates = "https://chrome.cloudflare-dns.com/dns-query";
 
     # Autofill
     AutofillAddressEnabled = false;
