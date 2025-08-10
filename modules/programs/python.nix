@@ -2,6 +2,20 @@
 
 let
   cfg = config.my.programs.python;
+
+  pythonWithModules = pkgs.python3.withPackages (py: with py; [
+    pip
+    uv
+
+    # Machine Learning
+    numpy
+    pandas
+    matplotlib
+    scikit-learn
+    scipy
+    torch
+    torchvision
+  ]);
 in
 
 {
@@ -13,9 +27,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      python3
-      python3.pkgs.pip
-    ];
+    environment.systemPackages = [ pythonWithModules ];
   };
 }
