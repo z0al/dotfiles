@@ -8,6 +8,8 @@ let
     uv
 
     # Machine Learning
+    ipykernel
+
     numpy
     pandas
     matplotlib
