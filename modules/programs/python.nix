@@ -10,9 +10,10 @@ let
     # Machine Learning
     ipykernel
 
+    matplotlib
+    nltk
     numpy
     pandas
-    matplotlib
     scikit-learn
     scipy
     torch
