@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.my.programs.nixpkgs-fmt;
+  cfg = config.my.programs.nixfmt;
 in
 
 {
-  options.my.programs.nixpkgs-fmt = with lib; {
+  options.my.programs.nixfmt = with lib; {
     enable = mkOption {
       type = types.bool;
       default = config.my.presets.nix.enable;
@@ -13,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ nixpkgs-fmt ];
+    environment.systemPackages = with pkgs; [ nixfmt ];
   };
 }

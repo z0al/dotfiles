@@ -163,7 +163,7 @@ in
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = lib.getExe pkgs.nixd;
         "nix.serverSettings" = {
-          nixd.formatting.command = [ (lib.getExe pkgs.nixpkgs-fmt) ];
+          nixd.formatting.command = [ (lib.getExe pkgs.nixfmt) ];
         };
 
         "nix.hiddenLanguageServerErrors" = [

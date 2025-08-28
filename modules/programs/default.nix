@@ -33,7 +33,7 @@
     ./kubelogin.nix
     ./lazygit.nix
     ./nix-index.nix
-    ./nixpkgs-fmt.nix
+    ./nixfmt.nix
     ./obsidian.nix
     ./prettier.nix
     ./python.nix

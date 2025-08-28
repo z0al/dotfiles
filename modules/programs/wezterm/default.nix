@@ -3,7 +3,7 @@
 let
   cfg = config.my.programs.wezterm;
 
-  configFile = /* lua */''
+  configFile = ''
     local wz = require("wezterm")
     local act = wz.action
 

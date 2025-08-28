@@ -35,6 +35,7 @@ in
           aerospace
           google-chrome
           nerd-fonts
+          nixfmt
           ;
       });
     in
