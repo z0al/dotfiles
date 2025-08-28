@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.deviceManager;
@@ -13,31 +18,32 @@ let
     PayloadType = "Configuration";
     PayloadScope = "System"; # Default is User
     PayloadVersion = 1;
-    PayloadContent = map
-      (profile: profile.payload // {
+    PayloadContent = map (
+      profile:
+      profile.payload
+      // {
         PayloadDisplayName = profile.name;
         PayloadUUID = profile.domain;
         PayloadIdentifier = profile.domain;
         PayloadType = profile.domain;
         PayloadVersion = 1;
-      })
-      cfg.profiles;
+      }
+    ) cfg.profiles;
   };
 
   warn = "${lib.getExe pkgs.gum} style --foreground 3";
 
   # https://archive.is/948rD
-  openPreferences = pane:
-    ''
-      /usr/bin/open "x-apple.systempreferences:${pane}"
-    '';
+  openPreferences = pane: ''
+    /usr/bin/open "x-apple.systempreferences:${pane}"
+  '';
 in
 
 {
   options.my.deviceManager = with lib; {
     profiles = mkOption {
-      type = types.listOf
-        (types.submodule {
+      type = types.listOf (
+        types.submodule {
           options = {
             name = mkOption {
               type = types.str;
@@ -53,7 +59,8 @@ in
               type = types.attrsOf types.anything;
             };
           };
-        });
+        }
+      );
 
       default = [
         {

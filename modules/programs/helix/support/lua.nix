@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.presets.lua;
@@ -14,26 +19,37 @@ in
         command = lib.getExe package;
       };
 
-      language = [{
-        name = "lua";
-        indent = {
-          tab-width = 2;
-          unit = "\t";
-        };
+      language = [
+        {
+          name = "lua";
+          indent = {
+            tab-width = 2;
+            unit = "\t";
+          };
 
-        formatter = {
-          command = lib.getExe pkgs.stylua;
-          args = lib.flatten [
-            [ "-" ]
+          formatter = {
+            command = lib.getExe pkgs.stylua;
+            args = lib.flatten [
+              [ "-" ]
 
-            # Formating Options:
-            [ "--column-width" "80" ]
-            [ "--indent-type" "Tabs" ]
-            [ "--indent-width" "2" ]
-            [ "--sort-requires" ]
-          ];
-        };
-      }];
+              # Formating Options:
+              [
+                "--column-width"
+                "80"
+              ]
+              [
+                "--indent-type"
+                "Tabs"
+              ]
+              [
+                "--indent-width"
+                "2"
+              ]
+              [ "--sort-requires" ]
+            ];
+          };
+        }
+      ];
     };
   };
 }

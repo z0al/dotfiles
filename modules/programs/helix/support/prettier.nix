@@ -6,17 +6,35 @@ let
   prettier = parser: {
     command = lib.getExe config.my.programs.prettier.package;
     args = lib.flatten [
-      [ "--parser" parser ]
+      [
+        "--parser"
+        parser
+      ]
 
       # Prefer project-specific config file over the options defined below.
-      [ "--config-precedence" "prefer-file" ]
+      [
+        "--config-precedence"
+        "prefer-file"
+      ]
 
       # Formating Options:
       [ "--use-tabs" ]
-      [ "--tab-width" "2" ]
-      [ "--print-width" "80" ]
-      [ "--quote-prop" "consistent" ]
-      [ "--prose-wrap" "always" ]
+      [
+        "--tab-width"
+        "2"
+      ]
+      [
+        "--print-width"
+        "80"
+      ]
+      [
+        "--quote-prop"
+        "consistent"
+      ]
+      [
+        "--prose-wrap"
+        "always"
+      ]
     ];
   };
 
@@ -36,8 +54,16 @@ let
   format = lang: {
     name = lang;
     formatter =
-      if lib.elem lang [ "jsx" "tsx" "javascript" ]
-      then prettier "typescript" else prettier lang;
+      if
+        lib.elem lang [
+          "jsx"
+          "tsx"
+          "javascript"
+        ]
+      then
+        prettier "typescript"
+      else
+        prettier lang;
   };
 in
 

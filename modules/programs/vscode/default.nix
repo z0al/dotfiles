@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.vscode;
@@ -7,15 +12,18 @@ let
 
   userHome = config.my.user.home;
 
-  configDirName = {
-    "vscode" = "Code";
-    "cursor" = "Cursor";
-  }.${vscodePackage.pname};
+  configDirName =
+    {
+      "vscode" = "Code";
+      "cursor" = "Cursor";
+    }
+    .${vscodePackage.pname};
 
   configDir =
-    if pkgs.stdenv.isDarwin
-    then "${userHome}/Library/Application Support/${configDirName}/User"
-    else "${userHome}/.config/${configDirName}/User";
+    if pkgs.stdenv.isDarwin then
+      "${userHome}/Library/Application Support/${configDirName}/User"
+    else
+      "${userHome}/.config/${configDirName}/User";
 
   toJson = (pkgs.formats.json { }).generate;
   writeJson = path: content: ''

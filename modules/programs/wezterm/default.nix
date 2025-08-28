@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.wezterm;
@@ -10,17 +15,15 @@ let
     return ${lib.generators.toLua { } cfg.settings};
   '';
 
-  format = code:
+  format =
+    code:
     let
       safe = lib.escape [ ''"'' ] code;
       stylua = lib.getExe pkgs.stylua;
     in
-    pkgs.runCommandLocal
-      "format-lua"
-      { buildInputs = [ pkgs.stylua ]; }
-      ''
-        echo "${safe}" | ${stylua} - > $out
-      '';
+    pkgs.runCommandLocal "format-lua" { buildInputs = [ pkgs.stylua ]; } ''
+      echo "${safe}" | ${stylua} - > $out
+    '';
 in
 
 {
@@ -29,7 +32,7 @@ in
     ./settings.nix
   ];
 
-  options.my.programs.wezterm = with lib;{
+  options.my.programs.wezterm = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;

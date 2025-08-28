@@ -41,7 +41,12 @@ in
         mode.insert = "";
         mode.select = "";
 
-        left = [ "mode" "spacer" "spinner" "file-name" ];
+        left = [
+          "mode"
+          "spacer"
+          "spinner"
+          "file-name"
+        ];
         right = [
           "diagnostics"
           "position"

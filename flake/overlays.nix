@@ -11,33 +11,38 @@ let
 in
 
 {
-  perSystem = { system, ... }:
+  perSystem =
+    { system, ... }:
     let
-      createChannel = src: overlays: import src {
-        inherit system config overlays;
-      };
+      createChannel =
+        src: overlays:
+        import src {
+          inherit system config overlays;
+        };
 
       unstable = createChannel inputs.nixpkgs-unstable overlays;
 
-      overrides = (final: prev: {
-        inherit (unstable)
-          # Dev tools
-          vscode
-          code-cursor
+      overrides = (
+        final: prev: {
+          inherit (unstable)
+            # Dev tools
+            vscode
+            code-cursor
 
-          # LSPs
-          bash-language-server
-          typescript-language-server
-          vscode-langservers-extracted
-          yaml-language-server
+            # LSPs
+            bash-language-server
+            typescript-language-server
+            vscode-langservers-extracted
+            yaml-language-server
 
-          # Other
-          aerospace
-          google-chrome
-          nerd-fonts
-          nixfmt
-          ;
-      });
+            # Other
+            aerospace
+            google-chrome
+            nerd-fonts
+            nixfmt
+            ;
+        }
+      );
     in
     {
       _module.args.pkgs = createChannel inputs.nixpkgs (

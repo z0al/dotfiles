@@ -5,9 +5,10 @@ let
 in
 
 {
-  system.userActivationScripts = with lib;
-    listToAttrs (mapAttrsToList
-      (name: script: {
+  system.userActivationScripts =
+    with lib;
+    listToAttrs (
+      mapAttrsToList (name: script: {
         inherit name;
         value = {
           text = ''
@@ -18,6 +19,6 @@ in
             ${script}
           '';
         };
-      })
-      cfg);
+      }) cfg
+    );
 }

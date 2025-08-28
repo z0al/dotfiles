@@ -9,15 +9,11 @@ let
     payload = cfg.profile;
   };
 
-  extensionProfiles = map
-    (ext: {
-      name = "Chrome Browser: ${ext.name}";
-      domain = "com.google.Chrome.extensions.${ext.id}";
-      payload = ext.settings;
-    })
-    (lib.filter
-      (ext: ext.settings != { })
-      cfg.extensions);
+  extensionProfiles = map (ext: {
+    name = "Chrome Browser: ${ext.name}";
+    domain = "com.google.Chrome.extensions.${ext.id}";
+    payload = ext.settings;
+  }) (lib.filter (ext: ext.settings != { }) cfg.extensions);
 in
 
 {

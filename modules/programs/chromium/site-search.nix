@@ -55,26 +55,30 @@ let
 in
 
 {
-  options.my.programs.chromium.siteSearch = with lib; mkOption {
-    type = types.listOf (types.submodule {
-      options = {
-        name = mkOption {
-          type = types.str;
-        };
+  options.my.programs.chromium.siteSearch =
+    with lib;
+    mkOption {
+      type = types.listOf (
+        types.submodule {
+          options = {
+            name = mkOption {
+              type = types.str;
+            };
 
-        shortcut = mkOption {
-          type = types.str;
-        };
+            shortcut = mkOption {
+              type = types.str;
+            };
 
-        url = mkOption {
-          type = types.str;
-          apply = url: lib.escapeXML url;
-        };
-      };
-    });
+            url = mkOption {
+              type = types.str;
+              apply = url: lib.escapeXML url;
+            };
+          };
+        }
+      );
 
-    default = [ ];
-  };
+      default = [ ];
+    };
 
   config = lib.mkIf cfg.enable {
     my.programs.chromium = {

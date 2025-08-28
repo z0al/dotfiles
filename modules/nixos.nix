@@ -2,9 +2,7 @@
 
 let
   nixosModules = lib.fileset.toList (
-    lib.fileset.fileFilter
-      (file: file.name == "_nixos.nix")
-      ./.
+    lib.fileset.fileFilter (file: file.name == "_nixos.nix") ./.
   );
 in
 

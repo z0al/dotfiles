@@ -1,7 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.nixfmt;
+
+  fmt = pkgs.writeShellScriptBin "nixfmt" ''
+    #! ${pkgs.bash}/bin/bash
+    exec ${lib.getExe pkgs.nixfmt} --width=72 "$@"
+  '';
 in
 
 {
@@ -13,6 +23,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ nixfmt ];
+    environment.systemPackages = [ fmt ];
   };
 }

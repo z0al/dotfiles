@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.fish;
@@ -9,7 +14,8 @@ in
   imports = with lib; [
     (mkAliasOptionModule
       [ "my" "programs" "fish" "interactiveShellInit" ]
-      [ "programs" "fish" "interactiveShellInit" ])
+      [ "programs" "fish" "interactiveShellInit" ]
+    )
   ];
 
   options.my.programs.fish = with lib; {
@@ -25,12 +31,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = cfg.plugins ++ (
-      with pkgs.fishPlugins; [
+    environment.systemPackages =
+      cfg.plugins
+      ++ (with pkgs.fishPlugins; [
         sponge
         autopair-fish
-      ]
-    );
+      ]);
 
     programs.fish = {
       enable = true;

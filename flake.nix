@@ -27,21 +27,26 @@
 
     plist-manager.url = "github:z0al/plist-manager";
     plist-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
-    { hm
-    , persistence
-    , flake-parts
-    , nix-index
-    , nix-homebrew
-    , plist-manager
-    , ...
-    } @ inputs:
+    {
+      hm,
+      persistence,
+      flake-parts,
+      nix-index,
+      nix-homebrew,
+      plist-manager,
+      treefmt-nix,
+      ...
+    }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./flake/hosts.nix
         ./flake/overlays.nix
+        ./flake/formatter.nix
       ];
 
       systems = [

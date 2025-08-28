@@ -7,50 +7,56 @@ let
 
   extensionSettings =
     let
-      mkOrNull = cond: value:
-        if (cond == true) then value else null;
+      mkOrNull = cond: value: if (cond == true) then value else null;
 
       filterNulls = lib.filterAttrs (_: v: v != null);
 
-      setup = { id, pinned, hosts, ... }: {
-        "${id}" = {
-          toolbar_pin = mkOrNull pinned "force_pinned";
-          runtime_allowed_hosts = mkOrNull (hosts != [ ]) hosts;
+      setup =
+        {
+          id,
+          pinned,
+          hosts,
+          ...
+        }:
+        {
+          "${id}" = {
+            toolbar_pin = mkOrNull pinned "force_pinned";
+            runtime_allowed_hosts = mkOrNull (hosts != [ ]) hosts;
+          };
+        };
+    in
+    lib.filterAttrs (_name: value: (filterNulls value) != { }) (
+      lib.mergeAttrsList (map setup cfg.extensions)
+    );
+
+  extensionModule =
+    with lib;
+    types.submodule {
+      options = {
+        name = mkOption {
+          type = types.str;
+        };
+
+        id = mkOption {
+          type = types.str;
+        };
+
+        pinned = mkOption {
+          type = types.bool;
+          default = false;
+        };
+
+        hosts = mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+        };
+
+        settings = mkOption {
+          type = types.attrsOf types.anything;
+          default = { };
         };
       };
-    in
-    lib.filterAttrs
-      (_name: value:
-        (filterNulls value) != { })
-      (lib.mergeAttrsList
-        (map setup cfg.extensions));
-
-  extensionModule = with lib; types.submodule {
-    options = {
-      name = mkOption {
-        type = types.str;
-      };
-
-      id = mkOption {
-        type = types.str;
-      };
-
-      pinned = mkOption {
-        type = types.bool;
-        default = false;
-      };
-
-      hosts = mkOption {
-        type = types.listOf types.str;
-        default = [ ];
-      };
-
-      settings = mkOption {
-        type = types.attrsOf types.anything;
-        default = { };
-      };
     };
-  };
 
   # Extensions
   privacyExtensions = [
@@ -157,10 +163,12 @@ let
 in
 
 {
-  options.my.programs.chromium.extensions = with lib; mkOption {
-    type = types.listOf extensionModule;
-    default = [ ];
-  };
+  options.my.programs.chromium.extensions =
+    with lib;
+    mkOption {
+      type = types.listOf extensionModule;
+      default = [ ];
+    };
 
   config = lib.mkIf cfg.enable {
     my.programs.chromium = {

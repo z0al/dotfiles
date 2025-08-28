@@ -8,7 +8,8 @@ in
   imports = with lib; [
     (mkAliasOptionModule
       [ "my" "programs" "bash" "interactiveShellInit" ]
-      [ "programs" "bash" "interactiveShellInit" ])
+      [ "programs" "bash" "interactiveShellInit" ]
+    )
   ];
 
   options.my.programs.bash = with lib; {

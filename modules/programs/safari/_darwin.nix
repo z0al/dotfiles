@@ -10,9 +10,10 @@ in
       devTools.enable = true;
     };
 
-    system.defaults.CustomUserPreferences ."com.apple.Safari.SandboxBroker" = {
-      AutoFillPasswords = false;
-      AutoFillCreditCardData = false;
-    };
+    system.defaults.CustomUserPreferences."com.apple.Safari.SandboxBroker" =
+      {
+        AutoFillPasswords = false;
+        AutoFillCreditCardData = false;
+      };
   };
 }

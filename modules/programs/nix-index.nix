@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.nix-index;
@@ -37,6 +42,3 @@ in
       '';
   };
 }
-
-
-

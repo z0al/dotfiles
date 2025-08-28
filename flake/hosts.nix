@@ -1,4 +1,10 @@
-{ self, lib, inputs, withSystem, ... }:
+{
+  self,
+  lib,
+  inputs,
+  withSystem,
+  ...
+}:
 
 let
   cfgNixos = {
@@ -13,35 +19,36 @@ let
     modules = [ self.darwinModules.default ];
   };
 
-  mkHosts = dir:
-    lib.listToAttrs (map
-      (module:
+  mkHosts =
+    dir:
+    lib.listToAttrs (
+      map (
+        module:
         let
-          cfg =
-            if lib.hasInfix "nixos" module
-            then cfgNixos
-            else cfgDarwin;
+          cfg = if lib.hasInfix "nixos" module then cfgNixos else cfgDarwin;
 
-          hostName = with lib; (
-            removeSuffix ".nix" (baseNameOf module)
-          );
+          hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
         in
         {
           name = hostName;
-          value = withSystem cfg.system ({ pkgs, ... }: cfg.builder {
-            inherit (cfg) system;
+          value = withSystem cfg.system (
+            { pkgs, ... }:
+            cfg.builder {
+              inherit (cfg) system;
 
-            modules = cfg.modules ++ [
-              module
-              { networking = { inherit hostName; }; }
-            ];
+              modules = cfg.modules ++ [
+                module
+                { networking = { inherit hostName; }; }
+              ];
 
-            specialArgs = {
-              inherit pkgs inputs;
-            };
-          });
-        })
-      (lib.filesystem.listFilesRecursive dir));
+              specialArgs = {
+                inherit pkgs inputs;
+              };
+            }
+          );
+        }
+      ) (lib.filesystem.listFilesRecursive dir)
+    );
 in
 {
   flake = {

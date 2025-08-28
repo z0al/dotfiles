@@ -5,9 +5,10 @@ let
 in
 
 {
-  system.activationScripts.postActivation.text = with lib;
-    concatLines (mapAttrsToList
-      (name: script: ''
+  system.activationScripts.postActivation.text =
+    with lib;
+    concatLines (
+      mapAttrsToList (name: script: ''
         echo "Activating ${name}"
 
         # Home-manager inspired activation variables
@@ -15,7 +16,6 @@ in
         newGenPath=$(readlink -f "$systemConfig")
 
         ${script}
-      '')
-      cfg
+      '') cfg
     );
 }

@@ -1,13 +1,9 @@
 { pkgs, lib, ... }:
 
 let
-  mod =
-    if pkgs.stdenv.isDarwin
-    then "cmd"
-    else "ctrl";
+  mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";
 
-  cond = operants:
-    lib.concatStringsSep " && " operants;
+  cond = operants: lib.concatStringsSep " && " operants;
 
   bindings = [
     {

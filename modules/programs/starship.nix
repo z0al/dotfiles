@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.starship;
@@ -86,7 +91,6 @@ in
       package.disabled = true;
       kubernetes.disabled = false;
       dotnet.disabled = true;
-
 
       ## Color Palettes
       palette = "custom";

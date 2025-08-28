@@ -57,12 +57,30 @@ in
         "${mod}-5" = "workspace 5";
         "${mod}-0" = "workspace 10";
 
-        "${mod}-shift-1" = [ "move-node-to-workspace 1" "workspace 1" ];
-        "${mod}-shift-2" = [ "move-node-to-workspace 2" "workspace 2" ];
-        "${mod}-shift-3" = [ "move-node-to-workspace 3" "workspace 3" ];
-        "${mod}-shift-4" = [ "move-node-to-workspace 4" "workspace 4" ];
-        "${mod}-shift-5" = [ "move-node-to-workspace 5" "workspace 5" ];
-        "${mod}-shift-0" = [ "move-node-to-workspace 10" "workspace 10" ];
+        "${mod}-shift-1" = [
+          "move-node-to-workspace 1"
+          "workspace 1"
+        ];
+        "${mod}-shift-2" = [
+          "move-node-to-workspace 2"
+          "workspace 2"
+        ];
+        "${mod}-shift-3" = [
+          "move-node-to-workspace 3"
+          "workspace 3"
+        ];
+        "${mod}-shift-4" = [
+          "move-node-to-workspace 4"
+          "workspace 4"
+        ];
+        "${mod}-shift-5" = [
+          "move-node-to-workspace 5"
+          "workspace 5"
+        ];
+        "${mod}-shift-0" = [
+          "move-node-to-workspace 10"
+          "workspace 10"
+        ];
 
         "${mod}-shift-c" = "reload-config";
         "${mod}-r" = "mode resize";
@@ -111,7 +129,10 @@ in
         "3" = "main";
         "4" = "main";
         "5" = "main";
-        "10" = [ "secondary" "main" ];
+        "10" = [
+          "secondary"
+          "main"
+        ];
       };
     };
   };

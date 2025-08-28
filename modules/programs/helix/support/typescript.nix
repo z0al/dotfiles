@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.presets.typescript;
@@ -24,8 +29,7 @@ let
     ];
   };
 
-  eslint-lang-server-bin =
-    "${pkgs.vscode-langservers-extracted}/bin/vscode-eslint-language-server";
+  eslint-lang-server-bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-eslint-language-server";
 in
 
 {

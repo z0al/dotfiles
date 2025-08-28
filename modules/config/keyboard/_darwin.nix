@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.keyboard;
@@ -18,14 +23,21 @@ let
         to = [
           {
             key_code = "left_control";
-            modifiers = [ "left_option" "left_command" ];
+            modifiers = [
+              "left_option"
+              "left_command"
+            ];
           }
         ];
 
         to_if_alone = [
           {
             key_code = "slash";
-            modifiers = [ "left_control" "left_option" "left_command" ];
+            modifiers = [
+              "left_control"
+              "left_option"
+              "left_command"
+            ];
           }
         ];
       }
@@ -41,7 +53,11 @@ let
         from = {
           key_code = "tab";
           modifiers = {
-            mandatory = [ "left_control" "left_option" "left_command" ];
+            mandatory = [
+              "left_control"
+              "left_option"
+              "left_command"
+            ];
           };
         };
 
@@ -55,36 +71,36 @@ let
     ];
   };
 
-  karabinerRules =
-    [ hyperTabRule ] ++
-    (lib.optionals cfg.remapCapsLockToHyper [
-      capsLockToHyperRule
-    ]);
+  karabinerRules = [
+    hyperTabRule
+  ]
+  ++ (lib.optionals cfg.remapCapsLockToHyper [
+    capsLockToHyperRule
+  ]);
 
-  karabinerProfile = pkgs.writeText
-    "karabiner.json"
-    (
-      builtins.toJSON {
-        global = {
-          show_in_menu_bar = false;
-          check_for_updates_on_startup = false;
-          enable_notification_window = false;
-        };
+  karabinerProfile = pkgs.writeText "karabiner.json" (
+    builtins.toJSON {
+      global = {
+        show_in_menu_bar = false;
+        check_for_updates_on_startup = false;
+        enable_notification_window = false;
+      };
 
-        profiles = [
-          {
-            name = "Default profile";
-            selected = true;
-            virtual_hid_keyboard = {
-              indicate_sticky_modifier_keys_state = false;
-              keyboard_type_v2 = "ansi";
-            };
-            complex_modifications = {
-              rules = karabinerRules;
-            };
-          }
-        ];
-      });
+      profiles = [
+        {
+          name = "Default profile";
+          selected = true;
+          virtual_hid_keyboard = {
+            indicate_sticky_modifier_keys_state = false;
+            keyboard_type_v2 = "ansi";
+          };
+          complex_modifications = {
+            rules = karabinerRules;
+          };
+        }
+      ];
+    }
+  );
 in
 
 {

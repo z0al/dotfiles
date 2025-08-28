@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.helix;
@@ -12,16 +17,18 @@ in
     packages = [ package ];
 
     languages = {
-      language = [{
-        name = "json";
+      language = [
+        {
+          name = "json";
 
-        indent = {
-          tab-width = 2;
-          unit = "\t";
-        };
+          indent = {
+            tab-width = 2;
+            unit = "\t";
+          };
 
-        language-servers = [ "vscode-json-language-server" ];
-      }];
+          language-servers = [ "vscode-json-language-server" ];
+        }
+      ];
 
       language-server = {
         vscode-json-language-server.command = json-lang-server-bin;

@@ -1,10 +1,12 @@
 { pkgs, lib, ... }:
 
 {
-  options.my.activation = with lib; mkOption {
-    type = types.attrsOf types.str;
-    default = { };
-  };
+  options.my.activation =
+    with lib;
+    mkOption {
+      type = types.attrsOf types.str;
+      default = { };
+    };
 
   config = {
     my.activation.reportChanges = ''

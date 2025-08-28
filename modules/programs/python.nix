@@ -1,24 +1,31 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.python;
 
-  pythonWithModules = pkgs.python3.withPackages (py: with py; [
-    pip
-    uv
+  pythonWithModules = pkgs.python3.withPackages (
+    py: with py; [
+      pip
+      uv
 
-    # Machine Learning
-    ipykernel
+      # Machine Learning
+      ipykernel
 
-    matplotlib
-    nltk
-    numpy
-    pandas
-    scikit-learn
-    scipy
-    torch
-    torchvision
-  ]);
+      matplotlib
+      nltk
+      numpy
+      pandas
+      scikit-learn
+      scipy
+      torch
+      torchvision
+    ]
+  );
 in
 
 {

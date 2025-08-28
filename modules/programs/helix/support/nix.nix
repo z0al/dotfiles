@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.presets.nix;
@@ -12,19 +17,24 @@ in
     ];
 
     languages = {
-      language = [{
-        name = "nix";
+      language = [
+        {
+          name = "nix";
 
-        indent = {
-          tab-width = 2;
-          unit = "\t";
-        };
+          indent = {
+            tab-width = 2;
+            unit = "\t";
+          };
 
-        auto-format = true;
+          auto-format = true;
 
-        formatter.command = lib.getExe pkgs.nixfmt;
-        language-servers = [ "nixd" "nil" ];
-      }];
+          formatter.command = "nixfmt";
+          language-servers = [
+            "nixd"
+            "nil"
+          ];
+        }
+      ];
 
       language-server.nixd = {
         command = lib.getExe pkgs.nixd;

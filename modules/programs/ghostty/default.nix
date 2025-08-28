@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.ghostty;
@@ -10,11 +15,10 @@ let
 
   mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";
 
-  bindKey = key:
-    lib.replaceStrings [ "-" "mod" ] [ "+" mod ] key;
+  bindKey = key: lib.replaceStrings [ "-" "mod" ] [ "+" mod ] key;
 
-  pairToList = conf:
-    lib.mapAttrsToList (key: value: "${bindKey key}=${value}") conf;
+  pairToList =
+    conf: lib.mapAttrsToList (key: value: "${bindKey key}=${value}") conf;
 in
 
 {

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.helix;
@@ -12,16 +17,18 @@ in
     packages = [ package ];
 
     languages = {
-      language = [{
-        name = "html";
+      language = [
+        {
+          name = "html";
 
-        indent = {
-          tab-width = 2;
-          unit = "\t";
-        };
+          indent = {
+            tab-width = 2;
+            unit = "\t";
+          };
 
-        language-servers = [ "vscode-html-language-server" ];
-      }];
+          language-servers = [ "vscode-html-language-server" ];
+        }
+      ];
 
       language-server = {
         vscode-html-language-server.command = html-lang-server-bin;

@@ -2,9 +2,7 @@
 
 let
   darwinModules = lib.fileset.toList (
-    lib.fileset.fileFilter
-      (file: file.name == "_darwin.nix")
-      ./.
+    lib.fileset.fileFilter (file: file.name == "_darwin.nix") ./.
   );
 in
 

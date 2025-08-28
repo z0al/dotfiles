@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.my.programs.fzf;
@@ -27,16 +32,19 @@ in
       ];
 
       variables = {
-        FZF_DEFAULT_OPTS = lib.concatStringsSep " " (cfg.theme ++ [
-          "--exact"
-          "--layout=reverse"
-          "--inline-info"
-          "--height=50%"
-          "--scrollbar='┃'"
-          "--separator=''"
-          "--pointer='┃'"
-          "--select-1"
-        ]);
+        FZF_DEFAULT_OPTS = lib.concatStringsSep " " (
+          cfg.theme
+          ++ [
+            "--exact"
+            "--layout=reverse"
+            "--inline-info"
+            "--height=50%"
+            "--scrollbar='┃'"
+            "--separator=''"
+            "--pointer='┃'"
+            "--select-1"
+          ]
+        );
         FZF_DEFAULT_COMMAND = "${fd} --type f";
         FZF_CTRL_T_COMMAND = "${fd} --type f";
         FZF_ALT_C_COMMAND = "${fd} --type d";

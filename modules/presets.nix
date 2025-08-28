@@ -1,10 +1,12 @@
 { lib, ... }:
 
 let
-  mkBool = default: lib.mkOption {
-    type = lib.types.bool;
-    default = default;
-  };
+  mkBool =
+    default:
+    lib.mkOption {
+      type = lib.types.bool;
+      default = default;
+    };
 in
 
 {
