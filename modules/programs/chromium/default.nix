@@ -35,16 +35,16 @@ let
       # "bookmarks"
       # "extensions"
       # "preferences"
+      # "readingList"
+      # "savedTabGroups"
+      # "typedUrls"
 
       "apps"
       "autofill"
       "passwords"
       "payments"
       "productComparison"
-      "readingList"
-      "savedTabGroups"
       "tabs"
-      "typedUrls"
       "wifiConfigurations"
     ];
 
