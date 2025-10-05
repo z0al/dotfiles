@@ -18,6 +18,7 @@
     ./aws.nix
     ./bash.nix
     ./black.nix
+    ./bun.nix
     ./delta.nix
     ./devenv.nix
     ./direnv.nix
