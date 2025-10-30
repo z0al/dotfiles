@@ -32,10 +32,10 @@ in
     agent.button = false;
 
     # Toolbar
-    tab_bar.show = false;
+    tab_bar.show = true;
 
     title_bar = {
-      show_branch_name = false;
+      show_branch_name = true;
       show_sign_in = false;
     };
 
@@ -45,7 +45,7 @@ in
     notification_panel.button = false;
 
     toolbar = {
-      breadcrumbs = true;
+      breadcrumbs = false;
       quick_actions = false;
       agent_review = false;
       selections_menu = false;

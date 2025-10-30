@@ -44,6 +44,10 @@ in
       zed-editor
     ];
 
+    environment.shellAliases = {
+      zed = "zeditor";
+    };
+
     hm.programs.zed-editor = {
       enable = true;
       # mutableUserSettings = true;
