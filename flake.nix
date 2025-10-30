@@ -39,7 +39,6 @@
       nix-index,
       nix-homebrew,
       plist-manager,
-      treefmt-nix,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {

@@ -230,7 +230,7 @@ in
           dotjoshjohnson.xml
           editorconfig.editorconfig
           foxundermoon.shell-format
-          hashicorp.terraform
+          # hashicorp.terraform
           johnnymorganz.stylua
           okitavera.vscode-nunjucks-formatter
           qezhu.gitlink
