@@ -31,21 +31,19 @@ let
 
     # Sync
     SyncTypesListDisabled = [
-      # Enabled:
+      # "apps"
+      # "autofill"
       # "bookmarks"
       # "extensions"
+      # "passwords"
+      # "payments"
       # "preferences"
+      # "productComparison"
       # "readingList"
       # "savedTabGroups"
+      # "tabs"
       # "typedUrls"
-
-      "apps"
-      "autofill"
-      "passwords"
-      "payments"
-      "productComparison"
-      "tabs"
-      "wifiConfigurations"
+      # "wifiConfigurations"
     ];
 
     # Privacy
