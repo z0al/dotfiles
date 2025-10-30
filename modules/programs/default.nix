@@ -13,6 +13,7 @@
     ./safari
     ./vscode
     ./wezterm
+    ./zed
 
     ./any-nix-shell.nix
     ./aws.nix

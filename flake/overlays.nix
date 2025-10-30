@@ -28,6 +28,7 @@ in
             # Dev tools
             vscode
             code-cursor
+            zed-editor
 
             # LSPs
             bash-language-server
