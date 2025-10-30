@@ -18,7 +18,7 @@ in
 
     package = mkOption {
       type = types.package;
-      default = pkgs.nodePackages_latest.prettier;
+      default = pkgs.nodePackages.prettier;
     };
   };
 
