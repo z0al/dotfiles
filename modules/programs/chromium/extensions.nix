@@ -141,8 +141,8 @@ let
     }
 
     {
-      name = "Grammarly";
-      id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
+      name = "Harper";
+      id = "lodbfhdipoipcjmlebjbgmmgekckhpfb";
     }
 
     {
