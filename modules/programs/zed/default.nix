@@ -7,6 +7,13 @@
 
 let
   cfg = config.my.programs.zed;
+
+  borderlessAyu = pkgs.fetchFromGitHub {
+    owner = "babyccino";
+    repo = "Borderless-Ayu-Zed";
+    rev = "main";
+    hash = "sha256-q3LcZ65eW7PHJVSIuJ6toPVM0nncBSfepsus8OYhuIc=";
+  };
 in
 
 {
@@ -44,6 +51,12 @@ in
 
       userSettings = cfg.settings;
       userKeymaps = cfg.keybindings;
+
+      themes = {
+        borderless = builtins.fromJSON (
+          builtins.readFile "${borderlessAyu}/ayu-borderless.json"
+        );
+      };
 
       extensions = [
         "nix"
