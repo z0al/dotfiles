@@ -8,16 +8,21 @@
 let
   cfg = config.my.programs.zed;
 
-  borderlessAyu = pkgs.fetchFromGitHub {
-    owner = "babyccino";
-    repo = "Borderless-Ayu-Zed";
-    rev = "main";
-    hash = "sha256-q3LcZ65eW7PHJVSIuJ6toPVM0nncBSfepsus8OYhuIc=";
-  };
+  configDir = "${config.my.user.home}/.config/zed";
+  toJson = (pkgs.formats.json { }).generate;
+
+  writeJson = path: content: ''
+    mkdir -p "$(dirname '${path}')"
+    cp ${toJson path content} '${path}'
+
+    chmod 776 '${path}'
+    chown ${config.my.user.name} '${path}'
+  '';
 in
 
 {
   imports = [
+    ./extensions.nix
     ./keybindings.nix
     ./settings.nix
   ];
@@ -40,31 +45,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      zed-editor
-    ];
-
-    environment.shellAliases = {
-      zed = "zeditor";
-    };
-
-    hm.programs.zed-editor = {
-      enable = true;
-      # mutableUserSettings = true;
-      # mutableUserKeymaps = true;
-
-      userSettings = cfg.settings;
-      userKeymaps = cfg.keybindings;
-
-      themes = {
-        borderless = builtins.fromJSON (
-          builtins.readFile "${borderlessAyu}/ayu-borderless.json"
-        );
-      };
-
-      extensions = [
-        "nix"
-      ];
-    };
+    my.activation.configureZed = ''
+      ${writeJson "${configDir}/settings.json" cfg.settings}
+      ${writeJson "${configDir}/keymap.json" cfg.keybindings}
+    '';
   };
 }

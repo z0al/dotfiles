@@ -12,6 +12,13 @@ in
 
   my.programs.zed.keybindings = [
     {
+      use_key_equivalents = true;
+      bindings = {
+        "${mod}-," = "zed::OpenSettingsFile";
+      };
+    }
+
+    {
       context = "Editor";
       use_key_equivalents = true;
       bindings = {
@@ -21,7 +28,7 @@ in
     }
 
     {
-      context = "Workspace";
+      context = "Workspace || Pane || ContextEditor > Editor";
       use_key_equivalents = true;
       bindings = {
         "${mod}-shift-g" = "git_panel::ToggleFocus";

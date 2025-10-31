@@ -6,7 +6,7 @@ in
 
 {
   my.programs.zed.settings = {
-    theme = "Ayu Mirage Borderless";
+    theme = "poimandres";
     ui_font_size = 16;
 
     buffer_font_family = cfgFonts.mono;
@@ -58,11 +58,5 @@ in
     };
 
     auto_update = false;
-
-    # Nix
-    languages.Nix.formatter.external = {
-      command = "nixfmt";
-      arguments = [ "--quiet" ];
-    };
   };
 }
