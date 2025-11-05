@@ -6,6 +6,6 @@ in
 
 {
   config = lib.mkIf cfg.enable {
-    homebrew.casks = [ "docker" ];
+    homebrew.casks = [ "docker-desktop" ];
   };
 }
