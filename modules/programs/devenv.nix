@@ -13,7 +13,7 @@ in
   options.my.programs.devenv = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
     };
   };
 
