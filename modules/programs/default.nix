@@ -10,6 +10,7 @@
     ./helix
     ./kubectx
     ./openscad
+    ./parallels
     ./safari
     ./vscode
     ./wezterm
