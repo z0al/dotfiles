@@ -57,6 +57,23 @@ in
     "explorer.confirmDragAndDrop" = false;
     "explorer.openEditors.visible" = 0;
 
+    "files.exclude" = {
+      "**/.git" = true;
+      "**/.DS_Store" = true;
+      "**/Thumbs.db" = true;
+      "**/dist" = true;
+      "**/.swc" = true;
+      "**/.turbo" = true;
+    };
+
+    # Search
+    "search.showLineNumbers" = false;
+    "search.exclude" = {
+      "**/node_modules" = true;
+      "**/dist" = true;
+      "**/build" = true;
+    };
+
     # Terminal
     "terminal.integrated.fontSize" = 12;
     "terminal.explorerKind" = "external";
@@ -83,7 +100,7 @@ in
 
     # Other
     "update.mode" = "none";
-    "search.showLineNumbers" = false;
+
     "debug.console.fontSize" = cfgFonts.size;
     "emmet.includeLanguages" = {
       "nunjucks" = "html";
