@@ -10,7 +10,7 @@ let
 
   identifier = "com.nix.managed.profile";
 
-  nixProfile = lib.generators.toPlist { } {
+  nixProfile = lib.generators.toPlist { escape = true; } {
     PayloadDisplayName = "Nix Profile";
     PayloadUUID = identifier;
     PayloadIdentifier = identifier;
