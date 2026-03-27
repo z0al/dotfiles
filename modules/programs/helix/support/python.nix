@@ -12,7 +12,7 @@ in
 {
   config.my.programs.helix = lib.mkIf cfg.enable {
     packages = with pkgs; [
-      python311Packages.python-lsp-server
+      python3Packages.python-lsp-server
     ];
   };
 }

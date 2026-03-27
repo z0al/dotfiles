@@ -108,61 +108,6 @@ in
         };
       })
 
-      # Helix Emulation
-      {
-        extensions = with pkgs.vscode-marketplace; [
-          jasew.vscode-helix-emulation
-          wenfangdu.jump
-        ];
-
-        settings = {
-          "extensions.experimental.affinity" = {
-            "jasew.vscode-helix-emulation" = 1;
-          };
-
-          "jump.display.color" = "#000";
-          "jump.display.backgroundColor" = "#ff0";
-        };
-
-        keybindings = [
-          {
-            key = "space b";
-            command = "workbench.action.quickOpen";
-            when = lib.concatStringsSep " && " [
-              "editorTextFocus"
-              "extension.helixKeymap.normalMode"
-            ];
-          }
-
-          {
-            key = "space f";
-            command = "actions.find";
-            when = lib.concatStringsSep " && " [
-              "editorTextFocus"
-              "extension.helixKeymap.normalMode"
-            ];
-          }
-
-          {
-            key = "space shift+f";
-            command = "workbench.action.findInFiles";
-            when = lib.concatStringsSep " && " [
-              "editorTextFocus"
-              "extension.helixKeymap.normalMode"
-            ];
-          }
-
-          {
-            key = "g w";
-            command = "jump-extension.jump-to-the-start-of-a-word";
-            when = lib.concatStringsSep " && " [
-              "editorTextFocus"
-              "extension.helixKeymap.normalMode"
-            ];
-          }
-        ];
-      }
-
       # Nix
       {
         extensions = with pkgs.vscode-marketplace; [
@@ -187,18 +132,17 @@ in
       # Python
       (lib.mkIf config.my.presets.python.enable {
         extensions = with pkgs.vscode-marketplace; [
-          ms-python.black-formatter
+          charliermarsh.ruff
           ms-python.python
-          # FIXME: re-enable after v25.05
-          # ms-python.vscode-pylance
+          ms-python.vscode-pylance
         ];
 
         settings = {
           "[python]" = {
-            "editor.defaultFormatter" = "ms-python.black-formatter";
+            "editor.defaultFormatter" = "charliermarsh.ruff";
           };
 
-          "black-formatter.args" = [
+          "ruff.format.args" = [
             "--line-length"
             "80"
           ];

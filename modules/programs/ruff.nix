@@ -6,11 +6,11 @@
 }:
 
 let
-  cfg = config.my.programs.black;
+  cfg = config.my.programs.ruff;
 in
 
 {
-  options.my.programs.black = with lib; {
+  options.my.programs.ruff = with lib; {
     enable = mkOption {
       type = types.bool;
       default = config.my.presets.python.enable;
@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      python3.pkgs.black
+      python3.pkgs.ruff
     ];
   };
 }

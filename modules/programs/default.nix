@@ -19,7 +19,6 @@
     ./any-nix-shell.nix
     ./aws.nix
     ./bash.nix
-    ./black.nix
     ./bun.nix
     ./delta.nix
     ./devenv.nix
@@ -40,6 +39,7 @@
     ./obsidian.nix
     ./prettier.nix
     ./python.nix
+    ./ruff.nix
     ./rustup.nix
     ./shfmt.nix
     ./starship.nix
