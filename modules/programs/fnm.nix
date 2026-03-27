@@ -8,8 +8,6 @@
 let
   cfg = config.my.programs.fnm;
 
-  lts-major = builtins.substring 0 2 pkgs.nodePackages.nodejs.version;
-
   cliOptions = lib.concatStringsSep " " [
     "--use-on-cd"
     "--corepack-enabled"
@@ -52,7 +50,5 @@ in
     my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
-
-    home.file.".node-version".text = lts-major;
   };
 }
