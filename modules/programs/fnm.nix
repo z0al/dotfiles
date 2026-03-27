@@ -32,11 +32,17 @@ in
     ];
 
     environment.variables = {
+      # Instruct Corepack to never touch the packageManager field in
+      # package.json
       COREPACK_ENABLE_AUTO_PIN = "0";
     };
 
     environment.shellAliases = {
       nvm = "fnm";
+
+      # Official aliases in pnpm v11
+      pn = "pnpm";
+      pnx = "pnpm dlx";
     };
 
     my.programs.bash.interactiveShellInit = ''
