@@ -14,7 +14,8 @@ in
       bat.theme = kebabCase;
       ghostty.theme = kebabCase;
       helix.theme = snakeCase;
-      vscode.theme = titleCase;
+      # Currently broken
+      vscode.theme = "poimandres";
       wezterm.theme = titleCase;
 
       # https://github.com/catppuccin/fzf#Mocha
