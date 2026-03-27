@@ -29,6 +29,7 @@ in
             vscode
             code-cursor
             zed-editor
+            claude-code
 
             # LSPs
             bash-language-server

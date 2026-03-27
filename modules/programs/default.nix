@@ -20,6 +20,7 @@
     ./aws.nix
     ./bash.nix
     ./bun.nix
+    ./claude.nix
     ./delta.nix
     ./devenv.nix
     ./direnv.nix
