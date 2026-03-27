@@ -50,5 +50,8 @@ in
     my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
+
+    # Change to 26 in April
+    home.file.".node-version".text = "24";
   };
 }
