@@ -26,7 +26,6 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       fnm
-      nodejs_24
       nodePackages.npm
       nodePackages.yarn
       nodePackages.pnpm
@@ -35,7 +34,7 @@ in
     environment.shellAliases = {
       nvm = "fnm";
 
-      # Official aliases in pnpm v11
+      # Remove after pnpm v11 is released
       pn = "pnpm";
       pnx = "pnpm dlx";
     };
@@ -46,6 +45,7 @@ in
 
     my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
+      ${lib.getExe pkgs.nodePackages.pnpm} completion fish | source
     '';
   };
 }
