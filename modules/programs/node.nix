@@ -6,18 +6,17 @@
 }:
 
 let
-  cfg = config.my.programs.fnm;
+  cfg = config.my.programs.node;
 
   cliOptions = lib.concatStringsSep " " [
     "--use-on-cd"
-    "--corepack-enabled"
     "--version-file-strategy recursive"
     "--log-level quiet"
   ];
 in
 
 {
-  options.my.programs.fnm = with lib; {
+  options.my.programs.node = with lib; {
     enable = mkOption {
       type = types.bool;
       default = config.my.presets.typescript.enable;
@@ -27,13 +26,11 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       fnm
+      nodejs_24
+      nodePackages.npm
+      nodePackages.yarn
+      nodePackages.pnpm
     ];
-
-    environment.variables = {
-      # Instruct Corepack to never touch the packageManager field in
-      # package.json
-      COREPACK_ENABLE_AUTO_PIN = "0";
-    };
 
     environment.shellAliases = {
       nvm = "fnm";
@@ -50,8 +47,5 @@ in
     my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
-
-    # Change to 26 in April
-    home.file.".node-version".text = "24";
   };
 }

@@ -26,10 +26,11 @@ in
         final: prev: {
           inherit (unstable)
             # Dev tools
-            vscode
-            code-cursor
-            zed-editor
             claude-code
+            code-cursor
+            nodePackages
+            vscode
+            zed-editor
 
             # LSPs
             bash-language-server

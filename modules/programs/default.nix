@@ -28,7 +28,6 @@
     ./fd.nix
     ./fish.nix
     ./flameshot.nix
-    ./fnm.nix
     ./forgit.nix
     ./fzf.nix
     ./git.nix
@@ -37,6 +36,7 @@
     ./lazygit.nix
     ./nix-index.nix
     ./nixfmt.nix
+    ./node.nix
     ./obsidian.nix
     ./prettier.nix
     ./python.nix
