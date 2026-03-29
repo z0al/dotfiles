@@ -134,7 +134,6 @@ in
         extensions = with pkgs.vscode-marketplace; [
           charliermarsh.ruff
           ms-python.python
-          ms-python.vscode-pylance
         ];
 
         settings = {
