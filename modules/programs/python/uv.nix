@@ -21,5 +21,9 @@ in
     environment.systemPackages = with pkgs; [
       uv
     ];
+
+    my.programs.fish.plugins = with pkgs.fishPlugins; [
+      autopy
+    ];
   };
 }
