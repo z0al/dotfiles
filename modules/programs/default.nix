@@ -11,6 +11,7 @@
     ./kubectx
     ./openscad
     ./parallels
+    ./python
     ./safari
     ./vscode
     ./wezterm
@@ -39,8 +40,6 @@
     ./node.nix
     ./obsidian.nix
     ./prettier.nix
-    ./python.nix
-    ./ruff.nix
     ./rustup.nix
     ./shfmt.nix
     ./starship.nix
