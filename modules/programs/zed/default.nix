@@ -52,6 +52,7 @@ in
     environment.shellAliases = {
       zd = "zeditor";
       zed = "zeditor";
+      code = "zeditor";
     };
 
     my.activation.configureZed = ''

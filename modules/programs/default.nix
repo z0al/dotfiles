@@ -12,7 +12,6 @@
     ./parallels
     ./python
     ./safari
-    ./vscode
     ./wezterm
     ./zed
 

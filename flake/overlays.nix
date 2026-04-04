@@ -27,8 +27,7 @@ let
     };
   };
 
-  overlays = with inputs; [
-    vscode.overlays.default
+  overlays = [
     autopy
   ];
 in
@@ -50,9 +49,7 @@ in
           inherit (unstable)
             # Dev tools
             claude-code
-            code-cursor
             nodePackages
-            vscode
             zed-editor
 
             # LSPs

@@ -10,8 +10,6 @@ Here are some of the unique features of my configuration you might find interest
 
 - [**💻 Device Manager**](./modules/device-manager/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS e.g. used to configure policies for Chromium-based browsers, which can then be manually installed via System Settings. The module warns the user if the profile changes and needs reapplying.
 
-- [**👨‍💻 VS Code**](./modules/programs/vscode): A fully declarative VS Code configuration. The final `settings.json` file is copied (not linked), allowing for quick on-the-fly tweaks.
-
 - [**🔐 1Password**](./modules/programs/1password): Uses 1Password as an SSH agent, Git authentication, and signing program. This keeps SSH keys and tokens in the password manager instead of on disk.
 
 - [**🪟 Tiling**](./modules/config/tiling/_darwin.nix): Configures [AeroSpace](https://nikitabobko.github.io/AeroSpace/guide) for automatic window tiling on macOS.
