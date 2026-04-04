@@ -13,6 +13,10 @@ in
       "poimandres" = {
         "border" = "#0000";
         "border.variant" = "#0000";
+        "syntax" = {
+          "boolean"."color" = "#d0679d";
+          "constant.builtin"."color" = "#d0679d";
+        };
       };
     };
 
@@ -56,7 +60,6 @@ in
     drag_and_drop_selection.enabled = false;
     inline_code_actions = false;
 
-    file_finder.modal_max_width = "xlarge";
     diff_view_style = "unified";
 
     # Scrollbar
