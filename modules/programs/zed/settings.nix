@@ -7,56 +7,91 @@ in
 {
   my.programs.zed.settings = {
     theme = "poimandres";
-    ui_font_size = 16;
+    icon_theme = "Warm Charmed Icons";
 
+    theme_overrides = {
+      "poimandres" = {
+        "border" = "#0000";
+        "border.variant" = "#0000";
+      };
+    };
+
+    # Font
+    ui_font_size = 16;
+    ui_font_family = cfgFonts.mono;
     buffer_font_family = cfgFonts.mono;
     buffer_font_size = 14.0;
+    terminal.font_size = 14.0;
+
+    # Editor
+    tab_bar.show = false;
+    toolbar = {
+      breadcrumbs = true;
+      quick_actions = false;
+      selections_menu = false;
+    };
 
     hard_tabs = true;
     soft_wrap = "bounded";
     show_wrap_guides = false;
     selection_highlight = false;
     cursor_shape = "bar";
-    scroll_beyond_last_line = "off";
 
-    indent_guides = {
-      enabled = true;
-      line_width = 0;
-      active_line_width = 1;
-      coloring = "fixed";
-      background_coloring = "disabled";
+    indent_guides.enabled = false;
+    gutter = {
+      min_line_number_digits = 0;
+      runnables = false;
+      folds = false;
     };
 
-    # AI
-    show_edit_predictions = true;
-    agent.button = false;
+    drag_and_drop_selection.enabled = false;
+    inline_code_actions = false;
 
-    # Toolbar
-    tab_bar.show = true;
+    # File finder
+    file_finder = {
+      modal_max_width = "large";
+    };
 
+    # Window
     title_bar = {
+      show_project_items = true;
       show_branch_name = true;
       show_sign_in = false;
+      show_user_menu = false;
+      show_onboarding_banner = false;
     };
 
+    # Scrollbar
+    scrollbar.show = "never";
+    scroll_beyond_last_line = "off";
+
+    # Explorer
+    project_panel = {
+      hide_root = true;
+      indent_guides.show = "never";
+      auto_reveal_entries = false;
+    };
+
+    outline_panel = {
+      indent_guides.show = "never";
+    };
+
+    # Status bar
+    status_bar = {
+      active_encoding_button = "enabled";
+      line_endings_button = true;
+    };
     project_panel.button = false;
+    search.button = false;
+    terminal.button = false;
     outline_panel.button = false;
     collaboration_panel.button = false;
     notification_panel.button = false;
+    diagnostics.button = false;
+    git_panel.button = false;
 
-    toolbar = {
-      breadcrumbs = false;
-      quick_actions = false;
-      agent_review = false;
-      selections_menu = false;
-    };
-
-    # Terminal
-    terminal = {
-      font_size = 12.0;
-      button = false;
-    };
-
+    # Other
+    disable_ai = true;
     auto_update = false;
   };
 }

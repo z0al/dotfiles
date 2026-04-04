@@ -6,7 +6,7 @@ in
 
 {
   my.programs.zed.settings = {
-    helix_mode = true;
+    # helix_mode = true;
     base_keymap = "VSCode";
   };
 

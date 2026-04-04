@@ -3,6 +3,7 @@
     auto_install_extensions = {
       nix = true;
       poimandres = true;
+      charmed-icons = true;
     };
 
     # Nix
