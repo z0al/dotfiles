@@ -11,5 +11,5 @@
   # default host value
   my.programs.up.target = "workplace";
 
-  my.programs.parallels.enable = true;
+  my.programs.parallels.enable = false;
 }
