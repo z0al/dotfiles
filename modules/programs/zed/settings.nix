@@ -23,6 +23,15 @@ in
     buffer_font_size = 14.0;
     terminal.font_size = 14.0;
 
+    # Window
+    title_bar = {
+      show_project_items = true;
+      show_branch_name = true;
+      show_sign_in = false;
+      show_user_menu = false;
+      show_onboarding_banner = false;
+    };
+
     # Editor
     tab_bar.show = false;
     toolbar = {
@@ -47,19 +56,8 @@ in
     drag_and_drop_selection.enabled = false;
     inline_code_actions = false;
 
-    # File finder
-    file_finder = {
-      modal_max_width = "large";
-    };
-
-    # Window
-    title_bar = {
-      show_project_items = true;
-      show_branch_name = true;
-      show_sign_in = false;
-      show_user_menu = false;
-      show_onboarding_banner = false;
-    };
+    file_finder.modal_max_width = "xlarge";
+    diff_view_style = "unified";
 
     # Scrollbar
     scrollbar.show = "never";
@@ -89,6 +87,7 @@ in
     notification_panel.button = false;
     diagnostics.button = false;
     git_panel.button = false;
+    debugger.button = false;
 
     # Other
     disable_ai = true;
