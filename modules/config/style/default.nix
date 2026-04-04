@@ -18,7 +18,7 @@
         "poimandres"
       ];
 
-      default = "catppuccin";
+      default = "poimandres";
     };
   };
 }

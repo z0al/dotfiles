@@ -12,7 +12,6 @@ in
   config = lib.mkIf (cfg.theme == "catppuccin") {
     my.programs = {
       bat.theme = kebabCase;
-      ghostty.theme = kebabCase;
       wezterm.theme = titleCase;
 
       # https://github.com/catppuccin/fzf#Mocha

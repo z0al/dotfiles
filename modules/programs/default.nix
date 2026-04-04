@@ -6,7 +6,6 @@
     ./chromium
     ./docker
     ./finder
-    ./ghostty
     ./kubectx
     ./openscad
     ./parallels
