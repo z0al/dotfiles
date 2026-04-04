@@ -7,7 +7,6 @@
     ./docker
     ./finder
     ./ghostty
-    ./helix
     ./kubectx
     ./openscad
     ./parallels
