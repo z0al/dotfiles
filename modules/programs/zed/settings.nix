@@ -68,6 +68,7 @@ in
 
     # Explorer
     project_panel = {
+      starts_open = false;
       hide_root = true;
       indent_guides.show = "never";
       auto_reveal_entries = true;
