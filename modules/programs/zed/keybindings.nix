@@ -24,6 +24,8 @@ in
       bindings = {
         "${mod}-space" = "editor::ShowCompletions";
         "${mod}-shift-space" = "editor::ShowWordCompletions";
+        "${mod}-o" = "pane::GoBack";
+        "${mod}-i" = "pane::GoForward";
       };
     }
 
