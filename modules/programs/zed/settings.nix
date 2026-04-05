@@ -70,7 +70,7 @@ in
     project_panel = {
       hide_root = true;
       indent_guides.show = "never";
-      auto_reveal_entries = false;
+      auto_reveal_entries = true;
     };
 
     outline_panel = {

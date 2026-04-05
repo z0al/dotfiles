@@ -36,6 +36,7 @@
     ./nixfmt.nix
     ./node.nix
     ./obsidian.nix
+    ./openspec.nix
     ./prettier.nix
     ./rustup.nix
     ./shfmt.nix
