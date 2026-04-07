@@ -45,7 +45,7 @@ in
 
     my.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
-      ${lib.getExe pkgs.nodePackages.pnpm} completion fish | source
+      ${lib.getExe pkgs.nodePackages.pnpm} completion fish 2>/dev/null | source
     '';
   };
 }
