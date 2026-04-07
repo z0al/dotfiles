@@ -7,6 +7,7 @@
     ./docker
     ./finder
     ./kubectx
+    ./node
     ./openscad
     ./parallels
     ./python
@@ -34,7 +35,6 @@
     ./lazygit.nix
     ./nix-index.nix
     ./nixfmt.nix
-    ./node.nix
     ./obsidian.nix
     ./openspec.nix
     ./prettier.nix
