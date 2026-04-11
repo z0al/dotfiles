@@ -116,8 +116,8 @@ let
     }
 
     {
-      name = "JSON Formatter";
-      id = "bcjindcccaagfpapjjmafapmmgkkhgoa";
+      name = "JSON Alexander";
+      id = "aegihabihhhoihnomlekgheekcdcifpk";
     }
 
     {
