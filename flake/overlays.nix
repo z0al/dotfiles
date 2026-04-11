@@ -49,8 +49,9 @@ in
           inherit (unstable)
             # Dev tools
             claude-code
-            openspec
             nodePackages
+            openspec
+            oxfmt
             zed-editor
 
             # LSPs

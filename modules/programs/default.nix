@@ -37,7 +37,7 @@
     ./nixfmt.nix
     ./obsidian.nix
     ./openspec.nix
-    ./prettier.nix
+    ./oxfmt.nix
     ./rustup.nix
     ./shfmt.nix
     ./starship.nix

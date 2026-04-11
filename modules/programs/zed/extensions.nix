@@ -12,16 +12,22 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nixd
       nil
+      nixd
     ];
+
+    my.programs.oxfmt.enable = true;
 
     my.programs.zed.settings = {
       auto_install_extensions = {
-        nix = true;
-        poimandres = true;
         charmed-icons = true;
+        nix = true;
+        oxc = true;
+        poimandres = true;
       };
+
+      # Replace prettier with Oxfmt
+      formatter.language_server.name = "oxfmt";
 
       # Nix
       languages.Nix.formatter.external = {

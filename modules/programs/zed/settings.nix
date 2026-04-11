@@ -96,5 +96,6 @@ in
     # Other
     disable_ai = true;
     auto_update = false;
+    prettier.allowed = false;
   };
 }
