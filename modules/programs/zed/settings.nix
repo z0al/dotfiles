@@ -6,19 +6,8 @@ in
 
 {
   my.programs.zed.settings = {
-    theme = "poimandres";
+    theme = "Tokyo Night";
     icon_theme = "Warm Charmed Icons";
-
-    theme_overrides = {
-      "poimandres" = {
-        "border" = "#0000";
-        "border.variant" = "#0000";
-        "syntax" = {
-          "boolean"."color" = "#d0679d";
-          "constant.builtin"."color" = "#d0679d";
-        };
-      };
-    };
 
     # Font
     ui_font_size = 16;
