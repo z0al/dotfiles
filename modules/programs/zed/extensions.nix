@@ -24,6 +24,7 @@ in
         nix = true;
         oxc = true;
         poimandres = true;
+        tokyo-night = true;
       };
 
       # Replace prettier with Oxfmt
