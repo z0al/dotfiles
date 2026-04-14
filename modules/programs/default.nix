@@ -44,6 +44,7 @@
     ./stylua.nix
     ./terraform.nix
     ./up.nix
+    ./vim.nix
     ./watchman.nix
     ./zoxide.nix
   ];
