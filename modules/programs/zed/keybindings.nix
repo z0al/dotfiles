@@ -30,7 +30,7 @@ in
     }
 
     {
-      context = "Workspace || Pane || ContextEditor > Editor";
+      context = "Workspace";
       use_key_equivalents = true;
       bindings = {
         "${mod}-shift-g" = "git_panel::ToggleFocus";
