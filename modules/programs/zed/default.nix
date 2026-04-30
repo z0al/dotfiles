@@ -45,16 +45,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      zed-editor
-    ];
-
-    environment.shellAliases = {
-      zd = "zeditor";
-      zed = "zeditor";
-      code = "zeditor";
-    };
-
     my.activation.configureZed = ''
       ${writeJson "${configDir}/settings.json" cfg.settings}
       ${writeJson "${configDir}/keymap.json" cfg.keybindings}
