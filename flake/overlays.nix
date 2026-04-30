@@ -49,7 +49,6 @@ in
           inherit (unstable)
             # Dev tools
             claude-code
-            nodePackages
             openspec
             oxfmt
             zed-editor

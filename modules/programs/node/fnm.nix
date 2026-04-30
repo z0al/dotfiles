@@ -26,8 +26,8 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       fnm
-      nodePackages.npm
-      nodePackages.yarn
+      nodejs
+      yarn
     ];
 
     environment.shellAliases = {

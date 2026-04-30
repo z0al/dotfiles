@@ -23,7 +23,6 @@
     ./delta.nix
     ./devenv.nix
     ./direnv.nix
-    ./expo.nix
     ./fd.nix
     ./fish.nix
     ./flameshot.nix

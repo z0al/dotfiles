@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nodePackages.pnpm
+      pnpm
     ];
 
     environment.shellAliases = {
@@ -29,7 +29,7 @@ in
     };
 
     my.programs.fish.interactiveShellInit = ''
-      ${lib.getExe pkgs.nodePackages.pnpm} completion fish 2>/dev/null | source
+      ${lib.getExe pkgs.pnpm} completion fish 2>/dev/null | source
     '';
   };
 }
