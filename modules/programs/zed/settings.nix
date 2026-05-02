@@ -61,10 +61,19 @@ in
       hide_root = true;
       indent_guides.show = "never";
       auto_reveal_entries = true;
+      button = false;
+      dock = "left";
     };
 
     outline_panel = {
       indent_guides.show = "never";
+      button = false;
+      dock = "left";
+    };
+
+    git_panel = {
+      button = false;
+      dock = "left";
     };
 
     # Status bar
@@ -72,14 +81,11 @@ in
       active_encoding_button = "enabled";
       line_endings_button = true;
     };
-    project_panel.button = false;
     search.button = false;
     terminal.button = false;
-    outline_panel.button = false;
     collaboration_panel.button = false;
     notification_panel.button = false;
     diagnostics.button = false;
-    git_panel.button = false;
     debugger.button = false;
 
     # Other
