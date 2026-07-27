@@ -25,6 +25,11 @@ in
       [ "xdg" ]
       [ "home-manager" "users" username "xdg" ]
     )
+
+    (lib.mkAliasOptionModule
+      [ "dot" "programs" ]
+      [ "home-manager" "users" username "programs" ]
+    )
   ];
 
   # The typing system will take care of merging the extra options into the
