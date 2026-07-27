@@ -5,8 +5,14 @@
   ...
 }:
 
+let
+  cfg = config.my.programs.git;
+in
+
 {
-  config = lib.mkIf config.my.programs.git.enable {
-    environment.shellAliases.lz = lib.getExe pkgs.lazygit;
+  config = lib.mkIf cfg.enable {
+    environment.shellAliases = {
+      lz = lib.getExe pkgs.lazygit;
+    };
   };
 }

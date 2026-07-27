@@ -1,3 +1,5 @@
 {
-  environment.shellAliases.j = "__zoxide_zi";
+  environment.shellAliases = {
+    j = "__zoxide_zi";
+  };
 }

@@ -7,7 +7,6 @@
     ./docker
     ./finder
     ./kubectx
-    ./node
     ./openscad
     ./parallels
     ./python
