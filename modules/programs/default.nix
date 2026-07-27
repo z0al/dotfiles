@@ -17,7 +17,6 @@
 
     ./any-nix-shell.nix
     ./aws.nix
-    ./bash.nix
     ./bun.nix
     ./claude.nix
     ./delta.nix

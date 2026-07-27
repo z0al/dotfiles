@@ -22,7 +22,7 @@ in
     programs.nix-index.enable = true;
     programs.nix-index-database.comma.enable = true;
 
-    my.programs.bash.interactiveShellInit = ''
+    dot.programs.bash.initExtra = ''
       source ${package}/etc/profile.d/command-not-found.sh
     '';
 

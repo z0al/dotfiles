@@ -63,7 +63,7 @@ in
       STARSHIP_LOG = "error";
     };
 
-    my.programs.bash.interactiveShellInit = ''
+    dot.programs.bash.initExtra = ''
       eval "$(${lib.getExe pkgs.starship} init bash)"
     '';
 

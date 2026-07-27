@@ -52,7 +52,7 @@ in
       };
     };
 
-    my.programs.bash.interactiveShellInit = ''
+    dot.programs.bash.initExtra = ''
       eval "$(${lib.getExe pkgs.fzf} --bash)"
     '';
 

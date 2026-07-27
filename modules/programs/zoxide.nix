@@ -27,7 +27,7 @@ in
       j = "__zoxide_zi";
     };
 
-    my.programs.bash.interactiveShellInit = ''
+    dot.programs.bash.initExtra = ''
       eval "$(${lib.getExe pkgs.zoxide} init bash --no-cmd)"
     '';
 

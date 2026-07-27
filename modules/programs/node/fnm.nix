@@ -34,7 +34,7 @@ in
       nvm = "fnm";
     };
 
-    my.programs.bash.interactiveShellInit = ''
+    dot.programs.bash.initExtra = ''
       eval "$(${lib.getExe pkgs.fnm} env --shell bash ${cliOptions})"
     '';
 
