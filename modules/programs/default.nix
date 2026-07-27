@@ -15,7 +15,6 @@
     ./wezterm
     ./zed
 
-    ./any-nix-shell.nix
     ./aws.nix
     ./bun.nix
     ./claude.nix
