@@ -1,7 +1,9 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 
 let
-  homeModules = lib.fileset.toList (lib.fileset.fileFilter (f: f.name == "_home.nix") ./.);
+  homeModules = lib.fileset.toList (
+    lib.fileset.fileFilter (f: f.name == "_home.nix") ./.
+  );
 in
 
 {
@@ -13,5 +15,7 @@ in
     ./presets.nix
   ];
 
-  home-manager.sharedModules = homeModules;
+  home-manager.sharedModules = homeModules ++ [
+    inputs.nix-index.homeModules.nix-index
+  ];
 }

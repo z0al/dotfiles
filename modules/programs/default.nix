@@ -27,7 +27,6 @@
     ./git.nix
     ./kubectl.nix
     ./kubelogin.nix
-    ./nix-index.nix
     ./nixfmt.nix
     ./obsidian.nix
     ./openspec.nix

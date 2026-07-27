@@ -33,7 +33,6 @@
       hm,
       persistence,
       flake-parts,
-      nix-index,
       nix-homebrew,
       plist-manager,
       ...
@@ -54,14 +53,12 @@
         nixosModules.default.imports = [
           hm.nixosModules.home-manager
           persistence.nixosModule.impermanence
-          nix-index.nixosModules.nix-index
           ./modules/nixos.nix
         ];
 
         darwinModules.default.imports = [
           hm.darwinModules.home-manager
           nix-homebrew.darwinModules.nix-homebrew
-          nix-index.darwinModules.nix-index
           plist-manager.darwinModules.default
           ./modules/darwin.nix
         ];
