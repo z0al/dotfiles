@@ -31,7 +31,7 @@ in
       eval "$(${lib.getExe pkgs.zoxide} init bash --no-cmd)"
     '';
 
-    my.programs.fish.interactiveShellInit = ''
+    dot.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.zoxide} init fish --no-cmd | source
     '';
   };

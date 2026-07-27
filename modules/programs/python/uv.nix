@@ -22,8 +22,11 @@ in
       uv
     ];
 
-    my.programs.fish.plugins = with pkgs.fishPlugins; [
-      autopy
+    dot.programs.fish.plugins = with pkgs.fishPlugins; [
+      {
+        name = "autopy";
+        src = autopy.src;
+      }
     ];
   };
 }

@@ -67,7 +67,7 @@ in
       eval "$(${lib.getExe pkgs.starship} init bash)"
     '';
 
-    my.programs.fish.interactiveShellInit = ''
+    dot.programs.fish.interactiveShellInit = ''
       # Transient prompt
       function starship_transient_prompt_func
         # tput cuu1

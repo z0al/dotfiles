@@ -27,7 +27,7 @@ in
     '';
 
     # See https://github.com/nix-community/nix-index/issues/126
-    my.programs.fish.interactiveShellInit =
+    dot.programs.fish.interactiveShellInit =
       let
         wrapper = pkgs.writeScript "command-not-found" ''
           #!${pkgs.bash}/bin/bash

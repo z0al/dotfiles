@@ -38,7 +38,7 @@ in
       eval "$(${lib.getExe pkgs.fnm} env --shell bash ${cliOptions})"
     '';
 
-    my.programs.fish.interactiveShellInit = ''
+    dot.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fnm} env --shell fish ${cliOptions} | source
     '';
   };

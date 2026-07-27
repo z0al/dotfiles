@@ -22,7 +22,7 @@ in
       any-nix-shell
     ];
 
-    my.programs.fish.interactiveShellInit = ''
+    dot.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.any-nix-shell} fish | source
     '';
   };

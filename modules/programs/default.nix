@@ -24,7 +24,6 @@
     ./devenv.nix
     ./direnv.nix
     ./fd.nix
-    ./fish.nix
     ./flameshot.nix
     ./forgit.nix
     ./fzf.nix

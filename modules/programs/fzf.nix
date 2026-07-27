@@ -56,7 +56,7 @@ in
       eval "$(${lib.getExe pkgs.fzf} --bash)"
     '';
 
-    my.programs.fish.interactiveShellInit = ''
+    dot.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.fzf} --fish | source
     '';
   };

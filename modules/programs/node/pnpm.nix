@@ -28,7 +28,7 @@ in
       pnx = "pnpm dlx";
     };
 
-    my.programs.fish.interactiveShellInit = ''
+    dot.programs.fish.interactiveShellInit = ''
       ${lib.getExe pkgs.pnpm} completion fish 2>/dev/null | source
     '';
   };
