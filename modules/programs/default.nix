@@ -31,7 +31,6 @@
     ./git.nix
     ./kubectl.nix
     ./kubelogin.nix
-    ./lazygit.nix
     ./nix-index.nix
     ./nixfmt.nix
     ./obsidian.nix

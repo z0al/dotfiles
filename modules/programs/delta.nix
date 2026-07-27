@@ -39,6 +39,6 @@ in
     };
 
     # Integration with lazygit
-    my.programs.lazygit.pager = "${delta} --paging=never";
+    dot.programs.lazygit.settings.git.paging.pager = "${delta} --paging=never";
   };
 }
