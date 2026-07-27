@@ -39,14 +39,6 @@ in
       ]);
 
     programs.fish = {
-      enable = true;
-      useBabelfish = true;
-
-      # Autoload plugins
-      vendor.config.enable = true;
-      vendor.functions.enable = true;
-      vendor.completions.enable = true;
-
       shellAliases = cfgEnv.shellAliases // {
         unset = "set -ge";
         unalias = "functions --erase";
