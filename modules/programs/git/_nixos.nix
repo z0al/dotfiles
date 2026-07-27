@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   cfg = config.dot.programs.git;
@@ -12,7 +7,10 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.shellAliases = {
-      lz = lib.getExe pkgs.lazygit;
+      g = "git status";
+      gcm = "git commit -m";
+      gp = "git pull";
+      gP = "git push";
     };
   };
 }

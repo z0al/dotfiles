@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.my.programs.git;
+  cfg = config.dot.programs.git;
 in
 
 {

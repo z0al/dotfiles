@@ -17,12 +17,9 @@
     ./aws.nix
     ./bun.nix
     ./claude.nix
-    ./delta.nix
     ./devenv.nix
     ./fd.nix
     ./flameshot.nix
-    ./forgit.nix
-    ./git.nix
     ./kubectl.nix
     ./kubelogin.nix
     ./nixfmt.nix

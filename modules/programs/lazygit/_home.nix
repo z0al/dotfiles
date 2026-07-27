@@ -1,9 +1,9 @@
-{ lib, osConfig, ... }:
+{ config, lib, ... }:
 
 {
   config = {
     programs.lazygit = {
-      enable = lib.mkDefault osConfig.my.programs.git.enable;
+      enable = lib.mkDefault config.programs.git.enable;
 
       settings = {
         disableStartupPopups = true;

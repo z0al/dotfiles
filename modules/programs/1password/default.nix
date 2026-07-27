@@ -40,7 +40,7 @@ in
     '';
 
     # Git Intergration
-    my.programs.git.settings = {
+    dot.programs.git.settings = {
       gpg.ssh.program = ssh.sign;
     };
 
