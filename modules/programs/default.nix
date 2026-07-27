@@ -36,7 +36,6 @@
     ./oxfmt.nix
     ./rustup.nix
     ./shfmt.nix
-    ./starship.nix
     ./stylua.nix
     ./terraform.nix
     ./up.nix
