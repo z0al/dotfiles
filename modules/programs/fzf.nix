@@ -20,6 +20,7 @@ in
 
     theme = mkOption {
       type = types.listOf types.str;
+      default = [ ];
     };
   };
 

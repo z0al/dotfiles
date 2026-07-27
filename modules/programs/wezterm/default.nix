@@ -40,6 +40,7 @@ in
 
     theme = mkOption {
       type = types.str;
+      default = "Poimandres";
     };
 
     settings = mkOption {

@@ -19,6 +19,7 @@ in
 
     theme = mkOption {
       type = types.str;
+      default = "base16";
     };
   };
 
@@ -38,11 +39,5 @@ in
     environment.etc."bat/config".text = ''
       --style='plain'
     '';
-
-    home.file.".config/bat/themes" = {
-      recursive = true;
-      source = ./themes;
-      onChange = "${bat} cache --build > /dev/null";
-    };
   };
 }
