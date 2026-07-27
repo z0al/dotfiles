@@ -25,7 +25,6 @@
     ./fd.nix
     ./flameshot.nix
     ./forgit.nix
-    ./fzf.nix
     ./git.nix
     ./kubectl.nix
     ./kubelogin.nix
