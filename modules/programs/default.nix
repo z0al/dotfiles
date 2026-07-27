@@ -21,7 +21,6 @@
     ./claude.nix
     ./delta.nix
     ./devenv.nix
-    ./direnv.nix
     ./fd.nix
     ./flameshot.nix
     ./forgit.nix
