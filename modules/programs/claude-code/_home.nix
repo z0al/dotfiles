@@ -75,6 +75,7 @@
             "Bash(source:*)"
             "Bash(nix:*)"
             "Read"
+            "Edit"
             "Write(*)"
             "WebSearch"
             "WebFetch(domain:github.com)"

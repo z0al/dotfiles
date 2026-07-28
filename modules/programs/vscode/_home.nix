@@ -7,7 +7,6 @@
 }:
 
 let
-  cfg = config.programs.vscode;
   cfgPresets = osConfig.my.presets;
   cfgFonts = config.fonts;
 
@@ -192,6 +191,9 @@ in
             "scm.graph.showIncomingChanges" = "never";
             "scm.graph.showOutgoingChanges" = "never";
 
+            # Disable built-in Copilot/AI UI
+            "chat.disableAIFeatures" = true;
+
             # Extensions
             "extensions.ignoreRecommendations" = true;
             "extensions.autoUpdate" = false;
@@ -329,6 +331,18 @@ in
             ];
           };
         })
+
+        # Claude Code
+        {
+          extensions = with pkgs.vscode-marketplace; [
+            anthropic.claude-code
+          ];
+
+          userSettings = {
+            "claudeCode.preferredLocation" = "sidebar";
+            "claudeCode.enableNewConversationShortcut" = false;
+          };
+        }
 
         # Spellcheck
         {
