@@ -14,7 +14,6 @@
     ./bun.nix
     ./claude.nix
     ./devenv.nix
-    ./fd.nix
     ./flameshot.nix
     ./kubectl.nix
     ./kubelogin.nix
