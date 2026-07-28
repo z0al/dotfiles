@@ -9,7 +9,6 @@
     ./parallels
     ./safari
 
-    ./claude.nix
     ./devenv.nix
     ./flameshot.nix
     ./kubectl.nix
