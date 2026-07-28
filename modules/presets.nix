@@ -12,7 +12,6 @@ in
 {
   # group related modules under a single flag for convenience.
   options.my.presets = {
-    copilot.enable = mkBool true;
     typescript.enable = mkBool true;
     lua.enable = mkBool true;
     nix.enable = mkBool true;

@@ -2,7 +2,6 @@
   my.user.uid = 502;
 
   my.presets = {
-    copilot.enable = true;
     typescript.enable = true;
     devOps.enable = true;
   };

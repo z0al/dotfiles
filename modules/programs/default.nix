@@ -10,7 +10,6 @@
     ./python
     ./safari
     ./wezterm
-    ./zed
 
     ./aws.nix
     ./bun.nix

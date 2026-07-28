@@ -27,7 +27,8 @@ let
     };
   };
 
-  overlays = [
+  overlays = with inputs; [
+    vscode.overlays.default
     autopy
   ];
 in

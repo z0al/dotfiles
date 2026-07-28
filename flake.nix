@@ -22,6 +22,9 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
+    vscode.url = "github:nix-community/nix-vscode-extensions";
+    vscode.inputs.nixpkgs.follows = "nixpkgs";
+
     plist-manager.url = "github:z0al/plist-manager";
     plist-manager.inputs.nixpkgs.follows = "nixpkgs";
 
