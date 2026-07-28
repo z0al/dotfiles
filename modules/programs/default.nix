@@ -10,7 +10,6 @@
     ./python
     ./safari
 
-    ./aws.nix
     ./claude.nix
     ./devenv.nix
     ./flameshot.nix
