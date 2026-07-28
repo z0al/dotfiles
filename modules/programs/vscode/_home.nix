@@ -9,7 +9,7 @@
 let
   cfg = config.programs.vscode;
   cfgPresets = osConfig.my.presets;
-  cfgFonts = osConfig.my.fonts;
+  cfgFonts = config.fonts;
 
   mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";
 

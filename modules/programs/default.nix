@@ -9,7 +9,6 @@
     ./parallels
     ./python
     ./safari
-    ./wezterm
 
     ./aws.nix
     ./bun.nix

@@ -6,22 +6,66 @@
 }:
 
 let
-  cfg = config.my.programs.wezterm;
+  cfgFonts = config.fonts;
+
+  mkLua = lib.generators.mkLuaInline;
 
   mod = if pkgs.stdenv.isDarwin then "CMD" else "CTRL";
-  mkLua = lib.generators.mkLuaInline;
 
   actions = {
     copy = mkLua "act.CopyTo 'Clipboard'";
     paste = mkLua "act.PasteFrom 'Clipboard'";
   };
-in
 
-{
-  config.my.programs.wezterm = lib.mkIf cfg.enable {
-    settings.disable_default_key_bindings = false;
+  settings = {
+    # Fonts
+    font_size = cfgFonts.size;
+    font = mkLua ''
+      wz.font_with_fallback {
+        "${cfgFonts.mono}",
+        "${cfgFonts.symbol}",
+        "${cfgFonts.emoji}",
+      }
+    '';
 
-    settings.keys = lib.flatten [
+    allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace";
+    adjust_window_size_when_changing_font_size = false;
+    warn_about_missing_glyphs = false;
+
+    # Colors
+    color_scheme = "Poimandres";
+
+    # Cursor
+    default_cursor_style = "BlinkingBlock";
+    cursor_blink_ease_in = "Constant";
+    cursor_blink_ease_out = "Constant";
+    cursor_blink_rate = 500;
+
+    scrollback_lines = 100000;
+
+    # https://sw.kovidgoyal.net/kitty/keyboard-protocol/
+    # https://github.com/wezterm/wezterm/issues/6982
+    enable_kitty_keyboard = false;
+
+    # Window
+    enable_wayland = false;
+    window_padding = {
+      left = "5pt";
+      right = "5pt";
+      top = "2pt";
+      bottom = "2pt";
+    };
+
+    window_close_confirmation = "NeverPrompt";
+    window_decorations = "TITLE | RESIZE | MACOS_USE_BACKGROUND_COLOR_AS_TITLEBAR_COLOR";
+
+    # Tabs
+    use_fancy_tab_bar = false;
+    hide_tab_bar_if_only_one_tab = true;
+
+    # Keys
+    disable_default_key_bindings = false;
+    keys = lib.flatten [
       [
         # Copy
         {
@@ -202,5 +246,25 @@ in
         }
       ])
     ];
+  };
+
+  configFile = ''
+    local wz = wezterm
+    local act = wezterm.action
+
+    return ${lib.generators.toLua { } settings};
+  '';
+in
+
+{
+  config = {
+    programs.wezterm = {
+      enable = lib.mkDefault true;
+      # TODO: HM's release-25.11 programs.wezterm has no `settings` option,
+      # only `extraConfig` (raw lua text) — settings exists on HM master.
+      # Switch to `settings = settings;` once the hm flake input moves past
+      # release-25.11.
+      extraConfig = configFile;
+    };
   };
 }

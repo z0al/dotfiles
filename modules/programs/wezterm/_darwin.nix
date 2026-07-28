@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.wezterm;
+  cfg = config.dot.programs.wezterm;
 in
 
 {
