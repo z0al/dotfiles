@@ -114,7 +114,7 @@ in
               "'${cfgFonts.symbol}'"
               "'${cfgFonts.emoji}'"
             ];
-            "editor.fontSize" = cfgFonts.size;
+            "editor.fontSize" = 12;
             "editor.formatOnSave" = true;
             "editor.inlineSuggest.enabled" = true;
             "editor.insertSpaces" = false;
@@ -202,7 +202,7 @@ in
             "telemetry.telemetryLevel" = "off";
             "update.showReleaseNotes" = false;
 
-            "debug.console.fontSize" = cfgFonts.size;
+            "debug.console.fontSize" = 12;
             "emmet.includeLanguages" = {
               "nunjucks" = "html";
             };

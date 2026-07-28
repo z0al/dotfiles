@@ -25,7 +25,7 @@ in
 
       settings = {
         # Fonts
-        font_size = cfgFonts.size;
+        font_size = 14;
         font = mkLua ''
           wezterm.font_with_fallback {
             "${cfgFonts.mono}",
