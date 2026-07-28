@@ -7,6 +7,8 @@
 
 {
   config = {
+    programs.man.generateCaches = false;
+
     programs.fish = {
       enable = lib.mkDefault true;
 

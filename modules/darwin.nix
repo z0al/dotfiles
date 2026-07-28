@@ -14,6 +14,9 @@ in
   system.primaryUser = config.my.user.name;
   system.stateVersion = config.system.maxStateVersion;
 
+  # Remote Login is unused; don't proactively generate sshd host keys.
+  services.openssh.hostKeys = [ ];
+
   # Random settings that don't fit anywhere else
   system.defaults.CustomUserPreferences = {
     "com.apple.controlcenter" = {

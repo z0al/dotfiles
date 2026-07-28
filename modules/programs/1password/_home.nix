@@ -33,8 +33,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.sessionVariables = {
-      SSH_AUTH_SOCK = ssh.agent;
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+
+      # HM's ssh_config generator doesn't quote directive values, so
+      # spaces in the path (e.g. "Group Containers" on darwin) would
+      # otherwise break parsing. Quote it ourselves.
+      settings."*".identityAgent = ''"${ssh.agent}"'';
     };
 
     programs.git.settings = {
