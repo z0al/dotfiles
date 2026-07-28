@@ -11,7 +11,6 @@
     ./safari
 
     ./aws.nix
-    ./bun.nix
     ./claude.nix
     ./devenv.nix
     ./flameshot.nix
