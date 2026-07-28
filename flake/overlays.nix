@@ -52,7 +52,7 @@ in
             claude-code
             openspec
             oxfmt
-            zed-editor
+            vscode
 
             # LSPs
             bash-language-server

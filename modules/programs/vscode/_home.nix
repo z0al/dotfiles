@@ -172,7 +172,7 @@ in
 
           # Extensions
           "extensions.ignoreRecommendations" = true;
-          "extensions.autoUpdate" = false;
+          "extensions.autoUpdate" = "on";
 
           # Telemetry
           "telemetry.telemetryLevel" = "off";
@@ -193,10 +193,9 @@ in
           "betterGitLineBlame.ignoreWhitespaceChanges" = true;
           "betterGitLineBlame.showStatusBarItem" = false;
 
-          # TypeScript
-          "typescript.updateImportsOnFileMove.enabled" = "always";
-          "javascript.updateImportsOnFileMove.enabled" = "always";
-          "typescript.preferences.preferTypeOnlyAutoImports" = true;
+          # TypeScript / JavaScript
+          "js/ts.updateImportsOnFileMove.enabled" = "always";
+          "js/ts.preferences.preferTypeOnlyAutoImports" = true;
 
           # Prettier
           "prettier.enable" = true;
