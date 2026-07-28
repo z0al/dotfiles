@@ -1,14 +1,15 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   config = {
-    programs.bat = {
-      enable = lib.mkDefault true;
+    home.packages = [ pkgs.bat ];
 
-      config = {
-        style = "plain";
-        theme = "base16";
-      };
+    home.sessionVariables = {
+      BAT_STYLE = "plain";
+      BAT_THEME = "base16";
     };
+
+    programs.fish.shellAliases.cat = lib.getExe pkgs.bat;
+    programs.bash.shellAliases.cat = lib.getExe pkgs.bat;
   };
 }
