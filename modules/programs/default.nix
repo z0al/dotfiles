@@ -1,6 +1,5 @@
 {
   imports = [
-    ./bat
     ./beekeeper-studio
     ./chromium
     ./docker
