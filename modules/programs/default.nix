@@ -7,7 +7,6 @@
     ./kubectx
     ./openscad
     ./parallels
-    ./python
     ./safari
 
     ./claude.nix
