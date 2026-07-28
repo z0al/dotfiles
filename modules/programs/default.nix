@@ -1,6 +1,5 @@
 {
   imports = [
-    ./1password
     ./bat
     ./beekeeper-studio
     ./chromium
