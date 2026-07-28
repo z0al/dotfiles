@@ -15,7 +15,6 @@
     ./kubectl.nix
     ./kubelogin.nix
     ./nixfmt.nix
-    ./obsidian.nix
     ./openspec.nix
     ./oxfmt.nix
     ./rustup.nix
