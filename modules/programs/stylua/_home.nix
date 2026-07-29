@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -13,7 +12,7 @@ in
 {
   options.programs.stylua.enable = lib.mkOption {
     type = lib.types.bool;
-    default = osConfig.my.presets.lua.enable;
+    default = config.presets.lua.enable;
   };
 
   config = lib.mkIf cfg.enable {

@@ -1,7 +1,7 @@
-{ lib, osConfig, ... }:
+{ lib, config, ... }:
 
 {
   config = {
-    programs.bun.enable = lib.mkDefault osConfig.my.presets.typescript.enable;
+    programs.bun.enable = lib.mkDefault config.presets.typescript.enable;
   };
 }

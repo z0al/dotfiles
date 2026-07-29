@@ -2,12 +2,11 @@
   config,
   pkgs,
   lib,
-  osConfig,
   ...
 }:
 
 let
-  cfgPresets = osConfig.my.presets;
+  cfgPresets = config.presets;
   cfgFonts = config.fonts;
 
   mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";

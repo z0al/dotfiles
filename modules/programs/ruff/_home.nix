@@ -1,7 +1,7 @@
-{ lib, osConfig, ... }:
+{ lib, config, ... }:
 
 {
   config = {
-    programs.ruff.enable = lib.mkDefault osConfig.my.presets.python.enable;
+    programs.ruff.enable = lib.mkDefault config.presets.python.enable;
   };
 }

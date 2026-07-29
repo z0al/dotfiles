@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -13,7 +12,7 @@ in
 {
   options.programs.terraform.enable = lib.mkOption {
     type = lib.types.bool;
-    default = osConfig.my.presets.devOps.enable;
+    default = config.presets.devOps.enable;
   };
 
   config = lib.mkIf cfg.enable {

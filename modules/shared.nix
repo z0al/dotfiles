@@ -10,8 +10,6 @@ in
   imports = [
     ./activation
     ./config
-
-    ./presets.nix
   ];
 
   home-manager.sharedModules = homeModules ++ [

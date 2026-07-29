@@ -1,7 +1,7 @@
-{ lib, osConfig, ... }:
+{ lib, config, ... }:
 
 {
   config = {
-    programs.awscli.enable = lib.mkDefault osConfig.my.presets.devOps.enable;
+    programs.awscli.enable = lib.mkDefault config.presets.devOps.enable;
   };
 }

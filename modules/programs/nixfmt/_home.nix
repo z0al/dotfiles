@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -18,7 +17,7 @@ in
 {
   options.programs.nixfmt.enable = lib.mkOption {
     type = lib.types.bool;
-    default = osConfig.my.presets.nix.enable;
+    default = config.presets.nix.enable;
   };
 
   config = lib.mkIf cfg.enable {

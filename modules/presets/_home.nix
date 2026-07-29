@@ -11,7 +11,7 @@ in
 
 {
   # group related modules under a single flag for convenience.
-  options.my.presets = {
+  options.presets = {
     typescript.enable = mkBool true;
     lua.enable = mkBool true;
     nix.enable = mkBool true;
@@ -26,7 +26,7 @@ in
     devOps.enable = mkBool false;
 
     # For: Corporate programs e.g. Zoom, Slack, etc.
-    business.enable = mkBool false;
+    workplace.enable = mkBool false;
 
     # For: Gaming related programs e.g. Steam
     gaming.enable = mkBool false;

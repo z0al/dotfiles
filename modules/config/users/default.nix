@@ -30,6 +30,11 @@ in
       [ "my" "programs" ]
       [ "home-manager" "users" username "programs" ]
     )
+
+    (lib.mkAliasOptionModule
+      [ "my" "presets" ]
+      [ "home-manager" "users" username "presets" ]
+    )
   ];
 
   # The typing system will take care of merging the extra options into the

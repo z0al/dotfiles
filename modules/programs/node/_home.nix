@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -19,7 +18,7 @@ in
 {
   options.programs.node.enable = lib.mkOption {
     type = lib.types.bool;
-    default = osConfig.my.presets.typescript.enable;
+    default = config.presets.typescript.enable;
   };
 
   config = lib.mkIf cfg.enable {

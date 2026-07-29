@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -13,7 +12,7 @@ in
 {
   options.programs.rustup.enable = lib.mkOption {
     type = lib.types.bool;
-    default = osConfig.my.presets.rust.enable;
+    default = config.presets.rust.enable;
   };
 
   config = lib.mkIf cfg.enable {

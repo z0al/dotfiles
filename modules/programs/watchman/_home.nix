@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -13,7 +12,7 @@ in
 {
   options.programs.watchman.enable = lib.mkOption {
     type = lib.types.bool;
-    default = osConfig.my.presets.react-native.enable;
+    default = config.presets.react-native.enable;
   };
 
   config = lib.mkIf cfg.enable {
