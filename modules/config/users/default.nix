@@ -14,26 +14,19 @@ in
   imports = with lib; [
     (mkAliasOptionModule [ "my" "user" ] [ "users" "users" username ])
 
-    (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
-
-    (lib.mkAliasOptionModule
-      [ "home" ]
-      [ "home-manager" "users" username "home" ]
-    )
-
-    (lib.mkAliasOptionModule
-      [ "xdg" ]
-      [ "home-manager" "users" username "xdg" ]
-    )
-
-    (lib.mkAliasOptionModule
+    (mkAliasOptionModule
       [ "my" "programs" ]
       [ "home-manager" "users" username "programs" ]
     )
 
-    (lib.mkAliasOptionModule
+    (mkAliasOptionModule
       [ "my" "presets" ]
       [ "home-manager" "users" username "presets" ]
+    )
+
+    (mkAliasOptionModule
+      [ "my" "deviceManager" ]
+      [ "home-manager" "users" username "deviceManager" ]
     )
   ];
 
@@ -77,17 +70,6 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "backup";
-
-      users."${username}" = {
-        home = {
-          username = username;
-          homeDirectory = homeFolder;
-          stateVersion = lib.trivial.release;
-        };
-
-        xdg.enable = true;
-        programs.home-manager.enable = true;
-      };
     };
   };
 }

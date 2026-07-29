@@ -17,14 +17,14 @@ let
 in
 
 {
-  config = lib.mkIf cfg.enable {
-    homebrew.casks = [
-      "google-chrome"
-    ];
+  config = {
+    homebrew.casks = lib.mkIf cfg.enable [ "google-chrome" ];
 
-    my.deviceManager.profiles = lib.concatLists [
-      [ defaultProfile ]
-      extensionProfiles
-    ];
+    my.deviceManager.profiles = lib.optionals cfg.enable (
+      lib.concatLists [
+        [ defaultProfile ]
+        extensionProfiles
+      ]
+    );
   };
 }

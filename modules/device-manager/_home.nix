@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.my.deviceManager;
+  cfg = config.deviceManager;
 
   identifier = "com.nix.managed.profile";
 
@@ -14,7 +14,7 @@ let
     PayloadDisplayName = "Nix Profile";
     PayloadUUID = identifier;
     PayloadIdentifier = identifier;
-    PayloadOrganization = config.my.user.name;
+    PayloadOrganization = config.home.username;
     PayloadType = "Configuration";
     PayloadScope = "System"; # Default is User
     PayloadVersion = 1;
@@ -40,7 +40,7 @@ let
 in
 
 {
-  options.my.deviceManager = with lib; {
+  options.deviceManager = with lib; {
     profiles = mkOption {
       type = types.listOf (
         types.submodule {
@@ -72,7 +72,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf pkgs.stdenv.isDarwin {
     home.file."nix.mobileconfig" = {
       text = nixProfile;
       force = true;
