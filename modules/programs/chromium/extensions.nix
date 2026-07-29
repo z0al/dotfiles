@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.chromium;
+  cfg = config.programs.chrome;
 
   extensionIds = map (e: e.id) cfg.extensions;
 
@@ -163,7 +163,7 @@ let
 in
 
 {
-  options.my.programs.chromium.extensions =
+  options.programs.chrome.extensions =
     with lib;
     mkOption {
       type = types.listOf extensionModule;
@@ -171,7 +171,7 @@ in
     };
 
   config = lib.mkIf cfg.enable {
-    my.programs.chromium = {
+    programs.chrome = {
       profile = {
         ExtensionInstallForcelist = extensionIds;
         ExtensionSettings = extensionSettings;

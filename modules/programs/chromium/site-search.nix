@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.chromium;
+  cfg = config.programs.chrome;
 
   sites = [
     {
@@ -55,7 +55,7 @@ let
 in
 
 {
-  options.my.programs.chromium.siteSearch =
+  options.programs.chrome.siteSearch =
     with lib;
     mkOption {
       type = types.listOf (
@@ -81,7 +81,7 @@ in
     };
 
   config = lib.mkIf cfg.enable {
-    my.programs.chromium = {
+    programs.chrome = {
       profile.SiteSearchSettings = cfg.siteSearch;
 
       siteSearch = sites;

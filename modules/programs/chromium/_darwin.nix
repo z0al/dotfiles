@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.chromium;
+  cfg = config.dot.programs.chrome;
 
   defaultProfile = {
     name = "Chrome Browser";

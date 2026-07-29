@@ -1,7 +1,12 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  cfg = config.my.programs.chromium;
+  cfg = config.programs.chrome;
 
   profile = {
     # Disable default browser check
@@ -64,7 +69,7 @@ in
     ./site-search.nix
   ];
 
-  options.my.programs.chromium = with lib; {
+  options.programs.chrome = with lib; {
     enable = mkOption {
       type = types.bool;
       default = true;
@@ -77,6 +82,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    my.programs.chromium.profile = profile;
+    programs.chrome.profile = profile;
+
+    programs.google-chrome = {
+      enable = true;
+      package = if pkgs.stdenv.isDarwin then null else pkgs.google-chrome;
+    };
   };
 }

@@ -1,20 +1,11 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
-  cfg = config.my.programs.chromium;
+  cfg = config.dot.programs.chrome;
 in
 
 {
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.google-chrome
-    ];
-
     environment.etc."opt/chrome/policies/managed/default.json" = {
       text = builtins.toJSON cfg.profile;
     };
