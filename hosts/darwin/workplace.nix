@@ -8,7 +8,7 @@
 
   # Jamf enforces its own hostname rules, so we can't rely on the
   # default host value
-  my.programs.up.target = "workplace";
+  dot.programs.up.target = "workplace";
 
   my.programs.parallels.enable = false;
 

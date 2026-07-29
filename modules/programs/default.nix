@@ -4,11 +4,8 @@
     ./chromium
     ./docker
     ./finder
-    ./kubectx
     ./openscad
     ./parallels
     ./safari
-
-    ./up.nix
   ];
 }
