@@ -18,11 +18,6 @@
     # Disables "last login" message in terminals
     home.file.".hushlogin".text = "";
 
-    # Quit pager on ESC ESC
-    home.file.".lesskey".text = ''
-      \e quit
-    '';
-
     programs.bash.initExtra = ''
       if [ -f ~/.localrc ]; then
         source ~/.localrc
