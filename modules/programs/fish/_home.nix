@@ -39,6 +39,10 @@
           name = "autopair-fish";
           src = autopair-fish.src;
         }
+        {
+          name = "puffer";
+          src = puffer.src;
+        }
       ];
 
       interactiveShellInit = ''
