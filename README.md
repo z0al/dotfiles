@@ -4,23 +4,11 @@ An opinionated [flake](https://nix.dev/concepts/flakes)-based system configurati
 
 If you have no idea what any of that means, I highly recommend checking out Matthias's excellent [YouTube mini-course](https://youtu.be/AGVXJ-TIv3Y).
 
-## 🛍️ Goodies
-
-Here are some of the unique features of my configuration you might find interesting:
-
-- [**💻 Device Manager**](./modules/device-manager/_darwin.nix): Generates a `nix.mobileconfig` profile on macOS e.g. used to configure policies for Chromium-based browsers, which can then be manually installed via System Settings. The module warns the user if the profile changes and needs reapplying.
-
-- [**🔐 1Password**](./modules/programs/1password): Uses 1Password as an SSH agent, Git authentication, and signing program. This keeps SSH keys and tokens in the password manager instead of on disk.
-
-- [**🪟 Tiling**](./modules/config/tiling/_darwin.nix): Configures [AeroSpace](https://nikitabobko.github.io/AeroSpace/guide) for automatic window tiling on macOS.
-
-- [**⚙️ Plist-manager**](https://github.com/z0al/plist-manager): A human-friendly macOS user defaults manager. The module has since been extracted and moved to [z0al/plist-manager](https://github.com/z0al/plist-manager).
-
 ## Structure
 
 ### Home vs NixOS/Darwin modules
 
-This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules` and ALL modules are system (nixos/nix-darwin) modules e.g.
+This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules`, and each module can mix system (nixos/nix-darwin) and home-manager configuration e.g.
 
 ```
 modules
@@ -31,7 +19,7 @@ modules
 │   ├── <module-b>             # module with platform-specific implementations
 │   │   ├── _darwin.nix        # → nix-darwin module
 │   │   ├── _nixos.nix         # → nixos module
-│   │   └── default.nix
+│   │   └── _home.nix          # → home-manager module
 │   ├── ...
 │   └── <module-c>.nix         # another cross-platform module
 └── ...
@@ -39,13 +27,13 @@ modules
 
 **How does it work?**
 
-- `<module>/default.nix` defines the shared module configuration. It typically includes the module option definitions like `my.<module>.enable`. All custom modules are prefixed with `my.*` to avoid conflicts with upstream modules.
+- `**/*/_home.nix` files are automatically imported as `home-manager.sharedModules` in [`modules/shared.nix`](./modules/shared.nix).
 - `**/*/_nixos.nix` files are automatically imported in [`modules/nixos.nix`](./modules/nixos.nix).
 - `**/*/_darwin.nix` files are automatically imported in [`modules/darwin.nix`](./modules/darwin.nix).
-- Wherever possible, NixOS/nix-darwin modules are preferred over `home-manager`.
-- Home-manager is mostly used to link home content via [`home.file`](https://nix-community.github.io/home-manager/options.xhtml#opt-home.file). When required, the configuration is written inline using [aliass](#aliases).
+- Wherever an upstream `home-manager` module exists, it's preferred over a hand-rolled NixOS/nix-darwin one. System-level files (`_darwin.nix`/`_nixos.nix`) are mainly for what home-manager can't do itself: GUI app installs, homebrew casks, system defaults, and the like.
+- Custom options with no upstream equivalent are declared directly under `programs.*` (inside `_home.nix`) so they read/write the same way as real home-manager options — see [Aliases](#aliases).
 
-A practical example of a module that defines both `_nixos.nix` and `_darwin.nix` is the 1Password module in [`modules/programs/1password`](./modules/programs/1password).
+A practical example of a module that defines `_nixos.nix`, `_darwin.nix`, and `_home.nix` together is the 1Password module in [`modules/programs/1password`](./modules/programs/1password).
 
 ### Presets
 
@@ -71,6 +59,8 @@ For convenience, I use the following option aliases:
   - e.g., `xdg.configFile`
 - `my.user` → `users.users.<username>`
   - e.g., `my.user.extraGroups`
+- `my.programs` → `home-manager.users.<username>.programs`
+  - e.g., `my.programs.terraform.enable`
 
 The `<username>` refers to the primary user login, configured in [`modules/config/users`](./modules/config/users/default.nix).
 
