@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   config = {
@@ -9,6 +14,10 @@
         disableStartupPopups = true;
         git.paging.colorArg = "always";
       };
+    };
+
+    home.shellAliases = {
+      lz = lib.getExe pkgs.lazygit;
     };
   };
 }

@@ -40,5 +40,12 @@
         url."ssh://git@github.com".insteadof = "https://github.com";
       };
     };
+
+    home.shellAliases = {
+      g = "git status";
+      gcm = "git commit -m";
+      gp = "git pull";
+      gP = "git push";
+    };
   };
 }

@@ -1,9 +1,4 @@
-{
-  lib,
-  osConfig,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 
 {
   config = {
@@ -12,7 +7,7 @@
     programs.fish = {
       enable = lib.mkDefault true;
 
-      shellAliases = osConfig.environment.shellAliases // {
+      shellAliases = {
         unset = "set -ge";
         unalias = "functions --erase";
       };

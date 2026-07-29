@@ -29,6 +29,10 @@ in
       yarn
     ];
 
+    home.shellAliases = {
+      nvm = "fnm";
+    };
+
     programs.bash.initExtra = ''
       eval "$(${lib.getExe pkgs.fnm} env --shell bash ${cliOptions})"
     '';

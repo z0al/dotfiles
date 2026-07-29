@@ -22,5 +22,6 @@
     lsof
     sqlite
     unzip
+    vim
   ];
 }
