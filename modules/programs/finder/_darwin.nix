@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.finder;
+  cfg = config.dot.programs.finder;
 in
 
 {

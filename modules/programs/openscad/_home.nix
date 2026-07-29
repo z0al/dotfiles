@@ -1,10 +1,10 @@
 { lib, ... }:
 
 {
-  options.my.programs.finder = with lib; {
+  options.programs.openscad = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
     };
   };
 }

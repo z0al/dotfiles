@@ -10,7 +10,7 @@
   # default host value
   dot.programs.up.target = "workplace";
 
-  my.programs.parallels.enable = false;
+  dot.programs.parallels.enable = false;
 
   dot.programs.claude-code.settings = {
     model = "sonnet";

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.my.programs.parallels;
+  cfg = config.dot.programs.parallels;
 in
 
 {

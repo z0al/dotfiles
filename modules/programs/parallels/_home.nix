@@ -1,10 +1,10 @@
 { lib, ... }:
 
 {
-  options.my.programs.beekeeper-studio = with lib; {
+  options.programs.parallels = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
     };
   };
 }

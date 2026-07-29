@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.my.programs.openscad;
+  cfg = config.dot.programs.openscad;
 in
 
 {
