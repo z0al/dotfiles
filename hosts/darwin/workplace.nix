@@ -8,11 +8,11 @@
 
   # Jamf enforces its own hostname rules, so we can't rely on the
   # default host value
-  dot.programs.up.target = "workplace";
+  my.programs.up.target = "workplace";
 
-  dot.programs.parallels.enable = false;
+  my.programs.parallels.enable = false;
 
-  dot.programs.claude-code.settings = {
+  my.programs.claude-code.settings = {
     model = "sonnet";
     awsAuthRefresh = "aws sso login --profile bedrock";
     env = {

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.dot.programs.kubectx;
+  cfg = config.my.programs.kubectx;
 in
 
 {

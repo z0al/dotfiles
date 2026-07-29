@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.dot.programs.beekeeper-studio;
+  cfg = config.my.programs.beekeeper-studio;
 in
 
 {

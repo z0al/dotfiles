@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.dot.programs.pnpm;
+  cfg = config.my.programs.pnpm;
 in
 
 {

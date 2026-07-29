@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.dot.programs.chrome;
+  cfg = config.my.programs.chrome;
 in
 
 {

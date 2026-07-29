@@ -27,7 +27,7 @@ in
     )
 
     (lib.mkAliasOptionModule
-      [ "dot" "programs" ]
+      [ "my" "programs" ]
       [ "home-manager" "users" username "programs" ]
     )
   ];

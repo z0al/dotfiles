@@ -5,7 +5,7 @@
     rust.enable = true;
   };
 
-  dot.programs = {
+  my.programs = {
     obsidian.enable = true;
   };
 }

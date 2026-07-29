@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.dot.programs.node;
+  cfg = config.my.programs.node;
 in
 
 {

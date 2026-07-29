@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  cfg = config.dot.programs.git;
+  cfg = config.my.programs.git;
 in
 
 {
