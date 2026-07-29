@@ -1,4 +1,4 @@
-{ lib, osConfig, ... }:
+{ lib, ... }:
 
 {
   config = {
@@ -7,8 +7,8 @@
 
       settings = {
         user = {
-          name = osConfig.my.user.name;
-          email = osConfig.my.user.email;
+          name = "z0al";
+          email = "12673605+z0al@users.noreply.github.com";
 
           # Don't guess user.name or user.email if not set
           useConfigOnly = true;
@@ -18,7 +18,7 @@
 
         # Signing
         gpg.format = "ssh";
-        user.signingKey = osConfig.my.user.sshKey;
+        user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
 
         commit.gpgSign = true;
         tags.gpgSign = true;

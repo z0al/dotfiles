@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -27,7 +26,7 @@ in
 
     flake = lib.mkOption {
       type = lib.types.str;
-      default = "${osConfig.my.user.home}/.dotfiles";
+      default = "${config.home.homeDirectory}/.dotfiles";
     };
   };
 
