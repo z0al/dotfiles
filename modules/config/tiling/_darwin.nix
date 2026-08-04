@@ -119,6 +119,11 @@ in
         }
 
         {
+          "if".app-name-regex-substring = "spotify";
+          run = [ "move-node-to-workspace 4" ];
+        }
+
+        {
           "if".app-name-regex-substring = "zoom";
           run = [ "move-node-to-workspace 10" ];
         }
