@@ -7,7 +7,15 @@
       settings = {
         voiceEnabled = true;
 
+        attribution = {
+          commit = "";
+          pr = "";
+          sessionUrl = false;
+        };
+
         permissions = {
+          defaultMode = "acceptEdits";
+
           allow = [
             "Bash(git diff:*)"
             "Bash(git log:*)"
