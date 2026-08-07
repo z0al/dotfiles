@@ -16,6 +16,7 @@
     model = "sonnet";
     env = {
       ANTHROPIC_BASE_URL = "https://ai-gateway.contentful.tools/";
+      ENABLE_TOOL_SEARCH = true;
     };
   };
 }
