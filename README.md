@@ -53,14 +53,14 @@ Available presets can be found in [`modules/presets.nix`](./modules/presets.nix)
 
 For convenience, I use the following option aliases:
 
-- `home` → `home-manager.users.<username>.home`
-  - e.g., `home.file`
-- `xdg` → `home-manager.users.<username>.xdg`
-  - e.g., `xdg.configFile`
 - `my.user` → `users.users.<username>`
   - e.g., `my.user.extraGroups`
 - `my.programs` → `home-manager.users.<username>.programs`
   - e.g., `my.programs.terraform.enable`
+- `my.presets` → `home-manager.users.<username>.presets`
+  - e.g., `my.presets.devOps.enable`
+- `my.deviceManager` → `home-manager.users.<username>.deviceManager`
+  - e.g., `my.deviceManager.profiles`
 
 The `<username>` refers to the primary user login, configured in [`modules/config/users`](./modules/config/users/default.nix).
 
