@@ -215,6 +215,7 @@ in
           # Claude Code
           "claudeCode.preferredLocation" = "sidebar";
           "claudeCode.enableNewConversationShortcut" = false;
+          "claudeCode.hideOnboarding" = true;
 
           # Spellcheck
           "cSpell.showStatus" = false;
