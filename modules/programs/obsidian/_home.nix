@@ -2,6 +2,9 @@
 
 {
   config = {
-    programs.obsidian.enable = lib.mkDefault false;
+    programs.obsidian = {
+      enable = lib.mkDefault false;
+      package = null;
+    };
   };
 }
