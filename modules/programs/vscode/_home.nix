@@ -30,7 +30,6 @@ in
         extensions =
           (with pkgs.vscode-marketplace; [
             # Theme
-            catppuccin.catppuccin-vsc
             pmndrs.pmndrs
 
             # Git
@@ -220,7 +219,6 @@ in
           # Spellcheck
           "cSpell.showStatus" = false;
           "cSpell.words" = [
-            "Catppuccin"
             "Neovim"
             "NixOS"
           ];
