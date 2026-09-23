@@ -41,7 +41,7 @@
 
   home-manager.users.z0al.programs.starship.settings.hostname = {
     ssh_only = false;
-    format = "[VM:$hostname]($style) ";
+    format = "[$hostname]($style) ";
     style = "bold yellow";
   };
 
