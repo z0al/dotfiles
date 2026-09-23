@@ -20,14 +20,11 @@ let
   };
 
   mkHosts =
-    dir:
+    cfg: dir:
     lib.listToAttrs (
       map (
         module:
         let
-          cfg =
-            if lib.hasInfix "nixos" (toString dir) then cfgNixos else cfgDarwin;
-
           hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
         in
         {
@@ -52,7 +49,7 @@ let
 in
 {
   flake = {
-    nixosConfigurations = mkHosts ../hosts/nixos;
-    darwinConfigurations = mkHosts ../hosts/darwin;
+    nixosConfigurations = mkHosts cfgNixos ../hosts/nixos;
+    darwinConfigurations = mkHosts cfgDarwin ../hosts/darwin;
   };
 }
