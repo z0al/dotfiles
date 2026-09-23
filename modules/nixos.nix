@@ -11,5 +11,4 @@ in
     ./shared.nix
   ];
 
-  system.stateVersion = lib.trivial.release;
 }

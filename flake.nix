@@ -48,11 +48,9 @@
         ./flake/hosts.nix
         ./flake/overlays.nix
         ./flake/formatter.nix
-        ./flake/sandbox.nix
       ];
 
       systems = [
-        "x86_64-linux"
         "aarch64-linux"
         "aarch64-darwin"
       ];
@@ -60,7 +58,7 @@
       flake = {
         nixosModules.default.imports = [
           hm.nixosModules.home-manager
-          persistence.nixosModule.impermanence
+          persistence.nixosModules.impermanence
           ./modules/nixos.nix
         ];
 

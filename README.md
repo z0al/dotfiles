@@ -8,11 +8,12 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 ### Temporary NixOS VM on Apple Silicon
 
-The `sandbox` flake output runs a temporary, headless `aarch64-linux` NixOS
-microVM with the shared Home Manager configuration and the normal `z0al` user:
+`hosts/nixos/vm.nix` is a regular `aarch64-linux` NixOS host. It imports
+microvm.nix to run as a temporary, headless VM with the shared NixOS and Home
+Manager configuration and the normal `z0al` user:
 
 ```sh
-nix run .#sandbox
+nix run .#nixosConfigurations.vm.config.microvm.declaredRunner
 ```
 
 The serial console logs in as `z0al` automatically. Run `sudo poweroff` in the
@@ -20,15 +21,14 @@ guest to stop it. The root filesystem and writable Nix store overlay live in
 memory, so changes made inside the VM disappear on shutdown. The built NixOS
 system and packages remain in the Mac's Nix store for faster subsequent starts.
 
-The guest uses microvm.nix with QEMU on macOS. Its interactive Cocoa graphics
-backend can be enabled later along with a NixOS desktop environment; this
-configuration currently has no desktop. GUI-only programs are disabled in the
-headless sandbox, while the shared command-line and Home Manager modules load.
+The host uses microvm.nix with QEMU on macOS. Its interactive Cocoa graphics
+backend is configured in `hosts/nixos/vm.nix`; enable graphics and add a NixOS
+desktop environment there when needed. GUI-only programs are disabled for now.
 
 This VM needs a Linux builder to build the guest system. The Darwin configuration
 enables nix-darwin's Linux builder; apply it with your usual `darwin-rebuild`
-command before launching the VM. Change the module in `flake/sandbox.nix` to test
-NixOS options or services, then launch it again.
+command before launching the VM. Change `hosts/nixos/vm.nix` to test NixOS
+options or services, then launch it again.
 
 ### Home vs NixOS/Darwin modules
 

@@ -8,25 +8,25 @@
 
 let
   cfgNixos = {
-    system = "x86_64-linux";
+    isNixos = true;
+    system = "aarch64-linux";
     builder = inputs.nixpkgs.lib.nixosSystem;
     modules = [ self.nixosModules.default ];
   };
 
   cfgDarwin = {
+    isNixos = false;
     system = "aarch64-darwin";
     builder = inputs.darwin.lib.darwinSystem;
     modules = [ self.darwinModules.default ];
   };
 
   mkHosts =
-    dir:
+    cfg: dir:
     lib.listToAttrs (
       map (
         module:
         let
-          cfg = if lib.hasInfix "nixos" module then cfgNixos else cfgDarwin;
-
           hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
         in
         {
@@ -36,14 +36,20 @@ let
             cfg.builder {
               inherit (cfg) system;
 
-              modules = cfg.modules ++ [
-                module
-                { networking = { inherit hostName; }; }
-              ];
+              modules =
+                cfg.modules
+                ++ lib.optionals cfg.isNixos [
+                  { nixpkgs.pkgs = pkgs; }
+                ]
+                ++ [
+                  module
+                  { networking = { inherit hostName; }; }
+                ];
 
               specialArgs = {
-                inherit pkgs inputs;
-              };
+                inherit inputs;
+              }
+              // lib.optionalAttrs (!cfg.isNixos) { inherit pkgs; };
             }
           );
         }
@@ -52,7 +58,7 @@ let
 in
 {
   flake = {
-    nixosConfigurations = mkHosts ../hosts/nixos;
-    darwinConfigurations = mkHosts ../hosts/darwin;
+    nixosConfigurations = mkHosts cfgNixos ../hosts/nixos;
+    darwinConfigurations = mkHosts cfgDarwin ../hosts/darwin;
   };
 }
