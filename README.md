@@ -8,16 +8,22 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 ### Temporary NixOS VM on Apple Silicon
 
-The `sandbox` flake output runs a minimal, headless `aarch64-linux` NixOS VM:
+The `sandbox` flake output runs a temporary, headless `aarch64-linux` NixOS
+microVM with the shared Home Manager configuration and the normal `z0al` user:
 
 ```sh
 nix run .#sandbox
 ```
 
-Log in as root through the serial console (automatic login). Run `poweroff` in
-the guest to stop it. The root filesystem and writable Nix store overlay live in
-memory, so changes made inside the VM disappear on shutdown. The host's Nix
-store retains downloaded and built packages for faster subsequent starts.
+The serial console logs in as `z0al` automatically. Run `sudo poweroff` in the
+guest to stop it. The root filesystem and writable Nix store overlay live in
+memory, so changes made inside the VM disappear on shutdown. The built NixOS
+system and packages remain in the Mac's Nix store for faster subsequent starts.
+
+The guest uses microvm.nix with QEMU on macOS. Its interactive Cocoa graphics
+backend can be enabled later along with a NixOS desktop environment; this
+configuration currently has no desktop. GUI-only programs are disabled in the
+headless sandbox, while the shared command-line and Home Manager modules load.
 
 This VM needs a Linux builder to build the guest system. The Darwin configuration
 enables nix-darwin's Linux builder; apply it with your usual `darwin-rebuild`

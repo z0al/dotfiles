@@ -13,6 +13,9 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    microvm.url = "github:microvm-nix/microvm.nix";
+    microvm.inputs.nixpkgs.follows = "nixpkgs";
+
     hardware.url = "github:NixOS/nixos-hardware/master";
 
     persistence.url = "github:nix-community/impermanence";
@@ -50,6 +53,7 @@
 
       systems = [
         "x86_64-linux"
+        "aarch64-linux"
         "aarch64-darwin"
       ];
 
