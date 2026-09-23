@@ -3,17 +3,15 @@
 {
   imports = [ inputs.microvm.nixosModules.microvm ];
 
-  networking.useDHCP = true;
-
   microvm = {
     hypervisor = "qemu";
     vmHostPackages = inputs.nixpkgs.legacyPackages.aarch64-darwin;
     graphics = {
-      enable = false;
+      enable = true;
       backend = "cocoa";
     };
-    vcpu = 2;
-    mem = 2304;
+    vcpu = 4;
+    mem = 6144;
     interfaces = [
       {
         type = "user";
@@ -29,14 +27,15 @@
   nix.optimise.automatic = lib.mkForce false;
   nix.gc.automatic = lib.mkForce false;
 
-  # GUI applications can be enabled when this host gets a desktop.
-  my.programs = {
-    _1password.enable = false;
-    beekeeper-studio.enable = false;
-    chrome.enable = false;
-    vscode.enable = false;
-    wezterm.enable = false;
+  hardware.graphics.enable = true;
+  services.xserver.enable = true;
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "z0al";
   };
+  users.users.z0al.extraGroups = [ "video" ];
 
   home-manager.users.z0al.programs.starship.settings.hostname = {
     ssh_only = false;
