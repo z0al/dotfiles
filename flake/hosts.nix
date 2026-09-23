@@ -20,7 +20,10 @@ let
   };
 
   mkHosts =
-    cfg: dir:
+    dir:
+    let
+      cfg = if dir == ../hosts/nixos then cfgNixos else cfgDarwin;
+    in
     lib.listToAttrs (
       map (
         module:
@@ -49,7 +52,7 @@ let
 in
 {
   flake = {
-    nixosConfigurations = mkHosts cfgNixos ../hosts/nixos;
-    darwinConfigurations = mkHosts cfgDarwin ../hosts/darwin;
+    nixosConfigurations = mkHosts ../hosts/nixos;
+    darwinConfigurations = mkHosts ../hosts/darwin;
   };
 }
