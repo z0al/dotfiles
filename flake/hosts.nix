@@ -21,13 +21,12 @@ let
 
   mkHosts =
     dir:
-    let
-      cfg = if dir == ../hosts/nixos then cfgNixos else cfgDarwin;
-    in
     lib.listToAttrs (
       map (
         module:
         let
+          cfg = if lib.hasInfix "nixos" module then cfgNixos else cfgDarwin;
+
           hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
         in
         {
