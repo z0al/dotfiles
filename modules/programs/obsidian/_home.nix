@@ -4,7 +4,7 @@
   config = {
     programs.obsidian = {
       enable = lib.mkDefault false;
-      package = null;
+      package = lib.mkDefault null;
     };
   };
 }
