@@ -8,14 +8,12 @@
 
 let
   cfgNixos = {
-    isNixos = true;
     system = "aarch64-linux";
     builder = inputs.nixpkgs.lib.nixosSystem;
     modules = [ self.nixosModules.default ];
   };
 
   cfgDarwin = {
-    isNixos = false;
     system = "aarch64-darwin";
     builder = inputs.darwin.lib.darwinSystem;
     modules = [ self.darwinModules.default ];
@@ -36,20 +34,13 @@ let
             cfg.builder {
               inherit (cfg) system;
 
-              modules =
-                cfg.modules
-                ++ lib.optionals cfg.isNixos [
-                  { nixpkgs.pkgs = pkgs; }
-                ]
-                ++ [
-                  module
-                  { networking = { inherit hostName; }; }
-                ];
+              modules = cfg.modules ++ [
+                { nixpkgs.pkgs = pkgs; }
+                module
+                { networking = { inherit hostName; }; }
+              ];
 
-              specialArgs = {
-                inherit inputs;
-              }
-              // lib.optionalAttrs (!cfg.isNixos) { inherit pkgs; };
+              specialArgs = { inherit inputs; };
             }
           );
         }
