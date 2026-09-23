@@ -1,10 +1,10 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   config = {
     programs.obsidian = {
       enable = lib.mkDefault false;
-      package = if pkgs.stdenv.isLinux then pkgs.obsidian else null;
+      package = null;
     };
   };
 }
