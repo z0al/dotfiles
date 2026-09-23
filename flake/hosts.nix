@@ -25,7 +25,8 @@ let
       map (
         module:
         let
-          cfg = if lib.hasInfix "nixos" module then cfgNixos else cfgDarwin;
+          cfg =
+            if lib.hasInfix "nixos" (toString dir) then cfgNixos else cfgDarwin;
 
           hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
         in
