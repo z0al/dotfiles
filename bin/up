@@ -19,6 +19,9 @@
 # Reclaim disk space:
 # $ up prune
 #
+# Launch the temporary NixOS VM:
+# $ up vm
+#
 # Unknown flags are passed down. For example, to show trace use the
 # following:
 # $ up --show-trace
@@ -80,6 +83,7 @@ function up
         echo "  fetch                Update the flake"
         echo "  prune                Reclaim disk space"
         echo "  test                 Apply without adding boot entry (Linux only)"
+        echo "  vm                   Launch the temporary NixOS VM"
         echo ""
         echo "Note: unknown flags are passed down to the underlying command"
         return 0
@@ -102,6 +106,9 @@ function up
             end
 
             rebuild test --fast --flake $flake $options
+
+        case vm
+            nix run "$_flag_flake#nixosConfigurations.vm.config.microvm.declaredRunner" $options
 
         case '*'
             # This is special since we don't have a subcommand

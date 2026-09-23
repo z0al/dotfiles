@@ -6,30 +6,6 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 ## Structure
 
-### Temporary NixOS VM on Apple Silicon
-
-`hosts/nixos/vm.nix` is a regular `aarch64-linux` NixOS host. It imports
-microvm.nix to run as a temporary, headless VM with the shared NixOS and Home
-Manager configuration and the normal `z0al` user:
-
-```sh
-nix run .#nixosConfigurations.vm.config.microvm.declaredRunner
-```
-
-The serial console logs in as `z0al` automatically. Run `sudo poweroff` in the
-guest to stop it. The root filesystem and writable Nix store overlay live in
-memory, so changes made inside the VM disappear on shutdown. The built NixOS
-system and packages remain in the Mac's Nix store for faster subsequent starts.
-
-The host uses microvm.nix with QEMU on macOS. Its interactive Cocoa graphics
-backend is configured in `hosts/nixos/vm.nix`; enable graphics and add a NixOS
-desktop environment there when needed. GUI-only programs are disabled for now.
-
-This VM needs a Linux builder to build the guest system. The Darwin configuration
-enables nix-darwin's Linux builder; apply it with your usual `darwin-rebuild`
-command before launching the VM. Change `hosts/nixos/vm.nix` to test NixOS
-options or services, then launch it again.
-
 ### Home vs NixOS/Darwin modules
 
 This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules`, and each module can mix system (nixos/nix-darwin) and home-manager configuration e.g.
