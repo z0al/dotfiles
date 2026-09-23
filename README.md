@@ -6,6 +6,24 @@ If you have no idea what any of that means, I highly recommend checking out Matt
 
 ## Structure
 
+### Temporary NixOS VM on Apple Silicon
+
+The `sandbox` flake output runs a minimal, headless `aarch64-linux` NixOS VM:
+
+```sh
+nix run .#sandbox
+```
+
+Log in as root through the serial console (automatic login). Run `poweroff` in
+the guest to stop it. The root filesystem and writable Nix store overlay live in
+memory, so changes made inside the VM disappear on shutdown. The host's Nix
+store retains downloaded and built packages for faster subsequent starts.
+
+This VM needs a Linux builder to build the guest system. The Darwin configuration
+enables nix-darwin's Linux builder; apply it with your usual `darwin-rebuild`
+command before launching the VM. Change the module in `flake/sandbox.nix` to test
+NixOS options or services, then launch it again.
+
 ### Home vs NixOS/Darwin modules
 
 This repo doesn't follow the usual `/home`, `/nixos`, `/darwin` structure. Instead, modules are organized by feature under `/modules`, and each module can mix system (nixos/nix-darwin) and home-manager configuration e.g.

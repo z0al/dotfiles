@@ -45,6 +45,7 @@
         ./flake/hosts.nix
         ./flake/overlays.nix
         ./flake/formatter.nix
+        ./flake/sandbox.nix
       ];
 
       systems = [
