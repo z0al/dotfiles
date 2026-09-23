@@ -39,6 +39,12 @@
     wezterm.enable = false;
   };
 
+  home-manager.users.z0al.programs.starship.settings.hostname = {
+    ssh_only = false;
+    format = "[VM:$hostname]($style) ";
+    style = "bold yellow";
+  };
+
   services.getty.autologinUser = "z0al";
   security.sudo.wheelNeedsPassword = false;
 }

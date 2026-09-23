@@ -72,6 +72,7 @@
       # Transient prompt
       function starship_transient_prompt_func
         # tput cuu1
+        starship module hostname
         starship module directory
         starship module git_branch
         starship module git_state
