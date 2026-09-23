@@ -3,7 +3,6 @@
 {
   imports = [ inputs.microvm.nixosModules.microvm ];
 
-  system.stateVersion = "26.05";
   networking.useDHCP = true;
 
   microvm = {
