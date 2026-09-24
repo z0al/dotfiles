@@ -105,7 +105,10 @@ in
 
       on-window-detected = [
         {
-          "if".app-name-regex-substring = "chrome|firefox|safari|brave";
+          "if" = {
+            app-name-regex-substring = "chrome|firefox|safari|brave";
+            window-title-regex-substring = "^(?!.*(incognito|private)).*$";
+          };
           run = [ "move-node-to-workspace 1" ];
         }
 
