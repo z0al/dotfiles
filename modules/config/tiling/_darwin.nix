@@ -124,6 +124,14 @@ in
         }
 
         {
+          "if" = {
+            app-name-regex-substring = "chrome|firefox|safari|brave";
+            window-title-regex-substring = "incognito|private";
+          };
+          run = [ "move-node-to-workspace 5" ];
+        }
+
+        {
           "if".app-name-regex-substring = "zoom";
           run = [ "move-node-to-workspace 10" ];
         }
