@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 let
   mod = "ctrl-alt-cmd";
 in
@@ -148,6 +150,35 @@ in
           "main"
         ];
       };
+    };
+  };
+
+  launchd.user.agents."com.nix.managed.aerospace-monitor-layout" = {
+    script = ''
+      set -uo pipefail
+
+      aerospace=${pkgs.aerospace}/bin/aerospace
+
+      apply_layout() {
+        if [ "$("$aerospace" list-monitors --count)" = "1" ]; then
+          layout=accordion
+        else
+          layout=tiles
+        fi
+
+        for ws in 1 2 3 4 5 10; do
+          "$aerospace" layout --workspace "$ws" --root "$layout" || true
+        done
+      }
+
+      apply_layout
+    '';
+
+    serviceConfig = {
+      WatchPaths = [
+        "/Library/Preferences/com.apple.windowserver.displays.plist"
+      ];
+      RunAtLoad = true;
     };
   };
 
