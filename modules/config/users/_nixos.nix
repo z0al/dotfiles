@@ -1,6 +1,9 @@
 {
   my.user = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "video"
+    ];
   };
 }

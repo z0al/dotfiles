@@ -17,7 +17,10 @@
 # $ up test
 #
 # Reclaim disk space:
-# $ up prune
+# $ up clean
+#
+# Launch a NixOS VM:
+# $ up vm
 #
 # Unknown flags are passed down. For example, to show trace use the
 # following:
@@ -78,8 +81,9 @@ function up
         echo "Commands:"
         echo "  build                Build the configuration"
         echo "  fetch                Update the flake"
-        echo "  prune                Reclaim disk space"
+        echo "  clean                Reclaim disk space"
         echo "  test                 Apply without adding boot entry (Linux only)"
+        echo "  vm                   Launch a NixOS VM"
         echo ""
         echo "Note: unknown flags are passed down to the underlying command"
         return 0
@@ -92,7 +96,7 @@ function up
         case fetch
             nix flake update --flake $_flag_flake $options
 
-        case prune
+        case clean
             nix-collect-garbage $options
 
         case test
@@ -102,6 +106,9 @@ function up
             end
 
             rebuild test --fast --flake $flake $options
+
+        case vm
+            nix run "$_flag_flake#vm" $options
 
         case '*'
             # This is special since we don't have a subcommand

@@ -8,7 +8,7 @@
 
 let
   cfgNixos = {
-    system = "x86_64-linux";
+    system = "aarch64-linux";
     builder = inputs.nixpkgs.lib.nixosSystem;
     modules = [ self.nixosModules.default ];
   };
@@ -20,13 +20,11 @@ let
   };
 
   mkHosts =
-    dir:
+    cfg: dir:
     lib.listToAttrs (
       map (
         module:
         let
-          cfg = if lib.hasInfix "nixos" module then cfgNixos else cfgDarwin;
-
           hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
         in
         {
@@ -37,13 +35,14 @@ let
               inherit (cfg) system;
 
               modules = cfg.modules ++ [
+                {
+                  nixpkgs.pkgs = pkgs;
+                  networking = { inherit hostName; };
+                }
                 module
-                { networking = { inherit hostName; }; }
               ];
 
-              specialArgs = {
-                inherit pkgs inputs;
-              };
+              specialArgs = { inherit inputs; };
             }
           );
         }
@@ -52,7 +51,19 @@ let
 in
 {
   flake = {
-    nixosConfigurations = mkHosts ../hosts/nixos;
-    darwinConfigurations = mkHosts ../hosts/darwin;
+    nixosConfigurations = mkHosts cfgNixos ../hosts/nixos;
+    darwinConfigurations = mkHosts cfgDarwin ../hosts/darwin;
+  };
+
+  perSystem = { pkgs, ... }: {
+    apps.vm = {
+      type = "app";
+      meta.description = "Launch a NixOS VM";
+      program = lib.getExe (
+        (self.nixosConfigurations.vm.extendModules {
+          modules = [ { microvm.vmHostPackages = pkgs; } ];
+        }).config.microvm.declaredRunner
+      );
+    };
   };
 }
