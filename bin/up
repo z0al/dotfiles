@@ -10,63 +10,46 @@
 # Use a different dotfiles directory (default is ~/.dotfiles):
 # $ up -d /path/to/dotfiles
 #
-# Build without switching system configuration:
-# $ up build
-#
-# Switch configuration but don't add boot menu entry (nixos only):
-# $ up test
-#
 # Reclaim disk space:
 # $ up clean
 #
 # Launch a NixOS VM:
 # $ up vm
 #
-# Unknown flags are passed down. For example, to show trace use the
-# following:
-# $ up --show-trace
+# Any other subcommand (build, boot, repl, rollback, ...) is passed straight
+# through to `nh os`/`nh darwin`. Unknown flags are passed down too, so to
+# build without switching, or to update flake inputs, use:
+# $ up build
+# $ up -u
 
 function nix
     command nix --experimental-features 'nix-command flakes' $argv
 end
 
+# nh (https://github.com/nix-community/nh) handles its own privilege
+# elevation, so it must not be prefixed with sudo.
 function rebuild
     switch (uname)
         case Darwin
-            if type -q darwin-rebuild
-                sudo darwin-rebuild $argv
-            else
-                sudo nix run nix-darwin -- $argv
-            end
+            nh darwin $argv -- --accept-flake-config
         case '*'
-            sudo nixos-rebuild $argv
+            nh os $argv -- --accept-flake-config
     end
 end
 
 function up
-    # Options:
-    # -t/--target   configuration target
-    set -l options (fish_opt -s t -l target -r)
-
-    # -f/--flake    path to flake
-    set options $options (fish_opt -s f -l flake -r)
-
-    # -h/--help        show help
-    set options $options (fish_opt -s h -l help)
-
-    # Using -i to ignore unknown flags so we can pass them down later
-    argparse -i -n up $options -- $argv
+    # -i ignores unknown flags, --stop-nonopt stops parsing at the
+    # subcommand, so both pass through untouched to the underlying command
+    # (e.g. `up switch --help` forwards --help to nh instead of us).
+    argparse -i -n up --stop-nonopt 't/target=' 'f/flake=' h/help -- $argv
     or return
 
     # Default flake path to $(pwd)
     set -q _flag_flake || set _flag_flake $(pwd)
 
-    # Nix expects --flake /path/to/flake#target. If the target is
-    # empty, then nix takes the current hostname.
+    # nh expects a FLAKEREF[#ATTRPATH] installable. If the target is empty,
+    # nh takes the current hostname.
     set -l flake "$_flag_flake#$_flag_target"
-
-    # Any unknown option is passed through to the underlying command.
-    set -l options $argv[2..-1]
 
     if set -q _flag_help
         echo "Apply flake-based system configuration using Nix"
@@ -79,42 +62,27 @@ function up
         echo "  -h, --help           Show help"
         echo ""
         echo "Commands:"
-        echo "  build                Build the configuration"
-        echo "  fetch                Update the flake"
         echo "  clean                Reclaim disk space"
-        echo "  test                 Apply without adding boot entry (Linux only)"
         echo "  vm                   Launch a NixOS VM"
+        echo "  <anything else>      Passed through to nh os/nh darwin (default: switch)"
         echo ""
         echo "Note: unknown flags are passed down to the underlying command"
         return 0
     end
 
     switch $argv[1]
-        case build
-            rebuild build --flake $flake $options
-
-        case fetch
-            nix flake update --flake $_flag_flake $options
-
         case clean
-            nix-collect-garbage $options
-
-        case test
-            if test (uname) = Darwin
-                echo "'test' command is not supported on macOS"
-                return 1
-            end
-
-            rebuild test --fast --flake $flake $options
+            nh clean all $argv[2..-1]
 
         case vm
-            nix run "$_flag_flake#vm" $options
+            nix run "$_flag_flake#vm" $argv[2..-1]
+
+        case '' '-*'
+            # No subcommand, just flags (e.g. `up -u`)
+            rebuild switch $flake $argv
 
         case '*'
-            # This is special since we don't have a subcommand
-            set -l options $argv
-
-            rebuild switch --flake $flake $options
+            rebuild $argv[1] $flake $argv[2..-1]
     end
 end
 
