@@ -115,6 +115,7 @@ in
           "workbench.welcomePage.walkthroughs.openOnInstall" = false;
           "workbench.colorTheme" = "poimandres";
           "workbench.layoutControl.enabled" = false;
+          "workbench.experimental.modernUI" = false;
 
           # Window
           "window.menuBarVisibility" = "toggle";
