@@ -79,7 +79,7 @@ function up
 
         case '' '-*'
             # No subcommand, just flags (e.g. `up -u`)
-            rebuild switch $flake $argv
+            rebuild switch -q $flake $argv
 
         case '*'
             rebuild $argv[1] $flake $argv[2..-1]
