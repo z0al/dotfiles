@@ -29,12 +29,9 @@ end
 # nh (https://github.com/nix-community/nh) handles its own privilege
 # elevation, so it must not be prefixed with sudo.
 function rebuild
-    switch (uname)
-        case Darwin
-            nh darwin $argv -- --accept-flake-config
-        case '*'
-            nh os $argv -- --accept-flake-config
-    end
+    set -l platform darwin
+    test (uname) = Darwin; or set platform os
+    nh $platform $argv --no-nom --log-format bar -- --accept-flake-config --quiet
 end
 
 function up

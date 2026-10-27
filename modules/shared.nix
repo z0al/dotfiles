@@ -8,7 +8,6 @@ in
 
 {
   imports = [
-    ./activation
     ./config
   ];
 
