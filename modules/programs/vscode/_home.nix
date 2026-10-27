@@ -25,6 +25,7 @@ in
 
       profiles.default = {
         enableUpdateCheck = false;
+        mutableUserSettings = true;
         enableExtensionUpdateCheck = false;
 
         extensions =
