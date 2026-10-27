@@ -3,7 +3,7 @@
 {
   config = {
     programs.claude-code = {
-      enable = lib.mkDefault false;
+      enable = lib.mkDefault true;
       settings = {
         voiceEnabled = true;
 
