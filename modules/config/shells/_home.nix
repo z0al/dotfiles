@@ -12,7 +12,7 @@
       clear = "tput reset";
       mkdir = "mkdir -p";
 
-      open = lib.mkIf pkgs.stdenv.isLinux "xdg-open";
+      open = lib.mkIf pkgs.stdenv.hostPlatform.isLinux "xdg-open";
     };
 
     # Disables "last login" message in terminals

@@ -4,7 +4,7 @@ let
   username = "z0al";
 
   homeFolder =
-    if pkgs.stdenv.isDarwin then
+    if pkgs.stdenv.hostPlatform.isDarwin then
       "/Users/${username}"
     else
       "/home/${username}";

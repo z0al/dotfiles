@@ -10,7 +10,7 @@ let
 
   mkLua = lib.generators.mkLuaInline;
 
-  mod = if pkgs.stdenv.isDarwin then "CMD" else "CTRL";
+  mod = if pkgs.stdenv.hostPlatform.isDarwin then "CMD" else "CTRL";
 
   actions = {
     copy = mkLua "wezterm.action.CopyTo 'Clipboard'";
@@ -232,7 +232,7 @@ in
             }
           ]
 
-          (lib.optionals pkgs.stdenv.isDarwin [
+          (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
             {
               key = "c";
               mods = mod;

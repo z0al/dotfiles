@@ -10,6 +10,7 @@ in
 
     programs.fzf = {
       enable = lib.mkDefault true;
+      enableNushellIntegration = false;
 
       defaultOptions = [
         "--exact"
@@ -23,8 +24,8 @@ in
       ];
 
       defaultCommand = "${fd} --type f";
-      fileWidgetCommand = "${fd} --type f";
-      changeDirWidgetCommand = "${fd} --type d";
+      fileWidget.command = "${fd} --type f";
+      changeDirWidget.command = "${fd} --type d";
     };
   };
 }

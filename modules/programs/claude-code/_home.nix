@@ -3,7 +3,7 @@
 {
   config = {
     programs.claude-code = {
-      enable = lib.mkDefault true;
+      enable = lib.mkDefault false;
       settings = {
         voiceEnabled = true;
 
@@ -11,6 +11,10 @@
           commit = "";
           pr = "";
           sessionUrl = false;
+        };
+
+        env = {
+          CLAUDE_CODE_CERT_STORE = "bundled";
         };
 
         permissions = {

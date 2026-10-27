@@ -9,7 +9,7 @@ let
   # Set per-system by the flake's `vm` app (flake/hosts.nix), so it
   # always matches whichever machine actually runs the hypervisor.
   hostPkgs = config.microvm.vmHostPackages;
-  isDarwinHost = hostPkgs.stdenv.isDarwin;
+  isDarwinHost = hostPkgs.stdenv.hostPlatform.isDarwin;
 
   hostHome =
     if isDarwinHost then

@@ -2,13 +2,13 @@
   description = "An opinionated flake-based system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+    darwin.url = "github:nix-darwin/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    hm.url = "github:nix-community/home-manager/release-26.05";
+    hm.url = "github:nix-community/home-manager/master";
     hm.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-parts.url = "github:hercules-ci/flake-parts";

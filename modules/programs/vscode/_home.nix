@@ -9,7 +9,7 @@ let
   cfgPresets = config.presets;
   cfgFonts = config.fonts;
 
-  mod = if pkgs.stdenv.isDarwin then "cmd" else "ctrl";
+  mod = if pkgs.stdenv.hostPlatform.isDarwin then "cmd" else "ctrl";
 
   cond = operants: lib.concatStringsSep " && " operants;
 in

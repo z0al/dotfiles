@@ -72,7 +72,7 @@ in
     };
   };
 
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     home.file."nix.mobileconfig" = {
       text = nixProfile;
       force = true;

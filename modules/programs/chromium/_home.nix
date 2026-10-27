@@ -86,7 +86,8 @@ in
 
     programs.google-chrome = {
       enable = true;
-      package = if pkgs.stdenv.isDarwin then null else pkgs.google-chrome;
+      package =
+        if pkgs.stdenv.hostPlatform.isDarwin then null else pkgs.google-chrome;
     };
   };
 }
