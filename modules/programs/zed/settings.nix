@@ -108,5 +108,11 @@ in
     };
     suggest_extensions = false;
     session.trust_all_worktrees = true;
+
+    # Nix
+    languages.Nix.language_servers = [
+      "nixd"
+      "!nil"
+    ];
   };
 }
