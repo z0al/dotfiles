@@ -28,7 +28,11 @@ in
     };
 
     # Integration with lazygit
-    programs.lazygit.settings.git.paging.pager =
-      lib.mkIf cfg.enable "${delta} --paging=never";
+    programs.lazygit.settings.git.diffRenderers = lib.mkIf cfg.enable [
+      {
+        colorArg = "always";
+        command = "${delta} --paging=never";
+      }
+    ];
   };
 }

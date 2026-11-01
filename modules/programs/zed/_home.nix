@@ -4,6 +4,7 @@
   imports = [
     ./keymaps.nix
     ./settings.nix
+    ./tasks.nix
   ];
 
   programs.zed-editor = {
@@ -19,6 +20,10 @@
       "charmed-icons"
       "nix"
       "toml"
+
+      "python-snippets"
+      "rust-snippets"
+      "react-typescript-snippets"
     ];
 
     themes = {

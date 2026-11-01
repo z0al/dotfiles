@@ -12,7 +12,6 @@
 
       settings = {
         disableStartupPopups = true;
-        git.paging.colorArg = "always";
       };
     };
 
