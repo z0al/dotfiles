@@ -24,7 +24,7 @@ in
     {
       context = "Editor && vim_mode == normal";
       bindings = {
-        "space g" = [
+        "space g g" = [
           "task::Spawn"
           {
             task_name = "LazyGit";
