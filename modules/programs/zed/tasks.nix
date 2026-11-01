@@ -1,7 +1,7 @@
 {
   programs.zed-editor.userTasks = [
     {
-      label = "GitUI";
+      label = "LazyGit";
       command = "lazygit";
       cwd = "$ZED_WORKTREE_ROOT";
       reveal_target = "center";

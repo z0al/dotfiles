@@ -16,7 +16,14 @@
         git.overrideGpg = true;
 
         gui = {
-          screenMode = "half";
+          sidePanels = [
+            [ "status" ]
+            [
+              "files"
+              "branches"
+              "commits"
+            ]
+          ];
           showRandomTip = false;
           showCommandLog = false;
           showBottomLine = false;

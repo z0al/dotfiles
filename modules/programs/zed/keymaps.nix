@@ -29,7 +29,7 @@ in
       bindings = {
         "${mod}-shift-g" = [
           "task::Spawn"
-          { task_name = "GitUI"; }
+          { task_name = "LazyGit"; }
         ];
       };
     }
@@ -39,7 +39,7 @@ in
       bindings = {
         "space g g" = [
           "task::Spawn"
-          { task_name = "GitUI"; }
+          { task_name = "LazyGit"; }
         ];
         "space g p" = "git::Pull";
       };
