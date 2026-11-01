@@ -6,18 +6,31 @@ in
 
 {
   programs.zed-editor.userKeymaps = [
+    # Settings
     {
       context = "!SettingsWindow";
       bindings = {
         "${mod}-," = "zed::OpenSettingsFile";
+        "${mod}-shift-," = "zed::OpenProjectSettingsFile";
       };
     }
 
+    # Vim
     {
       context = "Editor && vim_mode == insert";
       bindings = {
-        "j k" = "vim::NormalBefore";
-        "k j" = "vim::NormalBefore";
+        "${mod}-c" = "vim::NormalBefore";
+      };
+    }
+
+    # Git
+    {
+      context = "Workspace";
+      bindings = {
+        "${mod}-shift-g" = [
+          "task::Spawn"
+          { task_name = "GitUI"; }
+        ];
       };
     }
 
@@ -26,11 +39,9 @@ in
       bindings = {
         "space g g" = [
           "task::Spawn"
-          {
-            task_name = "LazyGit";
-            reveal_target = "center";
-          }
+          { task_name = "GitUI"; }
         ];
+        "space g p" = "git::Pull";
       };
     }
   ];
