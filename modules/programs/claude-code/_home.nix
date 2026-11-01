@@ -20,6 +20,8 @@
         };
 
         permissions = {
+          defaultMode = "auto";
+
           allow = [
             "Bash(git diff:*)"
             "Bash(git log:*)"
