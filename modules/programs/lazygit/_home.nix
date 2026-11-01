@@ -12,6 +12,17 @@
 
       settings = {
         disableStartupPopups = true;
+
+        git.overrideGpg = true;
+
+        gui = {
+          screenMode = "half";
+          showRandomTip = false;
+          showCommandLog = false;
+          showBottomLine = false;
+          showPanelJumps = false;
+          showListFooter = false;
+        };
       };
     };
 

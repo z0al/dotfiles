@@ -15,6 +15,7 @@ in
     buffer_font_size = 13;
 
     # Editor
+    base_keymap = "VSCode";
     vim_mode = true;
     tab_size = 2;
     soft_wrap = "bounded";
