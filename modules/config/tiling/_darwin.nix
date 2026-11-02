@@ -119,7 +119,7 @@ in
         }
 
         {
-          "if".app-name-regex-substring = "obsidian|slack";
+          "if".app-name-regex-substring = "obsidian|slack|chatgpt|claude";
           run = [ "move-node-to-workspace 3" ];
         }
 
