@@ -103,7 +103,18 @@ in
     global_lsp_settings.button = false;
 
     # AI
-    disable_ai = true;
+    disable_ai = false;
+
+    agent = {
+      enabled = false;
+      button = false;
+      threads_sidebar.auto_open = false;
+    };
+
+    edit_predictions = {
+      provider = "zed";
+      mode = "eager";
+    };
 
     # Other
     auto_update = false;
