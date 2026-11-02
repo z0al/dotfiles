@@ -12,6 +12,7 @@ in
     ui_font_family = cfgFonts.mono;
     ui_font_size = 14;
     buffer_font_family = cfgFonts.mono;
+    buffer_font_fallbacks = [ cfgFonts.symbol ];
     buffer_font_size = 13;
 
     # Editor
