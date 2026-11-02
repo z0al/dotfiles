@@ -31,6 +31,10 @@ in
     diff_view_style = "unified";
     git.inline_blame.enabled = false;
     inline_code_actions = false;
+    which_key.enabled = true;
+    lsp_results_location = "picker";
+    go_to_definition_fallback = "none";
+    file_finder.modal_max_width = "large";
 
     gutter = {
       folds = false;
