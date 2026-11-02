@@ -8,6 +8,7 @@
 
       settings = {
         voiceEnabled = true;
+        model = "sonnet";
 
         attribution = {
           commit = "";
