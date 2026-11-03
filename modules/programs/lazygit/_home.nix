@@ -34,7 +34,7 @@
     };
 
     home.shellAliases = {
-      lz = lib.getExe pkgs.lazygit;
+      gg = lib.getExe pkgs.lazygit;
     };
   };
 }
