@@ -18,6 +18,7 @@ in
     # Editor
     base_keymap = "VSCode";
     vim_mode = true;
+    vim.cursor_shape.visual = "hollow";
     tab_size = 2;
     soft_wrap = "bounded";
     show_wrap_guides = false;
