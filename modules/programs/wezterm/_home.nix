@@ -135,7 +135,7 @@ in
             {
               key = "w";
               mods = mod;
-              action = mkLua "wezterm.action.CloseCurrentTab { confirm = true }";
+              action = mkLua "wezterm.action.CloseCurrentTab { confirm = false }";
             }
 
             {
