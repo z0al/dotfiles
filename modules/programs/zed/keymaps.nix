@@ -23,6 +23,28 @@ in
       };
     }
 
+    {
+      context = "vim_mode == normal || vim_mode == visual";
+      bindings = {
+        "${mod}-a" = "vim::Increment";
+        "${mod}-x" = "vim::Decrement";
+      };
+    }
+
+    {
+      context = "vim_mode == visual";
+      bindings = {
+        "g ${mod}-a" = [
+          "vim::Increment"
+          { step = true; }
+        ];
+        "g ${mod}-x" = [
+          "vim::Decrement"
+          { step = true; }
+        ];
+      };
+    }
+
     # LSP
     {
       context = "VimControl && !menu";
