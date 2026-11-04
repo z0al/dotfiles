@@ -20,6 +20,11 @@
           CLAUDE_CODE_CERT_STORE = "bundled";
         };
 
+        sandbox = {
+          enabled = true;
+          excludedCommands = [ "gh *" ];
+        };
+
         permissions = {
           defaultMode = "auto";
 
