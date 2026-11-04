@@ -21,7 +21,10 @@
         user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
 
         commit.gpgSign = true;
-        tags.gpgSign = true;
+        tag = {
+          gpgSign = true;
+          sort = "version:refname";
+        };
 
         log = {
           decorate = true;
@@ -32,9 +35,39 @@
 
         # Autostash on "git pull ..."
         merge.autoStash = true;
-        rebase.autoStash = true;
+        rebase = {
+          autoStash = true;
+          autoSquash = true;
+          updateRefs = true;
+        };
 
-        push.autoSetupRemote = true;
+        push = {
+          autoSetupRemote = true;
+          default = "simple";
+          followTags = true;
+        };
+
+        fetch = {
+          prune = true;
+          pruneTags = true;
+          all = true;
+        };
+
+        diff = {
+          algorithm = "histogram";
+          colorMoved = "plain";
+          renames = true;
+        };
+
+        branch.sort = "-committerdate";
+        column.ui = "auto";
+
+        commit.verbose = true;
+        help.autocorrect = "prompt";
+        rerere = {
+          enabled = true;
+          autoupdate = true;
+        };
 
         # Force use SSH for GitHub
         url."ssh://git@github.com".insteadof = "https://github.com";
