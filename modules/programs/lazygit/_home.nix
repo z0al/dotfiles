@@ -12,8 +12,12 @@
 
       settings = {
         disableStartupPopups = true;
+        quitOnTopLevelReturn = true;
+        notARepository = "quit";
 
         git.overrideGpg = true;
+
+        update.method = "never";
 
         gui = {
           sidePanels = [
