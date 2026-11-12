@@ -16,8 +16,6 @@ in
 
 {
   config = {
-    home.packages = [ pkgs.nixd ];
-
     programs.vscode = {
       enable = lib.mkDefault true;
       package = pkgs.vscode;
