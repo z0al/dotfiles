@@ -9,10 +9,6 @@
       upgrade = false;
       cleanup = "none";
     };
-
-    taps = [
-      "homebrew/services"
-    ];
   };
 
   environment.variables = {
