@@ -1,4 +1,5 @@
 {
+  my.username = "ahmed.tajelsir";
   my.user.uid = 502;
 
   my.programs = {

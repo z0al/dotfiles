@@ -1,44 +1,67 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  username = "z0al";
+  cfg = config.my;
+
+  mkAlias =
+    from: to:
+    { config, options, ... }:
+    {
+      options = lib.setAttrByPath from (
+        lib.mkOption {
+          description = "Alias of the primary user's option.";
+          apply = _: lib.getAttrFromPath (to config.my.username) config;
+        }
+      );
+
+      config = lib.setAttrByPath (to config.my.username) (
+        lib.mkAliasDefinitions (lib.getAttrFromPath from options)
+      );
+    };
+
+  home =
+    path: user:
+    [
+      "home-manager"
+      "users"
+      user
+    ]
+    ++ path;
 
   homeFolder =
     if pkgs.stdenv.hostPlatform.isDarwin then
-      "/Users/${username}"
+      "/Users/${cfg.username}"
     else
-      "/home/${username}";
+      "/home/${cfg.username}";
 in
 
 {
-  imports = with lib; [
-    (mkAliasOptionModule [ "my" "user" ] [ "users" "users" username ])
-
-    (mkAliasOptionModule
-      [ "my" "programs" ]
-      [ "home-manager" "users" username "programs" ]
-    )
-
-    (mkAliasOptionModule
-      [ "my" "services" ]
-      [ "home-manager" "users" username "services" ]
-    )
-
-    (mkAliasOptionModule
-      [ "my" "presets" ]
-      [ "home-manager" "users" username "presets" ]
-    )
-
-    (mkAliasOptionModule
-      [ "my" "deviceManager" ]
-      [ "home-manager" "users" username "deviceManager" ]
-    )
+  imports = [
+    (mkAlias [ "my" "user" ] (user: [
+      "users"
+      "users"
+      user
+    ]))
+    (mkAlias [ "my" "programs" ] (home [ "programs" ]))
+    (mkAlias [ "my" "services" ] (home [ "services" ]))
+    (mkAlias [ "my" "presets" ] (home [ "presets" ]))
+    (mkAlias [ "my" "deviceManager" ] (home [ "deviceManager" ]))
   ];
+
+  options.my.username = lib.mkOption {
+    type = lib.types.str;
+    default = "z0al";
+  };
 
   config = {
     my.user = {
-      name = username;
-      description = username;
+      name = cfg.username;
+      description = cfg.username;
       home = homeFolder;
       shell = pkgs.fish;
     };
