@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.programs.zed-editor;
+in
 
 {
   imports = [
@@ -8,9 +12,8 @@
   ];
 
   programs.zed-editor = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
 
-    defaultEditor = true;
     mutableUserDebug = true;
     mutableUserSettings = true;
     mutableUserKeymaps = true;
@@ -31,7 +34,7 @@
     };
   };
 
-  home.shellAliases = {
-    zed = lib.getExe pkgs.zed-editor;
+  home.shellAliases = lib.mkIf cfg.enable {
+    zed = lib.getExe cfg.package;
   };
 }
