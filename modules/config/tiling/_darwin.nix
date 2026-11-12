@@ -114,7 +114,7 @@ in
 
         {
           "if".app-name-regex-substring =
-            "code|cursor|zed|wezterm|ghostty|terminal";
+            "code|cursor|zed|ghostty|terminal";
           run = [ "move-node-to-workspace 2" ];
         }
 

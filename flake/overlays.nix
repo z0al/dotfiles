@@ -62,6 +62,8 @@ in
 
             # Other
             aerospace
+            ghostty
+            ghostty-bin
             google-chrome
             nerd-fonts
             nixfmt
