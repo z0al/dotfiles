@@ -1,15 +1,10 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, ... }:
 
 let
   cfg = config.my.keyboard;
 
   capsLockToHyperRule = {
-    description = "Map Caps Lock to Hyper";
+    description = "Caps Lock: Escape on tap, Hyper on hold";
     manipulators = [
       {
         type = "basic";
@@ -32,39 +27,7 @@ let
 
         to_if_alone = [
           {
-            key_code = "slash";
-            modifiers = [
-              "left_control"
-              "left_option"
-              "left_command"
-            ];
-          }
-        ];
-      }
-    ];
-  };
-
-  hyperTabRule = {
-    description = "Hyper + Tab to switch applications";
-    manipulators = [
-      {
-        type = "basic";
-
-        from = {
-          key_code = "tab";
-          modifiers = {
-            mandatory = [
-              "left_control"
-              "left_option"
-              "left_command"
-            ];
-          };
-        };
-
-        to = [
-          {
-            key_code = "tab";
-            modifiers = [ "left_command" ];
+            key_code = "escape";
           }
         ];
       }
@@ -72,11 +35,8 @@ let
   };
 
   karabinerRules = [
-    hyperTabRule
-  ]
-  ++ (lib.optionals cfg.remapCapsLockToHyper [
     capsLockToHyperRule
-  ]);
+  ];
 
   karabinerProfile = pkgs.writeText "karabiner.json" (
     builtins.toJSON {
