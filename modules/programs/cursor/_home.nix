@@ -103,16 +103,22 @@ in
           "editor.scrollBeyondLastLine" = false;
           "editor.padding.bottom" = 100;
           "editor.guides.indentation" = false;
+          "editor.folding" = false;
 
           # Workbench
           "workbench.iconTheme" = "vs-seti";
           "workbench.startupEditor" = "none";
           "workbench.editor.showTabs" = "single";
+          "workbench.activityBar.orientation" = "vertical";
           "workbench.activityBar.location" = "hidden";
           "workbench.settings.editor" = "ui";
           "workbench.welcomePage.walkthroughs.openOnInstall" = false;
           "workbench.colorTheme" = "poimandres";
           "workbench.layoutControl.enabled" = false;
+          "workbench.navigationControl.enabled" = false;
+          "workbench.editor.editorActionsLocation" = "hidden";
+          "workbench.tips.enabled" = false;
+          "workbench.enableExperiments" = false;
           "workbench.agentsWindowButton.enabled" = false;
 
           # Window
