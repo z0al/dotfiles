@@ -8,4 +8,8 @@
   my.programs = {
     obsidian.enable = true;
   };
+
+  nix.linux-builder.enable = true;
+
+  ids.gids.nixbld = 30000;
 }
