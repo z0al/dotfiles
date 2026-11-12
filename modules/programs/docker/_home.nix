@@ -11,7 +11,7 @@ in
 
 {
   config = {
-    programs.docker-cli.enable = lib.mkDefault config.presets.devOps.enable;
+    programs.docker-cli.enable = lib.mkDefault false;
 
     home.packages = lib.mkIf cfg.enable [
       pkgs.docker-buildx

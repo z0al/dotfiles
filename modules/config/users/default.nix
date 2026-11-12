@@ -20,6 +20,11 @@ in
     )
 
     (mkAliasOptionModule
+      [ "my" "services" ]
+      [ "home-manager" "users" username "services" ]
+    )
+
+    (mkAliasOptionModule
       [ "my" "presets" ]
       [ "home-manager" "users" username "presets" ]
     )
