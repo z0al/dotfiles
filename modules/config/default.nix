@@ -4,7 +4,6 @@
     ./dock
     ./fonts
     ./keyboard
-    ./launcher
     ./nix
     ./region
     ./shells
