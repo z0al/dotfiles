@@ -14,6 +14,8 @@ in
   system.primaryUser = config.my.user.name;
   system.stateVersion = config.system.maxStateVersion;
 
+  system.startup.chime = false;
+
   # Remote Login is unused; don't proactively generate sshd host keys.
   services.openssh.hostKeys = [ ];
 
