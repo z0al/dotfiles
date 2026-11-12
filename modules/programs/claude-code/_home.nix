@@ -16,10 +16,6 @@
           sessionUrl = false;
         };
 
-        env = {
-          CLAUDE_CODE_CERT_STORE = "bundled";
-        };
-
         sandbox = {
           enabled = true;
           excludedCommands = [ "gh *" ];
@@ -70,30 +66,13 @@
             "Bash(chmod:*)"
             "Bash(cd:*)"
             "Bash(gh:*)"
-            "Bash(curl:*)"
-            "Bash(python:*)"
-            "Bash(python3:*)"
-            "Bash(perl:*)"
-            "Bash(poetry:*)"
             "Bash(nixfmt:*)"
             "Bash(nix-store:*)"
             "Bash(nix-instantiate:*)"
             "Bash(nix-prefetch-url:*)"
-            "Bash(npm:*)"
-            "Bash(pnpm:*)"
-            "Bash(npx:*)"
-            "Bash(bun:*)"
-            "Bash(pip:*)"
-            "Bash(uv:*)"
-            "Bash(cargo:*)"
-            "Bash(go:*)"
-            "Bash(make:*)"
-            "Bash(docker:*)"
             "Bash(sqlite3:*)"
-            "Bash(pkill:*)"
             "Bash(lsof:*)"
             "Bash(source:*)"
-            "Bash(nix:*)"
             "Read"
             "Edit"
             "Write(*)"
