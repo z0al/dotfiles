@@ -255,6 +255,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1794165970,
+        "narHash": "sha256-XuAV2cUwaod3Bt4XFVqiXz3v1w2ex16W6Sv4S7EWres=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ac588ef1c914865dad517b337ea0eb9694a4021c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1794192123,
@@ -354,6 +370,7 @@
         "nix-homebrew": "nix-homebrew",
         "nix-index": "nix-index",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-stable": "nixpkgs-stable",
         "persistence": "persistence",
         "plist-manager": "plist-manager",
         "treefmt-nix": "treefmt-nix",

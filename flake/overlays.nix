@@ -36,9 +36,22 @@ in
 {
   perSystem =
     { system, ... }:
-    {
-      _module.args.pkgs = import inputs.nixpkgs {
-        inherit system config overlays;
+    let
+      createChannel =
+        src: overlays:
+        import src {
+          inherit system config overlays;
+        };
+
+      stable = createChannel inputs.nixpkgs-stable overlays;
+
+      overrides = final: prev: {
+        inherit (stable) fnm;
       };
+    in
+    {
+      _module.args.pkgs = createChannel inputs.nixpkgs (
+        overlays ++ [ overrides ]
+      );
     };
 }
