@@ -36,44 +36,9 @@ in
 {
   perSystem =
     { system, ... }:
-    let
-      createChannel =
-        src: overlays:
-        import src {
-          inherit system config overlays;
-        };
-
-      unstable = createChannel inputs.nixpkgs-unstable overlays;
-
-      overrides = (
-        final: prev: {
-          inherit (unstable)
-            # Dev tools
-            claude-code
-            openspec
-            oxfmt
-            vscode
-
-            # LSPs
-            bash-language-server
-            typescript-language-server
-            vscode-langservers-extracted
-            yaml-language-server
-
-            # Other
-            aerospace
-            ghostty
-            ghostty-bin
-            google-chrome
-            nerd-fonts
-            nixfmt
-            ;
-        }
-      );
-    in
     {
-      _module.args.pkgs = createChannel inputs.nixpkgs (
-        overlays ++ [ overrides ]
-      );
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system config overlays;
+      };
     };
 }
