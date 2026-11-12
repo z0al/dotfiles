@@ -21,14 +21,5 @@ in
     python.enable = mkBool false;
     rust.enable = mkBool false;
     react-native.enable = mkBool false;
-
-    # docker, k8s, terraform ..etc
-    devOps.enable = mkBool false;
-
-    # For: Corporate programs e.g. Zoom, Slack, etc.
-    workplace.enable = mkBool false;
-
-    # For: Gaming related programs e.g. Steam
-    gaming.enable = mkBool false;
   };
 }

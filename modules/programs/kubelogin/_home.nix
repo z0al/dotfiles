@@ -12,7 +12,7 @@ in
 {
   options.programs.kubelogin.enable = lib.mkOption {
     type = lib.types.bool;
-    default = config.presets.devOps.enable;
+    default = false;
   };
 
   config = lib.mkIf cfg.enable {

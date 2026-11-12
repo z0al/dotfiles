@@ -1,10 +1,7 @@
 {
   my.user.uid = 502;
 
-  my.presets = {
-    typescript.enable = true;
-    devOps.enable = true;
-  };
+  my.presets.typescript.enable = true;
 
   # Jamf enforces its own hostname rules, so we can't rely on the
   # default host value

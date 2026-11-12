@@ -37,14 +37,14 @@ A practical example of a module that defines `_nixos.nix`, `_darwin.nix`, and `_
 
 ### Presets
 
-Presets are flags that group related programs. For example, enabling `my.presets.devOps.enable` activates Docker, Kubernetes, Terraform, and others by default.
+Presets are flags that group related programs. For example, enabling `my.presets.python.enable` activates uv, Ruff, and others by default.
 
 ```nix
-# Enable DevOps tools e.g. Docker, Terraform ..etc
-my.presets.devOps.enable = true;
+# Enable Python tools e.g. uv, Ruff ..etc
+my.presets.python.enable = true;
 
-# Exclude Terraform
-my.programs.terraform.enable = false;
+# Exclude Ruff
+my.programs.ruff.enable = false;
 ```
 
 Available presets can be found in [`modules/presets.nix`](./modules/presets.nix).
@@ -58,7 +58,7 @@ For convenience, I use the following option aliases:
 - `my.programs` → `home-manager.users.<username>.programs`
   - e.g., `my.programs.terraform.enable`
 - `my.presets` → `home-manager.users.<username>.presets`
-  - e.g., `my.presets.devOps.enable`
+  - e.g., `my.presets.python.enable`
 - `my.deviceManager` → `home-manager.users.<username>.deviceManager`
   - e.g., `my.deviceManager.profiles`
 
