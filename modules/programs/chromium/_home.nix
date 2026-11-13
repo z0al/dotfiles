@@ -72,7 +72,7 @@ in
   options.programs.chrome = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
     };
 
     profile = mkOption {

@@ -16,7 +16,7 @@ in
   options.programs.up = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
     };
 
     target = lib.mkOption {

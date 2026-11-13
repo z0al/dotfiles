@@ -17,7 +17,7 @@ in
 {
   options.programs.nixfmt.enable = lib.mkOption {
     type = lib.types.bool;
-    default = config.presets.nix.enable;
+    default = false;
   };
 
   config = lib.mkIf cfg.enable {

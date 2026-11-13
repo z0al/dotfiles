@@ -11,13 +11,12 @@ let
 in
 
 {
-  config = {
+  config = lib.mkIf cfg.enable {
     home.sessionVariables = {
       GIT_PAGER = delta;
     };
 
     programs.delta = {
-      enable = lib.mkDefault config.programs.git.enable;
       enableGitIntegration = true;
 
       options = {
@@ -28,7 +27,7 @@ in
     };
 
     # Integration with lazygit
-    programs.lazygit.settings.git.diffRenderers = lib.mkIf cfg.enable [
+    programs.lazygit.settings.git.diffRenderers = [
       {
         colorArg = "always";
         command = "${delta} --paging=never";

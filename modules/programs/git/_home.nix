@@ -1,10 +1,6 @@
-{ lib, ... }:
-
 {
   config = {
     programs.git = {
-      enable = lib.mkDefault true;
-
       settings = {
         user = {
           name = "z0al";

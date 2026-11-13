@@ -6,7 +6,6 @@
 }:
 
 let
-  cfgPresets = config.presets;
   cfgFonts = config.fonts;
 
   mod = if pkgs.stdenv.hostPlatform.isDarwin then "cmd" else "ctrl";
@@ -15,6 +14,17 @@ let
 in
 
 {
+  imports = [
+    ./integrations/nix.nix
+    ./integrations/claude.nix
+    ./integrations/node.nix
+    ./integrations/prettier.nix
+    ./integrations/oxc.nix
+    ./integrations/python.nix
+    ./integrations/ruff.nix
+    ./integrations/rust.nix
+  ];
+
   config = {
     programs.cursor = {
       enable = lib.mkDefault false;
@@ -25,55 +35,30 @@ in
         mutableUserSettings = true;
         enableExtensionUpdateCheck = false;
 
-        extensions =
-          (with pkgs.vscode-marketplace; [
-            # Theme
-            pmndrs.pmndrs
+        extensions = with pkgs.vscode-marketplace; [
+          # Theme
+          pmndrs.pmndrs
 
-            # Git
-            mk12.better-git-line-blame
+          # Git
+          mk12.better-git-line-blame
 
-            # TypeScript
-            dbaeumer.vscode-eslint
+          # Spellcheck
+          streetsidesoftware.code-spell-checker
 
-            # Prettier
-            esbenp.prettier-vscode
-
-            # Nix
-            jnoortheen.nix-ide
-
-            # Claude Code
-            anthropic.claude-code
-
-            # Spellcheck
-            streetsidesoftware.code-spell-checker
-
-            # Misc
-            bierner.markdown-footnotes
-            bmalehorn.vscode-fish
-            bradlc.vscode-tailwindcss
-            dotjoshjohnson.xml
-            editorconfig.editorconfig
-            foxundermoon.shell-format
-            johnnymorganz.stylua
-            okitavera.vscode-nunjucks-formatter
-            qezhu.gitlink
-            ronnidc.nunjucks
-            sndst00m.vscode-native-svg-preview
-            tamasfe.even-better-toml
-            xaver.clang-format
-            yzhang.markdown-all-in-one
-          ])
-          ++ lib.optionals cfgPresets.rust.enable (
-            with pkgs.vscode-marketplace; [ rust-lang.rust-analyzer ]
-          )
-          ++ lib.optionals cfgPresets.python.enable (
-            with pkgs.vscode-marketplace;
-            [
-              charliermarsh.ruff
-              ms-python.python
-            ]
-          );
+          # Misc
+          bierner.markdown-footnotes
+          bmalehorn.vscode-fish
+          dotjoshjohnson.xml
+          editorconfig.editorconfig
+          foxundermoon.shell-format
+          okitavera.vscode-nunjucks-formatter
+          qezhu.gitlink
+          ronnidc.nunjucks
+          sndst00m.vscode-native-svg-preview
+          tamasfe.even-better-toml
+          xaver.clang-format
+          yzhang.markdown-all-in-one
+        ];
 
         userSettings = {
           # Editor
@@ -190,43 +175,12 @@ in
           "betterGitLineBlame.ignoreWhitespaceChanges" = true;
           "betterGitLineBlame.showStatusBarItem" = false;
 
-          # TypeScript / JavaScript
-          "js/ts.updateImportsOnFileMove.enabled" = "always";
-          "js/ts.preferences.preferTypeOnlyAutoImports" = true;
-
-          # Prettier
-          "prettier.enable" = true;
-          "prettier.semi" = true;
-          "prettier.useTabs" = true;
-
-          # Nix
-          "nix.enableLanguageServer" = true;
-          "nix.serverPath" = lib.getExe pkgs.nixd;
-          "nix.serverSettings" = {
-            nixd.formatting.command = [ "nixfmt" ];
-          };
-          "nix.hiddenLanguageServerErrors" = [
-            "textDocument/completion"
-            "textDocument/definition"
-            "textDocument/documentSymbol"
-          ];
-
-          # Claude Code
-          "claudeCode.preferredLocation" = "sidebar";
-          "claudeCode.enableNewConversationShortcut" = false;
-          "claudeCode.hideOnboarding" = true;
-
           # Spellcheck
           "cSpell.showStatus" = false;
           "cSpell.words" = [
             "Neovim"
             "NixOS"
           ];
-
-          # Lua
-          "[lua]" = {
-            "editor.defaultFormatter" = "JohnnyMorganz.stylua";
-          };
 
           # Shell
           "shellformat.useEditorConfig" = true;
@@ -236,39 +190,6 @@ in
           "[c]" = {
             "editor.defaultFormatter" = "xaver.clang-format";
           };
-        }
-        // lib.listToAttrs (
-          map
-            (lang: {
-              name = "[${lang}]";
-              value = {
-                "editor.defaultFormatter" = "esbenp.prettier-vscode";
-              };
-            })
-            [
-              "css"
-              "html"
-              "javascript"
-              "javascriptreact"
-              "json"
-              "jsonc"
-              "markdown"
-              "scss"
-              "typescript"
-              "typescriptreact"
-            ]
-        )
-        // lib.optionalAttrs cfgPresets.rust.enable {
-          "rust-analyzer.inlayHints.chainingHints.enable" = false;
-        }
-        // lib.optionalAttrs cfgPresets.python.enable {
-          "[python]" = {
-            "editor.defaultFormatter" = "charliermarsh.ruff";
-          };
-          "ruff.format.args" = [
-            "--line-length"
-            "80"
-          ];
         };
 
         keybindings = [

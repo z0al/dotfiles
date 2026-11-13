@@ -1,9 +1,6 @@
-{ lib, ... }:
-
 {
   config = {
     programs.starship = {
-      enable = lib.mkDefault true;
       enableTransience = true;
 
       settings = {

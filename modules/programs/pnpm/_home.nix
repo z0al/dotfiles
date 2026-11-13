@@ -5,12 +5,14 @@
   ...
 }:
 
-{
-  programs.pnpm = {
-    enable = lib.mkDefault config.presets.typescript.enable;
-  };
+let
+  cfg = config.programs.pnpm;
+in
 
-  programs.fish.interactiveShellInit = ''
-    ${lib.getExe pkgs.pnpm} completion fish 2>/dev/null | source
-  '';
+{
+  config = lib.mkIf cfg.enable {
+    programs.fish.interactiveShellInit = ''
+      ${lib.getExe pkgs.pnpm} completion fish 2>/dev/null | source
+    '';
+  };
 }

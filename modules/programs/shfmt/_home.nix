@@ -12,7 +12,7 @@ in
 {
   options.programs.shfmt.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
   };
 
   config = lib.mkIf cfg.enable {

@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   config = {
     home.sessionVariables = {
@@ -7,7 +5,6 @@
     };
 
     programs.direnv = {
-      enable = lib.mkDefault true;
       nix-direnv.enable = true;
     };
   };

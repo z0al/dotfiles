@@ -12,7 +12,7 @@ in
 {
   options.programs.rustup.enable = lib.mkOption {
     type = lib.types.bool;
-    default = config.presets.rust.enable;
+    default = false;
   };
 
   config = lib.mkIf cfg.enable {

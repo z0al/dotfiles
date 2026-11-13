@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 
 let
   cfgFonts = config.fonts;
@@ -11,8 +6,6 @@ in
 
 {
   config.programs.ghostty = {
-    enable = lib.mkDefault true;
-
     package =
       if pkgs.stdenv.hostPlatform.isDarwin then
         pkgs.ghostty-bin

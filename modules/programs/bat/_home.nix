@@ -1,9 +1,16 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+let
+  cfg = config.programs.bat;
+in
 
 {
-  config = {
-    home.packages = [ pkgs.bat ];
-
+  config = lib.mkIf cfg.enable {
     home.sessionVariables = {
       BAT_STYLE = "plain";
       BAT_THEME = "base16";

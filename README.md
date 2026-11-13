@@ -35,19 +35,19 @@ modules
 
 A practical example of a module that defines `_nixos.nix`, `_darwin.nix`, and `_home.nix` together is the 1Password module in [`modules/programs/1password`](./modules/programs/1password).
 
-### Presets
+### Profiles
 
-Presets are flags that group related programs. For example, enabling `my.presets.python.enable` activates uv, Ruff, and others by default.
+Profiles are flags that group related programs. For example, enabling `my.profiles.python.enable` activates uv and its editor integrations.
 
 ```nix
-# Enable Python tools e.g. uv, Ruff ..etc
-my.presets.python.enable = true;
+# Enable Python tools e.g. uv ..etc
+my.profiles.python.enable = true;
 
-# Exclude Ruff
-my.programs.ruff.enable = false;
+# Exclude uv
+my.programs.uv.enable = false;
 ```
 
-Available presets can be found in [`modules/presets.nix`](./modules/presets.nix).
+Available profiles can be found in [`modules/profiles`](./modules/profiles).
 
 ### Aliases
 
@@ -57,8 +57,8 @@ For convenience, I use the following option aliases:
   - e.g., `my.user.extraGroups`
 - `my.programs` → `home-manager.users.<username>.programs`
   - e.g., `my.programs.terraform.enable`
-- `my.presets` → `home-manager.users.<username>.presets`
-  - e.g., `my.presets.python.enable`
+- `my.profiles` → `home-manager.users.<username>.profiles`
+  - e.g., `my.profiles.python.enable`
 - `my.deviceManager` → `home-manager.users.<username>.deviceManager`
   - e.g., `my.deviceManager.profiles`
 

@@ -1,12 +1,10 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   config = {
     programs.man.generateCaches = false;
 
     programs.fish = {
-      enable = lib.mkDefault true;
-
       shellAliases = {
         unset = "set -ge";
         unalias = "functions --erase";

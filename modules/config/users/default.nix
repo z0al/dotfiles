@@ -49,7 +49,7 @@ in
     ]))
     (mkAlias [ "my" "programs" ] (home [ "programs" ]))
     (mkAlias [ "my" "services" ] (home [ "services" ]))
-    (mkAlias [ "my" "presets" ] (home [ "presets" ]))
+    (mkAlias [ "my" "profiles" ] (home [ "profiles" ]))
     (mkAlias [ "my" "deviceManager" ] (home [ "deviceManager" ]))
   ];
 

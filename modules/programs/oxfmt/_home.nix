@@ -12,7 +12,7 @@ in
 {
   options.programs.oxfmt.enable = lib.mkOption {
     type = lib.types.bool;
-    default = config.presets.typescript.enable;
+    default = false;
   };
 
   config = lib.mkIf cfg.enable {

@@ -1,10 +1,6 @@
-{ lib, ... }:
-
 {
   config = {
     programs.bash = {
-      enable = lib.mkDefault true;
-
       historyControl = [
         "erasedups"
         "ignoreboth"

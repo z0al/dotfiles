@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   plist.desktop = {
     showIcons = false;

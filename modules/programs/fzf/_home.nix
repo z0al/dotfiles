@@ -6,10 +6,7 @@ in
 
 {
   config = {
-    programs.fd.enable = true;
-
     programs.fzf = {
-      enable = lib.mkDefault true;
       enableNushellIntegration = false;
 
       defaultOptions = [
