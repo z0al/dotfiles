@@ -21,8 +21,8 @@ in
       fzf.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;
       lazygit.enable = lib.mkDefault true;
-      neovim.enable = lib.mkDefault true;
       nix-index.enable = lib.mkDefault true;
+      nixvim.enable = lib.mkDefault true;
       nix-your-shell.enable = lib.mkDefault true;
       shfmt.enable = lib.mkDefault true;
       starship.enable = lib.mkDefault true;

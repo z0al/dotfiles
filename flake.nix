@@ -34,6 +34,9 @@
     plist-manager.url = "github:z0al/plist-manager";
     plist-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
