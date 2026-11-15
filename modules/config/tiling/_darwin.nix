@@ -50,7 +50,9 @@ in
         "${mod}-g" = "layout tiling floating";
         "${mod}-x" = "swap --wrap-around dfs-next";
 
-        "${mod}-m" = "fullscreen";
+        "${mod}-f" = "fullscreen";
+
+        "${mod}-d" = "exec-and-forget osascript -e 'tell application (path to frontmost application as text) to quit'";
 
         "${mod}-1" = "workspace 1";
         "${mod}-2" = "workspace 2";
