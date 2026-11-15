@@ -31,6 +31,8 @@ in
       confirm-close-surface = false;
 
       macos-titlebar-style = "transparent";
+      macos-titlebar-proxy-icon = "hidden";
+      drag-handle = "never";
       macos-option-as-alt = true;
       auto-update = "off";
 
@@ -39,7 +41,8 @@ in
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
         "ctrl+shift+n=new_window"
-        "ctrl+shift+q=quit"
+        "ctrl+q=quit"
+        "ctrl+shift+r=reload_config"
         "ctrl+shift+f=start_search"
       ];
     };
