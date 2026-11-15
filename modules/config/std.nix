@@ -20,7 +20,6 @@
     killall
     less
     lsof
-    nh
     sqlite
     unzip
     vim

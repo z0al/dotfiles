@@ -37,6 +37,7 @@
   outputs =
     {
       hm,
+      nix-index,
       persistence,
       flake-parts,
       nix-homebrew,
@@ -45,6 +46,7 @@
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        hm.flakeModules.home-manager
         ./flake/hosts.nix
         ./flake/overlays.nix
         ./flake/formatter.nix
@@ -52,6 +54,7 @@
 
       systems = [
         "aarch64-linux"
+        "x86_64-linux"
         "aarch64-darwin"
       ];
 
@@ -60,6 +63,11 @@
           hm.nixosModules.home-manager
           persistence.nixosModules.impermanence
           ./modules/nixos.nix
+        ];
+
+        homeModules.default.imports = [
+          nix-index.homeModules.nix-index
+          ./modules/home.nix
         ];
 
         darwinModules.default.imports = [

@@ -45,6 +45,7 @@ in
 
     programs.git.settings = {
       gpg.ssh.program = ssh.sign;
+      user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
     };
 
     programs.bash.initExtra = ''

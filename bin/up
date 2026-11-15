@@ -30,7 +30,10 @@ end
 # elevation, so it must not be prefixed with sudo.
 function rebuild
     set -l platform darwin
-    test (uname) = Darwin; or set platform os
+    if test (uname) != Darwin
+        set platform home
+        test -e /etc/NIXOS; and set platform os
+    end
     nh $platform $argv --no-nom --log-format bar -- --accept-flake-config --quiet
 end
 

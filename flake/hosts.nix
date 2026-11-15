@@ -19,13 +19,29 @@ let
     modules = [ self.darwinModules.default ];
   };
 
+  cfgHome = {
+    system = "x86_64-linux";
+    builder =
+      {
+        pkgs,
+        modules,
+        specialArgs,
+        ...
+      }:
+      inputs.hm.lib.homeManagerConfiguration {
+        inherit pkgs modules;
+        extraSpecialArgs = specialArgs;
+      };
+    modules = [ self.homeModules.default ];
+  };
+
   mkHosts =
     cfg: dir:
     lib.listToAttrs (
       map (
         module:
         let
-          hostName = with lib; (removeSuffix ".nix" (baseNameOf module));
+          hostName = lib.removeSuffix ".nix" (baseNameOf module);
         in
         {
           name = hostName;
@@ -33,16 +49,10 @@ let
             { pkgs, ... }:
             cfg.builder {
               inherit (cfg) system;
-
-              modules = cfg.modules ++ [
-                {
-                  nixpkgs.pkgs = pkgs;
-                  networking = { inherit hostName; };
-                }
-                module
-              ];
-
-              specialArgs = { inherit inputs; };
+              inherit pkgs;
+              lib = inputs.nixpkgs.lib;
+              modules = cfg.modules ++ [ module ];
+              specialArgs = { inherit inputs hostName; };
             }
           );
         }
@@ -53,6 +63,7 @@ in
   flake = {
     nixosConfigurations = mkHosts cfgNixos ../hosts/nixos;
     darwinConfigurations = mkHosts cfgDarwin ../hosts/darwin;
+    homeConfigurations = mkHosts cfgHome ../hosts/home;
   };
 
   perSystem = { pkgs, ... }: {

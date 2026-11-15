@@ -14,7 +14,6 @@
 
         # Signing
         gpg.format = "ssh";
-        user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICINRjw8qGiYwNcKWWwiqcO1fV1ZbCfrvKBI+i/xjJ0e";
 
         commit.gpgSign = true;
         tag = {

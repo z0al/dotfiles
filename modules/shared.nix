@@ -1,17 +1,14 @@
-{ lib, inputs, ... }:
-
-let
-  homeModules = lib.fileset.toList (
-    lib.fileset.fileFilter (f: f.name == "_home.nix") ./.
-  );
-in
+{ inputs, hostName, ... }:
 
 {
   imports = [
     ./config
   ];
 
-  home-manager.sharedModules = homeModules ++ [
+  networking = { inherit hostName; };
+
+  home-manager.sharedModules = [
+    ./home.nix
     inputs.nix-index.homeModules.nix-index
   ];
 }
