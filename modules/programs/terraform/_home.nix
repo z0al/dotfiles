@@ -17,5 +17,9 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.terraform ];
+
+    home.shellAliases = {
+      tf = "terraform";
+    };
   };
 }
