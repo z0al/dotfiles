@@ -33,6 +33,15 @@ in
       macos-titlebar-style = "transparent";
       macos-option-as-alt = true;
       auto-update = "off";
+
+      keybind = [
+        "clear"
+        "ctrl+shift+c=copy_to_clipboard"
+        "ctrl+shift+v=paste_from_clipboard"
+        "ctrl+shift+n=new_window"
+        "ctrl+shift+q=quit"
+        "ctrl+shift+f=start_search"
+      ];
     };
   };
 }
