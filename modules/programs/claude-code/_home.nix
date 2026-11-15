@@ -1,7 +1,11 @@
+{ inputs, ... }:
+
 {
   config = {
     programs.claude-code = {
       mutableSettings = true;
+
+      plugins.mattpocock-skills = inputs.matt-skills;
 
       settings = {
         voiceEnabled = true;

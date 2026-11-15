@@ -135,6 +135,22 @@
         "type": "github"
       }
     },
+    "matt-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794472958,
+        "narHash": "sha256-AYSRCvBL8TDDdW3rgKu2T7gl4YYDoDId0jYbabEFyfs=",
+        "owner": "mattpocock",
+        "repo": "skills",
+        "rev": "5863806dd4e15c63174bee4e7515a4256792ecfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattpocock",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "microvm": {
       "inputs": {
         "nixpkgs": [
@@ -366,6 +382,7 @@
         "flake-parts": "flake-parts",
         "hardware": "hardware",
         "hm": "hm",
+        "matt-skills": "matt-skills",
         "microvm": "microvm",
         "nix-homebrew": "nix-homebrew",
         "nix-index": "nix-index",

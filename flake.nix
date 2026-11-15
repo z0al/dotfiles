@@ -28,6 +28,9 @@
     vscode.url = "github:nix-community/nix-vscode-extensions";
     vscode.inputs.nixpkgs.follows = "nixpkgs";
 
+    matt-skills.url = "github:mattpocock/skills";
+    matt-skills.flake = false;
+
     plist-manager.url = "github:z0al/plist-manager";
     plist-manager.inputs.nixpkgs.follows = "nixpkgs";
 
