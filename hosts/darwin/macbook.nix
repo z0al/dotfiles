@@ -1,6 +1,7 @@
 {
   my.profiles = {
     claude.enable = true;
+    codex.enable = true;
     desktop.enable = true;
     github.enable = true;
     node.enable = true;
