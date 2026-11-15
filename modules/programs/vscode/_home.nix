@@ -16,7 +16,6 @@ in
 {
   imports = [
     ./integrations/nix.nix
-    ./integrations/claude.nix
     ./integrations/node.nix
     ./integrations/prettier.nix
     ./integrations/oxc.nix

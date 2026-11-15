@@ -14,9 +14,6 @@ in
     programs = {
       claude.enable = lib.mkDefault true;
       claude-code.enable = lib.mkDefault true;
-
-      vscode.enableClaudeIntegration = lib.mkDefault true;
-      cursor.enableClaudeIntegration = lib.mkDefault true;
     };
   };
 }
