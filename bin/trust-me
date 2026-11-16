@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+conf=/etc/nix/nix.conf
+line="trusted-users = root $(id -un)"
+
+if grep -qxF "$line" "$conf" 2>/dev/null; then
+  echo "Already trusted"
+  exit 0
+fi
+
+echo "$line" | sudo tee -a "$conf" >/dev/null
+sudo systemctl restart nix-daemon
