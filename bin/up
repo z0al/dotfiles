@@ -28,13 +28,18 @@ end
 
 # nh (https://github.com/nix-community/nh) handles its own privilege
 # elevation, so it must not be prefixed with sudo.
-function rebuild
-    set -l platform darwin
-    if test (uname) != Darwin
-        set platform home
-        test -e /etc/NIXOS; and set platform os
+function platform
+    if test (uname) = Darwin
+        echo darwin
+    else if test -e /etc/NIXOS
+        echo os
+    else
+        echo home
     end
-    nh $platform $argv --no-nom --log-format bar -- --accept-flake-config --quiet
+end
+
+function rebuild
+    nh (platform) $argv --no-nom --log-format bar -- --accept-flake-config --quiet
 end
 
 function up
@@ -50,6 +55,14 @@ function up
     # nh expects a FLAKEREF[#ATTRPATH] installable. If the target is empty,
     # nh takes the current hostname.
     set -l flake "$_flag_flake#$_flag_target"
+
+    # `nh home` selects the homeConfigurations entry with -c rather than
+    # through the flake reference.
+    set -l config
+    if test (platform) = home
+        set flake $_flag_flake
+        test -n "$_flag_target"; and set config -c $_flag_target
+    end
 
     if set -q _flag_help
         echo "Apply flake-based system configuration using Nix"
@@ -79,10 +92,10 @@ function up
 
         case '' '-*'
             # No subcommand, just flags (e.g. `up -u`)
-            rebuild switch -q $flake $argv
+            rebuild switch -q $flake $config $argv
 
         case '*'
-            rebuild $argv[1] $flake $argv[2..-1]
+            rebuild $argv[1] $flake $config $argv[2..-1]
     end
 end
 
