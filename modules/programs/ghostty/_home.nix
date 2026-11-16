@@ -39,6 +39,7 @@ in
       keybind = [
         "clear"
         "ctrl+shift+c=copy_to_clipboard"
+        "performable:ctrl+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
         "ctrl+shift+n=new_window"
         "ctrl+q=quit"
