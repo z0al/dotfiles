@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+#!/bin/sh
 
 # Usage:
 # Switches to the configuration using the default host name:
@@ -22,83 +22,89 @@
 # $ up build
 # $ up -u
 
-function nix
-    command nix --experimental-features 'nix-command flakes' --accept-flake-config $argv
-end
+set -e
 
-function platform
-    if test (uname) = Darwin
-        echo darwin
-    else if test -e /etc/NIXOS
-        echo os
+nix() {
+  command nix --extra-experimental-features 'nix-command flakes' --accept-flake-config "$@"
+}
+
+platform() {
+  if [ "$(uname)" = Darwin ]; then
+    echo darwin
+  elif [ -e /etc/NIXOS ]; then
+    echo os
+  else
+    echo home
+  fi
+}
+
+flake=$(pwd)
+target=
+update=
+
+while [ $# -gt 0 ]; do
+  case $1 in
+    -t | --target) target=$2; shift 2 ;;
+    -f | --flake) flake=$2; shift 2 ;;
+    -u | --update) update=1; shift ;;
+    -h | --help)
+      cat <<EOF
+Apply flake-based system configuration using Nix
+
+Usage: up [options] [command]
+
+Options:
+  -t, --target name    Target flake configuration
+  -f, --flake PATH     Use the flake at PATH
+  -u, --update         Update flake inputs first
+  -h, --help           Show help
+
+Commands:
+  clean                Reclaim disk space
+  vm                   Launch a NixOS VM
+  <anything else>      Passed through to nixos-rebuild/darwin-rebuild (default: switch)
+
+Note: unknown flags are passed down to the underlying command
+EOF
+      exit 0
+      ;;
+    *) break ;;
+  esac
+done
+
+cmd=switch
+case ${1-} in
+  '' | -*) ;;
+  *) cmd=$1; shift ;;
+esac
+
+if [ -n "$update" ]; then
+  nix flake update --flake "$flake"
+fi
+
+case $cmd in
+  clean)
+    if [ "$(platform)" = home ]; then
+      nix-collect-garbage -d "$@"
     else
-        echo home
-    end
-end
+      sudo nix-collect-garbage -d "$@"
+    fi
+    ;;
 
-function up
-    argparse -i -n up --stop-nonopt 't/target=' 'f/flake=' u/update h/help -- $argv
-    or return
+  vm)
+    nix run "$flake#vm" "$@"
+    ;;
 
-    if set -q _flag_help
-        echo "Apply flake-based system configuration using Nix"
-        echo ""
-        echo "Usage: up [options] [command]"
-        echo ""
-        echo "Options:"
-        echo "  -t, --target name    Target flake configuration"
-        echo "  -f, --flake PATH     Use the flake at PATH"
-        echo "  -u, --update         Update flake inputs first"
-        echo "  -h, --help           Show help"
-        echo ""
-        echo "Commands:"
-        echo "  clean                Reclaim disk space"
-        echo "  vm                   Launch a NixOS VM"
-        echo "  <anything else>      Passed through to nixos-rebuild/darwin-rebuild (default: switch)"
-        echo ""
-        echo "Note: unknown flags are passed down to the underlying command"
-        return 0
-    end
+  *)
+    ref=$flake${target:+#$target}
 
-    set -q _flag_flake || set _flag_flake $(pwd)
-
-    set -l cmd switch
-    set -l args $argv
-    if test (count $argv) -gt 0; and not string match -q -- '-*' $argv[1]
-        set cmd $argv[1]
-        set args $argv[2..-1]
-    end
-
-    set -q _flag_update; and nix flake update --flake $_flag_flake
-
-    switch $cmd
-        case clean
-            if test (platform) = home
-                nix-collect-garbage -d $args
-            else
-                sudo nix-collect-garbage -d $args
-            end
-
-        case vm
-            nix run "$_flag_flake#vm" $args
-
-        case '*'
-            set -l ref $_flag_flake
-            test -n "$_flag_target"; and set ref "$ref#$_flag_target"
-
-            switch (platform)
-                case darwin
-                    sudo darwin-rebuild $cmd --flake $ref --option accept-flake-config true $args
-                case os
-                    sudo nixos-rebuild $cmd --flake $ref --option accept-flake-config true $args
-                case home
-                    set -l target $_flag_target
-                    test -n "$target"; or set target (hostname)
-                    set -l out (nix build "$_flag_flake#homeConfigurations.$target.activationPackage" --no-link --print-out-paths $args)
-                    or return
-                    test $cmd = build; or $out/activate
-            end
-    end
-end
-
-up $argv
+    case $(platform) in
+      darwin) sudo darwin-rebuild "$cmd" --flake "$ref" --option accept-flake-config true "$@" ;;
+      os) sudo nixos-rebuild "$cmd" --flake "$ref" --option accept-flake-config true "$@" ;;
+      home)
+        out=$(nix build "$flake#homeConfigurations.${target:-$(hostname)}.activationPackage" --no-link --print-out-paths "$@")
+        [ "$cmd" = build ] || "$out/activate"
+        ;;
+    esac
+    ;;
+esac
