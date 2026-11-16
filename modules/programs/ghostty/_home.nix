@@ -24,7 +24,7 @@ in
 
       cursor-style = "block";
       cursor-style-blink = true;
-      shell-integration-features = "no-cursor";
+      shell-integration-features = "ssh-terminfo,ssh-env";
 
       window-padding-x = 5;
       window-padding-y = 2;
