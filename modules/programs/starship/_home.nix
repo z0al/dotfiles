@@ -7,6 +7,9 @@
         # https://github.com/starship/starship/issues/560
         add_newline = false;
 
+        # Slow filesystems (e.g. remote workspaces) exceed the 30ms default
+        scan_timeout = 1000;
+
         character = {
           success_symbol = "[](bold purple)";
           error_symbol = "[](bold red)";
