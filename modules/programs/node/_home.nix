@@ -10,7 +10,7 @@ let
 
   cliOptions = lib.concatStringsSep " " [
     "--use-on-cd"
-    "--version-file-strategy recursive"
+    "--version-file-strategy local"
     "--log-level quiet"
   ];
 in
