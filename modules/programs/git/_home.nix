@@ -1,3 +1,13 @@
+let
+  aliases = {
+    g = "git status";
+    ga = "git add .";
+    gcm = "git commit -m";
+    gp = "git pull";
+    gP = "git push";
+  };
+in
+
 {
   config = {
     programs.git = {
@@ -69,11 +79,7 @@
       };
     };
 
-    home.shellAliases = {
-      g = "git status";
-      gcm = "git commit -m";
-      gp = "git pull";
-      gP = "git push";
-    };
+    home.shellAliases = aliases;
+    programs.fish.shellAbbrs = aliases;
   };
 }
