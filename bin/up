@@ -5,10 +5,10 @@
 # $ up
 #
 # Switches to the configuration for "myhost":
-# $ up -h myhost
+# $ up -t myhost
 #
-# Use a different dotfiles directory (default is ~/.dotfiles):
-# $ up -d /path/to/dotfiles
+# Use a different dotfiles directory (default is the current directory):
+# $ up -f /path/to/dotfiles
 #
 # Reclaim disk space:
 # $ up clean
@@ -16,18 +16,16 @@
 # Launch a NixOS VM:
 # $ up vm
 #
-# Any other subcommand (build, boot, repl, rollback, ...) is passed straight
-# through to `nh os`/`nh darwin`. Unknown flags are passed down too, so to
-# build without switching, or to update flake inputs, use:
+# Any other subcommand (build, boot, ...) is passed straight through to
+# nixos-rebuild/darwin-rebuild. Unknown flags are passed down too, so to
+# build without switching, or to update flake inputs first, use:
 # $ up build
 # $ up -u
 
 function nix
-    command nix --experimental-features 'nix-command flakes' $argv
+    command nix --experimental-features 'nix-command flakes' --accept-flake-config $argv
 end
 
-# nh (https://github.com/nix-community/nh) handles its own privilege
-# elevation, so it must not be prefixed with sudo.
 function platform
     if test (uname) = Darwin
         echo darwin
@@ -38,31 +36,9 @@ function platform
     end
 end
 
-function rebuild
-    nh (platform) $argv --no-nom --log-format bar -- --accept-flake-config --quiet
-end
-
 function up
-    # -i ignores unknown flags, --stop-nonopt stops parsing at the
-    # subcommand, so both pass through untouched to the underlying command
-    # (e.g. `up switch --help` forwards --help to nh instead of us).
-    argparse -i -n up --stop-nonopt 't/target=' 'f/flake=' h/help -- $argv
+    argparse -i -n up --stop-nonopt 't/target=' 'f/flake=' u/update h/help -- $argv
     or return
-
-    # Default flake path to $(pwd)
-    set -q _flag_flake || set _flag_flake $(pwd)
-
-    # nh expects a FLAKEREF[#ATTRPATH] installable. If the target is empty,
-    # nh takes the current hostname.
-    set -l flake "$_flag_flake#$_flag_target"
-
-    # `nh home` selects the homeConfigurations entry with -c rather than
-    # through the flake reference.
-    set -l config
-    if test (platform) = home
-        set flake $_flag_flake
-        test -n "$_flag_target"; and set config -c $_flag_target
-    end
 
     if set -q _flag_help
         echo "Apply flake-based system configuration using Nix"
@@ -72,30 +48,56 @@ function up
         echo "Options:"
         echo "  -t, --target name    Target flake configuration"
         echo "  -f, --flake PATH     Use the flake at PATH"
+        echo "  -u, --update         Update flake inputs first"
         echo "  -h, --help           Show help"
         echo ""
         echo "Commands:"
         echo "  clean                Reclaim disk space"
         echo "  vm                   Launch a NixOS VM"
-        echo "  <anything else>      Passed through to nh os/nh darwin (default: switch)"
+        echo "  <anything else>      Passed through to nixos-rebuild/darwin-rebuild (default: switch)"
         echo ""
         echo "Note: unknown flags are passed down to the underlying command"
         return 0
     end
 
-    switch $argv[1]
+    set -q _flag_flake || set _flag_flake $(pwd)
+
+    set -l cmd switch
+    set -l args $argv
+    if test (count $argv) -gt 0; and not string match -q -- '-*' $argv[1]
+        set cmd $argv[1]
+        set args $argv[2..-1]
+    end
+
+    set -q _flag_update; and nix flake update --flake $_flag_flake
+
+    switch $cmd
         case clean
-            nh clean all $argv[2..-1]
+            if test (platform) = home
+                nix-collect-garbage -d $args
+            else
+                sudo nix-collect-garbage -d $args
+            end
 
         case vm
-            nix run "$_flag_flake#vm" $argv[2..-1]
-
-        case '' '-*'
-            # No subcommand, just flags (e.g. `up -u`)
-            rebuild switch -q $flake $config $argv
+            nix run "$_flag_flake#vm" $args
 
         case '*'
-            rebuild $argv[1] $flake $config $argv[2..-1]
+            set -l ref $_flag_flake
+            test -n "$_flag_target"; and set ref "$ref#$_flag_target"
+
+            switch (platform)
+                case darwin
+                    sudo darwin-rebuild $cmd --flake $ref --option accept-flake-config true $args
+                case os
+                    sudo nixos-rebuild $cmd --flake $ref --option accept-flake-config true $args
+                case home
+                    set -l target $_flag_target
+                    test -n "$target"; or set target (hostname)
+                    set -l out (nix build "$_flag_flake#homeConfigurations.$target.activationPackage" --no-link --print-out-paths $args)
+                    or return
+                    test $cmd = build; or $out/activate
+            end
     end
 end
 

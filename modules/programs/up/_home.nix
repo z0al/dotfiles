@@ -32,7 +32,6 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      pkgs.nh
       (pkgs.writeScriptBin "up" (builtins.readFile ../../../bin/up))
     ];
 
