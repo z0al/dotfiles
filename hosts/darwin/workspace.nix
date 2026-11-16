@@ -13,6 +13,7 @@
 
   my.programs = {
     _1password.enable = true;
+    coder.enable = true;
     cursor.enable = true;
     dbeaver.enable = true;
     vscode.enable = true;
